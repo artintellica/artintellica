@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build:icons": "tsx process-icons.ts",
-    "dev": "bun --bun react-router dev --port 4038",
+    "dev": "bun --bun react-router dev --port 4058",
     "build": "bun --bun cross-env NODE_ENV=production react-router build",
     "typecheck": "bun --bun react-router typegen && bun --bun safe-routes typegen && tsc",
     "lint": "biome lint --write --unsafe",
