@@ -11,7 +11,7 @@ export default function IndexPage() {
 
   return (
     <div>
-      <div className="my-4 mx-auto block aspect-square w-[120px]">
+      <div className="mx-auto my-4 block aspect-square w-[120px]">
         <img
           draggable={false}
           src={$aicon("/images/orange-cat-robot-300.webp")}
