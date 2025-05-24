@@ -20,10 +20,10 @@ export default function IndexPage() {
         />
       </div>
       <h1 className="mt-4 text-center font-bold text-2xl text-black dark:text-white">
-        Baizle
+        Artintellica
       </h1>
       <h2 className="my-4 text-center text-black dark:text-white">
-        AI-powered search engine.
+        Open-source AI resources.
       </h2>
       <div className="mx-auto my-4 max-w-[600px] px-2">
         <div className="flex gap-x-1">
@@ -41,7 +41,7 @@ export default function IndexPage() {
               id="primary-search"
               name="q"
               type="text"
-              placeholder="Search Baizle"
+              placeholder="Search Artintellica"
               onChange={(e) => {
                 setSearchInput(e.target.value);
               }}
