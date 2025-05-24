@@ -1,24 +1,4 @@
 export type AIcon =
-  "/images/artintellica-5-128.ico" |
-  "/images/artintellica-5-128.webp" |
-  "/images/artintellica-5-180.png" |
-  "/images/artintellica-5-180.webp" |
-  "/images/artintellica-5-200.webp" |
-  "/images/artintellica-5-300.webp" |
-  "/images/artintellica-5-32.webp" |
-  "/images/artintellica-5-400.webp" |
-  "/images/artintellica-5-64.webp" |
-  "/images/artintellica-5-96.webp" |
-  "/images/baizle-1-128.ico" |
-  "/images/baizle-1-128.webp" |
-  "/images/baizle-1-180.png" |
-  "/images/baizle-1-180.webp" |
-  "/images/baizle-1-200.webp" |
-  "/images/baizle-1-300.webp" |
-  "/images/baizle-1-32.webp" |
-  "/images/baizle-1-400.webp" |
-  "/images/baizle-1-64.webp" |
-  "/images/baizle-1-96.webp" |
   "/images/magnifying-glass-128.ico" |
   "/images/magnifying-glass-128.webp" |
   "/images/magnifying-glass-180.png" |
@@ -29,14 +9,14 @@ export type AIcon =
   "/images/magnifying-glass-400.webp" |
   "/images/magnifying-glass-64.webp" |
   "/images/magnifying-glass-96.webp" |
-  "/images/pixel-heart-2-128.ico" |
-  "/images/pixel-heart-2-128.webp" |
-  "/images/pixel-heart-2-180.png" |
-  "/images/pixel-heart-2-180.webp" |
-  "/images/pixel-heart-2-200.webp" |
-  "/images/pixel-heart-2-300.webp" |
-  "/images/pixel-heart-2-32.webp" |
-  "/images/pixel-heart-2-400.webp" |
-  "/images/pixel-heart-2-64.webp" |
-  "/images/pixel-heart-2-96.webp";
+  "/images/orange-cat-robot-128.ico" |
+  "/images/orange-cat-robot-128.webp" |
+  "/images/orange-cat-robot-180.png" |
+  "/images/orange-cat-robot-180.webp" |
+  "/images/orange-cat-robot-200.webp" |
+  "/images/orange-cat-robot-300.webp" |
+  "/images/orange-cat-robot-32.webp" |
+  "/images/orange-cat-robot-400.webp" |
+  "/images/orange-cat-robot-64.webp" |
+  "/images/orange-cat-robot-96.webp";
 export const $aicon = (icon: AIcon) => icon;
