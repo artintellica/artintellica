@@ -1,0 +1,6 @@
+{
+  "name": "identellica-com",
+  "private": true,
+  "workspaces": ["*"],
+  "version": "0.0.1"
+}
