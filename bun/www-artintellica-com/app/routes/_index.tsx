@@ -14,7 +14,7 @@ export default function IndexPage() {
       <div className="my-4 mx-auto block aspect-square w-[120px]">
         <img
           draggable={false}
-          src={$aicon("/images/artintellica-5-300.webp")}
+          src={$aicon("/images/orange-cat-robot-300.webp")}
           alt=""
           className="block"
         />
@@ -23,7 +23,7 @@ export default function IndexPage() {
         Artintellica
       </h1>
       <h2 className="my-4 text-center text-black dark:text-white">
-        Open-source AI resources.
+        Open-source math and code for AI.
       </h2>
       <div className="mx-auto my-4 max-w-[600px] px-2">
         <div className="flex gap-x-1">
