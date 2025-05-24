@@ -11,10 +11,10 @@ export default function IndexPage() {
 
   return (
     <div>
-      <div className="mx-auto block aspect-square w-[120px]">
+      <div className="my-4 mx-auto block aspect-square w-[120px]">
         <img
           draggable={false}
-          src={$aicon("/images/baizle-1-300.webp")}
+          src={$aicon("/images/artintellica-5-300.webp")}
           alt=""
           className="block"
         />

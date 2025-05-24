@@ -1,4 +1,14 @@
 export type AIcon =
+  "/images/artintellica-5-128.ico" |
+  "/images/artintellica-5-128.webp" |
+  "/images/artintellica-5-180.png" |
+  "/images/artintellica-5-180.webp" |
+  "/images/artintellica-5-200.webp" |
+  "/images/artintellica-5-300.webp" |
+  "/images/artintellica-5-32.webp" |
+  "/images/artintellica-5-400.webp" |
+  "/images/artintellica-5-64.webp" |
+  "/images/artintellica-5-96.webp" |
   "/images/baizle-1-128.ico" |
   "/images/baizle-1-128.webp" |
   "/images/baizle-1-180.png" |

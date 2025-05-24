@@ -13,8 +13,8 @@ import type { Route } from "./+types/root.js";
 
 export const meta: Route.MetaFunction = () => {
   return [
-    { title: "Baizle" },
-    { name: "description", content: "AI-powered search engine." },
+    { title: "Artintellica" },
+    { name: "description", content: "Open-source AI resources." },
   ];
 };
 
