@@ -15,7 +15,7 @@ export default function IndexPage() {
         Artintellica
       </h1>
       <h2 className="my-4 text-center text-black dark:text-white">
-        Open-source math and code for AI.
+        Open-source educational resources for AI.
       </h2>
     </div>
   );
