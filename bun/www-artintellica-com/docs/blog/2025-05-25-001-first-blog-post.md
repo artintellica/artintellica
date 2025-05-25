@@ -17,6 +17,8 @@ Artintellica is fully open-source, and you can find the code for the website and
 all projects on GitHub at
 [github.com/artintellica/artintellica](https://github.com/artintellica/artintellica).
 
+---
+
 **Note**: The new version of Artintellica has nothing to do with the previous
 version launched in late 2023. If you were a user of that version, your AI
 agents have been moved to [Hallucipedia](https://hallucipedia.com).
