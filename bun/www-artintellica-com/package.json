@@ -5,7 +5,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build:icons": "tsx process-icons.ts",
+    "build:icons": "bun --bun process-icons.ts",
+    "build:blog": "bun --bun build-blog.ts",
     "dev": "bun --bun react-router dev --port 4058",
     "build": "bun --bun cross-env NODE_ENV=production react-router build",
     "start": "bun --bun cross-env NODE_ENV=production react-router-serve ./build/server/index.js",

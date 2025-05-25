@@ -14,7 +14,10 @@ import type { Route } from "./+types/root.js";
 export const meta: Route.MetaFunction = () => {
   return [
     { title: "Artintellica" },
-    { name: "description", content: "Open-source educational resources for AI." },
+    {
+      name: "description",
+      content: "Open-source educational resources for AI.",
+    },
   ];
 };
 

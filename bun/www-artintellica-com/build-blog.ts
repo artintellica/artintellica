@@ -7,7 +7,9 @@ import retextSmartypants from "retext-smartypants";
 import type { BlogPost } from "./app/blog.js";
 
 const blogDir = path.join("docs", "blog");
-const filenames = fs.readdirSync(blogDir).filter((filename) => filename.endsWith(".md"));
+const filenames = fs
+  .readdirSync(blogDir)
+  .filter((filename) => filename.endsWith(".md"));
 
 const blogPosts: BlogPost[] = filenames.map((filename) => {
   const filePath = path.join(blogDir, filename);
