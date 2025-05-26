@@ -19,11 +19,11 @@ export const links: LinksFunction = () => {
       href: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",
     },
     // https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
-    // {
-    //   rel: "apple-touch-icon",
-    //   sizes: "180x180",
-    //   href: "/apple-touch-icon.png",
-    // },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    },
   ];
 };
 
