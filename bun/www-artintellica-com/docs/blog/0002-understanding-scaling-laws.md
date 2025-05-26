@@ -161,7 +161,7 @@ def train_once(width: int, n_train: int, epochs: int = 500, lr: float = 1e‑2):
 
 ---
 
-### 4 a · **Error vs data size** (model fixed)
+### 4 a · **Error vs. data size** (model fixed)
 
 ```python
 data_sizes = [64,  128,  256,  512, 1024, 2048, 4096]
@@ -182,7 +182,7 @@ $\text{MSE} \propto D^{-β}$ with β ≈ 0.9–1 on this toy task.
 
 ---
 
-### 4 b · **Error vs model size** (data fixed)
+### 4 b · **Error vs. model size** (data fixed)
 
 ```python
 widths = [2,  4,  8, 16, 32, 64, 128, 256]   # model “size” dial
