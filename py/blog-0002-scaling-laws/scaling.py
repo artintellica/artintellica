@@ -1,6 +1,8 @@
-import math, random, time
+import math
 import numpy as np
-import torch, torch.nn as nn, torch.optim as optim
+import torch
+import torch.nn as nn
+import torch.optim as optim
 import matplotlib.pyplot as plt
 
 torch.manual_seed(0)
