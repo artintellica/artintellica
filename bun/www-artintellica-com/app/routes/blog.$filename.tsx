@@ -130,6 +130,13 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
           >
             Blog
           </Link>
+          <span> &middot; </span>
+          <Link
+            to="https://github.com/artintellica/artintellica"
+            className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
+          >
+            Source Code
+          </Link>
         </div>
       </div>
     </div>
