@@ -28,8 +28,6 @@ For beginners, the big idea is this:
 That tiny exponent means you need _orders of magnitude_ more resources for each
 constant jump in quality—but the payoff is steady and measurable.
 
----
-
 ### 2. How they discovered the laws
 
 1. **Pick a simple architecture.**  
@@ -44,8 +42,6 @@ constant jump in quality—but the payoff is steady and measurable.
 Because every curve is smooth, you can juggle the three dials (_N_, *D*, *C*) to
 stay on the same “iso‑loss” contour.
 
----
-
 ### 3. The compute‑optimal recipe
 
 Suppose you have a hard budget of **C FLOPs**. Kaplan et al. derive:
@@ -56,8 +52,6 @@ Suppose you have a hard budget of **C FLOPs**. Kaplan et al. derive:
 Translated: spend most of your budget on a **larger network**, train it on a
 **moderate amount of data**, and **stop early** once loss plateaus. (The later
 “Chinchilla” paper revises the constants but not the logic.)
-
----
 
 ### 4. Practical take‑aways for newcomers
 
@@ -74,8 +68,6 @@ Translated: spend most of your budget on a **larger network**, train it on a
 > - Henighan et al. “Scaling Laws for Autoregressive Generative Modeling.”
 > - Hestness et al. “Deep Learning Scaling Is Predictable, Empirically.”
 
----
-
 ### 5. What’s next in this post
 
 In **Part 2** we’ll reproduce the _shape_ of these curves on a single MacBook
@@ -86,8 +78,6 @@ Pro:
 
 You’ll see two log–log plots whose straight‑line slopes echo the OpenAI
 results—no GPU cluster required. _(Code coming up in the next section.)_
-
----
 
 <!--  =================================================================  -->
 <!--                       Part 2: Python demos here                     -->
