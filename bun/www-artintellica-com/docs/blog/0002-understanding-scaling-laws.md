@@ -186,7 +186,7 @@ plt.show()
 **What you should see** → a nearly straight descending line:
 $\text{MSE} \propto D^{-β}$ with β ≈ 0.9–1 on this toy task.
 
-**Note** The provided code does not actually have a straight descending line,
+**Note:** The provided code does not actually have a straight descending line,
 most likely due to the small model size in this example.
 
 ---
