@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import type { Route } from "./+types/blog.$filename.js";
 import { $aicon } from "~app/util/aicons.js";
+import { Footer } from "~app/components/footer.js";
 
 export const loader = async ({ request, params }: Route.LoaderArgs) => {
   const filename = params.filename;
@@ -112,33 +113,7 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
         </Link>
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
-      <div className="mx-auto mb-4">
-        <div className="mb-4 text-center text-black text-sm dark:text-white" />
-        <div className="text-center text-black/70 text-sm dark:text-white/70">
-          Copyright &copy; {new Date().getFullYear()} Identellica LLC
-          <br />
-          <Link
-            to={$path("/")}
-            className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
-          >
-            Home
-          </Link>
-          <span> &middot; </span>
-          <Link
-            to="/blog"
-            className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
-          >
-            Blog
-          </Link>
-          <span> &middot; </span>
-          <Link
-            to="https://github.com/artintellica/artintellica"
-            className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
-          >
-            Source Code
-          </Link>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
