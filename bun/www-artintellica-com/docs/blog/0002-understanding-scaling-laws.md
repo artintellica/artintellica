@@ -106,7 +106,11 @@ import matplotlib.pyplot as plt
 
 torch.manual_seed(0)
 np.random.seed(0)
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = (
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps" if torch.mps.is_available() else "cpu"
+)
 print("Using", device)
 ```
 
@@ -147,7 +151,7 @@ def mse(model, n_val=1_000):
     x_val, y_val = gen_batch(n_val)
     return nn.functional.mse_loss(model(x_val), y_val).item()
 
-def train_once(width: int, n_train: int, epochs: int = 500, lr: float = 1e‑2):
+def train_once(width: int, n_train: int, epochs: int = 500, lr: float = 1e-2):
     model = MLP(width).to(device)
     opt = optim.Adam(model.parameters(), lr=lr)
     x_train, y_train = gen_batch(n_train)
