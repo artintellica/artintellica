@@ -16,7 +16,8 @@ OpenAI 2020) the authors show that progress is _predictable_. They fit simple
 power‑law curves that relate model size, dataset size, and compute to the
 cross‑entropy loss a model achieves on held‑out data.
 
-> **Read the original PDF:** <https://arxiv.org/abs/2001.08361>
+**Read the original PDF:**
+[https://arxiv.org/abs/2001.08361](https://arxiv.org/abs/2001.08361)
 
 For beginners, the big idea is this:
 
