@@ -1,3 +1,4 @@
+import { Footer } from "~app/components/footer.js";
 import { $aicon } from "~app/util/aicons";
 
 export default function IndexPage() {
@@ -17,6 +18,8 @@ export default function IndexPage() {
       <h2 className="my-4 text-center text-black dark:text-white">
         Open-source educational resources for AI.
       </h2>
+      <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
+      <Footer />
     </div>
   );
 }
