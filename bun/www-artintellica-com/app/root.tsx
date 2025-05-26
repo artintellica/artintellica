@@ -7,9 +7,25 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
   useRouteError,
+  type LinksFunction,
 } from "react-router";
 import "./tailwind.css";
 import type { Route } from "./+types/root.js";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",
+    },
+    // https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+    // {
+    //   rel: "apple-touch-icon",
+    //   sizes: "180x180",
+    //   href: "/apple-touch-icon.png",
+    // },
+  ];
+};
 
 export const meta: Route.MetaFunction = () => {
   return [
