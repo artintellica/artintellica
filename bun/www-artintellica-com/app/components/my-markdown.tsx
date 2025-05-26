@@ -12,13 +12,7 @@ export default function MyMarkdown({ children }: { children: string }) {
           a: ({ children, href }) => {
             return (
               <Link
-                to={
-                  href
-                    ? href.startsWith("./")
-                      ? `.${href}` // force remix to handle relative paths correctly
-                      : href
-                    : href || ""
-                }
+                to={href || "#"}
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.stopPropagation();
                 }}
