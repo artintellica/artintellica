@@ -5,6 +5,8 @@ import { safeRoutes } from "safe-routes/vite";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  // bun + react router works either in dev or prod. this "resolve" approach
+  // fixes it in both places.
   resolve:
     process.env.NODE_ENV === "development"
       ? {}
