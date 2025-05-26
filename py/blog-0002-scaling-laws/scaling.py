@@ -62,6 +62,7 @@ def train_once(
 
     return mse(model)  # validation MSE on 1 000 fresh points
 
+print("Error vs. data size ...")
 
 data_sizes = [64, 128, 256, 512, 1024, 2048, 4096]
 fixed_width = 64  # ≈ 20 k parameters
@@ -74,6 +75,8 @@ plt.ylabel("val MSE (log)")
 plt.title("Fixed model, growing data")
 plt.grid(True, which="both", ls="--")
 plt.show()
+
+print("Error vs. model size ...")
 
 widths = [2, 4, 8, 16, 32, 64, 128, 256]  # model “size” dial
 fixed_data = 2048
