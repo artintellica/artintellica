@@ -2,7 +2,7 @@
 title = "Understanding \"Scaling Laws for Neural Language Models\" by Kaplan et al."
 date = "2025-05-26 00:00:00"
 author = "Artintellica"
-number = 2
+id = "0002"
 +++
 
 ## Part 1 – What the Paper Says ✍️

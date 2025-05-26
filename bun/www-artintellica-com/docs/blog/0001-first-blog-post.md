@@ -2,7 +2,7 @@
 title = "Introducing Artintellica: Open‑Source AI Resources"
 date = "2025-05-25 00:00:00"
 author = "Ryan X. Charles"
-number = 1
+id = "0001"
 +++
 
 Today, I'm happy to introduce **Artintellica**, a new set of resources for
