@@ -3,9 +3,6 @@ import { Link } from "react-router";
 import smartypants from "remark-smartypants";
 
 export default function MyMarkdown({ children }: { children: string }) {
-  // disable images by replacing "![" with "["
-  children = children.replace(/!\[/g, "[");
-
   return (
     <div className="artintellica-prose">
       <Markdown
