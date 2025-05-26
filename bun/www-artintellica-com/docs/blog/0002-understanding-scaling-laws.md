@@ -1,6 +1,6 @@
 +++
 title = "Understanding \"Scaling Laws for Neural Language Models\" by Kaplan et al."
-date = "2025-05-26 00:00:00"
+date = "2025-05-26"
 author = "Artintellica"
 id = "0002"
 +++

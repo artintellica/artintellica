@@ -1,6 +1,6 @@
 +++
 title = "Introducing Artintellica: Open‑Source AI Resources"
-date = "2025-05-25 00:00:00"
+date = "2025-05-25"
 author = "Ryan X. Charles"
 id = "0001"
 +++
