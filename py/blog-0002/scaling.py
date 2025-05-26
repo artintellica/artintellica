@@ -43,16 +43,22 @@ def mse(model, n_val=1_000):
     return nn.functional.mse_loss(model(x_val), y_val).item()
 
 
-def train_once(width: int, n_train: int, epochs: int = 500, lr: float = 1e-2):
+def train_once(
+    width: int, n_train: int, steps: int = 2000, batch_sz: int = 64, lr: float = 2e-3
+):
     model = MLP(width).to(device)
     opt = optim.Adam(model.parameters(), lr=lr)
-    x_train, y_train = gen_batch(n_train)
-    for _ in range(epochs):
+
+    # One big dataset, but we’ll draw random batches each step
+    x_full, y_full = gen_batch(n_train)
+    for _ in range(steps):
+        idx = torch.randint(0, n_train, (batch_sz,))
+        x_b, y_b = x_full[idx], y_full[idx]
         opt.zero_grad()
-        loss = nn.functional.mse_loss(model(x_train), y_train)
-        loss.backward()
+        nn.functional.mse_loss(model(x_b), y_b).backward()
         opt.step()
-    return mse(model)
+
+    return mse(model)  # validation MSE on 1 000 fresh points
 
 
 data_sizes = [64, 128, 256, 512, 1024, 2048, 4096]

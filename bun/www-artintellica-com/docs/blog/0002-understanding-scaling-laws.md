@@ -23,9 +23,9 @@ For beginners, the big idea is this:
 
 | If you **double**…        | …your validation loss falls by ≈ a **fixed percentage** |
 | ------------------------- | ------------------------------------------------------- |
-| Model parameters *N*      | $L \propto N^{-0.076}$                                |
-| Training tokens *D*       | $L \propto D^{-0.095}$                                |
-| Total compute *C* (FLOPs) | $L \propto C^{-0.057}$                                |
+| Model parameters *N*      | $L \propto N^{-0.076}$                                  |
+| Training tokens *D*       | $L \propto D^{-0.095}$                                  |
+| Total compute *C* (FLOPs) | $L \propto C^{-0.057}$                                  |
 
 That tiny exponent means you need _orders of magnitude_ more resources for each
 constant jump in quality—but the payoff is steady and measurable.
@@ -185,6 +185,9 @@ plt.show()
 
 **What you should see** → a nearly straight descending line:
 $\text{MSE} \propto D^{-β}$ with β ≈ 0.9–1 on this toy task.
+
+**Note** The provided code does not actually have a straight descending line,
+most likely due to the small model size in this example.
 
 ---
 
