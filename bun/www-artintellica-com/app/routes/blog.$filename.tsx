@@ -5,6 +5,7 @@ import { $path } from "safe-routes";
 import fs from "fs";
 import path from "path";
 import type { Route } from "./+types/blog.$filename.js";
+import { $aicon } from "~app/util/aicons.js";
 
 export const loader = async ({ request, params }: Route.LoaderArgs) => {
   const filename = params.filename;
@@ -41,10 +42,10 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
   return { blogPost, recentBlogPosts };
 };
 
-export const meta: Route.MetaFunction = ({ data }) => {
-  const blogPost = data.blogPost;
+export const meta = ({ data }: Route.MetaArgs) => {
+  const blogPostTitle = data?.blogPost?.title || "Blog Post";
   return [
-    { title: `${blogPost.title} | Blog | Artintellica` },
+    { title: `${blogPostTitle} | Blog | Artintellica` },
     { name: "description", content: "Welcome to Artintellica!" },
   ];
 };
@@ -53,10 +54,13 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
   const { blogPost, recentBlogPosts } = loaderData;
   return (
     <div>
-      <div className="mx-auto my-4">
-        <Link to={$path("/")}>
-          <Logo />
-        </Link>
+      <div className="mx-auto my-4 block aspect-square w-[120px]">
+        <img
+          draggable={false}
+          src={$aicon("/images/orange-cat-robot-300.webp")}
+          alt=""
+          className="block"
+        />
       </div>
       <div className="mx-auto my-4 max-w-[600px] px-2">
         <div>
