@@ -2,7 +2,6 @@ import Markdown from "react-markdown";
 import { Link } from "react-router";
 import smartypants from "remark-smartypants";
 import remarkGfm from "remark-gfm";
-
 import remarkParse from "remark-parse";
 import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";

@@ -23,9 +23,9 @@ For beginners, the big idea is this:
 
 | If you **double**…        | …your validation loss falls by ≈ a **fixed percentage** |
 | ------------------------- | ------------------------------------------------------- |
-| Model parameters *N*      | \(L \propto N^{-0.076}\)                                |
-| Training tokens *D*       | \(L \propto D^{-0.095}\)                                |
-| Total compute *C* (FLOPs) | \(L \propto C^{-0.057}\)                                |
+| Model parameters *N*      | $L \propto N^{-0.076}$                                |
+| Training tokens *D*       | $L \propto D^{-0.095}$                                |
+| Total compute *C* (FLOPs) | $L \propto C^{-0.057}$                                |
 
 That tiny exponent means you need _orders of magnitude_ more resources for each
 constant jump in quality—but the payoff is steady and measurable.
@@ -48,8 +48,8 @@ stay on the same “iso‑loss” contour.
 
 Suppose you have a hard budget of **C FLOPs**. Kaplan et al. derive:
 
-- **Optimal model size:** \(N \propto C^{0.73}\)
-- **Optimal data seen:** \(D \propto C^{0.27}\)
+- **Optimal model size:** $N \propto C^{0.73}$
+- **Optimal data seen:** $D \propto C^{0.27}$
 
 Translated: spend most of your budget on a **larger network**, train it on a
 **moderate amount of data**, and **stop early** once loss plateaus. (The later
