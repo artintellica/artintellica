@@ -170,11 +170,11 @@ def train_once(width: int, n_train: int, epochs: int = 500, lr: float = 1e-2):
 ### 4 a · **Error vs. data size** (model fixed)
 
 ```python
-data_sizes = [64,  128,  256,  512, 1024, 2048, 4096]
-fixed_width = 64          # ≈ 20 k parameters
-data_err = [ train_once(fixed_width, n) for n in data_sizes ]
+data_sizes = [64, 128, 256, 512, 1024, 2048, 4096]
+fixed_width = 64  # ≈ 20 k parameters
+data_err = [train_once(fixed_width, n) for n in data_sizes]
 
-plt.figure(figsize=(6,4))
+plt.figure(figsize=(6, 4))
 plt.loglog(data_sizes, data_err, "o-")
 plt.xlabel("training samples D (log)")
 plt.ylabel("val MSE (log)")
@@ -191,12 +191,12 @@ $\text{MSE} \propto D^{-β}$ with β ≈ 0.9–1 on this toy task.
 ### 4 b · **Error vs. model size** (data fixed)
 
 ```python
-widths = [2,  4,  8, 16, 32, 64, 128, 256]   # model “size” dial
+widths = [2, 4, 8, 16, 32, 64, 128, 256]  # model “size” dial
 fixed_data = 2048
-model_err = [ train_once(w, fixed_data) for w in widths ]
+model_err = [train_once(w, fixed_data) for w in widths]
 
-n_params = [ 3*w*w + 2*w + 1 for w in widths ]  # rough param count
-plt.figure(figsize=(6,4))
+n_params = [3 * w * w + 2 * w + 1 for w in widths]  # rough param count
+plt.figure(figsize=(6, 4))
 plt.loglog(n_params, model_err, "s-")
 plt.xlabel("parameters N (log)")
 plt.ylabel("val MSE (log)")
