@@ -164,7 +164,7 @@ def train_once(width: int, n_train: int, epochs: int = 500, lr: float = 1e‑2):
 ### 4 a · **Error vs data size** (model fixed)
 
 ```python
-data_sizes = [   64,  128,  256,  512, 1024, 2048, 4096]
+data_sizes = [64,  128,  256,  512, 1024, 2048, 4096]
 fixed_width = 64          # ≈ 20 k parameters
 data_err = [ train_once(fixed_width, n) for n in data_sizes ]
 
