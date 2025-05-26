@@ -1,6 +1,4 @@
 @import "tailwindcss";
-/* @import "highlight.js/styles/github.css";        /1* light  *1/ */
-@import "highlight.js/styles/github-dark.css";   /* dark  */
 @source '../**/*.{js,jsx,ts,tsx,html}';
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';

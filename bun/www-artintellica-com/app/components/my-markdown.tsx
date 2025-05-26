@@ -7,7 +7,6 @@ import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";
 import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
-import rehypeHighlight from "rehype-highlight";
 
 export default function MyMarkdown({ children }: { children: string }) {
   return (
@@ -20,7 +19,7 @@ export default function MyMarkdown({ children }: { children: string }) {
           remarkGfm,
           remarkRehype,
         ]}
-        rehypePlugins={[rehypeKatex, rehypeStringify, rehypeHighlight]}
+        rehypePlugins={[rehypeKatex, rehypeStringify]}
         components={{
           a: ({ children, href }) => {
             return (
