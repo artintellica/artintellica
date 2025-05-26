@@ -53,12 +53,14 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
   return (
     <div>
       <div className="mx-auto my-4 block aspect-square w-[120px]">
-        <img
-          draggable={false}
-          src={$aicon("/images/orange-cat-robot-300.webp")}
-          alt=""
-          className="block"
-        />
+        <Link to={$path("/")}>
+          <img
+            draggable={false}
+            src={$aicon("/images/orange-cat-robot-300.webp")}
+            alt=""
+            className="block"
+          />
+        </Link>
       </div>
       <div className="mx-auto my-4 max-w-[600px] px-2">
         <div>
