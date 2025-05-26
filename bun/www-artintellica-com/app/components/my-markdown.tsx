@@ -7,7 +7,7 @@ export default function MyMarkdown({ children }: { children: string }) {
   return (
     <div className="artintellica-prose">
       <Markdown
-        remarkPlugins={[smartypants]}
+        remarkPlugins={[smartypants, remarkGfm]}
         components={{
           a: ({ children, href }) => {
             return (
