@@ -146,10 +146,12 @@ def gen_batch(n: int):
     y = torch.sin(x)
     return x.to(device), y.to(device)
 
+
 @torch.no_grad()
 def mse(model, n_val=1_000):
     x_val, y_val = gen_batch(n_val)
     return nn.functional.mse_loss(model(x_val), y_val).item()
+
 
 def train_once(width: int, n_train: int, epochs: int = 500, lr: float = 1e-2):
     model = MLP(width).to(device)
