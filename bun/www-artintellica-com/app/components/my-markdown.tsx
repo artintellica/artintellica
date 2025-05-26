@@ -7,7 +7,7 @@ export default function MyMarkdown({ children }: { children: string }) {
   children = children.replace(/!\[/g, "[");
 
   return (
-    <div className="ryanxcharles-prose">
+    <div className="artintellica-prose">
       <Markdown
         remarkPlugins={[smartypants]}
         components={{

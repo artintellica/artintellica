@@ -185,7 +185,7 @@ $\text{MSE} \propto D^{-β}$ with β ≈ 0.9–1 on this toy task.
 ### 4 b · **Error vs model size** (data fixed)
 
 ```python
-widths = [  2,  4,  8, 16, 32, 64, 128, 256]   # model “size” dial
+widths = [2,  4,  8, 16, 32, 64, 128, 256]   # model “size” dial
 fixed_data = 2048
 model_err = [ train_once(w, fixed_data) for w in widths ]
 

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @source '../**/*.{js,jsx,ts,tsx,html}';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
 
 @theme {
   --color-compubutton-secondary: #e46ad7;
@@ -58,3 +60,56 @@
   --color-yellow-950: #432305;
   --color-yellow: #e4b704;
 }
+
+.artintellica-prose {
+  @apply prose prose-lg prose-slate mx-auto text-sm dark:prose-invert text-gray-700 dark:text-gray-300;
+  font-size: 1em;
+  line-height: 1.4em;
+  text-align: left;
+  overflow-x: hidden;
+}
+
+.artintellica-prose :not(pre) > code::before,
+.artintellica-prose :not(pre) > code::after {
+  content: none;
+}
+
+.artintellica-prose > :first-child {
+  @apply mt-0;
+}
+
+.artintellica-prose > :last-child {
+  @apply mb-0;
+}
+
+.artintellica-prose img {
+  margin: 0 auto;
+}
+
+.artintellica-prose h1 {
+  font-size: 2em;
+}
+
+.artintellica-prose a {
+  @apply text-black border-b border-blue no-underline;
+}
+
+.artintellica-prose a:hover {
+  @apply border-black;
+}
+
+.artintellica-prose blockquote p::before,
+.artintellica-prose blockquote p::after {
+  content: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .artintellica-prose a {
+    @apply text-white border-b border-blue no-underline;
+  }
+
+  .artintellica-prose a:hover {
+    @apply border-white;
+  }
+}
+
