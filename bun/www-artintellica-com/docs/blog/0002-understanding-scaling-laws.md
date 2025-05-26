@@ -3,6 +3,7 @@ title = "Understanding \"Scaling Laws for Neural Language Models\" by Kaplan e
 date = "2025-05-26"
 author = "Artintellica"
 id = "0002"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0002-scaling-laws"
 +++
 
 ## Part 1 – What the Paper Says ✍️

@@ -29,6 +29,7 @@ const blogPosts: BlogPost[] = filenames.map((filename) => {
     title,
     author: frontmatter.author as string,
     date: frontmatter.date as string,
+    code: frontmatter.code as string | undefined,
     content: "",
   };
 });

@@ -17,6 +17,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
         date: post.date,
         author: post.author,
         filename: post.filename,
+        code: post.code,
         content: "",
       };
     })
@@ -73,6 +74,13 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
           <div className="my-4 text-center text-black/60 text-sm dark:text-white/60">
             {blogPost.date} &middot; {blogPost.author}
           </div>
+          {blogPost.code && (
+            <div className="my-4 text-center text-black/60 text-sm dark:text-white/60">
+              <Link to={blogPost.code} className="text-black dark:text-white border-b border-b-blue font-semibold hover:border-b-black dark:hover:border-b-white">
+                View Source Code on GitHub
+              </Link>
+            </div>
+          )}
           <div className="text-black dark:text-white">
             <MyMarkdown>{blogPost.content}</MyMarkdown>
           </div>
