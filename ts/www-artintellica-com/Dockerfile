@@ -8,7 +8,7 @@ WORKDIR /app
 
 ENV NODE_ENV="production"
 
-ARG PNPM_VERSION=9.12.0
+ARG PNPM_VERSION=10.11.0
 RUN npm install -g pnpm@$PNPM_VERSION
 
 FROM base AS build
