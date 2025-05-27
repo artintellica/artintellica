@@ -2,8 +2,7 @@ import blogPosts from "~app/blog.json";
 import { Footer } from "~app/components/footer.js";
 import { $aicon } from "~app/util/aicons";
 import type { Route } from "./+types/_index.js";
-import { Link } from "react-router";
-import { $path } from "safe-routes";
+import { Link, href } from "react-router";
 
 export const loader = async ({ request, params }: Route.LoaderArgs) => {
   const newBlogPosts = blogPosts
@@ -51,7 +50,7 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
               {blogPosts.map((post) => (
                 <div key={post.filename} className="mb-4">
                   <Link
-                    to={$path("/blog/:filename", { filename: post.filename })}
+                    to={href("/blog/:filename", { filename: post.filename })}
                     className="border-b border-b-blue font-semibold text-lg leading-3 hover:border-b-black dark:hover:border-b-white"
                   >
                     {post.title}

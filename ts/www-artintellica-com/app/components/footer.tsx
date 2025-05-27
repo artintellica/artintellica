@@ -1,5 +1,4 @@
-import { $path } from "safe-routes";
-import { Link } from "react-router";
+import { Link, href } from "react-router";
 
 export function Footer() {
   return (
@@ -9,14 +8,14 @@ export function Footer() {
         Copyright &copy; {new Date().getFullYear()} Identellica LLC
         <br />
         <Link
-          to={$path("/")}
+          to={href("/")}
           className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
         >
           Home
         </Link>
         <span> &middot; </span>
         <Link
-          to="/blog"
+          to={href("/blog")}
           className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
         >
           Blog

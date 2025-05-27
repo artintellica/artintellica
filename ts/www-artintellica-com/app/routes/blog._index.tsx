@@ -1,6 +1,5 @@
 import blogPosts from "~app/blog.json";
-import { Link } from "react-router";
-import { $path } from "safe-routes";
+import { Link, href } from "react-router";
 import type { Route } from "./+types/blog._index.js";
 import { $aicon } from "~app/util/aicons.js";
 import { Footer } from "~app/components/footer.js";
@@ -54,7 +53,7 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
   return (
     <div>
       <div className="mx-auto my-4 block aspect-square w-[120px]">
-        <Link to={$path("/")}>
+        <Link to={href("/")}>
           <img
             draggable={false}
             src={$aicon("/images/orange-cat-robot-300.webp")}
@@ -73,7 +72,7 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
               {blogPosts.map((post) => (
                 <div key={post.filename} className="mb-4">
                   <Link
-                    to={$path("/blog/:filename", { filename: post.filename })}
+                    to={href("/blog/:filename", { filename: post.filename })}
                     className="border-b border-b-blue font-semibold text-lg leading-3 hover:border-b-black dark:hover:border-b-white"
                   >
                     {post.title}
@@ -115,7 +114,7 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
       <div className="text-center text-black dark:text-white">
         <Link
           className="border-b border-b-blue font-bold text-lg hover:border-b-black dark:hover:border-b-white"
-          to={$path("/")}
+          to={href("/")}
         >
           Back to Home
         </Link>
