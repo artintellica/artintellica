@@ -15,8 +15,8 @@ def grad_f(x):
 
 
 # ---- 2. experiment settings -----------------------------------------
-etas = [0.01, 0.1, 0.5]  # small, medium, too‑large
-n_steps = 40
+etas = [0.001, 0.01, 0.02]  # small, medium, too‑large
+n_steps = 200
 x0 = torch.tensor(-2.5)  # start left of the bowl
 
 histories = {}  # store (xs, fs) per eta
