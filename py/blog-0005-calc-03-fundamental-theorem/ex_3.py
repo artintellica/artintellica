@@ -1,5 +1,3 @@
-# calc-03-ftc/parameter_gradient.py
-
 import torch
 import math
 
