@@ -4,7 +4,8 @@ date  = "2025‑05‑27"
 author = "Artintellica"
 +++
 
-> *“Every deep‑learning optimizer is just a smarter cousin of simple gradient descent.”*
+> _“Every deep‑learning optimizer is just a smarter cousin of simple gradient
+> descent.”_
 
 ---
 
@@ -18,7 +19,7 @@ f(x)=x^{4}-3x^{2}+2,
 f'(x)=4x^{3}-6x.
 $$
 
-It has a *global* minimum near $x\approx 1.225$ and a *local* maximum at $x=0$.
+It has a _global_ minimum near $x\approx 1.225$ and a _local_ maximum at $x=0$.
 Great playground for seeing overshoot and learning‑rate trade‑offs.
 
 ---
@@ -88,9 +89,9 @@ for eta, (xs, fs) in histories.items():
 
 And the plot shows:
 
-* **η = 0.01** — slow crawl; still descending.
-* **η = 0.1**  — sweet‑spot; zooms to the global minimum then flattens.
-* **η = 0.5**  — overshoots, bounces, even climbs uphill (loss ↑).
+- **η = 0.01** — slow crawl; still descending.
+- **η = 0.1** — sweet‑spot; zooms to the global minimum then flattens.
+- **η = 0.5** — overshoots, bounces, even climbs uphill (loss ↑).
 
 ---
 
@@ -122,13 +123,16 @@ Exactly what happens inside each layer of a neural network.
 
 ## 6 · Exercises
 
-1. **Momentum** — Add a velocity term $v_{k+1}=βv_{k}+∇f(x_k)$; show how momentum ($β=0.9$) speeds up the small‑η run.
+1. **Momentum** — Add a velocity term $v_{k+1}=βv_{k}+∇f(x_k)$; show how
+   momentum ($β=0.9$) speeds up the small‑η run.
 2. **Adaptive LR** — Implement AdaGrad or Adam (1‑D). Compare against fixed η.
-3. **Multiple Starts** — Run 50 random $x_0$ in $[-3,3]$; plot histogram of where each η ends up. Which runs get trapped at the local maximum $x=0$?
-4. **Line Search** — At each step pick η that minimizes $f(x-ηf'(x))$ along the ray; compare iterations needed.
+3. **Multiple Starts** — Run 50 random $x_0$ in $[-3,3]$; plot histogram of
+   where each η ends up. Which runs get trapped at the local maximum $x=0$?
+4. **Line Search** — At each step pick η that minimizes $f(x-ηf'(x))$ along the
+   ray; compare iterations needed.
 
 Commit solutions to `calc-04-optim-1d/` and tag `v0.1`.
 
 ---
 
-**Next stop:** *Calculus 5 – Taylor Series & Function Approximation.*
+**Next stop:** _Calculus 5 – Taylor Series & Function Approximation._
