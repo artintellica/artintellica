@@ -1,0 +1,27 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Artintellica Blog",
+    "home_page_url": "https://artintellica.com/blog",
+    "feed_url": "https://artintellica.com/blog/feed.json",
+    "description": "Artintellica Blog",
+    "author": {
+        "name": "Ryan X. Charles",
+        "url": "https://artintellica.com"
+    },
+    "items": [
+        {
+            "id": "https://artintellica.com/blog/0002-understanding-scaling-laws.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0002-understanding-scaling-laws.md",
+            "title": "Understanding “Scaling Laws for Neural Language Models” by Kaplan et al.",
+            "date_modified": "2025-05-26T07:00:00.000Z"
+        },
+        {
+            "id": "https://artintellica.com/blog/0001-first-blog-post.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0001-first-blog-post.md",
+            "title": "Introducing Artintellica: Open‑Source AI Resources",
+            "date_modified": "2025-05-25T07:00:00.000Z"
+        }
+    ]
+}
