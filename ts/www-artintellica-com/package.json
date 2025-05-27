@@ -14,7 +14,7 @@
     "typecheck": "react-router typegen && safe-routes typegen && tsc",
     "lint": "biome lint --write --unsafe",
     "format": "biome format --write",
-    "fix": "bun run typecheck && bun run lint && bun run format",
+    "fix": "pnpm run typecheck && pnpm run lint && pnpm run format",
     "deploy": "cd .. && fly deploy --config www-artintellica-com/fly.toml --dockerfile www-artintellica-com/Dockerfile"
   },
   "dependencies": {

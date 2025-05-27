@@ -76,7 +76,10 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
           </div>
           {blogPost.code && (
             <div className="my-4 text-center text-black/60 text-sm dark:text-white/60">
-              <Link to={blogPost.code} className="border-b border-b-blue font-semibold text-black hover:border-b-black dark:text-white dark:hover:border-b-white">
+              <Link
+                to={blogPost.code}
+                className="border-b border-b-blue font-semibold text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
+              >
                 View Source Code on GitHub
               </Link>
             </div>
