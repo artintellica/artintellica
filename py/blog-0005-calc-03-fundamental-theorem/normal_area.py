@@ -7,7 +7,7 @@ a, b = -1.0, 1.0
 xs = np.linspace(a, b, 2001)  # high resolution grid
 pdf = norm.pdf(xs)
 
-area_trap = np.trapz(pdf, xs)  # 1️⃣ Trapezoid
+area_trap = np.trapezoid(pdf, xs)  # 1️⃣ Trapezoid
 area_simp = integrate.simpson(pdf, xs)  # 2️⃣ Simpson
 area_true = norm.cdf(b) - norm.cdf(a)  # 3️⃣ Exact
 
