@@ -45,7 +45,6 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@react-router/dev": "7.6.0",
-    "@types/bun": "latest",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "autoprefixer": "^10.4.21",
