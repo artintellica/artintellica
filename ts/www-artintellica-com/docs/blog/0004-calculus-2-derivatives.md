@@ -4,7 +4,8 @@ date  = "2025‑05‑27"
 author = "Artintellica"
 +++
 
-> *“A derivative is a microscopic zoom on how a function changes; in machine learning we zoom **millions** of times per second.”*
+> _“A derivative is a microscopic zoom on how a function changes; in machine
+> learning we zoom **millions** of times per second.”_
 
 ---
 
@@ -16,25 +17,27 @@ $$
 f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.
 $$
 
-Geometrically it’s the slope of the tangent line. In optimization, that slope tells us **which way to tweak parameters** to shrink loss.
+Geometrically it’s the slope of the tangent line. In optimization, that slope
+tells us **which way to tweak parameters** to shrink loss.
 
 ---
 
 ## 2 · Derivative Rules in One Line
 
-* **Sum**: $(f+g)' = f' + g'$
-* **Product**: $(fg)' = f'g + fg'$
-* **Chain** (composition): $(g\circ f)' = (g'\!\circ f)\,f'$
+- **Sum**: $(f+g)' = f' + g'$
+- **Product**: $(fg)' = f'g + fg'$
+- **Chain** (composition): $(g\circ f)' = (g'\!\circ f)\,f'$
 
-Every back‑prop step is the chain rule applied repeatedly through a network’s layers.
+Every back‑prop step is the chain rule applied repeatedly through a network’s
+layers.
 
 ---
 
 ## 3 · Why ML Cares
 
-* **SGD & Adam**: require $∇L(θ)$.
-* **Exploding/Vanishing Gradients**: symptoms of large/small derivatives.
-* **Smooth Activations**: chosen so $f'$ exists everywhere.
+- **SGD & Adam**: require $∇L(θ)$.
+- **Exploding/Vanishing Gradients**: symptoms of large/small derivatives.
+- **Smooth Activations**: chosen so $f'$ exists everywhere.
 
 ---
 
@@ -78,7 +81,8 @@ plt.tight_layout()
 plt.show()
 ```
 
-You’ll see all three curves overlap; discrepancies appear only near machine precision.
+You’ll see all three curves overlap; discrepancies appear only near machine
+precision.
 
 ---
 
@@ -86,7 +90,8 @@ You’ll see all three curves overlap; discrepancies appear only near machine pr
 
 ### 5·1 Visualizing a “Slope Field” of a Loss Surface
 
-A slope field is a vector plot of $\nabla f$. Even in 1‑D we can render arrows indicating slope direction.
+A slope field is a vector plot of $\nabla f$. Even in 1‑D we can render arrows
+indicating slope direction.
 
 ```python
 # calc-02-derivatives/slope_field.py
@@ -120,18 +125,23 @@ $$
 \nabla f(x)=\Bigl[\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\Bigr].
 $$
 
-`torch.autograd.grad` generalizes seamlessly; PyTorch stores $\nabla f$ in each tensor’s `.grad` field during `backward()`.
+`torch.autograd.grad` generalizes seamlessly; PyTorch stores $\nabla f$ in each
+tensor’s `.grad` field during `backward()`.
 
 ---
 
 ## 7 · Exercises
 
-1. **Accuracy Experiment**: vary `h` in Demo ① (`1e‑2` … `1e‑8`) and plot max error vs `h`. Explain floating‑point round‑off vs. truncation error.
-2. **Custom Function**: pick $f(x)=\tanh(x)$. Compute autograd vs. finite diff derivatives and verify against analytic $1-\tanh^2x$.
-3. **2‑D Gradient Plot**: extend Demo ② to $f(x,y)=x^2 + 0.5y^2$ and use `plt.quiver` on a grid to visualize the vector field.
+1. **Accuracy Experiment**: vary `h` in Demo ① (`1e‑2` … `1e‑8`) and plot max
+   error vs `h`. Explain floating‑point round‑off vs. truncation error.
+2. **Custom Function**: pick $f(x)=\tanh(x)$. Compute autograd vs. finite diff
+   derivatives and verify against analytic $1-\tanh^2x$.
+3. **2‑D Gradient Plot**: extend Demo ② to $f(x,y)=x^2 + 0.5y^2$ and use
+   `plt.quiver` on a grid to visualize the vector field.
 
 Push your code to `calc-02-derivatives/` and tag `v0.1`.
 
 ---
 
-**Up next:** *Calculus 3 – Fundamental Theorem & Numerical Integration* — see you soon!
+**Up next:** _Calculus 3 – Fundamental Theorem & Numerical Integration_ — see
+you soon!
