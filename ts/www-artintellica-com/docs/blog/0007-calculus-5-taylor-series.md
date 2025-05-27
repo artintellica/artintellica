@@ -2,6 +2,7 @@
 title = "Calculus 5: Taylor & Maclaurin Series—Polynomials That Think They’re Exponential"
 date  = "2025‑05‑27"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0007-calc-05-taylor-series"
 +++
 
 > _“If derivatives tell you the slope **here**, Taylor series tell you the whole
