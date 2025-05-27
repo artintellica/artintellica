@@ -3,6 +3,8 @@ import { Footer } from "~app/components/footer.js";
 import { $aicon } from "~app/util/aicons";
 import type { Route } from "./+types/_index.js";
 import { Link, href } from "react-router";
+import { testClientOnly } from "~app/client-only/test-client-only.js";
+import { useEffect } from "react";
 
 export const loader = async ({ request, params }: Route.LoaderArgs) => {
   const newBlogPosts = blogPosts
@@ -23,6 +25,12 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
 
 export default function IndexPage({ loaderData }: Route.ComponentProps) {
   const { blogPosts } = loaderData;
+
+  useEffect(() => {
+    // This is just a test to ensure client-only code works
+    testClientOnly();
+  }, []);
+
   return (
     <div>
       <div className="mx-auto my-4 block aspect-square w-[120px]">
