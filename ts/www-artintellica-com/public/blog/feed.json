@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0007-calculus-5-taylor-series.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0007-calculus-5-taylor-series.md",
+            "title": "Calculus 5: Taylor & Maclaurin Series—Polynomials That Think They’re Exponential",
+            "date_modified": "2025-05-27T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0006-calculus-4-gradient-descent.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0006-calculus-4-gradient-descent.md",
