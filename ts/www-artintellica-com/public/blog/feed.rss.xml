@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Mon, 26 May 2025 22:28:28 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 May 2025 10:59:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -13,14 +13,14 @@
         <item>
             <title><![CDATA[Understanding “Scaling Laws for Neural Language Models” by Kaplan et al.]]></title>
             <link>https://artintellica.com/blog/0002-understanding-scaling-laws.md</link>
-            <guid>https://artintellica.com/blog/0002-understanding-scaling-laws.md</guid>
+            <guid isPermaLink="false">https://artintellica.com/blog/0002-understanding-scaling-laws.md</guid>
             <pubDate>Mon, 26 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Understanding “Scaling Laws for Neural Language Models” by Kaplan et al.]]></description>
         </item>
         <item>
             <title><![CDATA[Introducing Artintellica: Open‑Source AI Resources]]></title>
             <link>https://artintellica.com/blog/0001-first-blog-post.md</link>
-            <guid>https://artintellica.com/blog/0001-first-blog-post.md</guid>
+            <guid isPermaLink="false">https://artintellica.com/blog/0001-first-blog-post.md</guid>
             <pubDate>Sun, 25 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Introducing Artintellica: Open‑Source AI Resources]]></description>
         </item>
