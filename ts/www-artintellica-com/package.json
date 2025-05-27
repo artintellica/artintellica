@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build:icons": "bun --bun process-icons.ts",
+    "build:icons": "tsx process-icons.ts",
     "build:blog": "bun --bun build-blog.ts",
     "build:docker": "cd .. && docker buildx build -f www-artintellica-com/Dockerfile .",
     "dev": "bun --bun react-router dev --port 4058",
