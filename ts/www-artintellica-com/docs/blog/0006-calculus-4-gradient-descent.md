@@ -2,6 +2,7 @@
 title = "Calculus 4: Gradient Descent in 1‑D — Your First Training Loop"
 date  = "2025‑05‑27"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0006-calc-04-gradient-descent"
 +++
 
 > _“Every deep‑learning optimizer is just a smarter cousin of simple gradient
