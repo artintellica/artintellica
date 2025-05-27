@@ -2,6 +2,7 @@
 title  = "Calculus 3: The Fundamental Theorem & Why Integrals and Derivatives Matter in ML"
 date   = "2025‑05‑27"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0005-calc-03-fundamental-theorem"
 +++
 
 > _“Integrals add‑up change; derivatives read‑off change. The Fundamental
