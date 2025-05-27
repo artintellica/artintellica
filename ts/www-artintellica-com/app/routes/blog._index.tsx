@@ -15,7 +15,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
         content: "",
       };
     })
-    .sort((a, b) => a.date.localeCompare(b.date))
+    .sort((a, b) => a.filename.localeCompare(b.filename))
     .reverse();
   return { blogPosts: newBlogPosts };
 };
