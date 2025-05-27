@@ -2,6 +2,7 @@
 title = "Calculus 1: Limits and Continuity"
 author = "Artintellica"
 date = "2025-05-27"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0003-calc-01-limits"
 +++
 
 > _“Calculus doesn’t begin with derivatives or integrals—it begins with asking
