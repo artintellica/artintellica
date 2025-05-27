@@ -15,7 +15,11 @@ We’ll minimize
 
 $$
 f(x)=x^{4}-3x^{2}+2,
-\qquad\text{whose derivative}\quad
+$$
+
+whose derivative is
+
+$$
 f'(x)=4x^{3}-6x.
 $$
 
