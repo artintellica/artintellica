@@ -13,7 +13,7 @@ Artintellica blog posts. Each line tells you
 | --- | ----------------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | 1   | **Limits & Continuity**             | plot `sin(x)/x`, zoom on `x→0`; implement ε‑δ “tolerance checker” \[NumPy, Matplotlib] | Numerical stability, vanishing gradients                               |
 | 2   | **Derivatives**                     | finite‑difference vs. automatic diff on `torch.sin`; visualize slope field \[PyTorch]  | Gradients drive learning                                               |
-| 3   | **Fundamental Theorem of Calculus** | trapezoid & Simpson vs. `torch.autograd.grad`; area under normal PDF \[SciPy]          | Loss ↔ derivatives ↔ integrals of PDFs                                 |
+| 3   | **Fundamental Theorem of Calculus** | trapezoid & Simpson vs. `torch.autograd.grad`; area under normal PDF \[SciPy]          | Loss ↔ derivatives ↔ integrals of PDFs                               |
 | 4   | **Optimization in 1 D**             | write gradient‑descent for `f(x)=x⁴−3x²+2`; compare step sizes \[PyTorch]              | Toy intro to training loops                                            |
 | 5   | **Taylor & Maclaurin Series**       | animate polynomial truncations of `eˣ`; show approximation error \[NumPy, Matplotlib]  | Activation‑function approximations, transformers′ positional encodings |
 

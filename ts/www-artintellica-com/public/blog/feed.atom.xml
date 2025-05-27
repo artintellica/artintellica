@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-05-27T19:52:32.161Z</updated>
+    <updated>2025-05-27T20:02:57.868Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Calculus 2: Derivatives & Their Role in Gradient‑Based Learning]]></title>
+        <id>https://artintellica.com/blog/0004-calculus-2-derivatives.md</id>
+        <link href="https://artintellica.com/blog/0004-calculus-2-derivatives.md"/>
+        <updated>2025-05-27T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Calculus 2: Derivatives & Their Role in Gradient‑Based Learning]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Calculus 1: Limits and Continuity]]></title>
         <id>https://artintellica.com/blog/0003-calculus-1-limits-and-continuity.md</id>

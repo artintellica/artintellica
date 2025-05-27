@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0004-calculus-2-derivatives.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0004-calculus-2-derivatives.md",
+            "title": "Calculus 2: Derivatives & Their Role in Gradient‑Based Learning",
+            "date_modified": "2025-05-27T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0003-calculus-1-limits-and-continuity.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0003-calculus-1-limits-and-continuity.md",
