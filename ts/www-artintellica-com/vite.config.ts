@@ -7,10 +7,10 @@ import { denyImports } from "vite-env-only";
 export default defineConfig({
   plugins: [reactRouter(), tsconfigPaths(), tailwindcss(), denyImports({
     client: {
-      files: ["**/server-only/**/*"],
+      files: ["**/client-only/**"],
     },
     server: {
-      files: ["**/client-only/**/*"],
+      files: ["**/server-only/**"],
     },
   })],
 });
