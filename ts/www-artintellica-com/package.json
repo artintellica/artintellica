@@ -38,6 +38,7 @@
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
     "remark-smartypants": "^3.0.2",
     "safe-routes": "^1.0.12",
     "tailwind-merge": "^3.3.0"

@@ -1,26 +1,42 @@
-FROM oven/bun:1 AS dependencies-env
-COPY . /app
+# syntax = docker/dockerfile:1
 
-FROM dependencies-env AS development-dependencies-env
-COPY ./package.json bun.lock /app/
+FROM node:22-alpine AS base
+
+LABEL fly_launch_runtime="Remix"
+
 WORKDIR /app
-RUN bun install --frozen-lockfile
 
-FROM dependencies-env AS production-dependencies-env
-COPY ./package.json bun.lock /app/
+ENV NODE_ENV="production"
+
+ARG PNPM_VERSION=9.12.0
+RUN npm install -g pnpm@$PNPM_VERSION
+
+FROM base AS build
+
 WORKDIR /app
-RUN bun install --production
 
-FROM dependencies-env AS build-env
-COPY ./package.json bun.lock /app/
-COPY --from=development-dependencies-env /app/node_modules /app/node_modules
-WORKDIR /app/www-artintellica-com
-RUN bun run build
+COPY --link ./pnpm-lock.yaml ./
+COPY --link ./pnpm-workspace.yaml ./
+RUN pnpm install --prod=false
 
-FROM dependencies-env
-COPY ./package.json bun.lock /app/
-COPY --from=production-dependencies-env /app/node_modules /app/node_modules
-COPY --from=production-dependencies-env /app/www-artintellica-com/node_modules /app/www-artintellica-com/node_modules
-COPY --from=build-env /app/www-artintellica-com/build /app/www-artintellica-com/build
+COPY --link ./www-artintellica-com ./www-artintellica-com
+
 WORKDIR /app/www-artintellica-com
-CMD ["bun", "run", "start"]
+
+RUN pnpm install --prod=false
+
+RUN pnpm run build
+
+RUN pnpm prune --prod
+
+FROM base
+
+WORKDIR /app
+
+COPY --from=build /app /app
+
+WORKDIR /app/www-artintellica-com
+
+EXPOSE 3000
+
+CMD ["pnpm", "run", "start"]
