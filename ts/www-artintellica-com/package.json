@@ -10,7 +10,7 @@
     "build:docker": "cd .. && docker buildx build -f www-artintellica-com/Dockerfile .",
     "dev": "react-router dev --port 4058",
     "build": "cross-env NODE_ENV=production react-router build",
-    "start": "bun --bun cross-env NODE_ENV=production react-router-serve ./build/server/index.js",
+    "start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js",
     "typecheck": "bun --bun react-router typegen && bun --bun safe-routes typegen && tsc",
     "lint": "biome lint --write --unsafe",
     "format": "biome format --write",
