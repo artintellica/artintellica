@@ -23,7 +23,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
 export const meta: Route.MetaFunction = () => {
   return [
     { title: "Blog | Artintellica" },
-    { name: "description", content: "Welcome to Artintellica!" },
+    { name: "description", content: "Open-source AI resources." },
     {
       tagName: "link",
       rel: "alternate",

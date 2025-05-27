@@ -47,7 +47,7 @@ export const meta = ({ data }: Route.MetaArgs) => {
   const blogPostTitle = data?.blogPost?.title || "Blog Post";
   return [
     { title: `${blogPostTitle} | Blog | Artintellica` },
-    { name: "description", content: "Welcome to Artintellica!" },
+    { name: "description", content: "Open-source AI resources." },
   ];
 };
 
