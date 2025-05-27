@@ -1,11 +1,11 @@
-# calc-04-optim-1d/momentum_vs_plain.py
 import torch
+import math
 import matplotlib.pyplot as plt
 
 torch.set_default_dtype(torch.float64)
 
 
-# ---- loss and gradient ------------------------------------------------
+# --- f and its gradient ------------------------------------------------
 def f(x):
     return x**4 - 3 * x**2 + 2
 
@@ -14,53 +14,69 @@ def grad_f(x):
     return 4 * x**3 - 6 * x
 
 
-# ---- hyper‑params -----------------------------------------------------
-eta = 0.01  # small learning rate
-beta = 0.9  # momentum coefficient
-n_steps = 200  # enough to see convergence
-x0 = torch.tensor(-2.5)
+x_star = math.sqrt(1.5)  # ≈ 1.224744871
+f_min = f(x_star)  # = -0.25
 
-# ---- plain GD ---------------------------------------------------------
-x_plain = x0.clone()
-xs_plain, fs_plain = [], []
-for _ in range(n_steps):
-    xs_plain.append(float(x_plain))
-    fs_plain.append(float(f(x_plain)))
-    x_plain -= eta * grad_f(x_plain)
+# --- hyper‑params ------------------------------------------------------
+eta = 0.01
+beta = 0.9
+steps = 120
+x0 = torch.tensor(-1.0)  # starting point where momentum helps
 
-# ---- GD + momentum ----------------------------------------------------
-x_mom = x0.clone()
-v = torch.tensor(0.0)  # initial velocity
-xs_mom, fs_mom = [], []
-for _ in range(n_steps):
-    xs_mom.append(float(x_mom))
-    fs_mom.append(float(f(x_mom)))
-    v = beta * v + grad_f(x_mom)
-    x_mom -= eta * v
 
-# ---- plot -------------------------------------------------------------
+# --- helpers -----------------------------------------------------------
+def run_gd(x0, eta, steps):
+    x = x0.clone()
+    xs, fs = [], []
+    for _ in range(steps):
+        xs.append(float(x))
+        fs.append(float(f(x)))
+        x -= eta * grad_f(x)
+    return xs, fs
+
+
+def run_momentum(x0, eta, beta, steps):
+    x = x0.clone()
+    v = torch.tensor(0.0)
+    xs, fs = [], []
+    for _ in range(steps):
+        xs.append(float(x))
+        fs.append(float(f(x)))
+        v = beta * v + grad_f(x)
+        x -= eta * v
+    return xs, fs
+
+
+# --- run both optimizers ----------------------------------------------
+xs_gd, fs_gd = run_gd(x0, eta, steps)
+xs_mo, fs_mo = run_momentum(x0, eta, beta, steps)
+
+
+# --- measure convergence ----------------------------------------------
+def first_close(fs, target, tol=1e-3):
+    for i, v in enumerate(fs):
+        if abs(v - target) < tol:
+            return i
+    return None
+
+
+i_gd = first_close(fs_gd, f_min)
+i_mo = first_close(fs_mo, f_min)
+
+print(f"f_min = {f_min:.2f}")
+print("steps to |f - f_min| < 1e-3")
+print(f"  plain GD    : {i_gd} steps")
+print(f"  momentum GD : {i_mo} steps")
+
+# --- plot --------------------------------------------------------------
 plt.figure(figsize=(6, 4))
-plt.plot(xs_plain, fs_plain, "o-", label="plain GD (η=0.01)")
-plt.plot(xs_mom, fs_mom, "s-", label="momentum GD (η=0.01, β=0.9)")
-plt.axhline(0.80234, color="gray", linewidth=0.7, linestyle="--", label="true minimum")
-plt.xlabel("x")
+plt.plot(fs_gd, label="plain GD (η=0.01)")
+plt.plot(fs_mo, label="momentum (η=0.01, β=0.9)")
+plt.axhline(f_min, color="gray", linestyle="--", linewidth=0.7, label="true minimum")
+plt.ylim(f_min - 0.1, 2.5)
+plt.xlabel("iteration")
 plt.ylabel("f(x)")
 plt.title("Momentum accelerates convergence")
 plt.legend()
 plt.tight_layout()
 plt.show()
-
-
-# ---- quick numeric summary -------------------------------------------
-def where_close(fs, tol=1e-3):
-    for i, v in enumerate(fs):
-        if abs(v - 0.802341) < tol:
-            return i
-    return None
-
-
-i_plain = where_close(fs_plain)
-i_mom = where_close(fs_mom)
-print("Steps to reach f(x)≈0.803:")
-print(f"  plain      : {i_plain} steps")
-print(f"  momentum   : {i_mom} steps")
