@@ -68,7 +68,7 @@ Simpson    ≈ 0.68268950
 Exact      = 0.68268949
 ```
 
-_Simpson_ nails 6‑figure accuracy with only 2 001 samples—handy when integrating
+_Simpson_ nails 6‑figure accuracy with only 2001 samples—handy when integrating
 likelihoods.
 
 ---
