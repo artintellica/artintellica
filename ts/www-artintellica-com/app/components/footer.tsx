@@ -5,7 +5,13 @@ export function Footer() {
     <div className="mx-auto mb-4">
       <div className="mb-4 text-center text-black text-sm dark:text-white" />
       <div className="text-center text-black/70 text-sm dark:text-white/70">
-        Copyright &copy; {new Date().getFullYear()} Identellica LLC
+        Copyright &copy; {new Date().getFullYear()}{" "}
+        <Link
+          to="https://identellica.com"
+          className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
+        >
+          Identellica LLC
+        </Link>
         <br />
         <Link
           to={href("/")}
