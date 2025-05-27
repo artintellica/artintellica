@@ -11,7 +11,7 @@
     "dev": "react-router dev --port 4058",
     "build": "cross-env NODE_ENV=production react-router build",
     "start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js",
-    "typecheck": "bun --bun react-router typegen && bun --bun safe-routes typegen && tsc",
+    "typecheck": "react-router typegen && safe-routes typegen && tsc",
     "lint": "biome lint --write --unsafe",
     "format": "biome format --write",
     "fix": "bun run typecheck && bun run lint && bun run format",
