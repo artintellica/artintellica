@@ -2,5 +2,6 @@
   "name": "artintellica",
   "private": true,
   "workspaces": ["*"],
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.11.0"
 }
