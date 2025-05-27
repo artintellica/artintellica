@@ -2,6 +2,7 @@
 title = "Calculus 2: Derivatives & Their Role in Gradient‑Based Learning"
 date  = "2025‑05‑27"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0004-calc-02-derivatives"
 +++
 
 > _“A derivative is a microscopic zoom on how a function changes; in machine
