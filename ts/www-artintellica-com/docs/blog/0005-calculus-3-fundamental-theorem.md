@@ -4,7 +4,8 @@ date   = "2025‑05‑27"
 author = "Artintellica"
 +++
 
-> *“Integrals add‑up change; derivatives read‑off change. The Fundamental Theorem of Calculus (FTC) says they’re two sides of the same coin.”*
+> _“Integrals add‑up change; derivatives read‑off change. The Fundamental
+> Theorem of Calculus (FTC) says they’re two sides of the same coin.”_
 
 ---
 
@@ -12,17 +13,17 @@ author = "Artintellica"
 
 Let $f$ be continuous on $[a,b]$.
 
-1. **Part I (differentiation form)**
-   Define $F(x)=\displaystyle\int_a^x f(t)\,dt$.
-   Then $F'(x)=f(x)$.
-2. **Part II (evaluation form)**
-   For any antiderivative $F$ of $f$,
+1. **Part I (differentiation form)** Define
+   $F(x)=\displaystyle\int_a^x f(t)\,dt$. Then $F'(x)=f(x)$.
+2. **Part II (evaluation form)** For any antiderivative $F$ of $f$,
 
    $$
    \int_a^b f(t)\,dt = F(b)-F(a).
    $$
 
-Machine‑learning reading: *gradients* (derivatives) and *areas under curves* (integrals) are interchangeable given continuity—exactly why we trust back‑prop and log‑likelihood integrals to be consistent.
+Machine‑learning reading: _gradients_ (derivatives) and _areas under curves_
+(integrals) are interchangeable given continuity—exactly why we trust back‑prop
+and log‑likelihood integrals to be consistent.
 
 ---
 
@@ -67,7 +68,8 @@ Simpson    ≈ 0.68268950
 Exact      = 0.68268949
 ```
 
-*Simpson* nails 6‑figure accuracy with only 2 001 samples—handy when integrating likelihoods.
+_Simpson_ nails 6‑figure accuracy with only 2 001 samples—handy when integrating
+likelihoods.
 
 ---
 
@@ -79,7 +81,8 @@ $$
 F(x)=\int_{0}^{x}\sin t\,dt = 1-\cos x.
 $$
 
-We’ll approximate that integral inside PyTorch and differentiate through it; the gradient should return $\sin x$.
+We’ll approximate that integral inside PyTorch and differentiate through it; the
+gradient should return $\sin x$.
 
 ```python
 # calc-03-ftc/ftc_autograd.py
@@ -118,21 +121,31 @@ Autograd recovers $\sin(1.2)$ to machine precision—FTC in action.
 
 ## 4 · Why ML Engineers Should Care
 
-* **Log‑Likelihoods & CDFs** Training energy‑based models often means integrating PDFs; the gradient w\.r.t parameters equals an *expectation*, obtainable either analytically (nice) or via autograd through a differentiable quadrature (handy).
-* **Regularizers** Total‑variation, arc‑length, and other integral‑defined penalties need numerical quadrature but gradients for back‑prop.
-* **Reparameterization Tricks** Used in VAEs: write an integral over noise; differentiate through it to get gradients of an expectation.
+- **Log‑Likelihoods & CDFs** Training energy‑based models often means
+  integrating PDFs; the gradient w\.r.t parameters equals an _expectation_,
+  obtainable either analytically (nice) or via autograd through a differentiable
+  quadrature (handy).
+- **Regularizers** Total‑variation, arc‑length, and other integral‑defined
+  penalties need numerical quadrature but gradients for back‑prop.
+- **Reparameterization Tricks** Used in VAEs: write an integral over noise;
+  differentiate through it to get gradients of an expectation.
 
 ---
 
 ## 5 · Exercises
 
-1. **Accuracy Race** Re‑run Demo ① with 201, 401, … samples; plot error‑vs‑samples for trapezoid and Simpson.
-2. **Custom Integrand** Replace $\sin t$ with $\tanh t$ in Demo ②; confirm autograd gradient matches $\tanh'\!=\!1-\tanh^{2}$.
-3. **Parameter Gradient** Let $G(μ)=\int_{-2}^{2} \mathcal N(t; μ, 1)\,dt$. Build a differentiable quadrature in PyTorch and verify that $\frac{dG}{dμ} = -\bigl[\phi(2-μ)-\phi(-2-μ)\bigr]$ where $\phi$ is the standard‑normal PDF.
+1. **Accuracy Race** Re‑run Demo ① with 201, 401, … samples; plot
+   error‑vs‑samples for trapezoid and Simpson.
+2. **Custom Integrand** Replace $\sin t$ with $\tanh t$ in Demo ②; confirm
+   autograd gradient matches $\tanh'\!=\!1-\tanh^{2}$.
+3. **Parameter Gradient** Let $G(μ)=\int_{-2}^{2} \mathcal N(t; μ, 1)\,dt$.
+   Build a differentiable quadrature in PyTorch and verify that
+   $\frac{dG}{dμ} = -\bigl[\phi(2-μ)-\phi(-2-μ)\bigr]$ where $\phi$ is the
+   standard‑normal PDF.
 
 Push solutions to `calc-03-ftc/` and tag `v0.1`.
 
 ---
 
-**Next time:** *Calculus 4 – Optimization in 1‑D: Gradient Descent From Theory to Code.*
-
+**Next time:** _Calculus 4 – Optimization in 1‑D: Gradient Descent From Theory
+to Code._
