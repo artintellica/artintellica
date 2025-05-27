@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0006-calculus-4-gradient-descent.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0006-calculus-4-gradient-descent.md",
+            "title": "Calculus 4: Gradient Descent in 1‑D — Your First Training Loop",
+            "date_modified": "2025-05-27T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0005-calculus-3-fundamental-theorem.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0005-calculus-3-fundamental-theorem.md",

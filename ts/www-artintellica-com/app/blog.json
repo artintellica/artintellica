@@ -37,5 +37,12 @@
     "date": "2025‑05‑27",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0005-calc-03-fundamental-theorem",
     "content": ""
+  },
+  {
+    "filename": "0006-calculus-4-gradient-descent.md",
+    "title": "Calculus 4: Gradient Descent in 1‑D — Your First Training Loop",
+    "author": "Artintellica",
+    "date": "2025‑05‑27",
+    "content": ""
   }
 ]
