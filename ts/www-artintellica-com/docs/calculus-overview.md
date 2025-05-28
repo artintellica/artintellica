@@ -51,18 +51,6 @@ Artintellica blog posts. Each line tells you
 
 ---
 
-## Part V – Modern/Advanced Topics
-
-| #   | Topic                                       | Code‑Lab Ideas                                                  | ML / AI Relevance                       |
-| --- | ------------------------------------------- | --------------------------------------------------------------- | --------------------------------------- |
-| 17  | **Manifold Calculus**                       | optimize on sphere with Riemannian gradient descent \[GeoTorch] | Word‑embedding norm constraints         |
-| 18  | **Measure Theory Lite**                     | discrete vs. continuous entropy; integrate via Monte Carlo      | KL divergence, VAEs                     |
-| 19  | **Stochastic Calculus**                     | simulate Brownian motion; show Itô vs. Stratonovich \[NumPy]    | Stochastic gradient Langevin dynamics   |
-| 20  | **Information Geometry / Natural Gradient** | code Fisher‑information metric for logistic reg.                | Stable training, e.g. K‑fac             |
-| 21  | **Functional Analysis & RKHS**              | implement kernel regression; visualize feature space            | Gaussian processes, attention as kernel |
-
----
-
 ### How to turn each row into a post
 
 1. **Concept intro (≈ 300 words).**
