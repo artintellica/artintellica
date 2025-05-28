@@ -124,5 +124,12 @@
     "author": "Artintellica",
     "date": "2025‑05‑28",
     "content": ""
+  },
+  {
+    "filename": "0017-calculus-15-back-prop-from-scratch.md",
+    "title": "Calculus 15: Backpropagation from Scratch — How Reverse-Mode Autodiff Works",
+    "author": "Artintellica",
+    "date": "2025‑05‑28",
+    "content": ""
   }
 ]

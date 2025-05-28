@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0017-calculus-15-back-prop-from-scratch.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0017-calculus-15-back-prop-from-scratch.md",
+            "title": "Calculus 15: Backpropagation from Scratch — How Reverse-Mode Autodiff Works",
+            "date_modified": "2025-05-28T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0016-calculus-14-calculus-of-variations.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0016-calculus-14-calculus-of-variations.md",
