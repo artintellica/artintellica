@@ -2,6 +2,7 @@
 title = "Calculus 16: Hessian-Vector Products & Newton-like Steps — Second-Order Optimization in Practice"
 date = "2025‑05‑27"
 author = "Ryan X. Charles"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0018-calc-16-second-order-methods"
 +++
 
 > _“First-order methods feel the slope; second-order methods see the
