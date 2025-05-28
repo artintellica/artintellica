@@ -104,10 +104,9 @@
   },
   {
     "filename": "0014-calculus-12-odes.md",
-    "title": "Calculus 11: Divergence, Curl, and Laplacian — Diffusion, Heat, and Curvature",
+    "title": "Calculus 12: Ordinary Differential Equations (ODEs) — Neural ODEs in Action",
     "author": "Artintellica",
     "date": "2025‑05‑28",
-    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0013-calc-11-divergence-curl-laplacian",
     "content": ""
   }
 ]
