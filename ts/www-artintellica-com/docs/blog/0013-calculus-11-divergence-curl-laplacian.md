@@ -2,6 +2,7 @@
 title = "Calculus 11: Divergence, Curl, and Laplacian — Diffusion, Heat, and Curvature"
 date  = "2025‑05‑28"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0013-calc-11-divergence-curl-laplacian"
 +++
 
 > _“The Laplacian captures the ‘flow of flow’ — the ultimate second-derivative.
