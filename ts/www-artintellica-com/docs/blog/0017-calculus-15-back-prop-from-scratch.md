@@ -2,6 +2,7 @@
 title = "Calculus 15: Backpropagation from Scratch — How Reverse-Mode Autodiff Works"
 date = "2025‑05‑28"
 author = "Artintellica"
+codde = "https://github.com/artintellica/artintellica/tree/main/py/blog-0017-calc-15-back-prop-from-scratch"
 +++
 
 > _“Backpropagation is just the chain rule, efficiently applied in reverse.”_
