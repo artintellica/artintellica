@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0016-calculus-14-calculus-of-variations.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0016-calculus-14-calculus-of-variations.md",
+            "title": "Calculus 14: Functional Derivatives — The Gradient of Regularization",
+            "date_modified": "2025-05-28T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0015-calculus-13-pdes.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0015-calculus-13-pdes.md",
