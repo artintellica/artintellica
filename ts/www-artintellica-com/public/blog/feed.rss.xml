@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 27 May 2025 23:14:42 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 May 2025 13:21:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,8 +12,8 @@
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Calculus 6: Vector Functions & the Gradient — Seeing Slopes in 2‑D]]></title>
-            <link>https://artintellica.com/blog/0007-calculus-6-vectors-and-gradient.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0007-calculus-6-vectors-and-gradient.md</guid>
+            <link>https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md</guid>
             <pubDate>Tue, 27 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Calculus 6: Vector Functions & the Gradient — Seeing Slopes in 2‑D]]></description>
         </item>
