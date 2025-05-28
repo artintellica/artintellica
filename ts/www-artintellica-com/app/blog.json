@@ -83,6 +83,14 @@
     "title": "Calculus 9: Change of Variables, Jacobians, and Normalizing Flows",
     "author": "Artintellica",
     "date": "2025‑05‑28",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0011-calc-09-change-of-variables",
+    "content": ""
+  },
+  {
+    "filename": "0012-calculus-10-line-and-surface-integrals.md",
+    "title": "Calculus 10: Line & Surface Integrals — Work, Flux, and Streamplots in Machine Learning",
+    "author": "Artintellica",
+    "date": "2025‑05‑28",
     "content": ""
   }
 ]

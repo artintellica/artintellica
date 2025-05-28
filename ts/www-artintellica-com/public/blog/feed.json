@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0012-calculus-10-line-and-surface-integrals.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0012-calculus-10-line-and-surface-integrals.md",
+            "title": "Calculus 10: Line & Surface Integrals — Work, Flux, and Streamplots in Machine Learning",
+            "date_modified": "2025-05-28T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0011-calculus-9-change-of-variables.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0011-calculus-9-change-of-variables.md",
