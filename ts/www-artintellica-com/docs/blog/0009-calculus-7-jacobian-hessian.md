@@ -4,7 +4,8 @@ date  = "2025‑05‑28"
 author = "Artintellica"
 +++
 
-> *“The gradient tells you how to step. The Hessian tells you how to **curve**.”*
+> _“The gradient tells you how to step. The Hessian tells you how to
+> **curve**.”_
 
 ---
 
@@ -12,18 +13,20 @@ author = "Artintellica"
 
 Let $f : \mathbb{R}^n \to \mathbb{R}^m$.
 
-* The **Jacobian** $J$ at $\mathbf{x}$ is the $m \times n$ matrix whose $(i, j)$ entry is $\frac{\partial f_i}{\partial x_j}$.
+- The **Jacobian** $J$ at $\mathbf{x}$ is the $m \times n$ matrix whose $(i, j)$
+  entry is $\frac{\partial f_i}{\partial x_j}$.
 
-If $f : \mathbb{R}^n \to \mathbb{R}$, the **Hessian** $H$ is the $n \times n$ matrix whose $(i, j)$ entry is $\frac{\partial^2 f}{\partial x_i \partial x_j}$.
+If $f : \mathbb{R}^n \to \mathbb{R}$, the **Hessian** $H$ is the $n \times n$
+matrix whose $(i, j)$ entry is $\frac{\partial^2 f}{\partial x_i \partial x_j}$.
 
 ---
 
 ## 2 · Why ML Engineers Care
 
-|    Concept   | Why it matters                                                                                                       |
+|   Concept    | Why it matters                                                                                                       |
 | :----------: | -------------------------------------------------------------------------------------------------------------------- |
 | **Jacobian** | How a layer/output responds to changes in all its inputs. Used in sensitivity, invertibility, and normalizing flows. |
-|  **Hessian** | Curvature of loss: used in Newton’s method, second‑order optimization, understanding saddle points.                  |
+| **Hessian**  | Curvature of loss: used in Newton’s method, second‑order optimization, understanding saddle points.                  |
 | **Spectrum** | Eigenvalues reveal flatness, sharpness, or ill‑conditioning — affecting convergence speed.                           |
 
 ---
@@ -36,8 +39,7 @@ $$
 f(\mathbf{x}) = \sigma(W\mathbf{x} + \mathbf{b})
 $$
 
-with
-$\sigma(z) = \tanh(z)$, $W$ shape $2 \times 2$, $\mathbf{b}$ shape $2$.
+with $\sigma(z) = \tanh(z)$, $W$ shape $2 \times 2$, $\mathbf{b}$ shape $2$.
 
 Let’s compute the batch Jacobian with PyTorch.
 
@@ -71,7 +73,9 @@ for i, x in enumerate(xs):
 
 ## 4 · Demo ② — Hessian Spectrum of a Small MLP Loss
 
-Let’s make a toy 2-layer MLP with scalar output, and plot the eigenvalues of its Hessian at a random input. (You’ll see how “curved” the loss is in different directions.)
+Let’s make a toy 2-layer MLP with scalar output, and plot the eigenvalues of its
+Hessian at a random input. (You’ll see how “curved” the loss is in different
+directions.)
 
 ```python
 # calc-07-jacobian-hessian/mlp_hessian_spectrum.py
@@ -122,32 +126,36 @@ plt.tight_layout()
 plt.show()
 ```
 
-*You may see positive, negative, and near‑zero eigenvalues — corresponding to convex, concave, and flat directions (“saddles”).*
+_You may see positive, negative, and near‑zero eigenvalues — corresponding to
+convex, concave, and flat directions (“saddles”)._
 
 ---
 
 ## 5 · Interpretation
 
-* **Wide range of eigenvalues** → ill‑conditioning, slow training, sharp minima.
-* **Many zero eigenvalues** → flat valleys, over‑parameterization, or symmetry.
-* **All positive** → locally convex (easy to optimize).
-* **Mixed signs** → saddles and potential slowdowns.
+- **Wide range of eigenvalues** → ill‑conditioning, slow training, sharp minima.
+- **Many zero eigenvalues** → flat valleys, over‑parameterization, or symmetry.
+- **All positive** → locally convex (easy to optimize).
+- **Mixed signs** → saddles and potential slowdowns.
 
 ---
 
 ## 6 · Exercises
 
-1. **Chain Rule**
-   For $h(x,y) = \tanh(ax + by)$ with arbitrary $a, b$, compute the Jacobian analytically and confirm numerically at several points.
-2. **Hessian of Quadratic**
-   For $f(\mathbf{x}) = \mathbf{x}^T A \mathbf{x}$ with a random symmetric $2\times2$ matrix $A$, compute its Hessian analytically and check with autograd.
-3. **Saddle Plot**
-   For $f(x,y)=x^3-3xy^2$, compute the Hessian at (0,0) and plot its eigenvalues at grid points; color-code the sign (saddle/convex/concave).
-4. **Fastest Direction**
-   In the MLP Hessian spectrum demo above, pick the largest-magnitude eigenvector and show the function’s value along that direction. Plot how “steep” or “flat” the landscape is in that direction.
+1. **Chain Rule** For $h(x,y) = \tanh(ax + by)$ with arbitrary $a, b$, compute
+   the Jacobian analytically and confirm numerically at several points.
+2. **Hessian of Quadratic** For $f(\mathbf{x}) = \mathbf{x}^T A \mathbf{x}$ with
+   a random symmetric $2\times2$ matrix $A$, compute its Hessian analytically
+   and check with autograd.
+3. **Saddle Plot** For $f(x,y)=x^3-3xy^2$, compute the Hessian at (0,0) and plot
+   its eigenvalues at grid points; color-code the sign (saddle/convex/concave).
+4. **Fastest Direction** In the MLP Hessian spectrum demo above, pick the
+   largest-magnitude eigenvector and show the function’s value along that
+   direction. Plot how “steep” or “flat” the landscape is in that direction.
 
 Put solutions in `calc-07-jacobian-hessian/` and tag `v0.1`.
 
 ---
 
-**Next:** *Calculus 8 — Chain Rule & Backpropagation: Generalizing Gradients in Neural Nets.*
+**Next:** _Calculus 8 — Chain Rule & Backpropagation: Generalizing Gradients in
+Neural Nets._
