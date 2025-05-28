@@ -2,6 +2,7 @@
 title = "Calculus 10: Line & Surface Integrals — Work, Flux, and Streamplots in Machine Learning"
 date  = "2025‑05‑28"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0012-calc-10-line-and-surface-integrals"
 +++
 
 > _“A line integral adds up little bits of work as you move along a path in a
