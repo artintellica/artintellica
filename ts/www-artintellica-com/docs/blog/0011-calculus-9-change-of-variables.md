@@ -2,6 +2,7 @@
 title = "Calculus 9: Change of Variables, Jacobians, and Normalizing Flows"
 date  = "2025‑05‑28"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0011-calc-09-change-of-variables"
 +++
 
 > _“To model new distributions, we transform simple ones. The math: Jacobians
