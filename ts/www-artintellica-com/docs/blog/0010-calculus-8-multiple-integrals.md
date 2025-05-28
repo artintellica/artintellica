@@ -2,6 +2,7 @@
 title = "Calculus 8: Multiple Integrals — Monte Carlo Meets the Multivariate Gaussian"
 date  = "2025‑05‑28"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0010-calc-08-multiple-integrals"
 +++
 
 > _“When integrals get high‑dimensional, randomness is your friend.”_
