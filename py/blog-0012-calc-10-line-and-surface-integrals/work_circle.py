@@ -17,7 +17,7 @@ Fs = np.stack([F(x, y) for x, y in r])
 
 # Compute dot(F, dr/dt) at each t
 dots = np.sum(Fs * drdt, axis=1)
-work = np.trapz(dots, t)
+work = np.trapezoid(dots, t)
 print(f"Work along circle: {work:.5f} (analytic = {2 * np.pi:.5f})")
 
 # --- Plot field, path, streamplot
