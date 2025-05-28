@@ -2,6 +2,7 @@
 title = "Calculus 6: Vector Functions & the Gradient — Seeing Slopes in 2‑D"
 date  = "2025‑05‑27"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0008-calc-06-vector-functions"
 +++
 
 > _“In 1‑D the derivative is a number. In many‑D it becomes a **vector**
