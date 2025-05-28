@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0007-calculus-6-vectors-and-gradient.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0007-calculus-6-vectors-and-gradient.md",
+            "title": "Calculus 6: Vector Functions & the Gradient — Seeing Slopes in 2‑D",
+            "date_modified": "2025-05-27T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0007-calculus-5-taylor-series.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0007-calculus-5-taylor-series.md",
