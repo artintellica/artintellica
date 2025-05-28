@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0019-calculus-overview.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0019-calculus-overview.md",
+            "title": "Calculus Overview: From Limits to Hessians — a Machine‑Learning‑Centric Journey through Calculus",
+            "date_modified": "2025-05-28T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0018-calculus-16-second-order-methods.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0018-calculus-16-second-order-methods.md",
