@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0010-calculus-8-multiple-integrals.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0010-calculus-8-multiple-integrals.md",
+            "title": "Calculus 8: Multiple Integrals — Monte Carlo Meets the Multivariate Gaussian",
+            "date_modified": "2025-05-28T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0009-calculus-7-jacobian-hessian.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0009-calculus-7-jacobian-hessian.md",
