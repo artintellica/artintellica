@@ -2,6 +2,7 @@
 title = "Calculus 12: Ordinary Differential Equations (ODEs) — Neural ODEs in Action"
 date  = "2025‑05‑28"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0014-calc-12-odes"
 +++
 
 > _“In a Neural ODE, the network defines the velocity. Learning is learning the
