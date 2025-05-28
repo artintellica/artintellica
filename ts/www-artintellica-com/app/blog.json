@@ -109,5 +109,12 @@
     "date": "2025‑05‑28",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0014-calc-12-odes",
     "content": ""
+  },
+  {
+    "filename": "0015-calculus-13-pdes.md",
+    "title": "Calculus 13: Partial Differential Equations (PDEs) — Simulating the Wave Equation",
+    "author": "Ryan X. Charles",
+    "date": "2025‑05‑27",
+    "content": ""
   }
 ]
