@@ -1,6 +1,6 @@
 +++
 title = "Calculus 16: Hessian-Vector Products & Newton-like Steps — Second-Order Optimization in Practice"
-date = "2025‑05‑27"
+date = "2025‑05‑28"
 author = "Ryan X. Charles"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0018-calc-16-second-order-methods"
 +++
