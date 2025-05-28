@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Wed, 28 May 2025 22:34:32 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 May 2025 22:35:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -42,7 +42,7 @@
             <title><![CDATA[Calculus 13: Partial Differential Equations (PDEs) — Simulating the Wave Equation]]></title>
             <link>https://artintellica.com/blog/0015-calculus-13-pdes.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0015-calculus-13-pdes.md</guid>
-            <pubDate>Tue, 27 May 2025 07:00:00 GMT</pubDate>
+            <pubDate>Wed, 28 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Calculus 13: Partial Differential Equations (PDEs) — Simulating the Wave Equation]]></description>
         </item>
         <item>

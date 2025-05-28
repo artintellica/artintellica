@@ -113,8 +113,8 @@
   {
     "filename": "0015-calculus-13-pdes.md",
     "title": "Calculus 13: Partial Differential Equations (PDEs) — Simulating the Wave Equation",
-    "author": "Ryan X. Charles",
-    "date": "2025‑05‑27",
+    "author": "Artintellica",
+    "date": "2025‑05‑28",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0015-calc-13-pdes",
     "content": ""
   },
@@ -135,7 +135,7 @@
   {
     "filename": "0018-calculus-16-second-order-methods.md",
     "title": "Calculus 16: Hessian-Vector Products & Newton-like Steps — Second-Order Optimization in Practice",
-    "author": "Ryan X. Charles",
+    "author": "Artintellica",
     "date": "2025‑05‑28",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0018-calc-16-second-order-methods",
     "content": ""

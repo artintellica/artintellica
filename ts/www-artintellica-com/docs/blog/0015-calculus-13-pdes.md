@@ -1,7 +1,7 @@
 +++
 title = "Calculus 13: Partial Differential Equations (PDEs) — Simulating the Wave Equation"
-date  = "2025‑05‑27"
-author = "Ryan X. Charles"
+date  = "2025‑05‑28"
+author = "Artintellica"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0015-calc-13-pdes"
 +++
 
