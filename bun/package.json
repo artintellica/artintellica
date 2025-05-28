@@ -1,6 +1,0 @@
-{
-  "name": "artintellica",
-  "private": true,
-  "workspaces": ["*"],
-  "version": "0.0.1"
-}
