@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0009-calculus-7-jacobian-hessian.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0009-calculus-7-jacobian-hessian.md",
+            "title": "Calculus 7: Jacobian & Hessian — Second-Order Structure for Smarter Learning",
+            "date_modified": "2025-05-28T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md",
