@@ -20,7 +20,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
         content: "",
       };
     })
-    .sort((a, b) => a.date.localeCompare(b.date))
+    .sort((a, b) => a.filename.localeCompare(b.filename))
     .reverse();
 
   const blogPost = newBlogPosts.find((post) => post.filename === `${filename}`);
@@ -37,7 +37,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
 
   // get five most recent blog posts before this one
   const recentBlogPosts = newBlogPosts
-    .filter((post) => post.date < blogPost.date)
+    .filter((post) => post.filename.localeCompare(filename) < 0)
     .slice(0, 5);
 
   return { blogPost, recentBlogPosts };
