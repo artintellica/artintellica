@@ -16,14 +16,17 @@ alpha, beta = -0.4, 1.2
 t = torch.linspace(0, 7, 160)
 h0 = torch.tensor([2.0, 0.7])
 
+
 def true_field(t, h):
     x, y = h[..., 0], h[..., 1]
     dx = alpha * x - beta * y
     dy = beta * x + alpha * y
     return torch.stack([dx, dy], -1)
 
+
 with torch.no_grad():
     true_traj = odeint(true_field, h0, t)
+
 
 # --- Neural ODE with time input
 class TimeVaryingODEFunc(torch.nn.Module):
@@ -34,12 +37,14 @@ class TimeVaryingODEFunc(torch.nn.Module):
             torch.nn.Tanh(),
             torch.nn.Linear(32, 2),
         )
+
     def forward(self, t, h):
         # h: shape (..., 2), t: scalar
         # Expand t to match batch dimension
         t_ = t * torch.ones_like(h[..., :1])
         inp = torch.cat([h, t_], dim=-1)
         return self.net(inp)
+
 
 odefunc = TimeVaryingODEFunc()
 optimizer = torch.optim.Adam(odefunc.parameters(), lr=0.01)
@@ -56,8 +61,15 @@ for epoch in range(250):
 
 # --- Plot
 plt.plot(true_traj[:, 0], true_traj[:, 1], label="True Spiral", lw=3)
-plt.plot(pred_traj.detach()[:, 0], pred_traj.detach()[:, 1], "--", label="Neural ODE (with t)", lw=2)
-plt.xlabel("x"); plt.ylabel("y")
+plt.plot(
+    pred_traj.detach()[:, 0],
+    pred_traj.detach()[:, 1],
+    "--",
+    label="Neural ODE (with t)",
+    lw=2,
+)
+plt.xlabel("x")
+plt.ylabel("y")
 plt.title("Neural ODE with Time-Varying Field (input t)")
 plt.legend()
 plt.axis("equal")
