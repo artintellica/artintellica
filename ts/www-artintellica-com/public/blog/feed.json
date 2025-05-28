@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0013-calculus-11-divergence-curl-laplacian.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0013-calculus-11-divergence-curl-laplacian.md",
+            "title": "Calculus 11: Divergence, Curl, and Laplacian — Diffusion, Heat, and Curvature",
+            "date_modified": "2025-05-28T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0012-calculus-10-line-and-surface-integrals.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0012-calculus-10-line-and-surface-integrals.md",
