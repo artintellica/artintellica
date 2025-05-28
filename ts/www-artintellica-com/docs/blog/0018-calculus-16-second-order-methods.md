@@ -2,7 +2,6 @@
 title = "Calculus 16: Hessian-Vector Products & Newton-like Steps — Second-Order Optimization in Practice"
 date = "2025‑05‑27"
 author = "Ryan X. Charles"
-description = "Explore how Hessian-vector products enable Newton’s method and quasi-Newton (L‑BFGS) steps. Compare convergence of SGD and L‑BFGS, and learn how second-order information can speed up optimization."
 +++
 
 > _“First-order methods feel the slope; second-order methods see the
