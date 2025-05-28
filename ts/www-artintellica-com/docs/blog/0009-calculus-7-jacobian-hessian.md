@@ -2,6 +2,7 @@
 title = "Calculus 7: Jacobian & Hessian — Second-Order Structure for Smarter Learning"
 date  = "2025‑05‑28"
 author = "Artintellica"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0009-calc-07-jacobian-hessian"
 +++
 
 > _“The gradient tells you how to step. The Hessian tells you how to
