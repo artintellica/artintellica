@@ -38,3 +38,13 @@ print("x:", x.detach().numpy())
 print("f⁻¹(x):", f_inv(x).detach().numpy())
 print("log|det Jacobian|:", log_det_jacobian().item())
 print("log-prob(x):", log_prob_x(x).item())
+
+
+def autograd_logdet(x):
+    x = x.clone().detach().requires_grad_(True)
+    # z = f_inv(x)
+    J = torch.autograd.functional.jacobian(f_inv, x)
+    return torch.log(torch.abs(torch.det(J)))
+
+
+print("Autograd log|det J|:", autograd_logdet(x).item())
