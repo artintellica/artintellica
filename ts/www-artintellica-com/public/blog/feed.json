@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0025-linalg-06-norms.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0025-linalg-06-norms.md",
+            "title": "Linear Algebra for Machine Learning, Part 6: Norms and Distances",
+            "date_modified": "2025-05-29T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0024-linalg-05-linear-independence.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0024-linalg-05-linear-independence.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0006-calculus-4-gradient-descent.md",
             "title": "Calculus 4: Gradient Descent in 1‑D — Your First Training Loop",
-            "date_modified": "2025-05-27T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0005-calculus-3-fundamental-theorem.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0005-calculus-3-fundamental-theorem.md",
-            "title": "Calculus 3: The Fundamental Theorem & Why Integrals and Derivatives Matter in ML",
             "date_modified": "2025-05-27T07:00:00.000Z"
         }
     ]

@@ -186,5 +186,12 @@
     "date": "2025-05-29",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0024-linalg-05-linear-independence",
     "content": ""
+  },
+  {
+    "filename": "0025-linalg-06-norms.md",
+    "title": "Linear Algebra for Machine Learning, Part 6: Norms and Distances",
+    "author": "Artintellica",
+    "date": "2025-05-29",
+    "content": ""
   }
 ]

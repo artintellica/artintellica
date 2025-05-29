@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-05-29T21:36:22.767Z</updated>
+    <updated>2025-05-29T21:41:35.059Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 6: Norms and Distances]]></title>
+        <id>https://artintellica.com/blog/0025-linalg-06-norms.md</id>
+        <link href="https://artintellica.com/blog/0025-linalg-06-norms.md"/>
+        <updated>2025-05-29T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 6: Norms and Distances]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 5: Linear Independence and Span]]></title>
         <id>https://artintellica.com/blog/0024-linalg-05-linear-independence.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0006-calculus-4-gradient-descent.md"/>
         <updated>2025-05-27T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Calculus 4: Gradient Descent in 1‑D — Your First Training Loop]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Calculus 3: The Fundamental Theorem & Why Integrals and Derivatives Matter in ML]]></title>
-        <id>https://artintellica.com/blog/0005-calculus-3-fundamental-theorem.md</id>
-        <link href="https://artintellica.com/blog/0005-calculus-3-fundamental-theorem.md"/>
-        <updated>2025-05-27T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Calculus 3: The Fundamental Theorem & Why Integrals and Derivatives Matter in ML]]></summary>
     </entry>
 </feed>
