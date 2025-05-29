@@ -227,7 +227,8 @@ the next post!
 
 1. **Vector Operations**: Write a Python function that takes two NumPy arrays
    (vectors) and returns their sum and the scaled version of the first vector by
-   a scalar input. Test it with $ \mathbf{u} = [4, 1] $, $ \mathbf{v} = [-2, 3]
+   a scalar input. Test it with $ \mathbf{u} = [4, 1]
+   $, $ \mathbf{v} = [-2, 3]
    $, and scalar $ c = 3 $.
 2. **Visualization**: Modify the 2D plotting code to include a third vector that
    is the scaled version of $ \mathbf{u} $. Adjust the plot limits if needed.
