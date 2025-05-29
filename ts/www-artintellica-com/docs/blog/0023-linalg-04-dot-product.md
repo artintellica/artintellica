@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 4: Dot Product and Cosine Similarity"
 author = "Artintellica"
 date = "2025-05-29"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0023-linalg-04-dot-product"
 +++
 
 Welcome to the fourth post in our series on **Linear Algebra for Machine
