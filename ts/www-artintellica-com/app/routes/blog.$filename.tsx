@@ -42,7 +42,8 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
 
   const nextBlogPosts = newBlogPosts
     .filter((post) => post.filename.localeCompare(filename) > 0)
-    .slice(0, 5);
+    .slice(0, 5)
+    .reverse();
 
   return { blogPost, recentBlogPosts, nextBlogPosts };
 };
@@ -56,7 +57,7 @@ export const meta = ({ data }: Route.MetaArgs) => {
 };
 
 export default function BlogIndex({ loaderData }: Route.ComponentProps) {
-  const { blogPost, recentBlogPosts } = loaderData;
+  const { blogPost, recentBlogPosts, nextBlogPosts } = loaderData;
   return (
     <div>
       <div className="mx-auto my-4 block aspect-square w-[120px]">
@@ -93,8 +94,32 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
         </div>
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
-      <div className="mx-auto my-4 max-w-[600px]">
-        <div>
+      {nextBlogPosts.length > 0 && (
+        <div className="mx-auto my-4 max-w-[600px]">
+          <h2 className="my-4 text-center font-bold text-black text-xl dark:text-white">
+            Next Blog Posts
+          </h2>
+          <div>
+            <div className="mb-4 text-black dark:text-white">
+              {nextBlogPosts.map((post) => (
+                <div key={post.filename} className="mb-4">
+                  <Link
+                    to={href("/blog/:filename", { filename: post.filename })}
+                    className="border-b border-b-blue font-semibold text-lg leading-3 hover:border-b-black dark:hover:border-b-white"
+                  >
+                    {post.title}
+                  </Link>
+                  <div className="text-black/60 text-sm dark:text-white/60">
+                    {post.date} &middot; {post.author}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {recentBlogPosts.length > 0 && (
+        <div className="mx-auto my-4 max-w-[600px]">
           <h2 className="my-4 text-center font-bold text-black text-xl dark:text-white">
             Earlier Blog Posts
           </h2>
@@ -116,7 +141,7 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
             </div>
           </div>
         </div>
-      </div>
+      )}
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
       <div className="text-center text-black dark:text-white">
         <Link
