@@ -17,6 +17,9 @@ gram_matrix = vectors.T @ vectors
 # Compute determinant
 det_gram = np.linalg.det(gram_matrix)
 
+# Check if determinant is close to zero (within numerical tolerance)
+is_independent = not np.isclose(det_gram, 0, atol=1e-10)
+
 # Print results
 print("Vector v1:", v1)
 print("Vector v2:", v2)
@@ -24,9 +27,7 @@ print("Vector v3:", v3)
 print("\nVectors as matrix (2x3):\n", vectors)
 print("\nGram matrix (3x3):\n", gram_matrix)
 print("\nDeterminant of Gram matrix:", det_gram)
-print("\nLinearly independent?", det_gram != 0)
-
-# Note about three 2D vectors
+print("\nLinearly independent?", is_independent)
 print(
     "\nNote: Three 2D vectors are always linearly dependent in R^2, as the dimension is 2."
 )
