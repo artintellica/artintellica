@@ -29,7 +29,7 @@ A = \begin{bmatrix} a*{11} & a*{12} & \cdots & a*{1n} \\ a*{21} & a*{22} &
 & a\_{mn} \end{bmatrix}
 $$
 
-Each element $ a\_{ij} $ is a scalar, where $ i $ is the row index and $ j $ is
+Each element $ a_{ij} $ is a scalar, where $ i $ is the row index and $ j $ is
 the column index. In ML, matrices are used to:
 
 - **Represent Data**: Datasets (e.g., rows as samples, columns as features) or
