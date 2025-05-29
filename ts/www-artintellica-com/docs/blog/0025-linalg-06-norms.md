@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-05-29"
 +++
 
-# Linear Algebra for Machine Learning, Part 6: Norms and Distances
-
 Welcome to the sixth post in our series on **Linear Algebra for Machine
 Learning**! After exploring linear independence and span, we now turn to
 **norms** and **distances**, essential tools for quantifying vector magnitudes
