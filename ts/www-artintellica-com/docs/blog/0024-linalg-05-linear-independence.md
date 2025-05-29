@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 5: Linear Independence and Span"
 author = "Artintellica"
 date = "2025-05-29"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0024-linalg-05-linear-independence"
 +++
 
 Welcome to the fifth post in our series on **Linear Algebra for Machine
