@@ -19,24 +19,28 @@ visualizations and Python exercises to solidify your understanding.
 
 ### Dot Product
 
-The **dot product** of two vectors \( \mathbf{u} = [u_1, u_2, \dots, u_n] \) and
-\( \mathbf{v} = [v_1, v_2, \dots, v_n] \) in \( \mathbb{R}^n \) is a scalar
-computed as:
+The **dot product** of two vectors $ \mathbf{u} = [u_1, u_2, \dots, u_n] $ and $
+\mathbf{v} = [v_1, v_2, \dots, v_n] $ in $ \mathbb{R}^n $ is a scalar computed
+as:
 
-\[ \mathbf{u} \cdot \mathbf{v} = u*1 v_1 + u_2 v_2 + \dots + u_n v_n =
-\sum*{i=1}^n u_i v_i \]
+$$
+ \mathbf{u} \cdot \mathbf{v} = u*1 v_1 + u_2 v_2 + \dots + u_n v_n =
+\sum*{i=1}^n u_i v_i
+$$
 
-Geometrically, the dot product relates to the angle \( \theta \) between the
+Geometrically, the dot product relates to the angle $ \theta $ between the
 vectors:
 
-\[ \mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos \theta \]
+$$
+ \mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos \theta
+$$
 
-where \( \|\mathbf{u}\| = \sqrt{u_1^2 + \dots + u_n^2} \) is the Euclidean norm
-(length) of \( \mathbf{u} \). The dot product is:
+where $ \|\mathbf{u}\| = \sqrt{u_1^2 + \dots + u_n^2} $ is the Euclidean norm
+(length) of $ \mathbf{u} $. The dot product is:
 
-- Positive if \( \theta < 90^\circ \) (vectors point in similar directions).
-- Zero if \( \theta = 90^\circ \) (vectors are orthogonal).
-- Negative if \( \theta > 90^\circ \) (vectors point in opposite directions).
+- Positive if $ \theta < 90^\circ $ (vectors point in similar directions).
+- Zero if $ \theta = 90^\circ $ (vectors are orthogonal).
+- Negative if $ \theta > 90^\circ $ (vectors point in opposite directions).
 
 The dot product also represents the **projection** of one vector onto another,
 scaled by the length of the second vector.
@@ -46,14 +50,16 @@ scaled by the length of the second vector.
 **Cosine similarity** measures the cosine of the angle between two vectors,
 focusing on their directional similarity, regardless of magnitude:
 
-\[ \text{cosine_similarity}(\mathbf{u}, \mathbf{v}) = \cos \theta =
-\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|} \]
+$$
+ \text{cosine\_similarity}(\mathbf{u}, \mathbf{v}) = \cos \theta =
+\frac{\mathbf{u} \cdot \mathbf{v}}{|\mathbf{u}| |\mathbf{v}|}
+$$
 
 The value ranges from:
 
-- \( 1 \): Vectors are identical in direction (\( \theta = 0^\circ \)).
-- \( 0 \): Vectors are orthogonal (\( \theta = 90^\circ \)).
-- \( -1 \): Vectors are opposite (\( \theta = 180^\circ \)).
+- $ 1 $: Vectors are identical in direction ($ \theta = 0^\circ $).
+- $ 0 $: Vectors are orthogonal ($ \theta = 90^\circ $).
+- $ -1 $: Vectors are opposite ($ \theta = 180^\circ $).
 
 Cosine similarity is widely used in ML because it’s robust to vector magnitude,
 making it ideal for comparing high-dimensional data like word embeddings.
@@ -143,7 +149,7 @@ Vector v: [3 1]
 Dot product u · v: 5
 ```
 
-This computes \( \mathbf{u} \cdot \mathbf{v} = 1 \cdot 3 + 2 \cdot 1 = 5 \) and
+This computes $ \mathbf{u} \cdot \mathbf{v} = 1 \cdot 3 + 2 \cdot 1 = 5 $ and
 plots the vectors to show their directional relationship.
 
 ### Cosine Similarity with NumPy
@@ -172,8 +178,8 @@ Norm of v: 3.1622776601683795
 Cosine similarity: 0.7071067811865475
 ```
 
-This computes \( \cos \theta \approx 0.707 \), indicating the angle between \(
-\mathbf{u} \) and \( \mathbf{v} \) is about \( 45^\circ \).
+This computes $ \cos \theta \approx 0.707 $, indicating the angle between $
+\mathbf{u} $ and $ \mathbf{v} $ is about $ 45^\circ $.
 
 ### Cosine Similarity with PyTorch
 
@@ -238,9 +244,8 @@ Cosine similarity u, v2: 0.8944271909999159
 Cosine similarity u, v3: -0.4472135954999579
 ```
 
-This shows how cosine similarity reflects directional relationships, with \( v1
-\) being somewhat similar, \( v2 \) nearly orthogonal, and \( v3 \) opposite to
-\( u \).
+This shows how cosine similarity reflects directional relationships, with $ v1 $
+being somewhat similar, $ v2 $ nearly orthogonal, and $ v3 $ opposite to $ u $.
 
 ---
 
@@ -263,10 +268,12 @@ discussed in the next post!
 5. **Word Vector Similarity**: Create a small dictionary of 3 “word” vectors
    (3D, random values). Compute pairwise cosine similarities using NumPy and
    print a similarity matrix.
-6. **Projection**: Compute the projection of vector \( \mathbf{u} = [1, 2] \)
-   onto \( \mathbf{v} = [3, 1] \) using the formula \( \text{proj}\_{\mathbf{v}}
+6. **Projection**: Compute the projection of vector $ \mathbf{u} = [1, 2]
+   $
+   onto $ \mathbf{v} = [3, 1] $ using the formula $ \text{proj}\_{\mathbf{v}}
    \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2} \mathbf{v}
-   \). Plot \( \mathbf{u} \), \( \mathbf{v} \), and the projection in 2D.
+   $.
+   Plot $ \mathbf{u} $, $ \mathbf{v} $, and the projection in 2D.
 
 ---
 
