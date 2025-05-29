@@ -40,7 +40,11 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
     .filter((post) => post.filename.localeCompare(filename) < 0)
     .slice(0, 5);
 
-  return { blogPost, recentBlogPosts };
+  const nextBlogPosts = newBlogPosts
+    .filter((post) => post.filename.localeCompare(filename) > 0)
+    .slice(0, 5);
+
+  return { blogPost, recentBlogPosts, nextBlogPosts };
 };
 
 export const meta = ({ data }: Route.MetaArgs) => {
