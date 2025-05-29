@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Thu, 29 May 2025 23:04:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 29 May 2025 23:12:12 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <title><![CDATA[Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections]]></title>
             <link>https://artintellica.com/blog/0026-linalg-07-orthogonality.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0026-linalg-07-orthogonality.md</guid>
-            <pubDate>Sun, 29 Jun 2025 07:00:00 GMT</pubDate>
+            <pubDate>Thu, 29 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections]]></description>
         </item>
         <item>

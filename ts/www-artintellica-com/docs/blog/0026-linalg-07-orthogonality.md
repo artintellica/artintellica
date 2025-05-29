@@ -1,7 +1,7 @@
 +++
 title = "Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections"
 author = "Artintellica"
-date = "2025-06-29"
+date = "2025-05-29"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0026-linalg-07-orthogonality"
 +++
 
