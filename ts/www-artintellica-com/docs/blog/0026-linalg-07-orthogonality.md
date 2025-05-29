@@ -5,8 +5,6 @@ date = "2025-06-29"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0026-linalg-07-orthogonality"
 +++
 
-# Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections
-
 Welcome to the seventh post in our series on **Linear Algebra for Machine
 Learning**, kicking off Part II: Core Theorems and Algorithms! After exploring
 norms and distances, we now dive into **orthogonality** and **projections**,
