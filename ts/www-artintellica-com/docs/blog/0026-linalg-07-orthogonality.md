@@ -13,46 +13,46 @@ Welcome to the seventh post in our series on **Linear Algebra for Machine Learni
 ## The Math: Orthogonality and Projections
 
 ### Orthogonality
-Two vectors \( \mathbf{u}, \mathbf{v} \in \mathbb{R}^n \) are **orthogonal** if their dot product is zero:
+Two vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ are **orthogonal** if their dot product is zero:
 
-\[
+$$
 \mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^n u_i v_i = 0
-\]
+$$
 
-Geometrically, orthogonal vectors are perpendicular (form a 90° angle). A set of vectors is **orthonormal** if they are pairwise orthogonal and each has a unit length (\( \|\mathbf{v}_i\|_2 = 1 \)). For an orthonormal set \( \{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_k\} \):
+Geometrically, orthogonal vectors are perpendicular (form a 90° angle). A set of vectors is **orthonormal** if they are pairwise orthogonal and each has a unit length ($\|\mathbf{v}_i\|_2 = 1$). For an orthonormal set $\{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_k\}$:
 
-\[
+$$
 \mathbf{u}_i \cdot \mathbf{u}_j = \begin{cases} 
 1 & \text{if } i = j \\
 0 & \text{if } i \neq j 
 \end{cases}
-\]
+$$
 
 ### Projections
-The **projection** of a vector \( \mathbf{u} \) onto a vector \( \mathbf{v} \) is the vector along \( \mathbf{v} \)’s direction that is closest to \( \mathbf{u} \):
+The **projection** of a vector $\mathbf{u}$ onto a vector $\mathbf{v}$ is the vector along $\mathbf{v}$’s direction that is closest to $\mathbf{u}$:
 
-\[
+$$
 \text{proj}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|_2^2} \mathbf{v}
-\]
+$$
 
-If \( \mathbf{v} \) is a unit vector (\( \|\mathbf{v}\|_2 = 1 \)), this simplifies to:
+If $\mathbf{v}$ is a unit vector ($\|\mathbf{v}\|_2 = 1$), this simplifies to:
 
-\[
+$$
 \text{proj}_{\mathbf{v}} \mathbf{u} = (\mathbf{u} \cdot \mathbf{v}) \mathbf{v}
-\]
+$$
 
-The vector \( \mathbf{u} - \text{proj}_{\mathbf{v}} \mathbf{u} \) is orthogonal to \( \mathbf{v} \), enabling error decomposition.
+The vector $\mathbf{u} - \text{proj}_{\mathbf{v}} \mathbf{u}$ is orthogonal to $\mathbf{v}$, enabling error decomposition.
 
 ### Gram-Schmidt Process
-The **Gram-Schmidt process** transforms a set of linearly independent vectors \( \{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k\} \) into an orthonormal set \( \{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_k\} \):
+The **Gram-Schmidt process** transforms a set of linearly independent vectors $\{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k\}$ into an orthonormal set $\{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_k\}$:
 
-1. Start with \( \mathbf{u}_1 = \frac{\mathbf{v}_1}{\|\mathbf{v}_1\|_2} \).
-2. For each \( i = 2, \dots, k \):
+1. Start with $\mathbf{u}_1 = \frac{\mathbf{v}_1}{\|\mathbf{v}_1\|_2}$.
+2. For each $i = 2, \dots, k$:
    - Compute the orthogonal vector:
-     \[
+     $$
      \mathbf{w}_i = \mathbf{v}_i - \sum_{j=1}^{i-1} (\mathbf{v}_i \cdot \mathbf{u}_j) \mathbf{u}_j
-     \]
-   - Normalize: \( \mathbf{u}_i = \frac{\mathbf{w}_i}{\|\mathbf{w}_i\|_2} \).
+$$
+   - Normalize: $\mathbf{u}_i = \frac{\mathbf{w}_i}{\|\mathbf{w}_i\|_2}$.
 
 This produces an orthonormal basis for the span of the original vectors.
 
@@ -134,7 +134,7 @@ Dot product u · v: 0
 Orthogonal? True
 ```
 
-This confirms \( \mathbf{u} \) and \( \mathbf{v} \) are orthogonal (dot product = 0) and visualizes their perpendicularity.
+This confirms $\mathbf{u}$ and $\mathbf{v}$ are orthogonal (dot product = 0) and visualizes their perpendicularity.
 
 ### Projection
 Let’s project a vector onto another:
@@ -170,7 +170,7 @@ Vector v: [3 1]
 Projection of u onto v: [1.5 0.5]
 ```
 
-This computes \( \text{proj}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|_2^2} \mathbf{v} \), projecting \( \mathbf{u} \) onto \( \mathbf{v} \), and plots the result along \( \mathbf{v} \)’s direction.
+This computes $\text{proj}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|_2^2} \mathbf{v}$, projecting $\mathbf{u}$ onto $\mathbf{v}$, and plots the result along $\mathbf{v}$’s direction.
 
 ### Gram-Schmidt Process
 Let’s apply Gram-Schmidt to create an orthonormal basis:
@@ -212,7 +212,7 @@ Norm u1: 1.0
 Norm u2: 1.0
 ```
 
-This applies Gram-Schmidt to \( \mathbf{v}_1, \mathbf{v}_2 \), producing orthonormal vectors \( \mathbf{u}_1, \mathbf{u}_2 \), and verifies orthogonality (dot product ≈ 0) and unit length.
+This applies Gram-Schmidt to $\mathbf{v}_1, \mathbf{v}_2$, producing orthonormal vectors $\mathbf{u}_1, \mathbf{u}_2$, and verifies orthogonality (dot product ≈ 0) and unit length.
 
 ### PyTorch: Projection
 Let’s compute a projection in PyTorch:
@@ -247,11 +247,11 @@ This confirms PyTorch’s projection matches NumPy’s.
 Try these Python exercises to deepen your understanding. Solutions will be discussed in the next post!
 
 1. **Orthogonality Check**: Create three 2D vectors with random integers between -5 and 5 using NumPy. Check pairwise orthogonality by computing dot products.
-2. **Projection Calculation**: Compute the projection of \( \mathbf{u} = [2, 3] \) onto \( \mathbf{v} = [1, 1] \) using NumPy. Visualize \( \mathbf{u} \), \( \mathbf{v} \), and the projection in 2D.
+2. **Projection Calculation**: Compute the projection of $\mathbf{u} = [2, 3]$ onto $\mathbf{v} = [1, 1]$ using NumPy. Visualize $\mathbf{u}$, $\mathbf{v}$, and the projection in 2D.
 3. **PyTorch Projection**: Convert the vectors from Exercise 2 to PyTorch tensors, compute the projection, and verify it matches NumPy’s.
-4. **Gram-Schmidt Process**: Apply Gram-Schmidt to two 2D vectors of your choice (e.g., \( [2, 1] \), \( [1, 2] \)). Verify the resulting vectors are orthonormal and plot them.
-5. **Error Decomposition**: Compute the projection of \( \mathbf{u} = [1, 2] \) onto \( \mathbf{v} = [3, 1] \), then find the orthogonal error vector \( \mathbf{u} - \text{proj}_{\mathbf{v}} \mathbf{u} \). Verify it’s orthogonal to \( \mathbf{v} \).
-6. **Orthonormal Basis**: Create a \( 3 \times 3 \) matrix with random integers. Apply Gram-Schmidt to its columns to form an orthonormal basis, and verify orthonormality.
+4. **Gram-Schmidt Process**: Apply Gram-Schmidt to two 2D vectors of your choice (e.g., $[2, 1]$, $[1, 2]$). Verify the resulting vectors are orthonormal and plot them.
+5. **Error Decomposition**: Compute the projection of $\mathbf{u} = [1, 2]$ onto $\mathbf{v} = [3, 1]$, then find the orthogonal error vector $\mathbf{u} - \text{proj}_{\mathbf{v}} \mathbf{u}$. Verify it’s orthogonal to $\mathbf{v}$.
+6. **Orthonormal Basis**: Create a $3 \times 3$ matrix with random integers. Apply Gram-Schmidt to its columns to form an orthonormal basis, and verify orthonormality.
 
 ---
 
