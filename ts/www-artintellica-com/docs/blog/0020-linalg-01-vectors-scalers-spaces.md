@@ -2,7 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 1: Vectors, Scalars, and Spaces: The Language of Machine Learning"
 author = "Artintellica"
 date = "2025-05-29"
-code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0019-linalg-01-vectors-scalers-spaces"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0020-linalg-01-vectors-scalers-spaces"
 +++
 
 Welcome to the first post in our series on **Linear Algebra for Machine
