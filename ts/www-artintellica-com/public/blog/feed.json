@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0020-linalg-01-vectors-scalers-spaces.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0020-linalg-01-vectors-scalers-spaces.md",
+            "title": "Linear Algebra 1: Vectors, Scalars, and Spaces: The Language of Machine Learning",
+            "date_modified": "2025-05-29T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0019-calculus-overview.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0019-calculus-overview.md",

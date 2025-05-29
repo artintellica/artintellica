@@ -1,5 +1,5 @@
 +++
-title = "Vectors, Scalars, and Spaces: The Language of Machine Learning"
+title = "Linear Algebra 1: Vectors, Scalars, and Spaces: The Language of Machine Learning"
 author = "Artintellica"
 date = "2025-05-29"
 +++
@@ -133,23 +133,23 @@ print("PyTorch vector:", v_torch)
 
 **1. Practice: Create and Plot Vectors**
 
-- Using NumPy, create a vector \$\vec{a} = \[4, -2]\$ and plot it as an arrow
-  from the origin in 2D.
+- Using NumPy, create a vector $\vec{a} = [4, -2]$ and plot it as an arrow from
+  the origin in 2D.
 
 **2. ML Context: Feature Vectors**
 
-- The classic _Iris_ dataset in sklearn is \$4\$-dimensional. Load the dataset
-  and print the shape of the data. How many samples? What is the dimensionality?
+- The classic _Iris_ dataset in sklearn is $4$-dimensional. Load the dataset and
+  print the shape of the data. How many samples? What is the dimensionality?
 
 **3. Code Challenge: Random Vectors**
 
-- Generate \$1000\$ random 3D vectors using NumPy. Compute the average (mean)
+- Generate $1000$ random 3D vectors using NumPy. Compute the average (mean)
   vector.
 
 **4. PyTorch Tensor Practice**
 
-- Create a PyTorch tensor with values $\[10, 20, 30]\$. Multiply it by \$0.1\$
-  and print the result.
+- Create a PyTorch tensor with values $[10, 20, 30]$. Multiply it by $0.1$ and
+  print the result.
 
 ---
 
