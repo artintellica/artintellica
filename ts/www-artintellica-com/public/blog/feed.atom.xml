@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-05-29T16:31:59.191Z</updated>
+    <updated>2025-05-29T16:36:21.794Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -15,11 +15,18 @@
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
     <entry>
-        <title type="html"><![CDATA[Linear Algebra 1: Vectors, Scalars, and Spaces: The Language of Machine Learning]]></title>
+        <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 2: Matrices as Data & Transformations]]></title>
+        <id>https://artintellica.com/blog/0021-linalg-02-matrices-and-transformations.md</id>
+        <link href="https://artintellica.com/blog/0021-linalg-02-matrices-and-transformations.md"/>
+        <updated>2025-05-29T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 2: Matrices as Data & Transformations]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 1: Vectors, Scalars, and Spaces: The Language of Machine Learning]]></title>
         <id>https://artintellica.com/blog/0020-linalg-01-vectors-scalers-spaces.md</id>
         <link href="https://artintellica.com/blog/0020-linalg-01-vectors-scalers-spaces.md"/>
         <updated>2025-05-29T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Linear Algebra 1: Vectors, Scalars, and Spaces: The Language of Machine Learning]]></summary>
+        <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 1: Vectors, Scalars, and Spaces: The Language of Machine Learning]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Calculus Overview: From Limits to Hessians — a Machine‑Learning‑Centric Journey through Calculus]]></title>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0002-understanding-scaling-laws.md"/>
         <updated>2025-05-26T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Understanding “Scaling Laws for Neural Language Models” by Kaplan et al.]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Introducing Artintellica: Open‑Source AI Resources]]></title>
-        <id>https://artintellica.com/blog/0001-first-blog-post.md</id>
-        <link href="https://artintellica.com/blog/0001-first-blog-post.md"/>
-        <updated>2025-05-25T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Introducing Artintellica: Open‑Source AI Resources]]></summary>
     </entry>
 </feed>

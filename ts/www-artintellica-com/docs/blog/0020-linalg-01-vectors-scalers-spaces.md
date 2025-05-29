@@ -1,5 +1,5 @@
 +++
-title = "Linear Algebra 1: Vectors, Scalars, and Spaces: The Language of Machine Learning"
+title = "Linear Algebra for Machine Learning, Part 1: Vectors, Scalars, and Spaces: The Language of Machine Learning"
 author = "Artintellica"
 date = "2025-05-29"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0019-linalg-01-vectors-scalers-spaces"
@@ -215,7 +215,8 @@ discussed in the next post!
 
 1. **Vector Operations**: Write a Python function that takes two NumPy arrays
    (vectors) and returns their sum and the scaled version of the first vector by
-   a scalar input. Test it with $ \mathbf{u} = [4, 1] $, $ \mathbf{v} = [-2, 3]
+   a scalar input. Test it with $ \mathbf{u} = [4, 1]
+   $, $ \mathbf{v} = [-2, 3]
    $, and scalar $ c = 3 $.
 2. **Vector Addition and Subtraction**: Write a Python script that computes the
    sum and difference of vectors $ \mathbf{a} = [3, -2] $ and $ \mathbf{b} =
