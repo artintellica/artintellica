@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 u = np.array([1, 2])
-# v = np.array([3, 1])
 
 
 # Visualize vectors
