@@ -1,10 +1,8 @@
 +++
-title = "Linear Algebra for Machine Learning, Part 4: Dot Product and Cosine Similarity"
+title = "Linear Algebra for Machine Learning, Part 5: Linear Independence and Span"
 author = "Artintellica"
 date = "2025-05-29"
 +++
-
-# Linear Algebra for Machine Learning, Part 5: Linear Independence and Span
 
 Welcome to the fifth post in our series on **Linear Algebra for Machine
 Learning**! After diving into dot products and cosine similarity, we now explore
