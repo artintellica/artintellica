@@ -49,6 +49,9 @@ $$
 \text{proj}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|_2^2} \mathbf{v}
 $$
 
+(**Note**: The subscript 2 in $\|\mathbf{v}\|_2$ indicates the L2 norm, which is
+the Euclidean norm. [See more on norms](/blog/0025-linalg-06-norms.md).)
+
 If $\mathbf{v}$ is a unit vector ($\|\mathbf{v}\|_2 = 1$), this simplifies to:
 
 $$
