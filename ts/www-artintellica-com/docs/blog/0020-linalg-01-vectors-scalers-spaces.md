@@ -4,166 +4,251 @@ author = "Artintellica"
 date = "2025-05-29"
 +++
 
-Machine learning is powered by math, and **linear algebra** is the language of
-much of that math. Before we can build models, optimize loss functions, or train
-neural nets, we must understand how data is represented—as **scalars**,
-**vectors**, and in higher dimensions, as **spaces**. In this post, we’ll
-explore these foundational concepts, see their connection to machine learning,
-and get hands-on with code and exercises.
+Welcome to the first post in our series on **Linear Algebra for Machine
+Learning**! If you're diving into machine learning (ML), you've likely heard
+that linear algebra is the backbone of many algorithms. From representing data
+to optimizing neural networks, linear algebra provides the language and tools we
+need. In this post, we'll start with the basics: **vectors**, **scalars**, and
+**vector spaces**. We'll explore their mathematical foundations, their role in
+ML, and how to work with them in Python using **NumPy** and **PyTorch**. Plus,
+we'll visualize these concepts and provide exercises to solidify your
+understanding.
 
 ---
 
-## Scalars, Vectors, and Data Representation
+## The Math: Vectors, Scalars, and Spaces
 
-At its core, **machine learning** models transform data into predictions. That
-data must be expressed numerically.
+### Scalars
 
-- A **scalar** is a single number.  
-  Example: The temperature in Austin right now, $x = 96.3$.
+A **scalar** is a single number—think of it as a magnitude without direction. In
+ML, scalars often represent weights, biases, or loss values. For example, a
+learning rate (like 0.01) or a model's accuracy score is a scalar.
+Mathematically, scalars belong to a field, typically the real numbers (ℝ).
 
-- A **vector** is a collection of numbers arranged in order, representing a
-  point in space.  
-  Example: An RGB color:
-  $\vec{c} = \begin{bmatrix} 255 \\ 140 \\ 0 \end{bmatrix}$
+### Vectors
 
-- A **space** (specifically a _vector space_) is a collection of all possible
-  vectors of a given size/type. For example, all real-valued 3-dimensional
-  vectors: $\mathbb{R}^3$.
+A **vector** is an ordered list of scalars, representing a point or direction in
+space. We denote a vector in ℝⁿ (n-dimensional space) as:
 
-In machine learning:
+$$ \mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} $$
 
-- **Features** are represented as vectors: $[x_1, x_2, ..., x_n]$
-- **Weights** in models are also vectors: $[w_1, w_2, ..., w_n]$
-- Datasets are collections (matrices) of such vectors.
+Each $ v_i $ is a scalar component. Geometrically, a vector in 2D or 3D can be
+visualized as an arrow with a direction and magnitude. In ML, vectors are
+everywhere:
 
----
+- A **feature vector** represents a data point (e.g., [age, height, weight]).
+- A **weight vector** defines a model's parameters.
+- Word embeddings (like Word2Vec) are high-dimensional vectors.
 
-## Math: Vectors in $\mathbb{R}^n$
+### Vector Spaces
 
-A vector $\vec{x} \in \mathbb{R}^n$ is an ordered list of $n$ real numbers:
+A **vector space** is a collection of vectors that can be added together and
+scaled by scalars while staying within the space. Formally, a vector space over
+ℝ must satisfy properties like closure under addition and scaling. For ML, we
+care about ℝⁿ, the space of all n-dimensional real-valued vectors.
 
-$$
-\vec{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
-$$
-
-Key properties:
-
-- **Addition:**
-  $\vec{x} + \vec{y} = \begin{bmatrix} x_1 + y_1 \\ \dots \\ x_n + y_n \end{bmatrix}$
-- **Scalar multiplication:**
-  $a \vec{x} = \begin{bmatrix} a x_1 \\ \dots \\ a x_n \end{bmatrix}$
-- **Zero vector:** $\vec{0} = \begin{bmatrix} 0 \\ \dots \\ 0 \end{bmatrix}$
-- **Dimension:** The number of components (features).
-
-**In ML:**
-
-- Each image (flattened) is a vector of pixel values.
-- Each word embedding is a vector in a high-dimensional space.
-- Model weights live in the same vector space as the features.
+Key idea: Vectors in a vector space can be combined linearly (via addition and
+scaling) to reach other points in the space. This is crucial for tasks like
+transforming data or optimizing models.
 
 ---
 
-## Visualizing Vectors in 2D/3D
+## ML Context: Why Vectors Matter
 
-Vectors are geometric objects—arrows from the origin.
+In machine learning, vectors are the workhorses of data representation:
 
-```python
-import numpy as np
-import matplotlib.pyplot as plt
+- **Data Points**: Each sample in a dataset (e.g., an image or a customer
+  profile) is often a vector. For example, a grayscale image of size 28x28 (like
+  in MNIST) can be flattened into a 784-dimensional vector.
+- **Model Parameters**: In a neural network, weights and biases are vectors (or
+  matrices/tensors, which we'll cover later).
+- **Embeddings**: In natural language processing (NLP), words or sentences are
+  represented as vectors in high-dimensional spaces, capturing semantic meaning.
 
-# Define two 2D vectors
-x = np.array([2, 1])
-y = np.array([1, 2])
+Understanding vectors lets you manipulate data efficiently and reason about
+algorithms like gradient descent or principal component analysis (PCA).
 
-plt.figure(figsize=(5,5))
-plt.quiver(0, 0, x[0], x[1], angles='xy', scale_units='xy', scale=1, color='r', label='x')
-plt.quiver(0, 0, y[0], y[1], angles='xy', scale_units='xy', scale=1, color='b', label='y')
-plt.xlim(-1, 3)
-plt.ylim(-1, 3)
-plt.xlabel('x1')
-plt.ylabel('x2')
-plt.grid(True)
-plt.legend()
-plt.title('Vectors in 2D Space')
-plt.show()
+---
+
+## Python Code: Working with Vectors
+
+Let’s see how to represent and manipulate vectors using **NumPy** and
+**PyTorch**. We’ll also visualize vectors in 2D and 3D using **Matplotlib**.
+
+### Setup
+
+First, install the required libraries if you haven’t already:
+
+```bash
+pip install numpy torch matplotlib
 ```
 
----
+### Creating Vectors
 
-## Python: Creating and Using Vectors
-
-Let’s create vectors using NumPy and PyTorch—these are the basic data types used
-for all machine learning work.
+Here’s how to create vectors in NumPy and PyTorch:
 
 ```python
 import numpy as np
 import torch
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
-# Scalars
-s = 3.14
-t = torch.tensor(3.14)
+# NumPy vector
+v_numpy = np.array([2, 3])
+print("NumPy vector:", v_numpy)
 
-# Vectors (1D arrays)
-v_np = np.array([1.0, 2.0, 3.0])
-v_torch = torch.tensor([1.0, 2.0, 3.0])
-
-print("NumPy vector:", v_np)
+# PyTorch tensor
+v_torch = torch.tensor([2, 3], dtype=torch.float32)
 print("PyTorch vector:", v_torch)
 ```
 
-**Why two libraries?**
+Output:
 
-- **NumPy** is for generic scientific computing.
-- **PyTorch** is for deep learning (automatic gradients, GPUs).
+```
+NumPy vector: [2 3]
+PyTorch vector: tensor([2., 3.])
+```
 
----
+Both NumPy arrays and PyTorch tensors are efficient for vector operations.
+PyTorch tensors are particularly useful for ML because they support GPU
+acceleration and automatic differentiation.
 
-## Why This Matters in Machine Learning
+### Vector Addition and Scaling
 
-- **Data is always vectorized**: Images, sounds, and texts become vectors.
-- **Model parameters are vectors**: All the learnable numbers in your model.
-- **Geometric interpretation**: Operations like distance, projection, and
-  similarity are all vector operations.
-- **Computational efficiency**: Vectorized code runs faster and is easier to
-  optimize.
+Let’s perform basic operations:
+
+```python
+# Define two vectors
+u = np.array([1, 2])
+v = np.array([2, -1])
+
+# Addition
+sum_uv = u + v
+print("u + v =", sum_uv)
+
+# Scaling
+scaled_v = 2 * v
+print("2 * v =", scaled_v)
+```
+
+Output:
+
+```
+u + v = [3 1]
+2 * v = [4 -2]
+```
+
+### Visualizing Vectors in 2D
+
+Let’s plot vectors to build intuition:
+
+```python
+def plot_2d_vectors(vectors, labels, colors):
+    plt.figure(figsize=(6, 6))
+    origin = np.zeros(2)  # Origin point [0, 0]
+
+    for vec, label, color in zip(vectors, labels, colors):
+        plt.quiver(*origin, *vec, color=color, scale=1, scale_units='xy', angles='xy')
+        plt.text(vec[0], vec[1], label, color=color, fontsize=12)
+
+    plt.grid(True)
+    plt.xlim(-5, 5)
+    plt.ylim(-5, 5)
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.title("2D Vector Visualization")
+    plt.show()
+
+# Plot u, v, and their sum
+plot_2d_vectors(
+    [u, v, sum_uv],
+    ['u', 'v', 'u+v'],
+    ['blue', 'red', 'green']
+)
+```
+
+This code generates a plot showing vectors $ \mathbf{u} = [1, 2] $, $ \mathbf{v}
+= [2, -1] $, and their sum as arrows in 2D space.
+
+### Visualizing Vectors in 3D
+
+For a 3D example:
+
+```python
+def plot_3d_vectors(vectors, labels, colors):
+    fig = plt.figure(figsize=(8, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    origin = np.zeros(3)
+
+    for vec, label, color in zip(vectors, labels, colors):
+        ax.quiver(*origin, *vec, color=color)
+        ax.text(vec[0], vec[1], vec[2], label, color=color)
+
+    ax.set_xlim([-5, 5])
+    ax.set_ylim([-5, 5])
+    ax.set_zlim([-5, 5])
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    plt.title("3D Vector Visualization")
+    plt.show()
+
+# 3D vectors
+u_3d = np.array([1, 2, 3])
+v_3d = np.array([2, -1, 1])
+plot_3d_vectors(
+    [u_3d, v_3d],
+    ['u', 'v'],
+    ['blue', 'red']
+)
+```
+
+This plots two 3D vectors, showing their direction and magnitude in space.
 
 ---
 
 ## Exercises
 
-**1. Practice: Create and Plot Vectors**
+Try these exercises to deepen your understanding. Solutions will be discussed in
+the next post!
 
-- Using NumPy, create a vector $\vec{a} = [4, -2]$ and plot it as an arrow from
-  the origin in 2D.
+### Math Exercises
 
-**2. ML Context: Feature Vectors**
+1. **Vector Addition**: Given vectors $ \mathbf{a} = [3, -2] $ and $ \mathbf{b}
+   = [-1, 4] $, compute $ \mathbf{a} + \mathbf{b} $ and $ 2\mathbf{a} -
+   \mathbf{b} $. Sketch the result geometrically.
+2. **Vector Space Properties**: Prove that the set of all 2D vectors (ℝ²) is
+   closed under vector addition and scalar multiplication.
+3. **Dimension of a Vector**: If a dataset has 10 features per sample, what is
+   the dimension of each feature vector? What vector space do these vectors live
+   in?
 
-- The classic _Iris_ dataset in sklearn is $4$-dimensional. Load the dataset and
-  print the shape of the data. How many samples? What is the dimensionality?
+### Python Exercises
 
-**3. Code Challenge: Random Vectors**
+1. **Vector Operations**: Write a Python function that takes two NumPy arrays
+   (vectors) and returns their sum and the scaled version of the first vector by
+   a scalar input. Test it with $ \mathbf{u} = [4, 1] $, $ \mathbf{v} = [-2, 3]
+   $, and scalar $ c = 3 $.
+2. **Visualization**: Modify the 2D plotting code to include a third vector that
+   is the scaled version of $ \mathbf{u} $. Adjust the plot limits if needed.
+3. **PyTorch Conversion**: Convert a NumPy vector to a PyTorch tensor and
+   perform vector addition using PyTorch. Verify the result matches NumPy’s.
 
-- Generate $1000$ random 3D vectors using NumPy. Compute the average (mean)
-  vector.
+### ML Hands-On
 
-**4. PyTorch Tensor Practice**
-
-- Create a PyTorch tensor with values $[10, 20, 30]$. Multiply it by $0.1$ and
-  print the result.
+1. **Feature Vector**: Load a sample from the MNIST dataset (using
+   `torchvision.datasets.MNIST`) and flatten it into a vector. Print its
+   dimension and visualize the first 10 elements as a bar plot.
+2. **Vector Exploration**: Create a 3D vector representing a synthetic data
+   point (e.g., [height, weight, age]). Normalize the vector (divide by its
+   maximum value) and plot it in 3D.
 
 ---
 
-## Conclusion
+## What’s Next?
 
-Vectors and scalars are the "alphabet" of machine learning. They let us encode
-data, define models, and carry out computations efficiently. Every major idea in
-ML—optimization, similarity, prediction—starts with vectors. In the next post,
-we’ll see how matrices and higher-dimensional arrays build on this foundation,
-unlocking the ability to transform and manipulate entire datasets at once.
+In the next post, we’ll dive into **matrices**—how they represent data (like
+images) and act as transformations in ML. We’ll explore reshaping, indexing, and
+visualizing matrices, with plenty of Python code and ML examples.
 
----
-
-**Further Reading:**
-
-- [NumPy Quickstart Tutorial](https://numpy.org/doc/stable/user/quickstart.html)
-- [PyTorch Tensors](https://pytorch.org/tutorials/beginner/introyt/tensors_deeper_tutorial.html)
+Happy learning, and see you in Part 2!
