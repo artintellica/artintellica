@@ -209,40 +209,26 @@ This plots two 3D vectors, showing their direction and magnitude in space.
 
 ## Exercises
 
-Try these exercises to deepen your understanding. Solutions will be discussed in
-the next post!
-
-### Math Exercises
-
-1. **Vector Addition**: Given vectors $ \mathbf{a} = [3, -2] $ and $ \mathbf{b}
-   = [-1, 4] $, compute $ \mathbf{a} + \mathbf{b} $ and $ 2\mathbf{a} -
-   \mathbf{b} $. Sketch the result geometrically.
-2. **Vector Space Properties**: Prove that the set of all 2D vectors (ℝ²) is
-   closed under vector addition and scalar multiplication.
-3. **Dimension of a Vector**: If a dataset has 10 features per sample, what is
-   the dimension of each feature vector? What vector space do these vectors live
-   in?
-
-### Python Exercises
+Try these Python exercises to deepen your understanding. Solutions will be
+discussed in the next post!
 
 1. **Vector Operations**: Write a Python function that takes two NumPy arrays
    (vectors) and returns their sum and the scaled version of the first vector by
-   a scalar input. Test it with $ \mathbf{u} = [4, 1]
-   $, $ \mathbf{v} = [-2, 3]
+   a scalar input. Test it with $ \mathbf{u} = [4, 1] $, $ \mathbf{v} = [-2, 3]
    $, and scalar $ c = 3 $.
-2. **Visualization**: Modify the 2D plotting code to include a third vector that
+2. **Vector Addition and Subtraction**: Write a Python script that computes the
+   sum and difference of vectors $ \mathbf{a} = [3, -2] $ and $ \mathbf{b} =
+   [-1, 4] $ using NumPy. Print the results and visualize them in a 2D plot.
+3. **Visualization**: Modify the 2D plotting code to include a third vector that
    is the scaled version of $ \mathbf{u} $. Adjust the plot limits if needed.
-3. **PyTorch Conversion**: Convert a NumPy vector to a PyTorch tensor and
+4. **PyTorch Conversion**: Convert a NumPy vector to a PyTorch tensor and
    perform vector addition using PyTorch. Verify the result matches NumPy’s.
-
-### ML Hands-On
-
-1. **Feature Vector**: Load a sample from the MNIST dataset (using
+5. **Feature Vector**: Load a sample from the MNIST dataset (using
    `torchvision.datasets.MNIST`) and flatten it into a vector. Print its
    dimension and visualize the first 10 elements as a bar plot.
-2. **Vector Exploration**: Create a 3D vector representing a synthetic data
+6. **Vector Normalization**: Create a 3D vector representing a synthetic data
    point (e.g., [height, weight, age]). Normalize the vector (divide by its
-   maximum value) and plot it in 3D.
+   maximum value) using NumPy and plot it in 3D.
 
 ---
 
