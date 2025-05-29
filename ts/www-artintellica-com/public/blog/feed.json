@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0022-linalg-03-matrix-arithmetic.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0022-linalg-03-matrix-arithmetic.md",
+            "title": "Linear Algebra for Machine Learning, Part 3: Matrices as Data & Transformations",
+            "date_modified": "2025-05-29T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0021-linalg-02-matrices-and-transformations.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0021-linalg-02-matrices-and-transformations.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0003-calculus-1-limits-and-continuity.md",
             "title": "Calculus 1: Limits and Continuity",
             "date_modified": "2025-05-27T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0002-understanding-scaling-laws.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0002-understanding-scaling-laws.md",
-            "title": "Understanding “Scaling Laws for Neural Language Models” by Kaplan et al.",
-            "date_modified": "2025-05-26T07:00:00.000Z"
         }
     ]
 }
