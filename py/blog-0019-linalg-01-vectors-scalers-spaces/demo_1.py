@@ -1,7 +1,5 @@
 import numpy as np
 import torch
-# import matplotlib.pyplot as plt
-# from mpl_toolkits.mplot3d import Axes3D
 
 # NumPy vector
 v_numpy = np.array([2, 3])
