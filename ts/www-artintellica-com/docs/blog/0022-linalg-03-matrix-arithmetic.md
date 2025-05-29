@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 3: Matrices as Data & Transformations"
 author = "Artintellica"
 date = "2025-05-29"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0022-linalg-03-matrix-arithmetic"
 +++
 
 Welcome to the third post in our series on **Linear Algebra for Machine
