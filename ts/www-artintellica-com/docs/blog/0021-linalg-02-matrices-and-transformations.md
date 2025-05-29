@@ -20,15 +20,17 @@ understanding.
 ### What is a Matrix?
 
 A **matrix** is a rectangular array of scalars arranged in rows and columns. A
-matrix \( A \) with \( m \) rows and \( n \) columns (an \( m \times n \)
-matrix) is written as:
+matrix $ A $ with $ m $ rows and $ n $ columns (an $ m \times n $ matrix) is
+written as:
 
-\[ A = \begin{bmatrix} a*{11} & a*{12} & \cdots & a*{1n} \\ a*{21} & a*{22} &
+$$
+A = \begin{bmatrix} a*{11} & a*{12} & \cdots & a*{1n} \\ a*{21} & a*{22} &
 \cdots & a*{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a*{m1} & a*{m2} & \cdots
-& a\_{mn} \end{bmatrix} \]
+& a\_{mn} \end{bmatrix}
+$$
 
-Each element \( a\_{ij} \) is a scalar, where \( i \) is the row index and \( j
-\) is the column index. In ML, matrices are used to:
+Each element $ a\_{ij} $ is a scalar, where $ i $ is the row index and $ j $ is
+the column index. In ML, matrices are used to:
 
 - **Represent Data**: Datasets (e.g., rows as samples, columns as features) or
   images (e.g., pixel intensities).
@@ -40,30 +42,34 @@ Each element \( a\_{ij} \) is a scalar, where \( i \) is the row index and \( j
 A matrix can represent structured data. For example:
 
 - A **dataset matrix** might have rows as data points and columns as features. A
-  dataset with 100 samples and 5 features is a \( 100 \times 5 \) matrix.
+  dataset with 100 samples and 5 features is a $ 100 \times 5 $ matrix.
 - An **image** (e.g., grayscale) is a matrix where each element is a pixel
-  intensity. A 28x28 MNIST image is a \( 28 \times 28 \) matrix.
+  intensity. A 28x28 MNIST image is a $ 28 \times 28 $ matrix.
 
 ### Matrices as Transformations
 
 A matrix can act as a **linear transformation**, mapping vectors to new vectors.
-For an \( m \times n \) matrix \( A \) and a vector \( \mathbf{x} \in
-\mathbb{R}^n \), the transformation is:
+For an $ m \times n $ matrix $ A $ and a vector $ \mathbf{x} \in \mathbb{R}^n $,
+the transformation is:
 
-\[ \mathbf{y} = A \mathbf{x} \]
+$$
+\mathbf{y} = A \mathbf{x}
+$$
 
-where \( \mathbf{y} \in \mathbb{R}^m \). Each element of \( \mathbf{y} \) is a
-linear combination of \( \mathbf{x} \)’s components, weighted by the rows of \(
-A \). In ML, this is the core of linear layers in neural networks, where \( A \)
+where $ \mathbf{y} \in \mathbb{R}^m $. Each element of $ \mathbf{y} $ is a
+linear combination of $ \mathbf{x} $’s components, weighted by the rows of $ A
+$. In ML, this is the core of linear layers in neural networks, where $ A $
 represents weights.
 
 Geometrically, matrices can rotate, scale, or shear vectors. For example, a 2D
-rotation matrix by angle \( \theta \):
+rotation matrix by angle $ \theta $:
 
-\[ R = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta
-\end{bmatrix} \]
+$$
+R = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta
+\end{bmatrix}
+$$
 
-rotates a vector in \( \mathbb{R}^2 \) counterclockwise by \( \theta \).
+rotates a vector in $ \mathbb{R}^2 $ counterclockwise by $ \theta $.
 
 ---
 
@@ -74,9 +80,9 @@ Matrices are central to ML:
 - **Data Representation**: Datasets are stored as matrices for efficient
   computation. Images, like those in computer vision, are matrices (or tensors
   for color images).
-- **Linear Layers**: In neural networks, a layer’s computation is \( \mathbf{y}
-  = W \mathbf{x} + \mathbf{b} \), where \( W \) is a weight matrix, \(
-  \mathbf{x} \) is the input vector, and \( \mathbf{b} \) is a bias vector.
+- **Linear Layers**: In neural networks, a layer’s computation is $ \mathbf{y} =
+  W \mathbf{x} + \mathbf{b} $, where $ W $ is a weight matrix, $ \mathbf{x} $ is
+  the input vector, and $ \mathbf{b} $ is a bias vector.
 - **Transformations**: Matrices enable feature transformations, such as
   dimensionality reduction (e.g., PCA) or geometric operations in graphics and
   robotics.
@@ -145,7 +151,7 @@ Top-left 3x3 corner:
   [0. 0. 0.]]
 ```
 
-This code loads an MNIST image as a \( 28 \times 28 \) matrix, prints its shape
+This code loads an MNIST image as a $ 28 \times 28 $ matrix, prints its shape
 and a 3x3 corner, and visualizes it as a grayscale image.
 
 ### Reshaping Matrices
@@ -232,8 +238,8 @@ Rotation matrix:
 Rotated vector: [ 6.123234e-17  1.000000e+00]
 ```
 
-This rotates the vector \( [1, 0] \) by 90 degrees, resulting in \( [0, 1] \)
-(with small numerical errors), and plots both vectors.
+This rotates the vector $ [1, 0] $ by 90 degrees, resulting in $ [0, 1] $ (with
+small numerical errors), and plots both vectors.
 
 ### PyTorch: Matrix Operations
 
@@ -268,23 +274,22 @@ This confirms PyTorch’s matrix operations align with NumPy’s.
 Try these Python exercises to solidify your understanding. Solutions will be
 discussed in the next post!
 
-1. **Matrix Creation**: Create a \( 3 \times 4 \) matrix in NumPy filled with
+1. **Matrix Creation**: Create a $ 3 \times 4 $ matrix in NumPy filled with
    random integers between 0 and 9. Print the matrix and its transpose.
-2. **Image Reshaping**: Load an MNIST image, reshape it into a \( 14 \times 56
-   \) matrix, and visualize it. Compare it to the original \( 28 \times 28 \)
-   image.
-3. **Matrix Transformation**: Define a scaling matrix \( S = \begin{bmatrix} 2 &
-   0 \\ 0 & 3 \end{bmatrix} \). Apply it to the vector \( [1, 1] \) using NumPy
-   and plot the original and scaled vectors.
+2. **Image Reshaping**: Load an MNIST image, reshape it into a $ 14 \times 56 $
+   matrix, and visualize it. Compare it to the original $ 28 \times 28 $ image.
+3. **Matrix Transformation**: Define a scaling matrix $ S = \begin{bmatrix} 2 &
+   0 \\ 0 & 3 \end{bmatrix} $. Apply it to the vector $ [1, 1] $ using NumPy and
+   plot the original and scaled vectors.
 4. **PyTorch Matrix Multiplication**: Convert the scaling matrix and vector from
    Exercise 3 to PyTorch tensors, perform the multiplication, and verify the
    result matches NumPy’s.
 5. **Dataset as Matrix**: Create a synthetic dataset with 5 samples and 3
-   features (e.g., height, weight, age) as a \( 5 \times 3 \) NumPy matrix.
+   features (e.g., height, weight, age) as a $ 5 \times 3 $ NumPy matrix.
    Compute the mean of each feature (column).
 6. **Rotation Animation**: Modify the rotation code to apply rotation matrices
-   for angles \( \theta = 0^\circ, 45^\circ, 90^\circ \) to the vector \( [1, 0]
-   \). Plot all resulting vectors in one 2D plot.
+   for angles $ \theta = 0^\circ, 45^\circ, 90^\circ $ to the vector $ [1, 0] $.
+   Plot all resulting vectors in one 2D plot.
 
 ---
 
