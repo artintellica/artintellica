@@ -24,8 +24,8 @@ The **dot product** of two vectors $ \mathbf{u} = [u_1, u_2, \dots, u_n] $ and $
 as:
 
 $$
- \mathbf{u} \cdot \mathbf{v} = u*1 v_1 + u_2 v_2 + \dots + u_n v_n =
-\sum*{i=1}^n u_i v_i
+ \mathbf{u} \cdot \mathbf{v} = u_1 v_1 + u_2 v_2 + \dots + u_n v_n =
+\sum_{i=1}^n u_i v_i
 $$
 
 Geometrically, the dot product relates to the angle $ \theta $ between the
