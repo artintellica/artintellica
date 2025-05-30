@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 9: Rank, Nullspace, and the Fundamental Theorem"
 author = "Artintellica"
 date = "2025-05-30"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0028-linalg-09-rank"
 +++
 
 Welcome to the ninth post in our series on **Linear Algebra for Machine
