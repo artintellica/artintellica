@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 10: Eigenvalues and Eigenvectors"
 author = "Artintellica"
 date = "2025-05-30"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0029-linalg-10-eigen"
 +++
 
 Welcome to the tenth post in our series on **Linear Algebra for Machine
