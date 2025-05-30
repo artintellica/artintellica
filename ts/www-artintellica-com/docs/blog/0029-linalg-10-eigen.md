@@ -5,8 +5,6 @@ date = "2025-05-30"
 +++
 
 
-# Linear Algebra for Machine Learning, Part 10: Eigenvalues and Eigenvectors
-
 Welcome to the tenth post in our series on **Linear Algebra for Machine Learning**, continuing Part II: Core Theorems and Algorithms! After exploring rank, nullspace, and the Fundamental Theorem, we now dive into **eigenvalues** and **eigenvectors**, powerful concepts that underpin covariance analysis, principal component analysis (PCA), stability analysis, and spectral clustering in machine learning (ML). In this post, we’ll cover the mathematical foundations, their ML applications, and how to implement them in Python using **NumPy** and **PyTorch**. We’ll include visualizations to provide geometric intuition and Python exercises to deepen your understanding.
 
 ---
