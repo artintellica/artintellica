@@ -14,11 +14,30 @@ x, residuals, rank, s = np.linalg.lstsq(A, b, rcond=None)
 
 # Compute nullspace basis using SVD
 U, S, Vt = np.linalg.svd(A, full_matrices=True)
+
+# Tolerance for identifying zero singular values
 tol = 1e-10
-nullspace_basis = Vt.T[:, S < tol]
+
+# Determine nullspace basis
+m, n = A.shape
+# Nullspace basis includes:
+# 1. Columns of V for zero singular values (S < tol)
+# 2. Columns of V from index m to n (since m < n)
+zero_singular = S < tol
+# Number of zero singular values
+num_zero = np.sum(zero_singular)
+# Include columns from m to n (extra columns)
+nullspace_indices = np.arange(m, n)
+# Combine indices if any singular values are zero
+if num_zero > 0:
+    nullspace_indices = np.concatenate([np.where(zero_singular)[0], nullspace_indices])
+# Extract nullspace basis from Vt.T
+nullspace_basis = (
+    Vt.T[:, nullspace_indices] if len(nullspace_indices) > 0 else np.array([])
+)
 
 # Check nullity (dimension of nullspace)
-nullity = A.shape[1] - rank
+nullity = n - rank
 
 # Check if multiple solutions exist (non-trivial nullspace)
 multiple_solutions = nullity > 0
@@ -40,7 +59,7 @@ print("Matrix A (2x3):\n", A)
 print("\nVector b:", b)
 print("\nSolution x (np.linalg.lstsq):", x)
 print("\nRank of A:", rank)
-print("\nSingular values:", s)
+print("\nSingular values:", S)
 print("\nNullspace basis:\n", nullspace_basis if nullspace_basis.size > 0 else "Empty")
 print("\nNullity (dimension of nullspace):", nullity)
 print("\nMultiple solutions exist?", multiple_solutions)
