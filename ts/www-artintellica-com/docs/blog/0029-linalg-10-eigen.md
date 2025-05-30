@@ -12,51 +12,51 @@ Welcome to the tenth post in our series on **Linear Algebra for Machine Learning
 ## The Math: Eigenvalues and Eigenvectors
 
 ### Definitions
-For a square matrix \( A \) (size \( n \times n \)), a scalar \( \lambda \) is an **eigenvalue**, and a non-zero vector \( \mathbf{v} \) is an **eigenvector** if:
+For a square matrix $A$ (size $n \times n$), a scalar $\lambda$ is an **eigenvalue**, and a non-zero vector $\mathbf{v}$ is an **eigenvector** if:
 
-\[
+$$
 A \mathbf{v} = \lambda \mathbf{v}
-\]
+$$
 
-This means applying \( A \) to \( \mathbf{v} \) scales \( \mathbf{v} \) by \( \lambda \) without changing its direction (or reverses it if \( \lambda < 0 \)). Eigenvectors are defined up to a scalar multiple, and each eigenvalue may have multiple eigenvectors forming a subspace.
+This means applying $A$ to $\mathbf{v}$ scales $\mathbf{v}$ by $\lambda$ without changing its direction (or reverses it if $\lambda < 0$). Eigenvectors are defined up to a scalar multiple, and each eigenvalue may have multiple eigenvectors forming a subspace.
 
 ### Finding Eigenvalues
 To find eigenvalues, solve the **characteristic equation**:
 
-\[
+$$
 \det(A - \lambda I) = 0
-\]
+$$
 
-where \( I \) is the \( n \times n \) identity matrix. The resulting polynomial (degree \( n \)) has up to \( n \) roots (eigenvalues), which may be real or complex and include multiplicities.
+where $I$ is the $n \times n$ identity matrix. The resulting polynomial (degree $n$) has up to $n$ roots (eigenvalues), which may be real or complex and include multiplicities.
 
-For a 2x2 matrix \( A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \):
+For a 2x2 matrix $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$:
 
-\[
+$$
 A - \lambda I = \begin{bmatrix} a - \lambda & b \\ c & d - \lambda \end{bmatrix}
-\]
+$$
 
-\[
+$$
 \det(A - \lambda I) = (a - \lambda)(d - \lambda) - bc = \lambda^2 - (a + d)\lambda + (ad - bc) = 0
-\]
+$$
 
-Solve this quadratic equation for \( \lambda \).
+Solve this quadratic equation for $\lambda$.
 
 ### Finding Eigenvectors
-For each eigenvalue \( \lambda \), solve the system:
+For each eigenvalue $\lambda$, solve the system:
 
-\[
+$$
 (A - \lambda I) \mathbf{v} = \mathbf{0}
-\]
+$$
 
-The non-trivial solutions \( \mathbf{v} \) are the eigenvectors corresponding to \( \lambda \).
+The non-trivial solutions $\mathbf{v}$ are the eigenvectors corresponding to $\lambda$.
 
 ### Geometric Intuition
-Eigenvectors represent directions that remain invariant (up to scaling) under the transformation \( A \). Eigenvalues indicate the scaling factor:
-- \( \lambda > 1 \): Stretches the eigenvector.
-- \( 0 < \lambda < 1 \): Shrinks the eigenvector.
-- \( \lambda = 0 \): Collapses to the origin.
-- \( \lambda < 0 \): Reverses direction.
-- Complex \( \lambda \): Involves rotation (in 2D).
+Eigenvectors represent directions that remain invariant (up to scaling) under the transformation $A$. Eigenvalues indicate the scaling factor:
+- $\lambda > 1$: Stretches the eigenvector.
+- $0 < \lambda < 1$: Shrinks the eigenvector.
+- $\lambda = 0$: Collapses to the origin.
+- $\lambda < 0$: Reverses direction.
+- Complex $\lambda$: Involves rotation (in 2D).
 
 ---
 
@@ -118,7 +118,7 @@ Eigenvectors (columns):
  [ 0.70710678  0.70710678]]
 ```
 
-The eigenvalues are \( \lambda_1 = 3 \), \( \lambda_2 = 1 \), with eigenvectors approximately \( [0.707, 0.707] \) and \( [-0.707, 0.707] \), corresponding to directions along \( y = x \) and \( y = -x \).
+The eigenvalues are $\lambda_1 = 3$, $\lambda_2 = 1$, with eigenvectors approximately $[0.707, 0.707]$ and $[-0.707, 0.707]$, corresponding to directions along $y = x$ and $y = -x$.
 
 ### Geometric Visualization
 Let’s visualize the transformation:
@@ -152,10 +152,10 @@ def plot_eigenvectors(A, eigenvalues, eigenvectors):
 plot_eigenvectors(A, eigenvalues, eigenvectors)
 ```
 
-This plots the eigenvectors \( \mathbf{v}_1, \mathbf{v}_2 \) (blue, red) and their transformations \( A \mathbf{v}_1, A \mathbf{v}_2 \). Since \( A \mathbf{v}_1 = 3 \mathbf{v}_1 \) and \( A \mathbf{v}_2 = 1 \mathbf{v}_2 \), the transformed vectors are scaled versions along the same directions.
+This plots the eigenvectors $\mathbf{v}_1, \mathbf{v}_2$ (blue, red) and their transformations $A \mathbf{v}_1, A \mathbf{v}_2$. Since $A \mathbf{v}_1 = 3 \mathbf{v}_1$ and $A \mathbf{v}_2 = 1 \mathbf{v}_2$, the transformed vectors are scaled versions along the same directions.
 
 ### Verifying Eigenproperties
-Let’s verify \( A \mathbf{v} = \lambda \mathbf{v} \):
+Let’s verify $A \mathbf{v} = \lambda \mathbf{v}$:
 
 ```python
 # Verify eigenvalue equation
@@ -213,12 +213,12 @@ PyTorch returns complex eigenvalues, but here they are real and match NumPy’s.
 
 Try these Python exercises to deepen your understanding. Solutions will be discussed in the next post!
 
-1. **Eigenvalues**: Create a \( 3 \times 3 \) matrix with random integers between -5 and 5. Compute its eigenvalues using NumPy.
-2. **Eigenvectors**: For the matrix in Exercise 1, compute its eigenvectors and verify \( A \mathbf{v} = \lambda \mathbf{v} \) for one eigenvalue-eigenvector pair.
+1. **Eigenvalues**: Create a $3 \times 3$ matrix with random integers between -5 and 5. Compute its eigenvalues using NumPy.
+2. **Eigenvectors**: For the matrix in Exercise 1, compute its eigenvectors and verify $A \mathbf{v} = \lambda \mathbf{v}$ for one eigenvalue-eigenvector pair.
 3. **PyTorch Eigenvalues**: Convert the matrix from Exercise 1 to a PyTorch tensor, compute its eigenvalues, and verify they match NumPy’s.
-4. **Geometric Transformation**: Define a \( 2 \times 2 \) matrix (e.g., \( \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix} \)). Plot its eigenvectors and their transformations under \( A \).
-5. **Covariance Matrix**: Create a \( 5 \times 2 \) matrix of 5 2D points, compute the covariance matrix, and find its eigenvalues and eigenvectors to identify principal directions.
-6. **Stability Check**: Create a \( 2 \times 2 \) matrix and compute its eigenvalues. Determine if the system is stable (all eigenvalues have absolute value < 1).
+4. **Geometric Transformation**: Define a $2 \times 2$ matrix (e.g., $\begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$). Plot its eigenvectors and their transformations under $A$.
+5. **Covariance Matrix**: Create a $5 \times 2$ matrix of 5 2D points, compute the covariance matrix, and find its eigenvalues and eigenvectors to identify principal directions.
+6. **Stability Check**: Create a $2 \times 2$ matrix and compute its eigenvalues. Determine if the system is stable (all eigenvalues have absolute value < 1).
 
 ---
 
