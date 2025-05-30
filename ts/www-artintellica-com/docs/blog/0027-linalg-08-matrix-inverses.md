@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations"
 author = "Artintellica"
 date = "2025-05-30"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0027-linalg-08-matrix-inverses"
 +++
 
 Welcome to the eighth post in our series on **Linear Algebra for Machine
