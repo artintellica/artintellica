@@ -1,5 +1,5 @@
 +++
-title = "Linear Algebra for Machine Learning, Part 6: Norms and Distances"
+title = "Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations"
 author = "Artintellica"
 date = "2025-05-30"
 +++
