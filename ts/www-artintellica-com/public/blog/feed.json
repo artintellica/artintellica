@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md",
+            "title": "Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations",
+            "date_modified": "2025-05-30T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0026-linalg-07-orthogonality.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0026-linalg-07-orthogonality.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md",
             "title": "Calculus 6: Vector Functions & the Gradient — Seeing Slopes in 2‑D",
-            "date_modified": "2025-05-27T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0007-calculus-5-taylor-series.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0007-calculus-5-taylor-series.md",
-            "title": "Calculus 5: Taylor & Maclaurin Series—Polynomials That Think They’re Exponential",
             "date_modified": "2025-05-27T07:00:00.000Z"
         }
     ]

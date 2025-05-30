@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Thu, 29 May 2025 23:12:12 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 May 2025 11:06:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations]]></title>
+            <link>https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md</guid>
+            <pubDate>Fri, 30 May 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations]]></description>
+        </item>
         <item>
             <title><![CDATA[Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections]]></title>
             <link>https://artintellica.com/blog/0026-linalg-07-orthogonality.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md</guid>
             <pubDate>Tue, 27 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Calculus 6: Vector Functions & the Gradient — Seeing Slopes in 2‑D]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Calculus 5: Taylor & Maclaurin Series—Polynomials That Think They’re Exponential]]></title>
-            <link>https://artintellica.com/blog/0007-calculus-5-taylor-series.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0007-calculus-5-taylor-series.md</guid>
-            <pubDate>Tue, 27 May 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Calculus 5: Taylor & Maclaurin Series—Polynomials That Think They’re Exponential]]></description>
         </item>
     </channel>
 </rss>
