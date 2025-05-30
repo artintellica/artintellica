@@ -289,8 +289,8 @@ plt.title(f'Column Space (Rank = {rank_vis})')
 plt.show()
 ```
 
-This plots the columns of $A_vis$ and shades the column space (a plane, since
-rank = 2).
+This plots the columns of $A_\text{vis}$ and shades the column space (a plane,
+since rank = 2).
 
 ### PyTorch: Rank
 
