@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0028-linalg-09-rank.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0028-linalg-09-rank.md",
+            "title": "Linear Algebra for Machine Learning, Part 9: Rank, Nullspace, and the Fundamental Theorem",
+            "date_modified": "2025-05-30T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0009-calculus-7-jacobian-hessian.md",
             "title": "Calculus 7: Jacobian & Hessian — Second-Order Structure for Smarter Learning",
             "date_modified": "2025-05-28T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0008-calculus-6-vectors-and-gradient.md",
-            "title": "Calculus 6: Vector Functions & the Gradient — Seeing Slopes in 2‑D",
-            "date_modified": "2025-05-27T07:00:00.000Z"
         }
     ]
 }

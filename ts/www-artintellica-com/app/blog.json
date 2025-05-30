@@ -210,5 +210,12 @@
     "date": "2025-05-30",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0027-linalg-08-matrix-inverses",
     "content": ""
+  },
+  {
+    "filename": "0028-linalg-09-rank.md",
+    "title": "Linear Algebra for Machine Learning, Part 9: Rank, Nullspace, and the Fundamental Theorem",
+    "author": "Artintellica",
+    "date": "2025-05-30",
+    "content": ""
   }
 ]
