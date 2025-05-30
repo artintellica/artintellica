@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0029-linalg-10-eigen.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0029-linalg-10-eigen.md",
+            "title": "Linear Algebra for Machine Learning, Part 10: Eigenvalues and Eigenvectors",
+            "date_modified": "2025-05-30T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0028-linalg-09-rank.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0028-linalg-09-rank.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0010-calculus-8-multiple-integrals.md",
             "title": "Calculus 8: Multiple Integrals — Monte Carlo Meets the Multivariate Gaussian",
-            "date_modified": "2025-05-28T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0009-calculus-7-jacobian-hessian.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0009-calculus-7-jacobian-hessian.md",
-            "title": "Calculus 7: Jacobian & Hessian — Second-Order Structure for Smarter Learning",
             "date_modified": "2025-05-28T07:00:00.000Z"
         }
     ]
