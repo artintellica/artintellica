@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-05-30"
 +++
 
-# Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations
-
 Welcome to the eighth post in our series on **Linear Algebra for Machine Learning**, continuing Part II: Core Theorems and Algorithms! After exploring orthogonality and projections, we now tackle **matrix inverses** and **systems of linear equations**, critical tools for solving for model parameters and understanding backpropagation in machine learning (ML). In this post, we’ll cover the mathematical foundations, their ML applications, and how to implement them in Python using **NumPy** and **PyTorch**. We’ll include visualizations and Python exercises to reinforce your understanding.
 
 ---
