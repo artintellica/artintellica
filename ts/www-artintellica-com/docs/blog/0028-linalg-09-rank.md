@@ -11,59 +11,59 @@ Welcome to the ninth post in our series on **Linear Algebra for Machine Learning
 ## The Math: Rank, Nullspace, and the Fundamental Theorem
 
 ### Rank
-The **rank** of a matrix \( A \) (size \( m \times n \)) is the number of linearly independent columns (or rows) in \( A \). Equivalently, it’s:
-- The dimension of the column space (\( \text{col}(A) \)), the span of \( A \)’s columns.
-- The dimension of the row space (\( \text{row}(A) \)), the span of \( A \)’s rows.
+The **rank** of a matrix $A$ (size $m \times n$) is the number of linearly independent columns (or rows) in $A$. Equivalently, it’s:
+- The dimension of the column space ($\text{col}(A)$), the span of $A$’s columns.
+- The dimension of the row space ($\text{row}(A)$), the span of $A$’s rows.
 
-For an \( m \times n \) matrix:
-- \( \text{rank}(A) \leq \min(m, n) \).
-- If \( \text{rank}(A) = n \), the columns are linearly independent.
-- If \( \text{rank}(A) = m \), the rows are linearly independent.
+For an $m \times n$ matrix:
+- $\text{rank}(A) \leq \min(m, n)$.
+- If $\text{rank}(A) = n$, the columns are linearly independent.
+- If $\text{rank}(A) = m$, the rows are linearly independent.
 
 Rank is computed numerically via methods like SVD, which we’ll touch on intuitively.
 
 ### Nullspace
-The **nullspace** (or kernel) of \( A \), denoted \( \text{null}(A) \), is the set of all vectors \( \mathbf{x} \in \mathbb{R}^n \) such that:
+The **nullspace** (or kernel) of $A$, denoted $\text{null}(A)$, is the set of all vectors $\mathbf{x} \in \mathbb{R}^n$ such that:
 
-\[
+$$
 A \mathbf{x} = \mathbf{0}
-\]
+$$
 
-The nullspace contains all solutions to the homogeneous system \( A \mathbf{x} = \mathbf{0} \). Its dimension, called the **nullity**, is:
+The nullspace contains all solutions to the homogeneous system $A \mathbf{x} = \mathbf{0}$. Its dimension, called the **nullity**, is:
 
-\[
+$$
 \text{nullity}(A) = n - \text{rank}(A)
-\]
+$$
 
-If \( \text{null}(A) = \{\mathbf{0}\} \) (only the zero vector), \( A \) has full column rank (\( \text{rank}(A) = n \)).
+If $\text{null}(A) = \{\mathbf{0}\}$ (only the zero vector), $A$ has full column rank ($\text{rank}(A) = n$).
 
 ### Fundamental Theorem of Linear Algebra
-The Fundamental Theorem connects the key subspaces of a matrix \( A \):
+The Fundamental Theorem connects the key subspaces of a matrix $A$:
 
-1. **Column Space**: \( \text{col}(A) \subseteq \mathbb{R}^m \), dimension \( \text{rank}(A) \).
-2. **Nullspace**: \( \text{null}(A) \subseteq \mathbb{R}^n \), dimension \( n - \text{rank}(A) \).
-3. **Row Space**: \( \text{row}(A) \subseteq \mathbb{R}^n \), dimension \( \text{rank}(A) \).
-4. **Left Nullspace**: \( \text{null}(A^T) \subseteq \mathbb{R}^m \), dimension \( m - \text{rank}(A) \).
+1. **Column Space**: $\text{col}(A) \subseteq \mathbb{R}^m$, dimension $\text{rank}(A)$.
+2. **Nullspace**: $\text{null}(A) \subseteq \mathbb{R}^n$, dimension $n - \text{rank}(A)$.
+3. **Row Space**: $\text{row}(A) \subseteq \mathbb{R}^n$, dimension $\text{rank}(A)$.
+4. **Left Nullspace**: $\text{null}(A^T) \subseteq \mathbb{R}^m$, dimension $m - \text{rank}(A)$.
 
 Key relationships:
-- \( \text{col}(A) \) is orthogonal to \( \text{null}(A^T) \).
-- \( \text{row}(A) \) is orthogonal to \( \text{null}(A) \).
-- For a system \( A \mathbf{x} = \mathbf{b} \):
-  - A solution exists if \( \mathbf{b} \in \text{col}(A) \).
-  - If a solution exists, the general solution is \( \mathbf{x}_p + \mathbf{x}_n \), where \( \mathbf{x}_p \) is a particular solution and \( \mathbf{x}_n \in \text{null}(A) \).
+- $\text{col}(A)$ is orthogonal to $\text{null}(A^T)$.
+- $\text{row}(A)$ is orthogonal to $\text{null}(A)$.
+- For a system $A \mathbf{x} = \mathbf{b}$:
+  - A solution exists if $\mathbf{b} \in \text{col}(A)$.
+  - If a solution exists, the general solution is $\mathbf{x}_p + \mathbf{x}_n$, where $\mathbf{x}_p$ is a particular solution and $\mathbf{x}_n \in \text{null}(A)$.
 
 ### SVD Intuition
-Singular Value Decomposition (SVD) decomposes \( A \) as:
+Singular Value Decomposition (SVD) decomposes $A$ as:
 
-\[
+$$
 A = U \Sigma V^T
-\]
+$$
 
 where:
-- \( U \) (\( m \times m \)) and \( V \) (\( n \times n \)) are orthogonal matrices.
-- \( \Sigma \) (\( m \times n \)) is diagonal with non-negative singular values in decreasing order.
+- $U$ ($m \times m$) and $V$ ($n \times n$) are orthogonal matrices.
+- $\Sigma$ ($m \times n$) is diagonal with non-negative singular values in decreasing order.
 
-The rank of \( A \) is the number of non-zero singular values. SVD reveals the structure of \( \text{col}(A) \), \( \text{row}(A) \), and \( \text{null}(A) \), and is used in data compression (e.g., low-rank approximations).
+The rank of $A$ is the number of non-zero singular values. SVD reveals the structure of $\text{col}(A)$, $\text{row}(A)$, and $\text{null}(A)$, and is used in data compression (e.g., low-rank approximations).
 
 ---
 
@@ -123,7 +123,7 @@ Matrix A (4x3):
 Rank of A: 3
 ```
 
-The rank is 3, indicating the columns are linearly independent (since \( \text{rank}(A) = n = 3 \)).
+The rank is 3, indicating the columns are linearly independent (since $\text{rank}(A) = n = 3$).
 
 ### Nullspace
 Let’s approximate the nullspace using SVD:
@@ -152,7 +152,7 @@ Nullspace basis:
 Nullity (n - rank): 0
 ```
 
-Since all singular values are non-zero, the nullspace is \( \{\mathbf{0}\} \), and the nullity is \( 3 - 3 = 0 \).
+Since all singular values are non-zero, the nullspace is $\{\mathbf{0}\}$, and the nullity is $3 - 3 = 0$.
 
 ### Example with Non-Full Rank
 Let’s try a matrix with dependent columns:
@@ -239,7 +239,7 @@ plt.title(f'Column Space (Rank = {rank_vis})')
 plt.show()
 ```
 
-This plots the columns of \( A_vis \) and shades the column space (a plane, since rank = 2).
+This plots the columns of $A_vis$ and shades the column space (a plane, since rank = 2).
 
 ### PyTorch: Rank
 Let’s compute rank in PyTorch:
@@ -270,12 +270,12 @@ This matches NumPy’s rank.
 
 Try these Python exercises to deepen your understanding. Solutions will be discussed in the next post!
 
-1. **Rank Calculation**: Create a \( 4 \times 4 \) matrix with random integers between -5 and 5. Compute its rank using NumPy.
+1. **Rank Calculation**: Create a $4 \times 4$ matrix with random integers between -5 and 5. Compute its rank using NumPy.
 2. **Nullspace Basis**: For the matrix in Exercise 1, compute the nullspace basis using SVD and print its dimension.
 3. **PyTorch Rank**: Convert the matrix from Exercise 1 to a PyTorch tensor, compute its rank via SVD, and verify it matches NumPy’s.
-4. **Under-Determined System**: Create a \( 2 \times 3 \) matrix and a 2D vector \( \mathbf{b} \). Solve \( A \mathbf{x} = \mathbf{b} \) using `np.linalg.lstsq` and check if multiple solutions exist by inspecting the nullspace.
-5. **Over-Determined System**: Create a \( 4 \times 2 \) matrix and a 4D vector \( \mathbf{b} \). Solve the system using `np.linalg.lstsq` and verify if \( \mathbf{b} \in \text{col}(A) \).
-6. **SVD Compression**: Create a \( 5 \times 5 \) matrix, compute its SVD, and reconstruct a rank-2 approximation. Compare the original and compressed matrices.
+4. **Under-Determined System**: Create a $2 \times 3$ matrix and a 2D vector $\mathbf{b}$. Solve $A \mathbf{x} = \mathbf{b}$ using `np.linalg.lstsq` and check if multiple solutions exist by inspecting the nullspace.
+5. **Over-Determined System**: Create a $4 \times 2$ matrix and a 4D vector $\mathbf{b}$. Solve the system using `np.linalg.lstsq` and verify if $\mathbf{b} \in \text{col}(A)$.
+6. **SVD Compression**: Create a $5 \times 5$ matrix, compute its SVD, and reconstruct a rank-2 approximation. Compare the original and compressed matrices.
 
 ---
 
