@@ -4,53 +4,79 @@ author = "Artintellica"
 date = "2025-05-30"
 +++
 
-Welcome to the eleventh post in our series on **Linear Algebra for Machine Learning**, continuing Part II: Core Theorems and Algorithms! After exploring eigenvalues and eigenvectors, we now dive into **Singular Value Decomposition (SVD)**, a cornerstone for dimensionality reduction, noise filtering, and latent semantic analysis (LSA) in machine learning (ML). In this post, we’ll cover the mathematical foundations, their ML applications, and how to implement SVD in Python using **NumPy** and **PyTorch**. We’ll include a visual demo and Python exercises to solidify your understanding.
+Welcome to the eleventh post in our series on **Linear Algebra for Machine
+Learning**, continuing Part II: Core Theorems and Algorithms! After exploring
+eigenvalues and eigenvectors, we now dive into **Singular Value Decomposition
+(SVD)**, a cornerstone for dimensionality reduction, noise filtering, and latent
+semantic analysis (LSA) in machine learning (ML). In this post, we’ll cover the
+mathematical foundations, their ML applications, and how to implement SVD in
+Python using **NumPy** and **PyTorch**. We’ll include a visual demo and Python
+exercises to solidify your understanding.
 
 ---
 
 ## The Math: Singular Value Decomposition
 
 ### Definition
-For any $m \times n$ matrix $A$, **Singular Value Decomposition** decomposes $A$ as:
+
+For any $m \times n$ matrix $A$, **Singular Value Decomposition** decomposes $A$
+as:
 
 $$
 A = U \Sigma V^T
 $$
 
 where:
-- $U$ is an $m \times m$ orthogonal matrix, with columns (left singular vectors) forming an orthonormal basis for $\mathbb{R}^m$.
-- $\Sigma$ is an $m \times n$ diagonal matrix with non-negative singular values $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r \geq 0$ (where $r = \min(m, n)$) on the diagonal, and zeros elsewhere.
-- $V$ is an $n \times n$ orthogonal matrix, with columns (right singular vectors) forming an orthonormal basis for $\mathbb{R}^n$.
+
+- $U$ is an $m \times m$ orthogonal matrix, with columns (left singular vectors)
+  forming an orthonormal basis for $\mathbb{R}^m$.
+- $\Sigma$ is an $m \times n$ diagonal matrix with non-negative singular values
+  $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r \geq 0$ (where
+  $r = \min(m, n)$) on the diagonal, and zeros elsewhere.
+- $V$ is an $n \times n$ orthogonal matrix, with columns (right singular
+  vectors) forming an orthonormal basis for $\mathbb{R}^n$.
 - $V^T$ is the transpose of $V$.
 
-The singular values in $\Sigma$ capture the “importance” of each dimension, and the rank of $A$ is the number of non-zero singular values.
+The singular values in $\Sigma$ capture the “importance” of each dimension, and
+the rank of $A$ is the number of non-zero singular values.
 
 ### Geometric Intuition
+
 SVD interprets $A$ as a composition of three transformations:
+
 1. **Rotation/Reflection**: $V^T$ rotates or reflects the input space.
 2. **Scaling**: $\Sigma$ scales along the principal axes (by singular values).
 3. **Rotation/Reflection**: $U$ rotates or reflects into the output space.
 
-For example, if $A$ represents a dataset, SVD identifies the principal directions (via $U$ and $V$) and their magnitudes (via $\Sigma$).
+For example, if $A$ represents a dataset, SVD identifies the principal
+directions (via $U$ and $V$) and their magnitudes (via $\Sigma$).
 
 ### Low-Rank Approximation
+
 A rank-$k$ approximation of $A$ is:
 
 $$
 A_k = U_k \Sigma_k V_k^T
 $$
 
-where $U_k$ is $m \times k$, $\Sigma_k$ is $k \times k$, and $V_k$ is $n \times k$, using the top $k$ singular values and vectors. This minimizes the Frobenius norm $\|A - A_k\|_F$, ideal for compression and noise reduction.
+where $U_k$ is $m \times k$, $\Sigma_k$ is $k \times k$, and $V_k$ is
+$n \times k$, using the top $k$ singular values and vectors. This minimizes the
+Frobenius norm $\|A - A_k\|_F$, ideal for compression and noise reduction.
 
 ---
 
 ## ML Context: Why SVD Matters
 
 SVD is pivotal in ML:
-- **Dimensionality Reduction**: Low-rank approximations reduce data size while preserving structure, used in PCA and recommender systems.
-- **Noise Filtering**: Truncating small singular values removes noise, enhancing signal in images or audio.
-- **Latent Semantic Analysis (LSA)**: In NLP, SVD uncovers latent topics in document-term matrices.
-- **Matrix Completion**: SVD helps impute missing data in collaborative filtering.
+
+- **Dimensionality Reduction**: Low-rank approximations reduce data size while
+  preserving structure, used in PCA and recommender systems.
+- **Noise Filtering**: Truncating small singular values removes noise, enhancing
+  signal in images or audio.
+- **Latent Semantic Analysis (LSA)**: In NLP, SVD uncovers latent topics in
+  document-term matrices.
+- **Matrix Completion**: SVD helps impute missing data in collaborative
+  filtering.
 
 Mastering SVD enables efficient data processing and robust model design.
 
@@ -58,9 +84,11 @@ Mastering SVD enables efficient data processing and robust model design.
 
 ## Python Code: Singular Value Decomposition
 
-Let’s compute SVD, create a low-rank approximation, and visualize its effects using **NumPy** and **PyTorch**.
+Let’s compute SVD, create a low-rank approximation, and visualize its effects
+using **NumPy** and **PyTorch**.
 
 ### Setup
+
 Install the required libraries if needed:
 
 ```bash
@@ -68,6 +96,7 @@ pip install numpy torch matplotlib
 ```
 
 ### Computing SVD
+
 Let’s compute SVD for a matrix:
 
 ```python
@@ -102,6 +131,7 @@ print("\nReconstruction matches original?", np.allclose(A, A_reconstructed))
 ```
 
 **Output:**
+
 ```
 Matrix A (4x3):
  [[ 1  2  3]
@@ -140,6 +170,7 @@ Reconstruction matches original? True
 This computes SVD, reconstructs $A$, and verifies the decomposition.
 
 ### Low-Rank Approximation
+
 Let’s create a rank-1 approximation:
 
 ```python
@@ -159,6 +190,7 @@ print("\nFrobenius norm of difference (||A - A_rank1||_F):", diff_norm)
 ```
 
 **Output:**
+
 ```
 Rank-1 approximation A_rank1:
  [[ 0.9041  1.0296  1.1532]
@@ -172,6 +204,7 @@ Frobenius norm of difference (||A - A_rank1||_F): 1.6641
 This approximates $A$ using the top singular value, with some error.
 
 ### Visualization
+
 Let’s visualize the matrices:
 
 ```python
@@ -200,9 +233,11 @@ plt.tight_layout()
 plt.show()
 ```
 
-This plots the original matrix, rank-1 approximation, and their difference, showing compression effects.
+This plots the original matrix, rank-1 approximation, and their difference,
+showing compression effects.
 
 ### PyTorch: SVD
+
 Let’s compute SVD in PyTorch:
 
 ```python
@@ -219,6 +254,7 @@ print("PyTorch singular values:", S_torch.numpy())
 ```
 
 **Output:**
+
 ```
 PyTorch singular values: [25.462408  1.2909944]
 ```
@@ -229,19 +265,30 @@ This matches NumPy’s singular values.
 
 ## Exercises
 
-Try these Python exercises to deepen your understanding. Solutions will be discussed in the next post!
+Try these Python exercises to deepen your understanding. Solutions will be
+discussed in the next post!
 
-1. **SVD Computation**: Create a $3 \times 4$ matrix with random integers between -5 and 5. Compute its SVD using NumPy and reconstruct the matrix.
-2. **Rank-k Approximation**: For the matrix in Exercise 1, compute a rank-2 approximation and calculate the Frobenius norm of the difference.
-3. **PyTorch SVD**: Convert the matrix from Exercise 1 to a PyTorch tensor, compute its SVD, and verify the singular values match NumPy’s.
-4. **Image Compression**: Load a grayscale image (or create a small matrix), compute its SVD, and reconstruct a rank-10 approximation. Visualize the original and compressed images.
-5. **Noise Filtering**: Add random noise to a $5 \times 5$ matrix, compute its SVD, and use a rank-3 approximation to filter noise. Compare with the original.
-6. **LSA Simulation**: Create a $4 \times 3$ document-term matrix, compute its SVD, and interpret the top singular vectors as latent topics.
+1. **SVD Computation**: Create a $3 \times 4$ matrix with random integers
+   between -5 and 5. Compute its SVD using NumPy and reconstruct the matrix.
+2. **Rank-k Approximation**: For the matrix in Exercise 1, compute a rank-2
+   approximation and calculate the Frobenius norm of the difference.
+3. **PyTorch SVD**: Convert the matrix from Exercise 1 to a PyTorch tensor,
+   compute its SVD, and verify the singular values match NumPy’s.
+4. **Image Compression**: Load a grayscale image (or create a small matrix),
+   compute its SVD, and reconstruct a rank-10 approximation. Visualize the
+   original and compressed images.
+5. **Noise Filtering**: Add random noise to a $5 \times 5$ matrix, compute its
+   SVD, and use a rank-3 approximation to filter noise. Compare with the
+   original.
+6. **LSA Simulation**: Create a $4 \times 3$ document-term matrix, compute its
+   SVD, and interpret the top singular vectors as latent topics.
 
 ---
 
 ## What’s Next?
 
-In the next post, we’ll explore **positive definite matrices**, key for covariance, kernels, and optimization. We’ll provide more Python code and exercises to continue building your ML expertise.
+In the next post, we’ll explore **positive definite matrices**, key for
+covariance, kernels, and optimization. We’ll provide more Python code and
+exercises to continue building your ML expertise.
 
 Happy learning, and see you in Part 12!
