@@ -11,40 +11,40 @@ Welcome to the twelfth post in our series on **Linear Algebra for Machine Learni
 ## The Math: Positive Definite Matrices
 
 ### Definition
-A square matrix \( A \) (size \( n \times n \)) is **positive definite** if, for all non-zero vectors \( \mathbf{x} \in \mathbb{R}^n \):
+A square matrix $A$ (size $n \times n$) is **positive definite** if, for all non-zero vectors $\mathbf{x} \in \mathbb{R}^n$:
 
-\[
+$$
 \mathbf{x}^T A \mathbf{x} > 0
-\]
+$$
 
-This means the quadratic form \( \mathbf{x}^T A \mathbf{x} \) is always positive, ensuring \( A \) defines a “bowl-shaped” function, useful in optimization. If the inequality is non-strict (\( \mathbf{x}^T A \mathbf{x} \geq 0 \)), \( A \) is **positive semi-definite**.
+This means the quadratic form $\mathbf{x}^T A \mathbf{x}$ is always positive, ensuring $A$ defines a “bowl-shaped” function, useful in optimization. If the inequality is non-strict ($\mathbf{x}^T A \mathbf{x} \geq 0$), $A$ is **positive semi-definite**.
 
 ### Properties
-A matrix \( A \) is positive definite if and only if:
-1. All eigenvalues of \( A \) are positive (\( \lambda_i > 0 \)).
+A matrix $A$ is positive definite if and only if:
+1. All eigenvalues of $A$ are positive ($\lambda_i > 0$).
 2. All leading principal minors (determinants of top-left submatrices) are positive.
-3. \( A \) is symmetric (or Hermitian for complex matrices), i.e., \( A = A^T \).
-4. There exists a Cholesky decomposition \( A = LL^T \), where \( L \) is lower triangular with positive diagonal entries.
+3. $A$ is symmetric (or Hermitian for complex matrices), i.e., $A = A^T$.
+4. There exists a Cholesky decomposition $A = LL^T$, where $L$ is lower triangular with positive diagonal entries.
 
-For positive semi-definite matrices, eigenvalues and minors are non-negative (\( \lambda_i \geq 0 \)).
+For positive semi-definite matrices, eigenvalues and minors are non-negative ($\lambda_i \geq 0$).
 
 ### Cholesky Decomposition
-For a positive definite matrix \( A \), the **Cholesky decomposition** is:
+For a positive definite matrix $A$, the **Cholesky decomposition** is:
 
-\[
+$$
 A = LL^T
-\]
+$$
 
-where \( L \) is a lower triangular matrix with positive diagonal entries. This is computationally efficient for solving systems \( A \mathbf{x} = \mathbf{b} \) and checking positive definiteness.
+where $L$ is a lower triangular matrix with positive diagonal entries. This is computationally efficient for solving systems $A \mathbf{x} = \mathbf{b}$ and checking positive definiteness.
 
 ### Quadratic Forms
-The quadratic form associated with \( A \) is:
+The quadratic form associated with $A$ is:
 
-\[
+$$
 q(\mathbf{x}) = \mathbf{x}^T A \mathbf{x} = \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j
-\]
+$$
 
-For positive definite \( A \), \( q(\mathbf{x}) > 0 \) for \( \mathbf{x} \neq \mathbf{0} \), representing a convex function, critical in optimization.
+For positive definite $A$, $q(\mathbf{x}) > 0$ for $\mathbf{x} \neq \mathbf{0}$, representing a convex function, critical in optimization.
 
 ---
 
@@ -110,7 +110,7 @@ Eigenvalues: [3. 1.]
 Is positive definite? True
 ```
 
-This confirms \( A \) is positive definite (symmetric, eigenvalues \( 3, 1 > 0 \)).
+This confirms $A$ is positive definite (symmetric, eigenvalues $3, 1 > 0$).
 
 ### Cholesky Decomposition
 Let’s compute the Cholesky decomposition:
@@ -142,10 +142,10 @@ Reconstructed A (LL^T):
 Cholesky reconstruction valid? True
 ```
 
-This computes \( L \), verifies \( A = LL^T \), and confirms positive definiteness.
+This computes $L$, verifies $A = LL^T$, and confirms positive definiteness.
 
 ### Quadratic Form Visualization
-Let’s visualize the quadratic form \( \mathbf{x}^T A \mathbf{x} \):
+Let’s visualize the quadratic form $\mathbf{x}^T A \mathbf{x}$:
 
 ```python
 import matplotlib.pyplot as plt
@@ -172,7 +172,7 @@ plt.title('Quadratic Form x^T A x')
 plt.show()
 ```
 
-This plots a paraboloid, reflecting the positive definite nature of \( A \) (always positive except at the origin).
+This plots a paraboloid, reflecting the positive definite nature of $A$ (always positive except at the origin).
 
 ### PyTorch: Cholesky
 Let’s compute Cholesky in PyTorch:
@@ -206,12 +206,12 @@ This matches NumPy’s Cholesky factor.
 
 Try these Python exercises to deepen your understanding. Solutions will be discussed in the next post!
 
-1. **Positive Definiteness Check**: Create a \( 3 \times 3 \) symmetric matrix with random integers. Check if it’s positive definite using eigenvalues.
-2. **Cholesky Decomposition**: For the matrix in Exercise 1, if positive definite, compute its Cholesky decomposition and verify \( A = LL^T \).
+1. **Positive Definiteness Check**: Create a $3 \times 3$ symmetric matrix with random integers. Check if it’s positive definite using eigenvalues.
+2. **Cholesky Decomposition**: For the matrix in Exercise 1, if positive definite, compute its Cholesky decomposition and verify $A = LL^T$.
 3. **PyTorch Positive Definite**: Convert the matrix from Exercise 1 to a PyTorch tensor, attempt Cholesky decomposition, and verify it matches NumPy’s.
-4. **Quadratic Form**: Define a \( 2 \times 2 \) positive definite matrix (e.g., \( \begin{bmatrix} 3 & 1 \\ 1 & 2 \end{bmatrix} \)). Compute and plot its quadratic form.
-5. **Covariance Matrix**: Generate a \( 5 \times 3 \) matrix of points, compute the covariance matrix, and check if it’s positive definite.
-6. **Kernel Matrix**: Create a \( 4 \times 4 \) kernel matrix using a Gaussian kernel for 4 points. Verify it’s positive semi-definite.
+4. **Quadratic Form**: Define a $2 \times 2$ positive definite matrix (e.g., $\begin{bmatrix} 3 & 1 \\ 1 & 2 \end{bmatrix}$). Compute and plot its quadratic form.
+5. **Covariance Matrix**: Generate a $5 \times 3$ matrix of points, compute the covariance matrix, and check if it’s positive definite.
+6. **Kernel Matrix**: Create a $4 \times 4$ kernel matrix using a Gaussian kernel for 4 points. Verify it’s positive semi-definite.
 
 ---
 
