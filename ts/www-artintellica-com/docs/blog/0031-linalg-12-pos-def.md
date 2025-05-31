@@ -4,67 +4,98 @@ author = "Artintellica"
 date = "2025-05-31"
 +++
 
-Welcome to the twelfth post in our series on **Linear Algebra for Machine Learning**, continuing Part II: Core Theorems and Algorithms! After exploring Singular Value Decomposition (SVD), we now turn to **positive definite matrices**, essential for covariance matrices, kernel methods, and optimization in machine learning (ML). In this post, we’ll cover the mathematical foundations, their ML applications, and how to implement them in Python using **NumPy** and **PyTorch**. We’ll include visualizations, methods to check positive definiteness, Cholesky decomposition, quadratic forms, and Python exercises to deepen your understanding.
+Welcome to the twelfth post in our series on **Linear Algebra for Machine
+Learning**, continuing Part II: Core Theorems and Algorithms! After exploring
+Singular Value Decomposition (SVD), we now turn to **positive definite
+matrices**, essential for covariance matrices, kernel methods, and optimization
+in machine learning (ML). In this post, we’ll cover the mathematical
+foundations, their ML applications, and how to implement them in Python using
+**NumPy** and **PyTorch**. We’ll include visualizations, methods to check
+positive definiteness, Cholesky decomposition, quadratic forms, and Python
+exercises to deepen your understanding.
 
 ---
 
 ## The Math: Positive Definite Matrices
 
 ### Definition
-A square matrix $A$ (size $n \times n$) is **positive definite** if, for all non-zero vectors $\mathbf{x} \in \mathbb{R}^n$:
+
+A square matrix $A$ (size $n \times n$) is **positive definite** if, for all
+non-zero vectors $\mathbf{x} \in \mathbb{R}^n$:
 
 $$
 \mathbf{x}^T A \mathbf{x} > 0
 $$
 
-This means the quadratic form $\mathbf{x}^T A \mathbf{x}$ is always positive, ensuring $A$ defines a “bowl-shaped” function, useful in optimization. If the inequality is non-strict ($\mathbf{x}^T A \mathbf{x} \geq 0$), $A$ is **positive semi-definite**.
+This means the quadratic form $\mathbf{x}^T A \mathbf{x}$ is always positive,
+ensuring $A$ defines a “bowl-shaped” function, useful in optimization. If the
+inequality is non-strict ($\mathbf{x}^T A \mathbf{x} \geq 0$), $A$ is **positive
+semi-definite**.
 
 ### Properties
-A matrix $A$ is positive definite if and only if:
-1. All eigenvalues of $A$ are positive ($\lambda_i > 0$).
-2. All leading principal minors (determinants of top-left submatrices) are positive.
-3. $A$ is symmetric (or Hermitian for complex matrices), i.e., $A = A^T$.
-4. There exists a Cholesky decomposition $A = LL^T$, where $L$ is lower triangular with positive diagonal entries.
 
-For positive semi-definite matrices, eigenvalues and minors are non-negative ($\lambda_i \geq 0$).
+A matrix $A$ is positive definite if and only if:
+
+1. All eigenvalues of $A$ are positive ($\lambda_i > 0$).
+2. All leading principal minors (determinants of top-left submatrices) are
+   positive.
+3. $A$ is symmetric (or Hermitian for complex matrices), i.e., $A = A^T$.
+4. There exists a Cholesky decomposition $A = LL^T$, where $L$ is lower
+   triangular with positive diagonal entries.
+
+For positive semi-definite matrices, eigenvalues and minors are non-negative
+($\lambda_i \geq 0$).
 
 ### Cholesky Decomposition
+
 For a positive definite matrix $A$, the **Cholesky decomposition** is:
 
 $$
 A = LL^T
 $$
 
-where $L$ is a lower triangular matrix with positive diagonal entries. This is computationally efficient for solving systems $A \mathbf{x} = \mathbf{b}$ and checking positive definiteness.
+where $L$ is a lower triangular matrix with positive diagonal entries. This is
+computationally efficient for solving systems $A \mathbf{x} = \mathbf{b}$ and
+checking positive definiteness.
 
 ### Quadratic Forms
+
 The quadratic form associated with $A$ is:
 
 $$
 q(\mathbf{x}) = \mathbf{x}^T A \mathbf{x} = \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j
 $$
 
-For positive definite $A$, $q(\mathbf{x}) > 0$ for $\mathbf{x} \neq \mathbf{0}$, representing a convex function, critical in optimization.
+For positive definite $A$, $q(\mathbf{x}) > 0$ for $\mathbf{x} \neq \mathbf{0}$,
+representing a convex function, critical in optimization.
 
 ---
 
 ## ML Context: Why Positive Definite Matrices Matter
 
 Positive definite matrices are ubiquitous in ML:
-- **Covariance Matrices**: In statistics and PCA, covariance matrices are positive semi-definite (or definite if full rank), capturing data variability.
-- **Kernel Methods**: In SVMs, kernel matrices (e.g., Gaussian kernels) must be positive semi-definite to ensure valid similarity measures.
-- **Optimization**: Positive definite Hessian matrices guarantee convexity, ensuring unique minima in algorithms like Newton’s method.
-- **Gaussian Processes**: Covariance functions produce positive definite matrices, modeling data correlations.
 
-Understanding these matrices helps you design robust models and optimize efficiently.
+- **Covariance Matrices**: In statistics and PCA, covariance matrices are
+  positive semi-definite (or definite if full rank), capturing data variability.
+- **Kernel Methods**: In SVMs, kernel matrices (e.g., Gaussian kernels) must be
+  positive semi-definite to ensure valid similarity measures.
+- **Optimization**: Positive definite Hessian matrices guarantee convexity,
+  ensuring unique minima in algorithms like Newton’s method.
+- **Gaussian Processes**: Covariance functions produce positive definite
+  matrices, modeling data correlations.
+
+Understanding these matrices helps you design robust models and optimize
+efficiently.
 
 ---
 
 ## Python Code: Positive Definite Matrices
 
-Let’s check positive definiteness, compute Cholesky decomposition, evaluate quadratic forms, and visualize their properties using **NumPy** and **PyTorch**.
+Let’s check positive definiteness, compute Cholesky decomposition, evaluate
+quadratic forms, and visualize their properties using **NumPy** and **PyTorch**.
 
 ### Setup
+
 Install the required libraries if needed:
 
 ```bash
@@ -72,6 +103,7 @@ pip install numpy torch matplotlib
 ```
 
 ### Checking Positive Definiteness
+
 Let’s test if a matrix is positive definite using eigenvalues:
 
 ```python
@@ -100,6 +132,7 @@ print("Is positive definite?", is_positive_definite)
 ```
 
 **Output:**
+
 ```
 Matrix A:
  [[2 1]
@@ -113,6 +146,7 @@ Is positive definite? True
 This confirms $A$ is positive definite (symmetric, eigenvalues $3, 1 > 0$).
 
 ### Cholesky Decomposition
+
 Let’s compute the Cholesky decomposition:
 
 ```python
@@ -130,6 +164,7 @@ except np.linalg.LinAlgError:
 ```
 
 **Output:**
+
 ```
 Cholesky factor L:
  [[1.41421356 0.        ]
@@ -145,6 +180,7 @@ Cholesky reconstruction valid? True
 This computes $L$, verifies $A = LL^T$, and confirms positive definiteness.
 
 ### Quadratic Form Visualization
+
 Let’s visualize the quadratic form $\mathbf{x}^T A \mathbf{x}$:
 
 ```python
@@ -172,9 +208,11 @@ plt.title('Quadratic Form x^T A x')
 plt.show()
 ```
 
-This plots a paraboloid, reflecting the positive definite nature of $A$ (always positive except at the origin).
+This plots a paraboloid, reflecting the positive definite nature of $A$ (always
+positive except at the origin).
 
 ### PyTorch: Cholesky
+
 Let’s compute Cholesky in PyTorch:
 
 ```python
@@ -192,6 +230,7 @@ except RuntimeError as e:
 ```
 
 **Output:**
+
 ```
 PyTorch Cholesky factor L:
  [[1.4142135  0.        ]
@@ -204,19 +243,30 @@ This matches NumPy’s Cholesky factor.
 
 ## Exercises
 
-Try these Python exercises to deepen your understanding. Solutions will be discussed in the next post!
+Try these Python exercises to deepen your understanding. Solutions will be
+discussed in the next post!
 
-1. **Positive Definiteness Check**: Create a $3 \times 3$ symmetric matrix with random integers. Check if it’s positive definite using eigenvalues.
-2. **Cholesky Decomposition**: For the matrix in Exercise 1, if positive definite, compute its Cholesky decomposition and verify $A = LL^T$.
-3. **PyTorch Positive Definite**: Convert the matrix from Exercise 1 to a PyTorch tensor, attempt Cholesky decomposition, and verify it matches NumPy’s.
-4. **Quadratic Form**: Define a $2 \times 2$ positive definite matrix (e.g., $\begin{bmatrix} 3 & 1 \\ 1 & 2 \end{bmatrix}$). Compute and plot its quadratic form.
-5. **Covariance Matrix**: Generate a $5 \times 3$ matrix of points, compute the covariance matrix, and check if it’s positive definite.
-6. **Kernel Matrix**: Create a $4 \times 4$ kernel matrix using a Gaussian kernel for 4 points. Verify it’s positive semi-definite.
+1. **Positive Definiteness Check**: Create a $3 \times 3$ symmetric matrix with
+   random integers. Check if it’s positive definite using eigenvalues.
+2. **Cholesky Decomposition**: For the matrix in Exercise 1, if positive
+   definite, compute its Cholesky decomposition and verify $A = LL^T$.
+3. **PyTorch Positive Definite**: Convert the matrix from Exercise 1 to a
+   PyTorch tensor, attempt Cholesky decomposition, and verify it matches
+   NumPy’s.
+4. **Quadratic Form**: Define a $2 \times 2$ positive definite matrix (e.g.,
+   $\begin{bmatrix} 3 & 1 \\ 1 & 2 \end{bmatrix}$). Compute and plot its
+   quadratic form.
+5. **Covariance Matrix**: Generate a $5 \times 3$ matrix of points, compute the
+   covariance matrix, and check if it’s positive definite.
+6. **Kernel Matrix**: Create a $4 \times 4$ kernel matrix using a Gaussian
+   kernel for 4 points. Verify it’s positive semi-definite.
 
 ---
 
 ## What’s Next?
 
-In the next post, we’ll explore **Principal Component Analysis (PCA)**, a key application of SVD and eigenvalues for dimensionality reduction. We’ll provide more Python code and exercises to continue building your ML expertise.
+In the next post, we’ll explore **Principal Component Analysis (PCA)**, a key
+application of SVD and eigenvalues for dimensionality reduction. We’ll provide
+more Python code and exercises to continue building your ML expertise.
 
 Happy learning, and see you in Part 13!
