@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Sat, 31 May 2025 13:32:19 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 31 May 2025 13:41:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices]]></title>
+            <link>https://artintellica.com/blog/0031-linalg-12-pos-def.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0031-linalg-12-pos-def.md</guid>
+            <pubDate>Sat, 31 May 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices]]></description>
+        </item>
         <item>
             <title><![CDATA[Linear Algebra for Machine Learning, Part 11: Singular Value Decomposition (SVD)]]></title>
             <link>https://artintellica.com/blog/0030-linalg-11-svd.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0012-calculus-10-line-and-surface-integrals.md</guid>
             <pubDate>Wed, 28 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Calculus 10: Line & Surface Integrals — Work, Flux, and Streamplots in Machine Learning]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Calculus 9: Change of Variables, Jacobians, and Normalizing Flows]]></title>
-            <link>https://artintellica.com/blog/0011-calculus-9-change-of-variables.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0011-calculus-9-change-of-variables.md</guid>
-            <pubDate>Wed, 28 May 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Calculus 9: Change of Variables, Jacobians, and Normalizing Flows]]></description>
         </item>
     </channel>
 </rss>
