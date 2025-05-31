@@ -232,6 +232,7 @@
     "title": "Linear Algebra for Machine Learning, Part 11: Singular Value Decomposition (SVD)",
     "author": "Artintellica",
     "date": "2025-05-30",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0030-linalg-11-svd",
     "content": ""
   }
 ]
