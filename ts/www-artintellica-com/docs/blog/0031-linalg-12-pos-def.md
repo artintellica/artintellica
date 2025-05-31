@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-05-31"
 +++
 
-# Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices
-
 Welcome to the twelfth post in our series on **Linear Algebra for Machine Learning**, continuing Part II: Core Theorems and Algorithms! After exploring Singular Value Decomposition (SVD), we now turn to **positive definite matrices**, essential for covariance matrices, kernel methods, and optimization in machine learning (ML). In this post, we’ll cover the mathematical foundations, their ML applications, and how to implement them in Python using **NumPy** and **PyTorch**. We’ll include visualizations, methods to check positive definiteness, Cholesky decomposition, quadratic forms, and Python exercises to deepen your understanding.
 
 ---
