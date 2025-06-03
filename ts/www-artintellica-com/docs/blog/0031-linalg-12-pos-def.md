@@ -210,30 +210,34 @@ example.
 ## Exercises
 
 Here are six exercises to deepen your understanding of positive definite
-matrices. They include a mix of theoretical questions, Python coding tasks, and
-machine learning applications.
+matrices. Each exercise requires writing Python code to explore concepts and
+applications in machine learning.
 
-1. **Math Proof**: Prove that if $A$ is positive definite, then its inverse
-   $A^{-1}$ is also positive definite. (Hint: Start with the definition
-   $x^T A^{-1} x$ and relate it to $A$.)
-2. **Math Check**: For the matrix
-   $B = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$, compute its eigenvalues
-   and determine if it is positive definite.
-3. **Python Coding**: Write a function in NumPy to check if a given matrix is
-   positive definite using both the eigenvalue method and attempting a Cholesky
-   decomposition. Test it on $B$ from Exercise 2.
-4. **Python Visualization**: Modify the 3D visualization code to plot the
+1. **Matrix Check**: Write a Python function using NumPy to test if a matrix is
+   positive definite by checking if it is symmetric and if all eigenvalues are
+   positive. Test it on the matrix
+   $B = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$.
+2. **Cholesky Implementation**: Write Python code using NumPy to attempt a
+   Cholesky decomposition on a given matrix and handle the case where it fails
+   (indicating the matrix is not positive definite). Test it on
+   $B = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$.
+3. **Quadratic Form Calculation**: Write a Python script to compute the
+   quadratic form $x^T A x$ for a set of random vectors $x$ and a given matrix
+   $A = \begin{bmatrix} 4 & 1 \\ 1 & 3 \end{bmatrix}$. Check if all results are
+   positive to confirm positive definiteness.
+4. **Visualization Task**: Modify the 3D visualization code provided to plot the
    quadratic form for a matrix that is **not** positive definite, such as
-   $C = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$. Describe the shape of
-   the surface.
-5. **ML Application**: In a Gaussian Process, the covariance matrix must be
-   positive definite. Generate a small dataset (e.g., 5 points in 2D), compute
-   its covariance matrix using NumPy, and verify its positive definiteness.
-6. **Optimization Task**: Using PyTorch, define a quadratic loss function with a
-   non-positive definite matrix (e.g.,
-   $D = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$) and run gradient
-   descent. Observe and explain the behavior compared to the positive definite
-   case.
+   $C = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$. Save the plot and
+   describe the shape of the surface in a comment.
+5. **ML Application**: Write Python code to generate a small dataset (e.g., 5
+   points in 2D) using NumPy, compute its covariance matrix, and verify its
+   positive definiteness by checking eigenvalues. Add a small positive value to
+   the diagonal if necessary to ensure positive definiteness.
+6. **Optimization Behavior**: Using PyTorch, write code to define a quadratic
+   loss function with a non-positive definite matrix (e.g.,
+   $D = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$) and run gradient descent
+   for 10 iterations. Log the loss and parameters at each step, and comment on
+   the behavior compared to the positive definite case.
 
 ## Conclusion
 
