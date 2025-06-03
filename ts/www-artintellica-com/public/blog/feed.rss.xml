@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Sun, 01 Jun 2025 12:50:11 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 03 Jun 2025 21:54:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <title><![CDATA[Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices]]></title>
             <link>https://artintellica.com/blog/0031-linalg-12-pos-def.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0031-linalg-12-pos-def.md</guid>
-            <pubDate>Sat, 31 May 2025 07:00:00 GMT</pubDate>
+            <pubDate>Tue, 03 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices]]></description>
         </item>
         <item>
