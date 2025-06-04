@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0038-linalg-19-kernel.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0038-linalg-19-kernel.md",
+            "title": "Linear Algebra for Machine Learning, Part 19: Kernel Methods and Feature Spaces",
+            "date_modified": "2025-07-22T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0037-linalg-18-spectral.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0037-linalg-18-spectral.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0019-calculus-overview.md",
             "title": "Calculus Overview: From Limits to Hessians — a Machine‑Learning‑Centric Journey through Calculus",
-            "date_modified": "2025-05-28T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0018-calculus-16-second-order-methods.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0018-calculus-16-second-order-methods.md",
-            "title": "Calculus 16: Hessian-Vector Products & Newton-like Steps — Second-Order Optimization in Practice",
             "date_modified": "2025-05-28T07:00:00.000Z"
         }
     ]
