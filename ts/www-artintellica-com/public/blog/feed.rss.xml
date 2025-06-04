@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Wed, 04 Jun 2025 13:08:29 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Jun 2025 13:15:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <title><![CDATA[Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)]]></title>
             <link>https://artintellica.com/blog/0032-linalg-13-pca.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0032-linalg-13-pca.md</guid>
-            <pubDate>Tue, 10 Jun 2025 07:00:00 GMT</pubDate>
+            <pubDate>Wed, 04 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)]]></description>
         </item>
         <item>
