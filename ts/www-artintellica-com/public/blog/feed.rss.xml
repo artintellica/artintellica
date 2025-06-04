@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Wed, 04 Jun 2025 16:51:59 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Jun 2025 17:00:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,8 +12,8 @@
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Linear Algebra for Machine Learning, Part 16: Neural Networks as Matrix Functions]]></title>
-            <link>https://artintellica.com/blog/0035-linalg-16-matrix-functions.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0035-linalg-16-matrix-functions.md</guid>
+            <link>https://artintellica.com/blog/0035-linalg-16-neural-networks.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0035-linalg-16-neural-networks.md</guid>
             <pubDate>Wed, 04 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 16: Neural Networks as Matrix Functions]]></description>
         </item>
