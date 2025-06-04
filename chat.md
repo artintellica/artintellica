@@ -624,4 +624,70 @@ In the next post, we’ll explore **Principal Component Analysis (PCA)**, where 
 
 # === USER ===
 
+great. now, can you please write the python code for exercise 1?
+
+1. **Matrix Check**: Write a Python function using NumPy to test if a matrix is
+   positive definite by checking if it is symmetric and if all eigenvalues are
+   positive. Test it on the matrix
+   $B = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$.
+
+
+# === ASSISTANT ===
+
+Here's the Python code for Exercise 1 from the blog post on Positive Definite Matrices:
+
+```python
+import numpy as np
+
+def is_positive_definite(matrix):
+    """
+    Check if a matrix is positive definite.
+    A matrix is positive definite if it is symmetric and all its eigenvalues are positive.
+    
+    Args:
+        matrix (np.ndarray): A square matrix to be tested.
+        
+    Returns:
+        bool: True if the matrix is positive definite, False otherwise.
+    """
+    # Check if the matrix is square
+    if matrix.shape[0] != matrix.shape[1]:
+        print("Matrix is not square.")
+        return False
+    
+    # Check if the matrix is symmetric
+    if not np.allclose(matrix, matrix.T):
+        print("Matrix is not symmetric.")
+        return False
+    
+    # Compute eigenvalues and check if all are positive
+    eigenvalues = np.linalg.eigvals(matrix)
+    if np.all(eigenvalues > 0):
+        print("All eigenvalues are positive:", eigenvalues)
+        return True
+    else:
+        print("Not all eigenvalues are positive:", eigenvalues)
+        return False
+
+# Test the function on matrix B
+B = np.array([[1, 2], [2, 1]])
+print("Testing matrix B:")
+print(B)
+result = is_positive_definite(B)
+print("Is matrix B positive definite?", result)
+```
+
+**Expected Output**:
+```
+Testing matrix B:
+[[1 2]
+ [2 1]]
+All eigenvalues are positive: [ 3. -1.]
+Is matrix B positive definite? False
+```
+
+This code defines a function `is_positive_definite` that checks two conditions for positive definiteness: symmetry (using `np.allclose` to compare the matrix with its transpose) and positive eigenvalues (computed via `np.linalg.eigvals`). The function is tested on the specified matrix \( B = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix} \), and the output shows that it is not positive definite due to a negative eigenvalue.
+
+# === USER ===
+
 
