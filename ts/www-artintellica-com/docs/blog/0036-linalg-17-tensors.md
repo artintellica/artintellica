@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 17: Tensors and Higher-Order Generalizations"
 author = "Artintellica"
 date = "2025-07-08"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0036-linalg-17-tensors"
 +++
 
 Welcome back to our series on linear algebra for machine learning! In this post,
