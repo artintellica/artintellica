@@ -282,5 +282,12 @@
     "date": "2025-07-08",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0036-linalg-17-tensors",
     "content": ""
+  },
+  {
+    "filename": "0037-linalg-18-spectral.md",
+    "title": "Linear Algebra for Machine Learning, Part 18: Spectral Methods in ML (Graph Laplacians, etc.)",
+    "author": "Artintellica",
+    "date": "2025-07-15",
+    "content": ""
   }
 ]
