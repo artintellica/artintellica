@@ -1,0 +1,7 @@
+[project]
+name = "blog-0033-linalg-14-least-squares"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
