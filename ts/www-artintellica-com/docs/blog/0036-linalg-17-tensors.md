@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-07-08"
 +++
 
-# Linear Algebra for Machine Learning, Part 17: Tensors and Higher-Order Generalizations
-
 Welcome back to our series on linear algebra for machine learning! In this post, we’re diving into **Tensors and Higher-Order Generalizations**, extending the concepts of vectors and matrices to multi-dimensional arrays that power deep learning, natural language processing (NLP), and computer vision. Tensors are the fundamental data structures in frameworks like PyTorch, enabling efficient computation through vectorization and broadcasting. Whether you're processing images, text embeddings, or time series data, understanding tensors is essential. Let’s explore the math, intuition, and implementation with Python code using PyTorch, visualizations, and hands-on exercises.
 
 ## What Are Tensors and Higher-Order Generalizations?
