@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 03 Jun 2025 22:12:09 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Jun 2025 13:08:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)]]></title>
+            <link>https://artintellica.com/blog/0032-linalg-13-pca.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0032-linalg-13-pca.md</guid>
+            <pubDate>Tue, 10 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)]]></description>
+        </item>
         <item>
             <title><![CDATA[Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices]]></title>
             <link>https://artintellica.com/blog/0031-linalg-12-pos-def.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0013-calculus-11-divergence-curl-laplacian.md</guid>
             <pubDate>Wed, 28 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Calculus 11: Divergence, Curl, and Laplacian — Diffusion, Heat, and Curvature]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Calculus 10: Line & Surface Integrals — Work, Flux, and Streamplots in Machine Learning]]></title>
-            <link>https://artintellica.com/blog/0012-calculus-10-line-and-surface-integrals.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0012-calculus-10-line-and-surface-integrals.md</guid>
-            <pubDate>Wed, 28 May 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Calculus 10: Line & Surface Integrals — Work, Flux, and Streamplots in Machine Learning]]></description>
         </item>
     </channel>
 </rss>

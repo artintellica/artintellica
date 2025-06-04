@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices"
 author = "Artintellica"
 date = "2025-06-03"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0031-linalg-12-pos-def"
 +++
 
 Welcome back to our series on linear algebra for machine learning! In this post,
