@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-07-01"
 +++
 
-# Linear Algebra for Machine Learning, Part 16: Neural Networks as Matrix Functions
-
 Welcome back to our series on linear algebra for machine learning! In this post, we’re exploring **Neural Networks as Matrix Functions**, uncovering how these powerful models are fundamentally built on linear algebra operations. Neural networks, at their core, are compositions of matrix multiplications and non-linear activations, enabling them to learn complex patterns from data. Whether you're building a simple feedforward network or a deep learning model, understanding the matrix operations behind layers, forward passes, and backpropagation is essential. Let’s dive into the math, intuition, and implementation with Python code using PyTorch, visualizations, and hands-on exercises.
 
 ## What Are Neural Networks as Matrix Functions?
