@@ -690,4 +690,77 @@ This code defines a function `is_positive_definite` that checks two conditions f
 
 # === USER ===
 
+now can you write the python code for exercise 2?
+
+2. **Cholesky Implementation**: Write Python code using NumPy to attempt a
+   Cholesky decomposition on a given matrix and handle the case where it fails
+   (indicating the matrix is not positive definite). Test it on
+   $B = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$.
+
+
+# === ASSISTANT ===
+
+Here's the Python code for Exercise 2 from the blog post on Positive Definite Matrices:
+
+```python
+import numpy as np
+
+def attempt_cholesky(matrix):
+    """
+    Attempt to perform Cholesky decomposition on a given matrix.
+    If it fails, the matrix is not positive definite.
+    
+    Args:
+        matrix (np.ndarray): A square matrix to be decomposed.
+        
+    Returns:
+        tuple: (bool, np.ndarray or None) - A boolean indicating if decomposition succeeded,
+               and the lower triangular matrix L if successful, otherwise None.
+    """
+    # Check if the matrix is square
+    if matrix.shape[0] != matrix.shape[1]:
+        print("Matrix is not square.")
+        return False, None
+    
+    # Check if the matrix is symmetric
+    if not np.allclose(matrix, matrix.T):
+        print("Matrix is not symmetric.")
+        return False, None
+    
+    # Attempt Cholesky decomposition
+    try:
+        L = np.linalg.cholesky(matrix)
+        print("Cholesky decomposition succeeded. Lower triangular matrix L:")
+        print(L)
+        print("Reconstructed matrix from L L^T:")
+        print(L @ L.T)
+        return True, L
+    except np.linalg.LinAlgError:
+        print("Cholesky decomposition failed. Matrix is not positive definite.")
+        return False, None
+
+# Test the function on matrix B
+B = np.array([[1, 2], [2, 1]])
+print("Testing matrix B:")
+print(B)
+success, L = attempt_cholesky(B)
+print("Was Cholesky decomposition successful?", success)
+if not success:
+    print("Matrix B is not positive definite.")
+```
+
+**Expected Output**:
+```
+Testing matrix B:
+[[1 2]
+ [2 1]]
+Cholesky decomposition failed. Matrix is not positive definite.
+Was Cholesky decomposition successful? False
+Matrix B is not positive definite.
+```
+
+This code defines a function `attempt_cholesky` that checks if a matrix is square and symmetric before attempting a Cholesky decomposition using `np.linalg.cholesky`. If the decomposition fails (raising a `LinAlgError`), it indicates that the matrix is not positive definite. The function is tested on the specified matrix \( B = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix} \), and the output confirms that the decomposition fails, consistent with the matrix not being positive definite.
+
+# === USER ===
+
 
