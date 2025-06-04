@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-06-17"
 +++
 
-# Linear Algebra for Machine Learning, Part 14: Least Squares and Linear Regression
-
 Welcome back to our series on linear algebra for machine learning! In this post, we’re delving into **Least Squares and Linear Regression**, foundational concepts for predictive modeling. Linear regression is one of the simplest yet most powerful tools in machine learning, relying heavily on linear algebra to fit lines or planes to data by minimizing error. Whether you're predicting house prices or analyzing trends, understanding the math behind least squares is essential. Let’s explore the theory, derive the solutions, and implement them with Python code, visualizations, and hands-on exercises.
 
 ## What Are Least Squares and Linear Regression?
