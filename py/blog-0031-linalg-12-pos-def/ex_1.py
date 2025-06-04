@@ -38,3 +38,10 @@ print("Testing matrix B:")
 print(B)
 result = is_positive_definite(B)
 print("Is matrix B positive definite?", result)
+
+# Text on a matrix known to be positive definite
+C = np.array([[4, 1], [1, 3]])
+print("\nTesting matrix C:")
+print(C)
+result = is_positive_definite(C)
+print("Is matrix C positive definite?", result)
