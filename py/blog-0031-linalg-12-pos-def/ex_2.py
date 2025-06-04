@@ -44,3 +44,16 @@ success, L = attempt_cholesky(B)
 print("Was Cholesky decomposition successful?", success)
 if not success:
     print("Matrix B is not positive definite.")
+
+# Test on a matrix known to be positive definite
+C = np.array([[4, 1], [1, 3]])
+print("\nTesting matrix C:")
+print(C)
+success, L = attempt_cholesky(C)
+print("Was Cholesky decomposition successful?", success)
+if success:
+    print("Lower triangular matrix L for matrix C:")
+    print(L)
+    print("Matrix C is positive definite.")
+else:
+    print("Matrix C is not positive definite.")
