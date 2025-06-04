@@ -12,18 +12,18 @@ Spectral methods in machine learning use the eigenvalues and eigenvectors (the "
 
 ### Graph Laplacians
 
-A key concept in spectral methods is the **Graph Laplacian**, derived from a graph’s adjacency matrix. Given a graph with \( n \) nodes, we define:
-- **Adjacency Matrix** \( A \in \mathbb{R}^{n \times n} \): \( A_{ij} = w_{ij} \) if there is an edge between nodes \( i \) and \( j \) with weight \( w_{ij} \), otherwise 0.
-- **Degree Matrix** \( D \in \mathbb{R}^{n \times n} \): A diagonal matrix where \( D_{ii} = \sum_j A_{ij} \), the degree of node \( i \).
-- **Graph Laplacian** \( L \in \mathbb{R}^{n \times n} \): Defined as \( L = D - A \). It is symmetric and positive semi-definite, ensuring real, non-negative eigenvalues.
+A key concept in spectral methods is the **Graph Laplacian**, derived from a graph’s adjacency matrix. Given a graph with $n$ nodes, we define:
+- **Adjacency Matrix** $A \in \mathbb{R}^{n \times n}$: $A_{ij} = w_{ij}$ if there is an edge between nodes $i$ and $j$ with weight $w_{ij}$, otherwise 0.
+- **Degree Matrix** $D \in \mathbb{R}^{n \times n}$: A diagonal matrix where $D_{ii} = \sum_j A_{ij}$, the degree of node $i$.
+- **Graph Laplacian** $L \in \mathbb{R}^{n \times n}$: Defined as $L = D - A$. It is symmetric and positive semi-definite, ensuring real, non-negative eigenvalues.
 
 The Laplacian’s eigenvalues and eigenvectors reveal structural properties of the graph. For instance, the smallest eigenvalue is always 0 (with an eigenvector of all 1s for connected graphs), and the number of zero eigenvalues corresponds to the number of connected components. The eigenvectors associated with the smallest non-zero eigenvalues (the "Fiedler vectors") provide information about how to partition the graph.
 
 ### Spectral Clustering
 
 One prominent application is **spectral clustering**, which uses the spectrum of the Laplacian to cluster data points. The process involves:
-1. Constructing a similarity graph (e.g., k-nearest neighbors) and its Laplacian \( L \).
-2. Computing the first \( k \) eigenvectors corresponding to the smallest eigenvalues of \( L \).
+1. Constructing a similarity graph (e.g., k-nearest neighbors) and its Laplacian $L$.
+2. Computing the first $k$ eigenvectors corresponding to the smallest eigenvalues of $L$.
 3. Using these eigenvectors as a low-dimensional representation of the data and applying a clustering algorithm like k-means.
 
 Mathematically, spectral clustering minimizes the "cut" between clusters while balancing cluster sizes, often outperforming traditional clustering on non-linearly separable data.
@@ -117,7 +117,7 @@ This example generates a synthetic 2D dataset with two non-linearly separable cl
 
 Here are six exercises to deepen your understanding of spectral methods in machine learning. Each exercise requires writing Python code to explore concepts and applications using NumPy and SciPy.
 
-1. **Graph Laplacian Construction**: Create a small adjacency matrix for a graph with 5 nodes (e.g., a simple connected graph). Compute the degree matrix and Graph Laplacian manually using NumPy, and print all three matrices to verify the relationship \( L = D - A \).
+1. **Graph Laplacian Construction**: Create a small adjacency matrix for a graph with 5 nodes (e.g., a simple connected graph). Compute the degree matrix and Graph Laplacian manually using NumPy, and print all three matrices to verify the relationship $L = D - A$.
 2. **Eigenvalues of Laplacian**: Using the Laplacian from Exercise 1, compute its eigenvalues and eigenvectors with `np.linalg.eigh`. Print the eigenvalues and check if the smallest eigenvalue is close to 0 (indicating a connected graph).
 3. **Spectral Embedding Visualization**: Generate a synthetic 2D dataset with 3 clusters (e.g., using Gaussian distributions). Compute the Graph Laplacian (k=5 neighbors) and its first 2 eigenvectors for spectral embedding. Plot the embedding to visualize the separation of clusters.
 4. **Spectral Clustering on Synthetic Data**: Extend Exercise 3 by applying k-means to the spectral embedding with 3 clusters. Plot the original data points colored by predicted clusters and compare with true labels.
