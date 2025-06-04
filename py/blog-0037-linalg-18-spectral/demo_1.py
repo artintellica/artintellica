@@ -12,11 +12,14 @@ n_samples = 100
 theta1 = np.linspace(0, 2 * np.pi, n_samples // 2)
 x1 = 2 * np.cos(theta1) + np.random.randn(n_samples // 2) * 0.2
 y1 = 2 * np.sin(theta1) + np.random.randn(n_samples // 2) * 0.2
+cluster1 = np.vstack([x1, y1]).T  # Shape: (50, 2)
 # Cluster 2: points in another circular pattern, offset
 theta2 = np.linspace(0, 2 * np.pi, n_samples // 2)
 x2 = 5 + 1 * np.cos(theta2) + np.random.randn(n_samples // 2) * 0.2
 y2 = 5 + 1 * np.sin(theta2) + np.random.randn(n_samples // 2) * 0.2
-X = np.vstack([(x1, y1), (x2, y2)]).T
+cluster2 = np.vstack([x2, y2]).T  # Shape: (50, 2)
+# Combine clusters
+X = np.vstack([cluster1, cluster2])  # Shape: (100, 2)
 true_labels = np.hstack([np.zeros(n_samples // 2), np.ones(n_samples // 2)])
 
 # Verify shapes after data generation
@@ -25,7 +28,9 @@ print("True Labels Shape:", true_labels.shape)
 
 # Construct a similarity graph (k-nearest neighbors)
 k = 5
-A = kneighbors_graph(X, n_neighbors=k, mode='connectivity', include_self=False).toarray()
+A = kneighbors_graph(
+    X, n_neighbors=k, mode="connectivity", include_self=False
+).toarray()
 A = 0.5 * (A + A.T)  # Ensure symmetry
 print("Adjacency Matrix Shape:", A.shape)
 
@@ -38,7 +43,7 @@ print("Laplacian Matrix Shape:", L.shape)
 k_clusters = 2
 eigenvalues, eigenvectors = np.linalg.eigh(L)
 # Select the first k eigenvectors (excluding the first one if graph is connected)
-spectral_embedding = eigenvectors[:, 1:k_clusters + 1]
+spectral_embedding = eigenvectors[:, 1 : k_clusters + 1]
 print("Spectral Embedding Shape:", spectral_embedding.shape)
 
 # Apply k-means to the spectral embedding
@@ -48,14 +53,19 @@ print("Predicted Labels Shape:", predicted_labels.shape)
 
 # Visualize the results
 plt.figure(figsize=(8, 6))
-plt.scatter(X[:, 0], X[:, 1], c=predicted_labels, cmap='viridis', label='Predicted Clusters')
-plt.title('Spectral Clustering Results')
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.colorbar(label='Cluster')
+plt.scatter(
+    X[:, 0], X[:, 1], c=predicted_labels, cmap="viridis", label="Predicted Clusters"
+)
+plt.title("Spectral Clustering Results")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.colorbar(label="Cluster")
 plt.grid(True)
 plt.show()
 
 # Compare with true labels
-accuracy = np.mean(predicted_labels == true_labels)
-print("Clustering Accuracy (matching true labels):", accuracy)
+# Since k-means labels may not match true labels directly, try both mappings
+accuracy1 = np.mean(predicted_labels == true_labels)
+accuracy2 = np.mean(predicted_labels == (1 - true_labels))
+accuracy = max(accuracy1, accuracy2)
+print("Clustering Accuracy (best matching with true labels):", accuracy)
