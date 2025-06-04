@@ -1,7 +1,7 @@
 +++
 title = "Linear Algebra for Machine Learning, Part 18: Spectral Methods in ML (Graph Laplacians, etc.)"
 author = "Artintellica"
-date = "2025-07-15"
+date = "2025-06-04"
 +++
 
 Welcome back to our series on linear algebra for machine learning! In this post,

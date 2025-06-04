@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-04T21:41:11.389Z</updated>
+    <updated>2025-06-04T21:48:09.962Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -18,14 +18,14 @@
         <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 18: Spectral Methods in ML (Graph Laplacians, etc.)]]></title>
         <id>https://artintellica.com/blog/0037-linalg-18-spectral.md</id>
         <link href="https://artintellica.com/blog/0037-linalg-18-spectral.md"/>
-        <updated>2025-07-15T07:00:00.000Z</updated>
+        <updated>2025-06-04T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 18: Spectral Methods in ML (Graph Laplacians, etc.)]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 17: Tensors and Higher-Order Generalizations]]></title>
         <id>https://artintellica.com/blog/0036-linalg-17-tensors.md</id>
         <link href="https://artintellica.com/blog/0036-linalg-17-tensors.md"/>
-        <updated>2025-07-08T07:00:00.000Z</updated>
+        <updated>2025-06-04T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 17: Tensors and Higher-Order Generalizations]]></summary>
     </entry>
     <entry>
