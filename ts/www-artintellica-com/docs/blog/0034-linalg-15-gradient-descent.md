@@ -8,27 +8,27 @@ Welcome back to our series on linear algebra for machine learning! In this post,
 
 ## What Is Gradient Descent?
 
-Gradient Descent (GD) is an iterative optimization algorithm used to find the parameters of a model that minimize a loss function. In the context of linear models, we aim to find the weights \( w \) (and optionally a bias \( b \)) for the equation \( y = Xw + b \) that best predict the target variable \( y \) given the input data \( X \in \mathbb{R}^{n \times d} \) (with \( n \) samples and \( d \) features).
+Gradient Descent (GD) is an iterative optimization algorithm used to find the parameters of a model that minimize a loss function. In the context of linear models, we aim to find the weights $w$ (and optionally a bias $b$) for the equation $y = Xw + b$ that best predict the target variable $y$ given the input data $X \in \mathbb{R}^{n \times d}$ (with $n$ samples and $d$ features).
 
 The typical loss function for linear regression is the Mean Squared Error (MSE):
 
-\[
+$$
 \text{Loss}(w) = \frac{1}{n} \| y - Xw \|_2^2 = \frac{1}{n} \sum_{i=1}^{n} (y_i - (Xw)_i)^2
-\]
+$$
 
-Gradient Descent works by computing the gradient of the loss with respect to the parameters and updating the parameters in the direction that reduces the loss. The gradient of the MSE loss with respect to \( w \) is derived using matrix calculus:
+Gradient Descent works by computing the gradient of the loss with respect to the parameters and updating the parameters in the direction that reduces the loss. The gradient of the MSE loss with respect to $w$ is derived using matrix calculus:
 
-\[
+$$
 \nabla_w \text{Loss} = \frac{2}{n} X^T (Xw - y)
-\]
+$$
 
 The update rule for gradient descent is:
 
-\[
+$$
 w \leftarrow w - \eta \cdot \nabla_w \text{Loss}
-\]
+$$
 
-where \( \eta \) is the learning rate, a hyperparameter controlling the step size of each update. If a bias term is included (via a column of ones in \( X \)), it is updated similarly as part of \( w \).
+where $\eta$ is the learning rate, a hyperparameter controlling the step size of each update. If a bias term is included (via a column of ones in $X$), it is updated similarly as part of $w$.
 
 ### Variants of Gradient Descent
 
