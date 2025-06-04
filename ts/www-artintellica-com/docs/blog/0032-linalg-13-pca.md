@@ -10,11 +10,11 @@ Welcome back to our series on linear algebra for machine learning! In this post,
 
 PCA is a statistical method that transforms a dataset of possibly correlated variables into a new set of uncorrelated variables called **principal components**. These components are linear combinations of the original variables, ordered such that the first component captures the maximum variance in the data, the second captures the maximum remaining variance (orthogonal to the first), and so on.
 
-Mathematically, for a dataset represented as a matrix \( X \in \mathbb{R}^{n \times d} \) (with \( n \) samples and \( d \) features), PCA involves the following steps:
-1. **Center the Data**: Subtract the mean of each feature to get \( X_{\text{centered}} = X - \mu \), where \( \mu \) is the mean vector.
-2. **Compute Covariance Matrix**: Calculate the covariance matrix \( C = \frac{1}{n-1} X_{\text{centered}}^T X_{\text{centered}} \), which captures the relationships between features.
-3. **Eigenvalue Decomposition**: Find the eigenvalues and eigenvectors of \( C \). The eigenvectors represent the directions of the principal components, and the eigenvalues indicate the amount of variance explained by each component.
-4. **Project the Data**: Select the top \( k \) eigenvectors (corresponding to the largest eigenvalues) and project the centered data onto these directions to get the reduced dataset \( Z = X_{\text{centered}} W \), where \( W \) is the matrix of top \( k \) eigenvectors.
+Mathematically, for a dataset represented as a matrix $X \in \mathbb{R}^{n \times d}$ (with $n$ samples and $d$ features), PCA involves the following steps:
+1. **Center the Data**: Subtract the mean of each feature to get $X_{\text{centered}} = X - \mu$, where $\mu$ is the mean vector.
+2. **Compute Covariance Matrix**: Calculate the covariance matrix $C = \frac{1}{n-1} X_{\text{centered}}^T X_{\text{centered}}$, which captures the relationships between features.
+3. **Eigenvalue Decomposition**: Find the eigenvalues and eigenvectors of $C$. The eigenvectors represent the directions of the principal components, and the eigenvalues indicate the amount of variance explained by each component.
+4. **Project the Data**: Select the top $k$ eigenvectors (corresponding to the largest eigenvalues) and project the centered data onto these directions to get the reduced dataset $Z = X_{\text{centered}} W$, where $W$ is the matrix of top $k$ eigenvectors.
 
 Geometrically, PCA rotates the data to align with the axes of maximum variance, effectively finding a new coordinate system where the data is spread out as much as possible along the first few axes.
 
