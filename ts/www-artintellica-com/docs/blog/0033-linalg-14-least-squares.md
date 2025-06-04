@@ -8,19 +8,19 @@ Welcome back to our series on linear algebra for machine learning! In this post,
 
 ## What Are Least Squares and Linear Regression?
 
-Linear regression models the relationship between a dependent variable \( y \) and one or more independent variables \( X \) by fitting a linear equation of the form:
+Linear regression models the relationship between a dependent variable $y$ and one or more independent variables $X$ by fitting a linear equation of the form:
 
-\[
+$$
 y = Xw + b
-\]
+$$
 
-where \( X \in \mathbb{R}^{n \times d} \) is the data matrix with \( n \) samples and \( d \) features, \( w \in \mathbb{R}^{d} \) is the vector of weights (coefficients), and \( b \) is the bias (intercept). For simplicity, we often absorb \( b \) into \( w \) by adding a column of ones to \( X \), making the model \( y = Xw \).
+where $X \in \mathbb{R}^{n \times d}$ is the data matrix with $n$ samples and $d$ features, $w \in \mathbb{R}^{d}$ is the vector of weights (coefficients), and $b$ is the bias (intercept). For simplicity, we often absorb $b$ into $w$ by adding a column of ones to $X$, making the model $y = Xw$.
 
-The goal of **least squares** is to find the parameters \( w \) that minimize the sum of squared residuals (errors) between the predicted values \( \hat{y} = Xw \) and the actual values \( y \):
+The goal of **least squares** is to find the parameters $w$ that minimize the sum of squared residuals (errors) between the predicted values $\hat{y} = Xw$ and the actual values $y$:
 
-\[
+$$
 \text{Loss} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \| y - Xw \|_2^2
-\]
+$$
 
 This is an optimization problem, and linear algebra provides elegant solutions to find the best-fitting line or plane.
 
@@ -28,37 +28,37 @@ This is an optimization problem, and linear algebra provides elegant solutions t
 
 The least squares solution can be derived by setting the gradient of the loss to zero, leading to the **normal equations**:
 
-\[
+$$
 X^T X w = X^T y
-\]
+$$
 
-If \( X^T X \) is invertible (i.e., \( X \) has full column rank), the solution is:
+If $X^T X$ is invertible (i.e., $X$ has full column rank), the solution is:
 
-\[
+$$
 w = (X^T X)^{-1} X^T y
-\]
+$$
 
 This closed-form solution directly computes the optimal weights using matrix operations.
 
 ### Iterative Solution with Gradient Descent
 
-For large datasets, computing the inverse of \( X^T X \) can be computationally expensive. Instead, we can use iterative methods like **gradient descent** to minimize the loss. The gradient of the loss with respect to \( w \) is:
+For large datasets, computing the inverse of $X^T X$ can be computationally expensive. Instead, we can use iterative methods like **gradient descent** to minimize the loss. The gradient of the loss with respect to $w$ is:
 
-\[
+$$
 \nabla_w \text{Loss} = 2 X^T (Xw - y)
-\]
+$$
 
-We update \( w \) in the opposite direction of the gradient with a learning rate \( \eta \):
+We update $w$ in the opposite direction of the gradient with a learning rate $\eta$:
 
-\[
+$$
 w \leftarrow w - \eta \cdot \nabla_w \text{Loss}
-\]
+$$
 
 ## Why Do Least Squares and Linear Regression Matter in Machine Learning?
 
 Linear regression is a cornerstone of machine learning for several reasons:
 1. **Baseline Model**: It serves as a simple baseline for regression tasks, often outperforming complex models on small or linear datasets.
-2. **Interpretability**: The coefficients \( w \) provide insights into the importance and direction of each feature’s effect on the target.
+2. **Interpretability**: The coefficients $w$ provide insights into the importance and direction of each feature’s effect on the target.
 3. **Foundation for Advanced Models**: Many advanced techniques (e.g., logistic regression, neural networks) build on linear regression concepts.
 4. **Optimization Intuition**: Least squares introduces key optimization ideas like loss functions and gradient descent, which are central to ML.
 
