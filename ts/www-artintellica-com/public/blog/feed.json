@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0034-linalg-15-gradient-descent.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0034-linalg-15-gradient-descent.md",
+            "title": "Linear Algebra for Machine Learning, Part 15: Gradient Descent in Linear Models",
+            "date_modified": "2025-06-24T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0033-linalg-14-least-squares.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0033-linalg-14-least-squares.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0015-calculus-13-pdes.md",
             "title": "Calculus 13: Partial Differential Equations (PDEs) — Simulating the Wave Equation",
-            "date_modified": "2025-05-28T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0014-calculus-12-odes.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0014-calculus-12-odes.md",
-            "title": "Calculus 12: Ordinary Differential Equations (ODEs) — Neural ODEs in Action",
             "date_modified": "2025-05-28T07:00:00.000Z"
         }
     ]
