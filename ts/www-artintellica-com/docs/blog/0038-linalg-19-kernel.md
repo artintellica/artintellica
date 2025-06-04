@@ -12,25 +12,25 @@ Kernel methods are a class of algorithms that operate in a high-dimensional feat
 
 ### The Kernel Trick
 
-Consider a dataset \( X = \{x_1, x_2, \dots, x_n\} \) where each \( x_i \in \mathbb{R}^d \). A non-linear mapping \( \phi: \mathbb{R}^d \to \mathcal{H} \) transforms the data into a higher-dimensional space \( \mathcal{H} \), where linear methods can be applied. Computing \( \phi(x_i) \) explicitly can be computationally expensive or infeasible if \( \mathcal{H} \) is infinite-dimensional. The kernel trick avoids this by defining a kernel function \( k(x_i, x_j) = \langle \phi(x_i), \phi(x_j) \rangle \), which computes the inner product in \( \mathcal{H} \) directly from the original space.
+Consider a dataset $X = \{x_1, x_2, \dots, x_n\}$ where each $x_i \in \mathbb{R}^d$. A non-linear mapping $\phi: \mathbb{R}^d \to \mathcal{H}$ transforms the data into a higher-dimensional space $\mathcal{H}$, where linear methods can be applied. Computing $\phi(x_i)$ explicitly can be computationally expensive or infeasible if $\mathcal{H}$ is infinite-dimensional. The kernel trick avoids this by defining a kernel function $k(x_i, x_j) = \langle \phi(x_i), \phi(x_j) \rangle$, which computes the inner product in $\mathcal{H}$ directly from the original space.
 
 ### Common Kernels
 
-1. **Linear Kernel**: \( k(x_i, x_j) = x_i^T x_j \), equivalent to no transformation (inner product in the original space).
-2. **Polynomial Kernel**: \( k(x_i, x_j) = (1 + x_i^T x_j)^p \), mapping to a space of polynomial features of degree \( p \).
-3. **Radial Basis Function (RBF) Kernel**: \( k(x_i, x_j) = \exp\left(-\frac{\|x_i - x_j\|^2}{2\sigma^2}\right) \), also known as the Gaussian kernel, mapping to an infinite-dimensional space.
+1. **Linear Kernel**: $k(x_i, x_j) = x_i^T x_j$, equivalent to no transformation (inner product in the original space).
+2. **Polynomial Kernel**: $k(x_i, x_j) = (1 + x_i^T x_j)^p$, mapping to a space of polynomial features of degree $p$.
+3. **Radial Basis Function (RBF) Kernel**: $k(x_i, x_j) = \exp\left(-\frac{\|x_i - x_j\|^2}{2\sigma^2}\right)$, also known as the Gaussian kernel, mapping to an infinite-dimensional space.
    
 ### Gram Matrix
 
-The kernel function is used to construct the **Gram Matrix** (or kernel matrix) \( K \in \mathbb{R}^{n \times n} \), where \( K_{ij} = k(x_i, x_j) \). This matrix represents pairwise similarities in the feature space and is positive semi-definite if the kernel satisfies **Mercer’s Theorem**, ensuring it corresponds to a valid inner product in some space \( \mathcal{H} \).
+The kernel function is used to construct the **Gram Matrix** (or kernel matrix) $K \in \mathbb{R}^{n \times n}$, where $K_{ij} = k(x_i, x_j)$. This matrix represents pairwise similarities in the feature space and is positive semi-definite if the kernel satisfies **Mercer’s Theorem**, ensuring it corresponds to a valid inner product in some space $\mathcal{H}$.
 
 ### Support Vector Machines (SVMs)
 
-In SVMs, kernel methods find a maximum-margin hyperplane in the feature space by solving an optimization problem using only the Gram matrix \( K \), without needing explicit feature vectors \( \phi(x_i) \). The decision function becomes:
-\[
+In SVMs, kernel methods find a maximum-margin hyperplane in the feature space by solving an optimization problem using only the Gram matrix $K$, without needing explicit feature vectors $\phi(x_i)$. The decision function becomes:
+$$
 f(x) = \text{sign}\left(\sum_{i=1}^n \alpha_i y_i k(x_i, x) + b\right)
-\]
-where \( \alpha_i \) are learned coefficients, \( y_i \) are labels, and \( b \) is the bias.
+$$
+where $\alpha_i$ are learned coefficients, $y_i$ are labels, and $b$ is the bias.
 
 ## Why Do Kernel Methods Matter in Machine Learning?
 
@@ -141,7 +141,7 @@ Here are six exercises to deepen your understanding of kernel methods and featur
 1. **Linear Kernel SVM**: Generate a synthetic 2D dataset with two linearly separable classes using NumPy. Train an SVM with a linear kernel using scikit-learn, compute the accuracy, and plot the decision boundary.
 2. **Polynomial Kernel SVM**: Using the same dataset from Exercise 1, train an SVM with a polynomial kernel (degree=2) and compare the decision boundary and accuracy with the linear kernel from Exercise 1.
 3. **RBF Kernel on Non-Linear Data**: Generate a synthetic 2D dataset with two non-linearly separable classes (e.g., using `make_moons` or `make_circles`). Train an SVM with an RBF kernel, plot the decision boundary, and print the accuracy.
-4. **Custom Kernel Matrix**: Create a small dataset (10 samples, 2 features) with NumPy. Compute a custom polynomial kernel matrix (degree=2) manually, ensuring it matches the formula \( k(x_i, x_j) = (1 + x_i^T x_j)^2 \). Print the Gram matrix.
+4. **Custom Kernel Matrix**: Create a small dataset (10 samples, 2 features) with NumPy. Compute a custom polynomial kernel matrix (degree=2) manually, ensuring it matches the formula $k(x_i, x_j) = (1 + x_i^T x_j)^2$. Print the Gram matrix.
 5. **Kernel PCA for Dimensionality Reduction**: Use scikit-learn’s `KernelPCA` with an RBF kernel to reduce the Iris dataset (4D) to 2D. Visualize the reduced data with true labels and compare with standard PCA visually.
 6. **Grid Search for Kernel Parameters**: Using the non-linear dataset from Exercise 3, perform a grid search over SVM hyperparameters (C and gamma for RBF kernel) with scikit-learn’s `GridSearchCV`. Print the best parameters and accuracy, and plot the decision boundary for the best model.
 
