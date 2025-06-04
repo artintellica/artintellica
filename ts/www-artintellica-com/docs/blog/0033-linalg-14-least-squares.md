@@ -1,7 +1,7 @@
 +++
 title = "Linear Algebra for Machine Learning, Part 14: Least Squares and Linear Regression"
 author = "Artintellica"
-date = "2025-06-17"
+date = "2025-06-04"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0033-linalg-14-least-squares"
 +++
 

@@ -1,7 +1,7 @@
 +++
 title = "Linear Algebra for Machine Learning, Part 15: Gradient Descent in Linear Models"
 author = "Artintellica"
-date = "2025-06-24"
+date = "2025-06-04"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0034-linalg-15-gradient-descent"
 +++
 

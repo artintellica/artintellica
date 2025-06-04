@@ -1,58 +1,58 @@
 +++
 title = "Linear Algebra for Machine Learning, Part 16: Neural Networks as Matrix Functions"
 author = "Artintellica"
-date = "2025-07-01"
+date = "2025-06-04"
 +++
 
 Welcome back to our series on linear algebra for machine learning! In this post, we’re exploring **Neural Networks as Matrix Functions**, uncovering how these powerful models are fundamentally built on linear algebra operations. Neural networks, at their core, are compositions of matrix multiplications and non-linear activations, enabling them to learn complex patterns from data. Whether you're building a simple feedforward network or a deep learning model, understanding the matrix operations behind layers, forward passes, and backpropagation is essential. Let’s dive into the math, intuition, and implementation with Python code using PyTorch, visualizations, and hands-on exercises.
 
 ## What Are Neural Networks as Matrix Functions?
 
-A neural network is a series of interconnected layers, where each layer transforms input data through matrix operations followed by non-linear activation functions. Consider a simple feedforward neural network with an input layer, one hidden layer, and an output layer. For an input vector \( x \in \mathbb{R}^{d} \), the computation through the network can be expressed as:
+A neural network is a series of interconnected layers, where each layer transforms input data through matrix operations followed by non-linear activation functions. Consider a simple feedforward neural network with an input layer, one hidden layer, and an output layer. For an input vector $x \in \mathbb{R}^{d}$, the computation through the network can be expressed as:
 
 1. **Input to Hidden Layer**:
-   \[
+   $$
    z_1 = W_1 x + b_1
-   \]
-   \[
+$$
+   $$
    h_1 = \sigma(z_1)
-   \]
-   where \( W_1 \in \mathbb{R}^{h \times d} \) is the weight matrix, \( b_1 \in \mathbb{R}^{h} \) is the bias vector, \( h \) is the number of hidden units, and \( \sigma \) is a non-linear activation function (e.g., ReLU, sigmoid).
+$$
+   where $W_1 \in \mathbb{R}^{h \times d}$ is the weight matrix, $b_1 \in \mathbb{R}^{h}$ is the bias vector, $h$ is the number of hidden units, and $\sigma$ is a non-linear activation function (e.g., ReLU, sigmoid).
 
 2. **Hidden to Output Layer**:
-   \[
+   $$
    z_2 = W_2 h_1 + b_2
-   \]
-   \[
+$$
+   $$
    \hat{y} = \tau(z_2)
-   \]
-   where \( W_2 \in \mathbb{R}^{o \times h} \) is the weight matrix, \( b_2 \in \mathbb{R}^{o} \) is the bias vector, \( o \) is the number of output units, and \( \tau \) is the output activation (e.g., linear for regression, softmax for classification).
+$$
+   where $W_2 \in \mathbb{R}^{o \times h}$ is the weight matrix, $b_2 \in \mathbb{R}^{o}$ is the bias vector, $o$ is the number of output units, and $\tau$ is the output activation (e.g., linear for regression, softmax for classification).
 
-For a batch of inputs \( X \in \mathbb{R}^{n \times d} \) (with \( n \) samples), these operations become matrix multiplications:
-\[
+For a batch of inputs $X \in \mathbb{R}^{n \times d}$ (with $n$ samples), these operations become matrix multiplications:
+$$
 Z_1 = X W_1^T + b_1^T
-\]
-\[
+$$
+$$
 H_1 = \sigma(Z_1)
-\]
-\[
+$$
+$$
 Z_2 = H_1 W_2^T + b_2^T
-\]
-\[
+$$
+$$
 \hat{Y} = \tau(Z_2)
-\]
+$$
 
 ### Backpropagation and Gradient Descent
 
-Training a neural network involves minimizing a loss function \( \mathcal{L}(\hat{Y}, Y) \) (e.g., mean squared error or cross-entropy) using gradient descent. Backpropagation computes the gradients of the loss with respect to the weights and biases through the chain rule, leveraging matrix calculus. For example, the gradient of the loss with respect to \( W_2 \) is derived as:
-\[
+Training a neural network involves minimizing a loss function $\mathcal{L}(\hat{Y}, Y)$ (e.g., mean squared error or cross-entropy) using gradient descent. Backpropagation computes the gradients of the loss with respect to the weights and biases through the chain rule, leveraging matrix calculus. For example, the gradient of the loss with respect to $W_2$ is derived as:
+$$
 \frac{\partial \mathcal{L}}{\partial W_2} = \frac{\partial \mathcal{L}}{\partial \hat{Y}} \cdot \frac{\partial \hat{Y}}{\partial Z_2} \cdot H_1^T
-\]
+$$
 These gradients are used to update parameters iteratively:
-\[
+$$
 W_2 \leftarrow W_2 - \eta \cdot \frac{\partial \mathcal{L}}{\partial W_2}
-\]
-where \( \eta \) is the learning rate.
+$$
+where $\eta$ is the learning rate.
 
 ## Why Do Neural Networks as Matrix Functions Matter in Machine Learning?
 
