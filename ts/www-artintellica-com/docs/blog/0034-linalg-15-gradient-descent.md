@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-06-24"
 +++
 
-# Linear Algebra for Machine Learning, Part 15: Gradient Descent in Linear Models
-
 Welcome back to our series on linear algebra for machine learning! In this post, we’re focusing on **Gradient Descent in Linear Models**, a fundamental optimization technique used to train models by iteratively updating parameters to minimize a loss function. Building on our previous exploration of least squares and linear regression, we’ll dive deeper into how gradient descent leverages matrix calculus and vectorization for efficient computation. Whether you're fitting a simple linear model or scaling to larger datasets, mastering gradient descent is crucial. Let’s explore the math, intuition, and implementation with Python code, visualizations, and hands-on exercises.
 
 ## What Is Gradient Descent?
