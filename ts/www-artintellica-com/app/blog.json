@@ -255,7 +255,7 @@
     "filename": "0033-linalg-14-least-squares.md",
     "title": "Linear Algebra for Machine Learning, Part 14: Least Squares and Linear Regression",
     "author": "Artintellica",
-    "date": "2025-06-17",
+    "date": "2025-06-04",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0033-linalg-14-least-squares",
     "content": ""
   },
@@ -263,8 +263,15 @@
     "filename": "0034-linalg-15-gradient-descent.md",
     "title": "Linear Algebra for Machine Learning, Part 15: Gradient Descent in Linear Models",
     "author": "Artintellica",
-    "date": "2025-06-24",
+    "date": "2025-06-04",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0034-linalg-15-gradient-descent",
+    "content": ""
+  },
+  {
+    "filename": "0035-linalg-16-matrix-functions.md",
+    "title": "Linear Algebra for Machine Learning, Part 16: Neural Networks as Matrix Functions",
+    "author": "Artintellica",
+    "date": "2025-06-04",
     "content": ""
   }
 ]

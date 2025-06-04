@@ -10,18 +10,25 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0035-linalg-16-matrix-functions.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0035-linalg-16-matrix-functions.md",
+            "title": "Linear Algebra for Machine Learning, Part 16: Neural Networks as Matrix Functions",
+            "date_modified": "2025-06-04T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0034-linalg-15-gradient-descent.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0034-linalg-15-gradient-descent.md",
             "title": "Linear Algebra for Machine Learning, Part 15: Gradient Descent in Linear Models",
-            "date_modified": "2025-06-24T07:00:00.000Z"
+            "date_modified": "2025-06-04T07:00:00.000Z"
         },
         {
             "id": "https://artintellica.com/blog/0033-linalg-14-least-squares.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0033-linalg-14-least-squares.md",
             "title": "Linear Algebra for Machine Learning, Part 14: Least Squares and Linear Regression",
-            "date_modified": "2025-06-17T07:00:00.000Z"
+            "date_modified": "2025-06-04T07:00:00.000Z"
         },
         {
             "id": "https://artintellica.com/blog/0032-linalg-13-pca.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0016-calculus-14-calculus-of-variations.md",
             "title": "Calculus 14: Functional Derivatives — The Gradient of Regularization",
-            "date_modified": "2025-05-28T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0015-calculus-13-pdes.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0015-calculus-13-pdes.md",
-            "title": "Calculus 13: Partial Differential Equations (PDEs) — Simulating the Wave Equation",
             "date_modified": "2025-05-28T07:00:00.000Z"
         }
     ]
