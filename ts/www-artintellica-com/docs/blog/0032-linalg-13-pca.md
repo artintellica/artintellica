@@ -2,6 +2,7 @@
 title = "Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)"
 author = "Artintellica"
 date = "2025-06-04"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0032-linalg-13-pca"
 +++
 
 Welcome back to our series on linear algebra for machine learning! In this post,
