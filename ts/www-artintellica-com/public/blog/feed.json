@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0033-linalg-14-least-squares.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0033-linalg-14-least-squares.md",
+            "title": "Linear Algebra for Machine Learning, Part 14: Least Squares and Linear Regression",
+            "date_modified": "2025-06-17T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0032-linalg-13-pca.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0032-linalg-13-pca.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0014-calculus-12-odes.md",
             "title": "Calculus 12: Ordinary Differential Equations (ODEs) — Neural ODEs in Action",
-            "date_modified": "2025-05-28T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0013-calculus-11-divergence-curl-laplacian.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0013-calculus-11-divergence-curl-laplacian.md",
-            "title": "Calculus 11: Divergence, Curl, and Laplacian — Diffusion, Heat, and Curvature",
             "date_modified": "2025-05-28T07:00:00.000Z"
         }
     ]
