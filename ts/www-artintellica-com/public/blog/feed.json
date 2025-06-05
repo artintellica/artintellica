@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0042-deep-numpy-11-arrays.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0042-deep-numpy-11-arrays.md",
+            "title": "Learn Deep Learning with NumPy, Part 1.1: Getting Started with NumPy Arrays",
+            "date_modified": "2025-06-05T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0041-deep-numpy-00-intro.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0041-deep-numpy-00-intro.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0023-linalg-04-dot-product.md",
             "title": "Linear Algebra for Machine Learning, Part 4: Dot Product and Cosine Similarity",
-            "date_modified": "2025-05-29T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0022-linalg-03-matrix-arithmetic.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0022-linalg-03-matrix-arithmetic.md",
-            "title": "Linear Algebra for Machine Learning, Part 3: Matrices as Data & Transformations",
             "date_modified": "2025-05-29T07:00:00.000Z"
         }
     ]

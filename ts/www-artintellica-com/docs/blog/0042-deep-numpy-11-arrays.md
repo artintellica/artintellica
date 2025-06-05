@@ -8,33 +8,56 @@ date = "2025-06-05"
 
 ## Introduction
 
-Welcome to the first chapter of our blog series, *"Learn Deep Learning with NumPy"*! In this post, we’re kicking off Module 1 by diving into the foundation of numerical computing in Python—NumPy arrays. NumPy is a powerful library that will serve as our primary tool for building neural networks from scratch. Today, we’ll explore how to create, manipulate, and perform basic operations with arrays, and we’ll see why they’re ideal for the vectorized computations at the heart of deep learning.
+Welcome to the first chapter of our blog series, _"Learn Deep Learning with
+NumPy"_! In this post, we’re kicking off Module 1 by diving into the foundation
+of numerical computing in Python—NumPy arrays. NumPy is a powerful library that
+will serve as our primary tool for building neural networks from scratch. Today,
+we’ll explore how to create, manipulate, and perform basic operations with
+arrays, and we’ll see why they’re ideal for the vectorized computations at the
+heart of deep learning.
 
-By the end of this post, you’ll be comfortable with NumPy basics, understand key concepts like array shapes and broadcasting, and have written your first reusable function for data preprocessing. Let’s get started with the building blocks of our deep learning journey!
+By the end of this post, you’ll be comfortable with NumPy basics, understand key
+concepts like array shapes and broadcasting, and have written your first
+reusable function for data preprocessing. Let’s get started with the building
+blocks of our deep learning journey!
 
 ---
 
 ## Why NumPy for Deep Learning?
 
-Deep learning relies heavily on mathematical operations over large collections of numbers—think matrices of weights, inputs, or gradients in a neural network. Performing these operations efficiently is crucial, and that’s where NumPy shines. NumPy provides a data structure called an *array* (similar to a list or matrix) that allows for fast, vectorized computations without the need for slow Python loops. Instead of processing elements one by one, NumPy operates on entire arrays at once, which is exactly how neural networks compute layer outputs or update parameters.
+Deep learning relies heavily on mathematical operations over large collections
+of numbers—think matrices of weights, inputs, or gradients in a neural network.
+Performing these operations efficiently is crucial, and that’s where NumPy
+shines. NumPy provides a data structure called an _array_ (similar to a list or
+matrix) that allows for fast, vectorized computations without the need for slow
+Python loops. Instead of processing elements one by one, NumPy operates on
+entire arrays at once, which is exactly how neural networks compute layer
+outputs or update parameters.
 
-In this series, we’ll use NumPy arrays to represent everything from input data to model weights. Understanding arrays is the first step toward coding neural networks, as operations like matrix multiplication ($Z = XW$) or element-wise activation functions ($A = \text{sigmoid}(Z)$) are naturally expressed with arrays. Let’s dive into creating and manipulating them.
+In this series, we’ll use NumPy arrays to represent everything from input data
+to model weights. Understanding arrays is the first step toward coding neural
+networks, as operations like matrix multiplication ($Z = XW$) or element-wise
+activation functions ($A = \text{sigmoid}(Z)$) are naturally expressed with
+arrays. Let’s dive into creating and manipulating them.
 
 ---
 
 ## Getting Started with NumPy Arrays
 
-First, ensure you have NumPy installed. If you haven’t already, run the following command in your terminal or command prompt:
+First, ensure you have NumPy installed. If you haven’t already, run the
+following command in your terminal or command prompt:
 
 ```bash
 pip install numpy
 ```
 
-Now, let’s import NumPy in Python and explore array creation. Open your preferred editor or Jupyter Notebook, and follow along with the code.
+Now, let’s import NumPy in Python and explore array creation. Open your
+preferred editor or Jupyter Notebook, and follow along with the code.
 
 ### Creating Arrays
 
-NumPy arrays can be created in several ways. Here are the most common methods we’ll use in deep learning:
+NumPy arrays can be created in several ways. Here are the most common methods
+we’ll use in deep learning:
 
 ```python
 import numpy as np
@@ -53,6 +76,7 @@ print("Random array:\n", W)
 ```
 
 **Output** (random values will vary):
+
 ```
 Array from list:
  [[1 2 3]
@@ -66,11 +90,17 @@ Random array:
   [ 0.654 -0.987]]
 ```
 
-Notice the shape of each array: `X` is 2x3 (2 rows, 3 columns), `zeros` is 2x3, and `W` is 3x2. The shape is a fundamental property of arrays, accessed via `X.shape`, and it dictates how operations like matrix multiplication work in neural networks.
+Notice the shape of each array: `X` is 2x3 (2 rows, 3 columns), `zeros` is 2x3,
+and `W` is 3x2. The shape is a fundamental property of arrays, accessed via
+`X.shape`, and it dictates how operations like matrix multiplication work in
+neural networks.
 
 ### Array Shapes and Dimensions
 
-Understanding an array’s shape is critical because neural network operations often require matching dimensions. For example, to compute a layer’s output with $Z = XW$, the number of columns in $X$ must equal the number of rows in $W$. Let’s inspect shapes and dimensions:
+Understanding an array’s shape is critical because neural network operations
+often require matching dimensions. For example, to compute a layer’s output with
+$Z = XW$, the number of columns in $X$ must equal the number of rows in $W$.
+Let’s inspect shapes and dimensions:
 
 ```python
 # Check the shape of an array
@@ -83,6 +113,7 @@ print("Reshaped X to 3x2:\n", X_reshaped)
 ```
 
 **Output**:
+
 ```
 Shape of X: (2, 3)
 Number of dimensions of X: 2
@@ -92,17 +123,23 @@ Reshaped X to 3x2:
   [5 6]]
 ```
 
-Reshaping is handy in deep learning, for example, when flattening an image (e.g., a 28x28 pixel grid) into a 784-element vector for input to a neural network.
+Reshaping is handy in deep learning, for example, when flattening an image
+(e.g., a 28x28 pixel grid) into a 784-element vector for input to a neural
+network.
 
 ---
 
 ## Basic Array Operations
 
-NumPy arrays support a variety of operations that are essential for neural network computations. Let’s explore element-wise operations and broadcasting, which allow us to avoid loops and write concise code.
+NumPy arrays support a variety of operations that are essential for neural
+network computations. Let’s explore element-wise operations and broadcasting,
+which allow us to avoid loops and write concise code.
 
 ### Element-Wise Operations
 
-Element-wise operations apply a function to each element of an array independently. These are used in neural networks for tasks like adding biases or applying activation functions.
+Element-wise operations apply a function to each element of an array
+independently. These are used in neural networks for tasks like adding biases or
+applying activation functions.
 
 ```python
 # Element-wise addition
@@ -115,6 +152,7 @@ print("X * 2:\n", X_times_2)
 ```
 
 **Output**:
+
 ```
 X + 5:
  [[ 6  7  8]
@@ -126,7 +164,10 @@ X * 2:
 
 ### Broadcasting
 
-Broadcasting is a powerful feature where NumPy automatically expands a smaller array (or scalar) to match the shape of a larger array during operations. This is useful for adding a single bias value to an entire row or column in a neural network layer.
+Broadcasting is a powerful feature where NumPy automatically expands a smaller
+array (or scalar) to match the shape of a larger array during operations. This
+is useful for adding a single bias value to an entire row or column in a neural
+network layer.
 
 ```python
 # Broadcasting a scalar across an array
@@ -141,6 +182,7 @@ print("X with row bias broadcasted:\n", X_with_row_bias)
 ```
 
 **Output**:
+
 ```
 X with broadcasted bias:
  [[11 12 13]
@@ -150,13 +192,17 @@ X with row bias broadcasted:
   [5 7 9]]
 ```
 
-Broadcasting saves us from writing explicit loops, making our code faster and cleaner—perfect for neural network operations where we often add biases or scale entire matrices.
+Broadcasting saves us from writing explicit loops, making our code faster and
+cleaner—perfect for neural network operations where we often add biases or scale
+entire matrices.
 
 ---
 
 ## Indexing and Slicing Arrays
 
-In deep learning, we often need to access parts of an array, such as selecting a subset of data samples or specific features. NumPy provides intuitive indexing and slicing for this purpose.
+In deep learning, we often need to access parts of an array, such as selecting a
+subset of data samples or specific features. NumPy provides intuitive indexing
+and slicing for this purpose.
 
 ```python
 # Access a single element
@@ -175,6 +221,7 @@ print("Submatrix:\n", submatrix)
 ```
 
 **Output**:
+
 ```
 Element at (0,1): 2
 First row: [1 2 3]
@@ -184,13 +231,17 @@ Submatrix:
   [5 6]]
 ```
 
-Slicing is particularly useful when working with datasets like MNIST, where you might need to extract batches of images or specific pixel values.
+Slicing is particularly useful when working with datasets like MNIST, where you
+might need to extract batches of images or specific pixel values.
 
 ---
 
 ## Building Our First Reusable Function: Normalization
 
-Data preprocessing is a crucial step in deep learning. Neural networks often perform better when input data is normalized—scaled to have a mean of 0 and a standard deviation of 1. Let’s write a `normalize()` function to preprocess arrays, which we’ll reuse in later chapters (e.g., for MNIST images).
+Data preprocessing is a crucial step in deep learning. Neural networks often
+perform better when input data is normalized—scaled to have a mean of 0 and a
+standard deviation of 1. Let’s write a `normalize()` function to preprocess
+arrays, which we’ll reuse in later chapters (e.g., for MNIST images).
 
 Here’s the implementation with an example:
 
@@ -219,6 +270,7 @@ print("Std after normalization:", np.std(normalized_matrix))
 ```
 
 **Output** (values will vary due to randomness):
+
 ```
 Original matrix:
  [[ 0.123 -0.456]
@@ -232,36 +284,55 @@ Mean after normalization: 1.1102230246251565e-17  # Approximately 0
 Std after normalization: 0.9999999999999999      # Approximately 1
 ```
 
-Normalization ensures that data across different scales (e.g., pixel values from 0 to 255 in images) is brought to a consistent range, helping neural networks train faster and more reliably. This `normalize()` function will be a key part of our growing library.
+Normalization ensures that data across different scales (e.g., pixel values from
+0 to 255 in images) is brought to a consistent range, helping neural networks
+train faster and more reliably. This `normalize()` function will be a key part
+of our growing library.
 
 ---
 
 ## Math Behind Array Operations
 
-Let’s briefly touch on the mathematics of array operations, as they underpin neural network computations. For an array $X$ of shape $(m, n)$:
-- **Element-wise addition**: Adding a scalar $c$ to $X$ results in a new array where each element $X_{i,j}$ becomes $X_{i,j} + c$.
-- **Element-wise multiplication**: Multiplying $X$ by a scalar $c$ results in each element becoming $c \cdot X_{i,j}$.
-- **Broadcasting**: If you add a vector $v$ of shape $(n,)$ to $X$, NumPy replicates $v$ across all $m$ rows, effectively computing $X_{i,j} + v_j$ for each element.
+Let’s briefly touch on the mathematics of array operations, as they underpin
+neural network computations. For an array $X$ of shape $(m, n)$:
 
-For normalization, if $X$ has elements $x_1, x_2, \dots, x_k$ (where $k = m \cdot n$), we compute:
+- **Element-wise addition**: Adding a scalar $c$ to $X$ results in a new array
+  where each element $X_{i,j}$ becomes $X_{i,j} + c$.
+- **Element-wise multiplication**: Multiplying $X$ by a scalar $c$ results in
+  each element becoming $c \cdot X_{i,j}$.
+- **Broadcasting**: If you add a vector $v$ of shape $(n,)$ to $X$, NumPy
+  replicates $v$ across all $m$ rows, effectively computing $X_{i,j} + v_j$ for
+  each element.
+
+For normalization, if $X$ has elements $x_1, x_2, \dots, x_k$ (where
+$k = m \cdot n$), we compute:
+
 $$
 \text{mean} = \frac{1}{k} \sum_{i=1}^k x_i, \quad \text{std} = \sqrt{\frac{1}{k} \sum_{i=1}^k (x_i - \text{mean})^2}
 $$
+
 Then, the normalized array has elements:
+
 $$
 \text{normalized}_i = \frac{x_i - \text{mean}}{\text{std}}
 $$
 
-These operations are vectorized in NumPy, meaning they’re computed over entire arrays at once, which is much faster than element-by-element loops—a critical advantage for neural networks handling thousands or millions of values.
+These operations are vectorized in NumPy, meaning they’re computed over entire
+arrays at once, which is much faster than element-by-element loops—a critical
+advantage for neural networks handling thousands or millions of values.
 
 ---
 
 ## Exercises: Practice with NumPy Arrays
 
-To solidify your understanding, try these Python-focused coding exercises. They’re designed to get you comfortable with NumPy arrays and prepare you for neural network implementations. Solutions can be checked by running the code and comparing outputs.
+To solidify your understanding, try these Python-focused coding exercises.
+They’re designed to get you comfortable with NumPy arrays and prepare you for
+neural network implementations. Solutions can be checked by running the code and
+comparing outputs.
 
 1. **Array Creation and Shapes**  
-   Create a 4x3 array of ones using `np.ones()`, then reshape it into a 3x4 array. Print the original and reshaped arrays along with their shapes.
+   Create a 4x3 array of ones using `np.ones()`, then reshape it into a 3x4
+   array. Print the original and reshaped arrays along with their shapes.
 
    ```python
    # Your code here
@@ -274,7 +345,9 @@ To solidify your understanding, try these Python-focused coding exercises. They�
    ```
 
 2. **Element-Wise Operations and Broadcasting**  
-   Create a 2x3 array with values `[[1, 2, 3], [4, 5, 6]]`. Add a row vector `[10, 20, 30]` to it using broadcasting, then multiply the result by 2. Print each step.
+   Create a 2x3 array with values `[[1, 2, 3], [4, 5, 6]]`. Add a row vector
+   `[10, 20, 30]` to it using broadcasting, then multiply the result by 2. Print
+   each step.
 
    ```python
    # Your code here
@@ -287,7 +360,8 @@ To solidify your understanding, try these Python-focused coding exercises. They�
    ```
 
 3. **Slicing Practice**  
-   Using the same 2x3 array from Exercise 2, extract the second row and the first two columns as a submatrix. Print the results.
+   Using the same 2x3 array from Exercise 2, extract the second row and the
+   first two columns as a submatrix. Print the results.
 
    ```python
    # Your code here
@@ -299,7 +373,9 @@ To solidify your understanding, try these Python-focused coding exercises. They�
    ```
 
 4. **Normalization Application**  
-   Generate a 5x2 random matrix using `np.random.randn(5, 2)`, apply the `normalize()` function we wrote, and verify that the mean is approximately 0 and the standard deviation is approximately 1.
+   Generate a 5x2 random matrix using `np.random.randn(5, 2)`, apply the
+   `normalize()` function we wrote, and verify that the mean is approximately 0
+   and the standard deviation is approximately 1.
 
    ```python
    # Your code here
@@ -311,16 +387,29 @@ To solidify your understanding, try these Python-focused coding exercises. They�
    print("Std after normalization:", np.std(normalized_data))
    ```
 
-These exercises reinforce the core concepts of array manipulation, which we’ll build upon when implementing neural network layers and data preprocessing pipelines.
+These exercises reinforce the core concepts of array manipulation, which we’ll
+build upon when implementing neural network layers and data preprocessing
+pipelines.
 
 ---
 
 ## Closing Thoughts
 
-Congratulations on completing your first step into deep learning with NumPy! In this post, we’ve introduced NumPy arrays, explored their creation and manipulation, and written a reusable `normalize()` function for data preprocessing. Arrays are the cornerstone of neural networks because they enable fast, vectorized operations—whether it’s adding biases, computing layer outputs, or normalizing inputs.
+Congratulations on completing your first step into deep learning with NumPy! In
+this post, we’ve introduced NumPy arrays, explored their creation and
+manipulation, and written a reusable `normalize()` function for data
+preprocessing. Arrays are the cornerstone of neural networks because they enable
+fast, vectorized operations—whether it’s adding biases, computing layer outputs,
+or normalizing inputs.
 
-In the next chapter (Part 1.2: *Matrix Operations for Neural Networks*), we’ll dive deeper into linear algebra with NumPy, focusing on matrix multiplication ($Z = XW$), a key operation for computing neural network layer outputs. We’ll build another reusable function and see how these concepts directly apply to forward propagation.
+In the next chapter (Part 1.2: _Matrix Operations for Neural Networks_), we’ll
+dive deeper into linear algebra with NumPy, focusing on matrix multiplication
+($Z = XW$), a key operation for computing neural network layer outputs. We’ll
+build another reusable function and see how these concepts directly apply to
+forward propagation.
 
-Until then, experiment with the code and exercises above. If you have questions or want to share your solutions, drop a comment below—I’d love to hear from you. Let’s keep building our deep learning toolkit together!
+Until then, experiment with the code and exercises above. If you have questions
+or want to share your solutions, drop a comment below—I’d love to hear from you.
+Let’s keep building our deep learning toolkit together!
 
 **Next Up**: Part 1.2 – Matrix Operations for Neural Networks
