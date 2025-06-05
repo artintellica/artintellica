@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-05T15:39:10.398Z</updated>
+    <updated>2025-06-05T15:41:57.509Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Linear Algebra for Machine Learning: A Concluding Reflection on Our 20-Part Journey]]></title>
+        <id>https://artintellica.com/blog/0040-linalg-21-conclusion.md</id>
+        <link href="https://artintellica.com/blog/0040-linalg-21-conclusion.md"/>
+        <updated>2025-06-05T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Linear Algebra for Machine Learning: A Concluding Reflection on Our 20-Part Journey]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms]]></title>
         <id>https://artintellica.com/blog/0039-linalg-20-random.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0021-linalg-02-matrices-and-transformations.md"/>
         <updated>2025-05-29T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 2: Matrices as Data & Transformations]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 1: Vectors, Scalars, and Spaces: The Language of Machine Learning]]></title>
-        <id>https://artintellica.com/blog/0020-linalg-01-vectors-scalers-spaces.md</id>
-        <link href="https://artintellica.com/blog/0020-linalg-01-vectors-scalers-spaces.md"/>
-        <updated>2025-05-29T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 1: Vectors, Scalars, and Spaces: The Language of Machine Learning]]></summary>
     </entry>
 </feed>
