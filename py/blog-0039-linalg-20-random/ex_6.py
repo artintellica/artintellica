@@ -15,7 +15,9 @@ print("Original Data Shape:", X.shape)
 print("Labels Shape:", y.shape)
 
 # Split data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
 print("Training Data Shape:", X_train.shape)
 print("Testing Data Shape:", X_test.shape)
 
@@ -57,7 +59,15 @@ print(f"Runtime (seconds): {runtime_projected:.4f}")
 
 # Compare results
 print("\nComparison:")
-print(f"Original Data (64 dimensions) - Accuracy: {accuracy_original:.4f}, Runtime: {runtime_original:.4f} s")
-print(f"Projected Data (10 dimensions) - Accuracy: {accuracy_projected:.4f}, Runtime: {runtime_projected:.4f} s")
-print(f"Accuracy Difference (Original - Projected): {(accuracy_original - accuracy_projected):.4f}")
-print(f"Runtime Difference (Original - Projected): {(runtime_original - runtime_projected):.4f} s")
+print(
+    f"Original Data (64 dimensions) - Accuracy: {accuracy_original:.4f}, Runtime: {runtime_original:.4f} s"
+)
+print(
+    f"Projected Data (10 dimensions) - Accuracy: {accuracy_projected:.4f}, Runtime: {runtime_projected:.4f} s"
+)
+print(
+    f"Accuracy Difference (Original - Projected): {(accuracy_original - accuracy_projected):.4f}"
+)
+print(
+    f"Runtime Difference (Original - Projected): {(runtime_original - runtime_projected):.4f} s"
+)
