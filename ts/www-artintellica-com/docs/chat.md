@@ -1016,4 +1016,14 @@ As we conclude this series on linear algebra for machine learning, I want to tha
 
 # === USER ===
 
+the first demo produced a chart, however there is an error. here is the text output:
 
+Original Data Shape: (100, 1000)
+Target Reduced Dimension (k): 3684
+Random Projection Matrix Shape: (1000, 3684)
+Projected Data Shape: (100, 3684)
+/Users/ryan/dev/artintellica/py/blog-0039-linalg-20-random/demo_1.py:31: RuntimeWarning: invalid value encountered in divide
+  relative_distortion = np.abs(dist_projected - dist_original) / dist_original
+Mean Relative Distortion: nan
+
+any idea what's wrong?
