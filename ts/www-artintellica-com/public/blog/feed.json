@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0041-deep-numpy-00-intro.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0041-deep-numpy-00-intro.md",
+            "title": "Learn Deep Learning with NumPy, Part 0: Introduction",
+            "date_modified": "2025-06-05T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0040-linalg-21-conclusion.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0040-linalg-21-conclusion.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0022-linalg-03-matrix-arithmetic.md",
             "title": "Linear Algebra for Machine Learning, Part 3: Matrices as Data & Transformations",
-            "date_modified": "2025-05-29T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0021-linalg-02-matrices-and-transformations.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0021-linalg-02-matrices-and-transformations.md",
-            "title": "Linear Algebra for Machine Learning, Part 2: Matrices as Data & Transformations",
             "date_modified": "2025-05-29T07:00:00.000Z"
         }
     ]
