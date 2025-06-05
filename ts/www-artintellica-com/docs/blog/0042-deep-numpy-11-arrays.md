@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-06-05"
 +++
 
-# Learn Deep Learning with NumPy, Part 1.1: Getting Started with NumPy Arrays
-
 ## Introduction
 
 Welcome to the first chapter of our blog series, _"Learn Deep Learning with
