@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-05T11:30:16.524Z</updated>
+    <updated>2025-06-05T14:43:06.204Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms]]></title>
+        <id>https://artintellica.com/blog/0039-linalg-20-random.md</id>
+        <link href="https://artintellica.com/blog/0039-linalg-20-random.md"/>
+        <updated>2025-06-05T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 19: Kernel Methods and Feature Spaces]]></title>
         <id>https://artintellica.com/blog/0038-linalg-19-kernel.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0020-linalg-01-vectors-scalers-spaces.md"/>
         <updated>2025-05-29T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 1: Vectors, Scalars, and Spaces: The Language of Machine Learning]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Calculus Overview: From Limits to Hessians — a Machine‑Learning‑Centric Journey through Calculus]]></title>
-        <id>https://artintellica.com/blog/0019-calculus-overview.md</id>
-        <link href="https://artintellica.com/blog/0019-calculus-overview.md"/>
-        <updated>2025-05-28T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Calculus Overview: From Limits to Hessians — a Machine‑Learning‑Centric Journey through Calculus]]></summary>
     </entry>
 </feed>

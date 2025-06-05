@@ -298,5 +298,12 @@
     "date": "2025-06-05",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0038-linalg-19-kernel",
     "content": ""
+  },
+  {
+    "filename": "0039-linalg-20-random.md",
+    "title": "Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms",
+    "author": "Artintellica",
+    "date": "2025-06-05",
+    "content": ""
   }
 ]
