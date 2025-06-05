@@ -230,18 +230,3 @@ reach out—I’d love to hear from you. Let’s learn deep learning with NumPy,
 step at a time!
 
 **Next Up**: Chapter 1.1 – Getting Started with NumPy Arrays
-
----
-
-## Closing Note
-
-This introductory post sets the stage for our series, emphasizing why NumPy is a
-fantastic tool for learning deep learning and outlining the structured path
-ahead. As we progress, each blog post will build on the last, combining math,
-code, and practical examples to ensure a thorough understanding. If you’re ready
-to code neural networks from scratch and uncover the beauty of deep learning,
-stay tuned for Chapter 1.1!
-
-If you’d like me to expand on any part of this intro or jump straight into
-writing Chapter 1.1 with full code and explanations, just let me know. I’m here
-to help make this series as engaging and educational as possible!
