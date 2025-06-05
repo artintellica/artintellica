@@ -14,17 +14,17 @@ Random projections and fast transforms are techniques rooted in linear algebra t
 
 Random projections are a dimensionality reduction technique that projects high-dimensional data into a lower-dimensional space using a random matrix. Unlike PCA, which seeks optimal directions of variance, random projections rely on randomness to approximate distances between points. The theoretical foundation for this is the **Johnson-Lindenstrauss Lemma**, which states that a set of points in a high-dimensional space can be embedded into a lower-dimensional space while approximately preserving pairwise distances with high probability.
 
-**Johnson-Lindenstrauss Lemma (simplified)**: For any set of \( n \) points in \( \mathbb{R}^d \), there exists a projection into \( \mathbb{R}^k \) (where \( k = O(\log n / \epsilon^2) \)) such that the pairwise distances are preserved within a factor of \( 1 \pm \epsilon \). The projection matrix can be constructed randomly, often with entries drawn from a Gaussian distribution or simpler distributions like \( \pm 1 \).
+**Johnson-Lindenstrauss Lemma (simplified)**: For any set of $n$ points in $\mathbb{R}^d$, there exists a projection into $\mathbb{R}^k$ (where $k = O(\log n / \epsilon^2)$) such that the pairwise distances are preserved within a factor of $1 \pm \epsilon$. The projection matrix can be constructed randomly, often with entries drawn from a Gaussian distribution or simpler distributions like $\pm 1$.
 
-Mathematically, if \( X \in \mathbb{R}^{n \times d} \) is the original data matrix, a random projection matrix \( R \in \mathbb{R}^{d \times k} \) (with \( k \ll d \)) is used to compute the reduced data:
-\[
+Mathematically, if $X \in \mathbb{R}^{n \times d}$ is the original data matrix, a random projection matrix $R \in \mathbb{R}^{d \times k}$ (with $k \ll d$) is used to compute the reduced data:
+$$
 X_{\text{proj}} = X R \in \mathbb{R}^{n \times k}
-\]
-The randomness of \( R \) ensures computational efficiency and surprising effectiveness in preserving structure.
+$$
+The randomness of $R$ ensures computational efficiency and surprising effectiveness in preserving structure.
 
 ### Fast Transforms
 
-Fast transforms, such as the Fast Fourier Transform (FFT) or Hadamard Transform, are efficient algorithms for applying specific linear transformations. They reduce the computational complexity of matrix operations from \( O(n^2) \) or higher to \( O(n \log n) \) or better. In machine learning, fast transforms are used for tasks like signal processing, kernel approximations, and speeding up matrix multiplications in random projection variants (e.g., using structured random matrices).
+Fast transforms, such as the Fast Fourier Transform (FFT) or Hadamard Transform, are efficient algorithms for applying specific linear transformations. They reduce the computational complexity of matrix operations from $O(n^2)$ or higher to $O(n \log n)$ or better. In machine learning, fast transforms are used for tasks like signal processing, kernel approximations, and speeding up matrix multiplications in random projection variants (e.g., using structured random matrices).
 
 ## Why Do Random Projections and Fast Transforms Matter in Machine Learning?
 
@@ -96,7 +96,7 @@ Projected Data Shape: (100, 368)
 Mean Relative Distortion: 0.0492
 ```
 
-This example generates a synthetic high-dimensional dataset (100 samples, 1000 dimensions) and applies a random projection using a Gaussian matrix to reduce it to a lower dimension (calculated roughly based on the Johnson-Lindenstrauss lemma). The pairwise Euclidean distances are computed before and after projection, and the relative distortion is analyzed. A histogram visualizes the distribution of distortions, typically showing that most distances are preserved within a small error margin (close to the specified \( \epsilon = 0.1 \)).
+This example generates a synthetic high-dimensional dataset (100 samples, 1000 dimensions) and applies a random projection using a Gaussian matrix to reduce it to a lower dimension (calculated roughly based on the Johnson-Lindenstrauss lemma). The pairwise Euclidean distances are computed before and after projection, and the relative distortion is analyzed. A histogram visualizes the distribution of distortions, typically showing that most distances are preserved within a small error margin (close to the specified $\epsilon = 0.1$).
 
 ### Example 2: Structured Random Projection with Hadamard-like Matrix
 
@@ -142,7 +142,7 @@ This example demonstrates a structured random projection using a Hadamard matrix
 Here are six exercises to deepen your understanding of random projections and fast transforms. Each exercise involves writing Python code to explore concepts and applications in machine learning using NumPy and other libraries.
 
 1. **Basic Random Projection**: Generate a synthetic dataset (200 samples, 500 dimensions) with NumPy. Apply a random projection to reduce it to 50 dimensions using a Gaussian random matrix. Compute and print the mean relative distortion of pairwise distances.
-2. **Johnson-Lindenstrauss Dimension Calculation**: Write a function to calculate the target dimension \( k \) for random projection based on the Johnson-Lindenstrauss lemma (\( k = \frac{8 \log n}{\epsilon^2} \)) for a given number of samples \( n \) and distortion \( \epsilon \). Test it for \( n = 100, 1000, 10000 \) and \( \epsilon = 0.1, 0.2 \).
+2. **Johnson-Lindenstrauss Dimension Calculation**: Write a function to calculate the target dimension $k$ for random projection based on the Johnson-Lindenstrauss lemma ($k = \frac{8 \log n}{\epsilon^2}$) for a given number of samples $n$ and distortion $\epsilon$. Test it for $n = 100, 1000, 10000$ and $\epsilon = 0.1, 0.2$.
 3. **Random Projection for Classification**: Use a synthetic dataset (e.g., from `sklearn.datasets.make_classification`, 1000 samples, 200 features). Apply random projection to reduce to 20 dimensions, then train a logistic regression classifier (`sklearn.linear_model.LogisticRegression`). Compare accuracy before and after projection.
 4. **Structured Random Projection**: Using a dataset of size (128 samples, 128 features), create a Hadamard matrix with `scipy.linalg.hadamard` and randomly select 32 columns for projection. Compute and print the mean relative distortion of pairwise distances.
 5. **Fast Fourier Transform (FFT) Application**: Generate a 1D signal (e.g., a sum of sine waves with noise) with 1024 points. Apply FFT using `numpy.fft.fft` to transform it to the frequency domain, plot the original signal and its frequency spectrum.
