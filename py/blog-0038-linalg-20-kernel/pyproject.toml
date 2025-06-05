@@ -1,0 +1,7 @@
+[project]
+name = "blog-0038-linalg-20-kernel"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
