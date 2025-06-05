@@ -42,8 +42,8 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
 
   const nextBlogPosts = newBlogPosts
     .filter((post) => post.filename.localeCompare(filename) > 0)
-    .slice(0, 5)
-    .reverse();
+    .reverse()
+    .slice(0, 5);
 
   return { blogPost, recentBlogPosts, nextBlogPosts };
 };
