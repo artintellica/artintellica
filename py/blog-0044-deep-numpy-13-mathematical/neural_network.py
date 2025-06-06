@@ -34,3 +34,14 @@ def matrix_multiply(
         Result of matrix multiplication, shape (m, p) with floating-point values
     """
     return np.matmul(X, W)
+
+
+def sigmoid(Z: NDArray[np.floating]) -> NDArray[np.floating]:
+    """
+    Compute the sigmoid activation function element-wise.
+    Args:
+        Z: Input array of any shape with floating-point values
+    Returns:
+        Array of the same shape with sigmoid applied element-wise, values in [0, 1]
+    """
+    return 1 / (1 + np.exp(-Z))
