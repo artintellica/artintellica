@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-06-06"
 +++
 
-# Learn Deep Learning with NumPy, Part 1.3: Mathematical Functions and Activation Basics
-
 ## Introduction
 
 Welcome back to our blog series, _"Learn Deep Learning with NumPy"_! In Parts
