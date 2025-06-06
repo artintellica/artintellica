@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Fri, 06 Jun 2025 17:13:57 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 06 Jun 2025 19:48:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Deep Learning with NumPy, Part 1.2: Matrix Operations for Neural Networks]]></title>
+            <link>https://artintellica.com/blog/0043-deep-numpy-12-matrix.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0043-deep-numpy-12-matrix.md</guid>
+            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Deep Learning with NumPy, Part 1.2: Matrix Operations for Neural Networks]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Deep Learning with NumPy, Part 1.1: Getting Started with NumPy Arrays]]></title>
             <link>https://artintellica.com/blog/0042-deep-numpy-11-arrays.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0024-linalg-05-linear-independence.md</guid>
             <pubDate>Thu, 29 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 5: Linear Independence and Span]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Linear Algebra for Machine Learning, Part 4: Dot Product and Cosine Similarity]]></title>
-            <link>https://artintellica.com/blog/0023-linalg-04-dot-product.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0023-linalg-04-dot-product.md</guid>
-            <pubDate>Thu, 29 May 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Linear Algebra for Machine Learning, Part 4: Dot Product and Cosine Similarity]]></description>
         </item>
     </channel>
 </rss>
