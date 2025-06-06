@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 1.2: Matrix Operations for Neural Networks"
 author = "Artintellica"
 date = "2025-06-05"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0043-deep-numpy-12-matrix"
 +++
 
 ## Introduction
