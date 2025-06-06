@@ -1,16 +1,27 @@
 import numpy as np
+from numpy.typing import NDArray
+from typing import Union
 
-def normalize(X):
+def normalize(X: NDArray[np.floating]) -> NDArray[np.floating]:
     """
     Normalize the input array X by subtracting the mean and dividing by the standard deviation.
     
     Parameters:
-    X (np.ndarray): Input array to normalize.
+        X (NDArray[np.floating]): Input array to normalize. Should be a numerical array
+            (float or compatible type).
     
     Returns:
-    np.ndarray: Normalized array.
+        NDArray[np.floating]: Normalized array with mean approximately 0 and standard
+            deviation approximately 1 along each axis.
     """
     mean = np.mean(X, axis=0)
     std = np.std(X, axis=0)
-    normalized_X = (X - mean) / std
+    # Handle division by zero by using np.where to avoid warnings
+    normalized_X = np.where(std != 0, (X - mean) / std, X - mean)
     return normalized_X
+
+# Example usage
+X: NDArray[np.floating] = np.array([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
+normalized_X: NDArray[np.floating] = normalize(X)
+print("Original array:\n", X)
+print("Normalized array:\n", normalized_X)
