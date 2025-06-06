@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 1.1: Getting Started with NumPy Arrays"
 author = "Artintellica"
 date = "2025-06-05"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0042-deep-numpy-11-arrays"
 +++
 
 ## Introduction
