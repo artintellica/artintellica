@@ -241,16 +241,21 @@ perform better when input data is normalized—scaled to have a mean of 0 and a
 standard deviation of 1. Let’s write a `normalize()` function to preprocess
 arrays, which we’ll reuse in later chapters (e.g., for MNIST images).
 
-Here’s the implementation with an example:
+Here’s the implementation with type hints for parameters and return values,
+along with an example:
 
 ```python
-def normalize(X):
+import numpy as np
+from numpy.typing import NDArray
+from typing import Union
+
+def normalize(X: NDArray[np.floating]) -> NDArray[np.floating]:
     """
     Normalize an array to have mean=0 and std=1.
     Args:
-        X: NumPy array of any shape
+        X: NumPy array of any shape with floating-point values
     Returns:
-        Normalized array of the same shape
+        Normalized array of the same shape with floating-point values
     """
     mean = np.mean(X)
     std = np.std(X)
@@ -285,7 +290,9 @@ Std after normalization: 0.9999999999999999      # Approximately 1
 Normalization ensures that data across different scales (e.g., pixel values from
 0 to 255 in images) is brought to a consistent range, helping neural networks
 train faster and more reliably. This `normalize()` function will be a key part
-of our growing library.
+of our growing library. The type hints (`NDArray[np.floating]`) specify that the
+input and output are NumPy arrays with floating-point values, improving code
+readability and enabling static type checking with tools like `mypy`.
 
 ---
 
