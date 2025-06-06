@@ -344,5 +344,12 @@
     "date": "2025-06-06",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0044-deep-numpy-13-mathematical",
     "content": ""
+  },
+  {
+    "filename": "0045-deep-numpy-21-loss.md",
+    "title": "Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions",
+    "author": "Artintellica",
+    "date": "2025-06-06",
+    "content": ""
   }
 ]
