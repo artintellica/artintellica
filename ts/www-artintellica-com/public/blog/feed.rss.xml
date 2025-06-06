@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Fri, 06 Jun 2025 20:39:41 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 06 Jun 2025 20:47:52 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <title><![CDATA[Learn Deep Learning with NumPy, Part 1.2: Matrix Operations for Neural Networks]]></title>
             <link>https://artintellica.com/blog/0043-deep-numpy-12-matrix.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0043-deep-numpy-12-matrix.md</guid>
-            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
+            <pubDate>Fri, 06 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Deep Learning with NumPy, Part 1.2: Matrix Operations for Neural Networks]]></description>
         </item>
         <item>
