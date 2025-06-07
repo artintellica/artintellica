@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-06-06"
 +++
 
-# Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions
-
 ## Introduction
 
 Welcome back to our blog series, _"Learn Deep Learning with NumPy"_! Having
