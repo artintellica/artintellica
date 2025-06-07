@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-07T11:33:28.695Z</updated>
+    <updated>2025-06-07T11:43:32.531Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -18,7 +18,7 @@
         <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions]]></title>
         <id>https://artintellica.com/blog/0045-deep-numpy-21-loss.md</id>
         <link href="https://artintellica.com/blog/0045-deep-numpy-21-loss.md"/>
-        <updated>2025-06-06T07:00:00.000Z</updated>
+        <updated>2025-06-07T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions]]></summary>
     </entry>
     <entry>
