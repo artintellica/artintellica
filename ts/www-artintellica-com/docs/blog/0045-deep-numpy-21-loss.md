@@ -1,7 +1,7 @@
 +++
 title = "Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions"
 author = "Artintellica"
-date = "2025-06-07"
+date = "2025-06-08"
 +++
 
 ## Introduction
