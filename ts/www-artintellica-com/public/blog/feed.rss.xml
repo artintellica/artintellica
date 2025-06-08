@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Sun, 08 Jun 2025 20:32:40 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 08 Jun 2025 20:35:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent]]></title>
+            <link>https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md</guid>
+            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization]]></title>
             <link>https://artintellica.com/blog/0046-deep-numpy-22-gradient.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0028-linalg-09-rank.md</guid>
             <pubDate>Fri, 30 May 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 9: Rank, Nullspace, and the Fundamental Theorem]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations]]></title>
-            <link>https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md</guid>
-            <pubDate>Fri, 30 May 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations]]></description>
         </item>
     </channel>
 </rss>

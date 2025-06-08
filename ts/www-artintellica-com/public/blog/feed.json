@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md",
+            "title": "Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent",
+            "date_modified": "2025-06-05T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0046-deep-numpy-22-gradient.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0046-deep-numpy-22-gradient.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0028-linalg-09-rank.md",
             "title": "Linear Algebra for Machine Learning, Part 9: Rank, Nullspace, and the Fundamental Theorem",
-            "date_modified": "2025-05-30T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md",
-            "title": "Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations",
             "date_modified": "2025-05-30T07:00:00.000Z"
         }
     ]
