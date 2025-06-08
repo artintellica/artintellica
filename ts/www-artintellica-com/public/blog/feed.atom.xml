@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-08T22:21:01.531Z</updated>
+    <updated>2025-06-08T22:21:37.956Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -18,7 +18,7 @@
         <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent]]></title>
         <id>https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md</id>
         <link href="https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md"/>
-        <updated>2025-06-05T07:00:00.000Z</updated>
+        <updated>2025-06-08T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent]]></summary>
     </entry>
     <entry>
