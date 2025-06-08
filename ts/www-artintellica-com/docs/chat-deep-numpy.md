@@ -3142,4 +3142,8 @@ If you’d like me to revise the Part 2.2 blog post to include the `activation_f
 
 # === USER ===
 
+great, now can you please write the next blog post? the subject is:
 
+| **2.3** | **Mini-Batch Gradient Descent**        | **Description**: Extend gradient descent to mini-batches for efficiency, critical for neural networks with large datasets.<br>**Math**: Mini-batch update (\( \nabla*W L = X*{\text{batch}}^T (y*{\text{pred,batch}} - y*{\text{batch}}) / m \)), where \( m \) is batch size.<br>**Code**: Modify `gradient_descent()` to support `batch_size` (e.g., 32), looping over batches of MNIST data. Example: Train logistic regression on MNIST (binary subset, e.g., 0 vs. 1) with mini-batches.<br>**Contribution**: Enhances `gradient_descent()` for scalability, reused in MLPs and CNNs.                      |
+
+please include math, python demos, and exercises like before.
