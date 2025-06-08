@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent"
 author = "Artintellica"
 date = "2025-06-05"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0047-deep-numpy-23-mini-batch"
 +++
 
 # Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent
@@ -383,7 +384,7 @@ your solutions.
    `X = np.array([[1.0], [2.0], [3.0], [4.0], [5.0], [6.0], [7.0], [8.0]])` and
    `y = np.array([[2.0], [4.0], [6.0], [8.0], [10.0], [12.0], [14.0], [16.0]])`
    (true relationship $y = 2x$). Initialize `W = np.array([[0.0]])` and
-   `b = np.array([[0.0]])`. Run `gradient_descent()` with `lr = 0.1`,
+   `b = np.array([[0.0]])`. Run `gradient_descent()` with `lr = 0.01`,
    `num_epochs = 5`, and `batch_size = 2`. Print the initial and final values of
    `W`, `b`, and the loss history.
 
@@ -393,7 +394,7 @@ your solutions.
    y = np.array([[2.0], [4.0], [6.0], [8.0], [10.0], [12.0], [14.0], [16.0]])
    W_init = np.array([[0.0]])
    b_init = np.array([[0.0]])
-   lr = 0.1
+   lr = 0.01
    num_epochs = 5
    batch_size = 2
    W_final, b_final, losses = gradient_descent(X, y, W_init, b_init, lr, num_epochs, batch_size, mse_loss)
@@ -406,7 +407,7 @@ your solutions.
 
 2. **Effect of Batch Size on Convergence**  
    Using the same data as in Exercise 1, run `gradient_descent()` with
-   `lr = 0.1`, `num_epochs = 5`, but with a larger `batch_size = 4`. Compare the
+   `lr = 0.01`, `num_epochs = 5`, but with a larger `batch_size = 4`. Compare the
    final `W`, `b`, and loss history to Exercise 1. Observe how a larger batch
    size might affect convergence speed or stability.
 
@@ -416,7 +417,7 @@ your solutions.
    y = np.array([[2.0], [4.0], [6.0], [8.0], [10.0], [12.0], [14.0], [16.0]])
    W_init = np.array([[0.0]])
    b_init = np.array([[0.0]])
-   lr = 0.1
+   lr = 0.01
    num_epochs = 5
    batch_size = 4
    W_final, b_final, losses = gradient_descent(X, y, W_init, b_init, lr, num_epochs, batch_size, mse_loss)
@@ -432,7 +433,7 @@ your solutions.
    `X = np.array([[0.5], [1.5], [1.0], [2.0], [3.0], [2.5]])` and
    `y = np.array([[0.0], [0.0], [0.0], [1.0], [1.0], [1.0]])` (approximating a
    decision boundary). Initialize `W = np.array([[0.0]])` and
-   `b = np.array([[0.0]])`. Run `gradient_descent()` with `lr = 0.1`,
+   `b = np.array([[0.0]])`. Run `gradient_descent()` with `lr = 0.01`,
    `num_epochs = 10`, `batch_size = 2`, using `binary_cross_entropy` as
    `loss_fn` and `sigmoid` as `activation_fn`. Print the initial and final `W`,
    `b`, and loss history.
@@ -443,7 +444,7 @@ your solutions.
    y = np.array([[0.0], [0.0], [0.0], [1.0], [1.0], [1.0]])
    W_init = np.array([[0.0]])
    b_init = np.array([[0.0]])
-   lr = 0.1
+   lr = 0.01
    num_epochs = 10
    batch_size = 2
    W_final, b_final, losses = gradient_descent(X, y, W_init, b_init, lr, num_epochs, batch_size, binary_cross_entropy, sigmoid)
@@ -457,7 +458,7 @@ your solutions.
 4. **Effect of Shuffling in Mini-Batches**  
    Modify the `gradient_descent()` function temporarily to remove shuffling
    (comment out the `np.random.permutation` part and use `X` and `y` directly).
-   Run it on the data from Exercise 1 with `lr = 0.1`, `num_epochs = 5`, and
+   Run it on the data from Exercise 1 with `lr = 0.01`, `num_epochs = 5`, and
    `batch_size = 2`. Compare the loss history to Exercise 1. Observe how the
    lack of shuffling might affect convergence due to consistent batch ordering.
 
@@ -489,7 +490,7 @@ your solutions.
    y = np.array([[2.0], [4.0], [6.0], [8.0], [10.0], [12.0], [14.0], [16.0]])
    W_init = np.array([[0.0]])
    b_init = np.array([[0.0]])
-   lr = 0.1
+   lr = 0.01
    num_epochs = 5
    batch_size = 2
    W_final, b_final, losses = gradient_descent_no_shuffle(X, y, W_init, b_init, lr, num_epochs, batch_size, mse_loss)
