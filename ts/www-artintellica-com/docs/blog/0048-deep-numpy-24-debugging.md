@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 2.4: Debugging with Numerical Gradients"
 author = "Artintellica"
 date = "2025-06-08"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0048-deep-numpy-24-debugging"
 +++
 
 ## Introduction
@@ -191,8 +192,12 @@ params = {
 # Compute analytical gradients
 y_pred = linear_forward(X, params)
 error = y_pred - y
-analytical_grad_W = (X.T @ error) / n
-analytical_grad_b = np.mean(error)
+analytical_grad_W = (2.0 / n) * (
+    X.T @ error
+)  # Include factor of 2 from derivative of (y_pred - y)^2
+analytical_grad_b = (2.0 / n) * np.sum(
+    error
+)  # Include factor of 2 (equivalent to np.mean(error) * 2)
 
 # Compute numerical gradients
 numerical_grads = numerical_gradient(X, y, params, mse_loss, linear_forward, h=1e-4)
@@ -424,8 +429,8 @@ verify your solutions.
    params = {'W': np.array([[1.5]]), 'b': np.array([[0.5]])}
    y_pred = linear_forward(X, params)
    error = y_pred - y
-   analytical_grad_W = (X.T @ error) / n
-   analytical_grad_b = np.mean(error)
+   analytical_grad_W = 2 * (X.T @ error) / n
+   analytical_grad_b = 2 * np.mean(error)
    numerical_grads = numerical_gradient(X, y, params, mse_loss, linear_forward, h=1e-4)
    print("Analytical Gradient for W:", analytical_grad_W)
    print("Numerical Gradient for W:", numerical_grads['W'])
@@ -452,8 +457,8 @@ verify your solutions.
    params = {'W': np.array([[1.5]]), 'b': np.array([[0.5]])}
    y_pred = linear_forward(X, params)
    error = y_pred - y
-   analytical_grad_W = (X.T @ error) / n
-   analytical_grad_b = np.mean(error)
+   analytical_grad_W = 2 * (X.T @ error) / n
+   analytical_grad_b = 2 * np.mean(error)
    numerical_grads = numerical_gradient(X, y, params, mse_loss, linear_forward, h=1e-2)
    print("Analytical Gradient for W:", analytical_grad_W)
    print("Numerical Gradient for W:", numerical_grads['W'])
