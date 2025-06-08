@@ -83,7 +83,7 @@ def gradient_descent(
     lr: float,
     num_epochs: int,
     batch_size: int,
-    loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], float],
+    loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], np.floating],
     activation_fn: Callable[[NDArray[np.floating]], NDArray[np.floating]] = lambda x: x,
 ) -> Tuple[NDArray[np.floating], NDArray[np.floating], List[float]]:
     """
@@ -105,6 +105,7 @@ def gradient_descent(
     loss_history = []
 
     for epoch in range(num_epochs):
+        # print(f"Epoch {epoch+1}/{num_epochs}")
         # Shuffle the dataset to ensure random mini-batches
         indices = np.random.permutation(n_samples)
         X_shuffled = X[indices]
@@ -112,6 +113,7 @@ def gradient_descent(
 
         # Process mini-batches
         for start_idx in range(0, n_samples, batch_size):
+            # print(f"Processing batch starting at index {start_idx}")
             end_idx = min(start_idx + batch_size, n_samples)
             X_batch = X_shuffled[start_idx:end_idx]
             y_batch = y_shuffled[start_idx:end_idx]
