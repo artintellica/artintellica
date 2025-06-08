@@ -20,7 +20,7 @@ n = X.shape[0]
 params = {"W": np.array([[1.5]]), "b": np.array([[0.5]])}
 y_pred = linear_forward(X, params)
 error = y_pred - y
-analytical_grad_W = (X.T ** 2 @ error) / n  # Buggy: should be X.T @ error
+analytical_grad_W = (X.T**2 @ error) / n  # Buggy: should be X.T @ error
 analytical_grad_b = np.mean(error)  # Correct for b
 numerical_grads = numerical_gradient(X, y, params, mse_loss, linear_forward, h=1e-4)
 print("Analytical Gradient for W (buggy):", analytical_grad_W)
