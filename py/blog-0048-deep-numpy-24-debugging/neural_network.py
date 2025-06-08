@@ -1,6 +1,6 @@
 import numpy as np
 from numpy.typing import NDArray
-from typing import Union, Callable, Tuple, List
+from typing import Union, Callable, Tuple, List, Dict
 
 
 def normalize(X: NDArray[np.floating]) -> NDArray[np.floating]:
@@ -138,3 +138,55 @@ def gradient_descent(
         print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss:.4f}")
 
     return W, b, loss_history
+
+def numerical_gradient(
+    X: NDArray[np.floating],
+    y: NDArray[np.floating],
+    params: Dict[str, NDArray[np.floating]],
+    loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], np.floating],
+    forward_fn: Callable[
+        [NDArray[np.floating], Dict[str, NDArray[np.floating]]], NDArray[np.floating]
+    ],
+    h: float = 1e-4,
+) -> Dict[str, NDArray[np.floating]]:
+    """
+    Compute numerical gradients for parameters using central difference approximation.
+    Args:
+        X: Input data, shape (n_samples, n_features)
+        y: True values, shape (n_samples, 1)
+        params: Dictionary of parameters (e.g., {'W': ..., 'b': ...})
+        loss_fn: Loss function to compute error, e.g., mse_loss
+        forward_fn: Function to compute predictions from X and params
+        h: Step size for finite difference approximation (default: 1e-4)
+    Returns:
+        Dictionary of numerical gradients for each parameter
+    """
+    num_grads = {}
+
+    for param_name, param_value in params.items():
+        num_grad = np.zeros_like(param_value)
+        it = np.nditer(param_value, flags=["multi_index"])
+        while not it.finished:
+            idx = it.multi_index
+            original_value = param_value[idx]
+
+            # Compute loss at W + h
+            param_value[idx] = original_value + h
+            y_pred_plus = forward_fn(X, params)
+            loss_plus = loss_fn(y_pred_plus, y)
+
+            # Compute loss at W - h
+            param_value[idx] = original_value - h
+            y_pred_minus = forward_fn(X, params)
+            loss_minus = loss_fn(y_pred_minus, y)
+
+            # Central difference approximation
+            num_grad[idx] = (loss_plus - loss_minus) / (2 * h)
+
+            # Restore original value
+            param_value[idx] = original_value
+            it.iternext()
+
+        num_grads[param_name] = num_grad
+
+    return num_grads
