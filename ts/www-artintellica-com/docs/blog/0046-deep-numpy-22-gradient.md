@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization"
 author = "Artintellica"
 date = "2025-06-05"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0046-deep-numpy-22-gradient"
 +++
 
 ## Introduction
