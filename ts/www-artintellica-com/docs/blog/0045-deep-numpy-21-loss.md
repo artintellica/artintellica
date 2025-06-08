@@ -417,5 +417,4 @@ Until then, experiment with the code and exercises above. If you have questions
 or want to share your solutions, drop a comment below—I’m excited to hear from
 you. Let’s keep building our deep learning toolkit together!
 
-**Next Up**: Part 2.2 – Gradient Descent for Optimization \*Next Up\*\*: Part
-2.1 – Understanding Loss Functions
+**Next Up**: Part 2.2 – Gradient Descent for Optimization
