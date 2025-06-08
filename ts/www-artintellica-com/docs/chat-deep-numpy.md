@@ -2632,3 +2632,8 @@ Until then, experiment with the code and exercises above. If you have questions 
 
 # === USER ===
 
+great, now, can you help me write the next blog post? the subject is:
+
+| **2.2** | **Gradient Descent for Optimization**  | **Description**: Implement gradient descent to minimize loss by updating parameters. Explain gradients and learning rates.<br>**Math**: Gradient descent update (\( W \leftarrow W - \eta \nabla L \)), gradient of MSE (\( \nabla*W L = X^T (y*{\text{pred}} - y) / n \)).<br>**Code**: Implement `gradient_descent(X, y, W, lr, loss_fn)` for linear regression. Example: Train on synthetic data with `y_pred = X @ W`, `grad = X.T @ (y_pred - y) / n`, and `W -= lr * grad`.<br>**Contribution**: Creates `gradient_descent()`, reused for all models.                                                     |
+
+please include math, python demos, and exercises like before.
