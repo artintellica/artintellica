@@ -56,9 +56,13 @@ def numerical_gradient(
 
     return num_grads
 
+
 # Define forward function for linear regression
-def linear_forward(X: NDArray[np.floating], params: Dict[str, NDArray[np.floating]]) -> NDArray[np.floating]:
-    return X @ params['W'] + params['b']
+def linear_forward(
+    X: NDArray[np.floating], params: Dict[str, NDArray[np.floating]]
+) -> NDArray[np.floating]:
+    return X @ params["W"] + params["b"]
+
 
 # Example: Synthetic data for linear regression (y = 2x + 1)
 X = np.array([[1.0], [2.0], [3.0], [4.0]])  # Input (4 samples, 1 feature)
@@ -67,23 +71,27 @@ n = X.shape[0]
 
 # Initialize parameters
 params = {
-    'W': np.array([[1.0]]),  # Initial weight (not the true value)
-    'b': np.array([[0.5]])   # Initial bias (not the true value)
+    "W": np.array([[1.0]]),  # Initial weight (not the true value)
+    "b": np.array([[0.5]]),  # Initial bias (not the true value)
 }
 
-# Compute analytical gradients
+# Compute analytical gradients (corrected with factor of 2 for MSE derivative)
 y_pred = linear_forward(X, params)
 error = y_pred - y
-analytical_grad_W = (X.T @ error) / n
-analytical_grad_b = np.mean(error)
+analytical_grad_W = (2.0 / n) * (
+    X.T @ error
+)  # Include factor of 2 from derivative of (y_pred - y)^2
+analytical_grad_b = (2.0 / n) * np.sum(
+    error
+)  # Include factor of 2 (equivalent to np.mean(error) * 2)
 
 # Compute numerical gradients
 numerical_grads = numerical_gradient(X, y, params, mse_loss, linear_forward, h=1e-4)
 
 # Compare analytical and numerical gradients
 print("Analytical Gradient for W:", analytical_grad_W)
-print("Numerical Gradient for W:", numerical_grads['W'])
-print("Difference for W:", np.abs(analytical_grad_W - numerical_grads['W']))
+print("Numerical Gradient for W:", numerical_grads["W"])
+print("Difference for W:", np.abs(analytical_grad_W - numerical_grads["W"]))
 print("Analytical Gradient for b:", analytical_grad_b)
-print("Numerical Gradient for b:", numerical_grads['b'])
-print("Difference for b:", np.abs(analytical_grad_b - numerical_grads['b']))
+print("Numerical Gradient for b:", numerical_grads["b"])
+print("Difference for b:", np.abs(analytical_grad_b - numerical_grads["b"]))
