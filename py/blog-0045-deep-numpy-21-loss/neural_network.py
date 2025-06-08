@@ -46,6 +46,7 @@ def sigmoid(Z: NDArray[np.floating]) -> NDArray[np.floating]:
     """
     return 1 / (1 + np.exp(-Z))
 
+
 def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floating:
     """
     Compute the Mean Squared Error loss between predicted and true values.
@@ -56,6 +57,7 @@ def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floati
         Mean squared error as a single float
     """
     return np.mean((y_pred - y) ** 2)
+
 
 def binary_cross_entropy(
     A: NDArray[np.floating], y: NDArray[np.floating]
