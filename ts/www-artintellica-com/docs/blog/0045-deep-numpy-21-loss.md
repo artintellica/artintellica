@@ -173,7 +173,9 @@ where true labels are 0 or 1, and predicted probabilities come from a sigmoid
 activation.
 
 ```python
-def binary_cross_entropy(A: NDArray[np.floating], y: NDArray[np.floating]) -> float:
+def binary_cross_entropy(
+    A: NDArray[np.floating], y: NDArray[np.floating]
+) -> np.floating:
     """
     Compute the Binary Cross-Entropy loss between predicted probabilities and true labels.
     Args:
@@ -185,6 +187,7 @@ def binary_cross_entropy(A: NDArray[np.floating], y: NDArray[np.floating]) -> fl
     # Add small epsilon to avoid log(0) issues
     epsilon = 1e-15
     return -np.mean(y * np.log(A + epsilon) + (1 - y) * np.log(1 - A + epsilon))
+
 
 # Example: Synthetic binary classification data
 # Raw outputs (logits) before sigmoid

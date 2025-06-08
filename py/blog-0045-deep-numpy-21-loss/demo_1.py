@@ -2,6 +2,7 @@ import numpy as np
 from numpy.typing import NDArray
 from typing import Union
 
+
 def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floating:
     """
     Compute the Mean Squared Error loss between predicted and true values.
@@ -12,6 +13,7 @@ def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floati
         Mean squared error as a single float
     """
     return np.mean((y_pred - y) ** 2)
+
 
 # Example: Synthetic regression data (y = 2x + 1)
 X = np.array([[1.0], [2.0], [3.0], [4.0]])  # Input (4 samples, 1 feature)
@@ -25,4 +27,3 @@ print("Predicted y_pred (4x1):\n", y_pred)
 print("True y_true (4x1):\n", y_true)
 loss_mse = mse_loss(y_pred, y_true)
 print("MSE Loss:", loss_mse)
-
