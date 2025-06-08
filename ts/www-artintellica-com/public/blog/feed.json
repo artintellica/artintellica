@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0046-deep-numpy-22-gradient.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0046-deep-numpy-22-gradient.md",
+            "title": "Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization",
+            "date_modified": "2025-06-05T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0045-deep-numpy-21-loss.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0045-deep-numpy-21-loss.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md",
             "title": "Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations",
             "date_modified": "2025-05-30T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0026-linalg-07-orthogonality.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0026-linalg-07-orthogonality.md",
-            "title": "Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections",
-            "date_modified": "2025-05-29T07:00:00.000Z"
         }
     ]
 }

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-08T19:29:02.880Z</updated>
+    <updated>2025-06-08T19:32:23.578Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization]]></title>
+        <id>https://artintellica.com/blog/0046-deep-numpy-22-gradient.md</id>
+        <link href="https://artintellica.com/blog/0046-deep-numpy-22-gradient.md"/>
+        <updated>2025-06-05T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions]]></title>
         <id>https://artintellica.com/blog/0045-deep-numpy-21-loss.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0027-linalg-08-matrix-inverses.md"/>
         <updated>2025-05-30T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 8: Matrix Inverses and Systems of Equations]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections]]></title>
-        <id>https://artintellica.com/blog/0026-linalg-07-orthogonality.md</id>
-        <link href="https://artintellica.com/blog/0026-linalg-07-orthogonality.md"/>
-        <updated>2025-05-29T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 7: Orthogonality and Projections]]></summary>
     </entry>
 </feed>
