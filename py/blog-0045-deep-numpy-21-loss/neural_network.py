@@ -45,3 +45,14 @@ def sigmoid(Z: NDArray[np.floating]) -> NDArray[np.floating]:
         Array of the same shape with sigmoid applied element-wise, values in [0, 1]
     """
     return 1 / (1 + np.exp(-Z))
+
+def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floating:
+    """
+    Compute the Mean Squared Error loss between predicted and true values.
+    Args:
+        y_pred: Predicted values, array of shape (n,) or (n,1) with floating-point values
+        y: True values, array of shape (n,) or (n,1) with floating-point values
+    Returns:
+        Mean squared error as a single float
+    """
+    return np.mean((y_pred - y) ** 2)
