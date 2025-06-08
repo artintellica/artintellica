@@ -112,10 +112,16 @@ import numpy as np
 from numpy.typing import NDArray
 from typing import Union, Callable, Dict
 
-def numerical_gradient(X: NDArray[np.floating], y: NDArray[np.floating], params: Dict[str, NDArray[np.floating]],
-                      loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], float],
-                      forward_fn: Callable[[NDArray[np.floating], Dict[str, NDArray[np.floating]]], NDArray[np.floating]],
-                      h: float = 1e-4) -> Dict[str, NDArray[np.floating]]:
+def numerical_gradient(
+    X: NDArray[np.floating],
+    y: NDArray[np.floating],
+    params: Dict[str, NDArray[np.floating]],
+    loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], np.floating],
+    forward_fn: Callable[
+        [NDArray[np.floating], Dict[str, NDArray[np.floating]]], NDArray[np.floating]
+    ],
+    h: float = 1e-4,
+) -> Dict[str, NDArray[np.floating]]:
     """
     Compute numerical gradients for parameters using central difference approximation.
     Args:
@@ -132,7 +138,7 @@ def numerical_gradient(X: NDArray[np.floating], y: NDArray[np.floating], params:
 
     for param_name, param_value in params.items():
         num_grad = np.zeros_like(param_value)
-        it = np.nditer(param_value, flags=['multi_index'], op_flags=['readwrite'])
+        it = np.nditer(param_value, flags=["multi_index"])
         while not it.finished:
             idx = it.multi_index
             original_value = param_value[idx]
