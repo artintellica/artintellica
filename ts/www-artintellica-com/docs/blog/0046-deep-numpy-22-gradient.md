@@ -106,6 +106,146 @@ NumPy to train a linear regression model.
 
 ---
 
+## Deriving the Gradients for Mean Squared Error (MSE)
+
+To understand why gradient descent works, it’s essential to derive the gradients
+of the Mean Squared Error (MSE) loss function with respect to the model
+parameters—weights ($W$) and bias ($b$). This derivation shows how changes in
+$W$ and $b$ affect the loss, guiding us on how to adjust them to minimize error.
+Let’s break this down step by step using calculus.
+
+### MSE Loss Function
+
+For a linear regression model, the predicted output is given by
+$y_{\text{pred}} = XW + b$, where $X$ is the input matrix of shape $(n, d)$
+(with $n$ samples and $d$ features), $W$ is the weight matrix of shape $(d, 1)$,
+and $b$ is the bias term. The true values are denoted by $y$, a vector of shape
+$(n, 1)$. The MSE loss is defined as the average squared difference between
+predictions and true values:
+
+$$
+L = \frac{1}{n} \sum_{i=1}^n (y_{\text{pred},i} - y_i)^2
+$$
+
+Substituting $y_{\text{pred},i} = (XW + b)_i$, we can write:
+
+$$
+L = \frac{1}{n} \sum_{i=1}^n \left( (XW + b)_i - y_i \right)^2
+$$
+
+Our goal is to compute the gradients $\nabla_W L$ and $\nabla_b L$, which are
+the partial derivatives of $L$ with respect to $W$ and $b$, respectively. These
+gradients indicate how much the loss changes with small changes in $W$ and $b$,
+allowing us to update them in the direction that reduces $L$.
+
+### Gradient with Respect to Weights ($W$)
+
+To find $\nabla_W L$, we compute the partial derivative of $L$ with respect to
+each element of $W$. Let’s consider the loss for a single sample first and then
+generalize. For the $i$-th sample, the squared error is:
+
+$$
+L_i = \left( (XW + b)_i - y_i \right)^2
+$$
+
+Since $(XW + b)_i$ is the $i$-th element of the prediction vector, and $XW$ is a
+linear combination, we can express it as $\sum_{j=1}^d X_{i,j} W_j + b$, where
+$X_{i,j}$ is the $j$-th feature of the $i$-th sample and $W_j$ is the $j$-th
+weight. The partial derivative of $L_i$ with respect to $W_j$ (a specific
+weight) is:
+
+$$
+\frac{\partial L_i}{\partial W_j} = 2 \left( (XW + b)_i - y_i \right) \cdot \frac{\partial}{\partial W_j} \left( (XW + b)_i \right)
+$$
+
+Since $\frac{\partial}{\partial W_j} \left( (XW + b)_i \right) = X_{i,j}$ (as
+only the term involving $W_j$ depends on it, and $b$ is independent of $W_j$),
+this simplifies to:
+
+$$
+\frac{\partial L_i}{\partial W_j} = 2 \left( (XW + b)_i - y_i \right) \cdot X_{i,j}
+$$
+
+Now, for the total loss $L = \frac{1}{n} \sum_{i=1}^n L_i$, the partial
+derivative with respect to $W_j$ is:
+
+$$
+\frac{\partial L}{\partial W_j} = \frac{1}{n} \sum_{i=1}^n 2 \left( (XW + b)_i - y_i \right) \cdot X_{i,j}
+$$
+
+This can be written in vector form for all weights $W$. Notice that for each
+sample $i$, the term $2 \left( (XW + b)_i - y_i \right)$ is the error for that
+sample, and multiplying by $X_{i,j}$ across all features $j$ corresponds to the
+$i$-th row of $X$. Summing over all samples $i$, this is equivalent to a matrix
+multiplication. Thus, the gradient for the entire weight vector is:
+
+$$
+\nabla_W L = \frac{2}{n} X^T (y_{\text{pred}} - y)
+$$
+
+In practice, the factor of 2 is often absorbed into the learning rate or omitted
+for simplicity (as it scales the step size uniformly), so we commonly use:
+
+$$
+\nabla_W L = \frac{1}{n} X^T (y_{\text{pred}} - y)
+$$
+
+This is the formula implemented in our `gradient_descent()` function. It shows
+that the gradient for $W$ is proportional to the correlation between the input
+features ($X$) and the prediction errors ($y_{\text{pred}} - y$), guiding us to
+adjust $W$ to reduce those errors.
+
+### Gradient with Respect to Bias ($b$)
+
+Next, we derive the gradient for the bias term $b$. The bias is added to every
+prediction, so for the $i$-th sample, the partial derivative of $L_i$ with
+respect to $b$ is:
+
+$$
+\frac{\partial L_i}{\partial b} = 2 \left( (XW + b)_i - y_i \right) \cdot \frac{\partial}{\partial b} \left( (XW + b)_i \right)
+$$
+
+Since $\frac{\partial}{\partial b} \left( (XW + b)_i \right) = 1$ (the
+prediction increases by 1 for a unit increase in $b$), this simplifies to:
+
+$$
+\frac{\partial L_i}{\partial b} = 2 \left( (XW + b)_i - y_i \right)
+$$
+
+For the total loss $L = \frac{1}{n} \sum_{i=1}^n L_i$, the partial derivative
+with respect to $b$ is:
+
+$$
+\frac{\partial L}{\partial b} = \frac{1}{n} \sum_{i=1}^n 2 \left( (XW + b)_i - y_i \right) = \frac{2}{n} \sum_{i=1}^n \left( y_{\text{pred},i} - y_i \right)
+$$
+
+Again, the factor of 2 is often omitted for simplicity, so we use:
+
+$$
+\nabla_b L = \frac{1}{n} \sum_{i=1}^n \left( y_{\text{pred},i} - y_i \right) = \text{mean}(y_{\text{pred}} - y)
+$$
+
+This tells us that the gradient for $b$ is simply the average error across all
+samples. If the predictions are systematically too high (positive average
+error), $b$ should decrease, and if too low (negative average error), $b$ should
+increase.
+
+### Why These Gradients Work
+
+The gradients $\nabla_W L$ and $\nabla_b L$ point in the direction of the
+steepest increase in loss. By subtracting them (scaled by the learning rate
+$\eta$) in the gradient descent update rule, we move in the direction of
+steepest decrease, iteratively reducing the loss. This calculus-based approach
+ensures that each update to $W$ and $b$ brings our predictions closer to the
+true values, minimizing MSE.
+
+Understanding this derivation provides insight into why gradient descent is
+effective and prepares us to derive gradients for more complex loss functions
+and models (like neural networks) in future posts. For now, these formulae for
+linear regression with MSE are the foundation of our optimization process.
+
+---
+
 ## Implementing Gradient Descent with NumPy
 
 We’ll create a reusable `gradient_descent()` function to train a linear
