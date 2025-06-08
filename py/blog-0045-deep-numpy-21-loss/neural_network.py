@@ -56,3 +56,18 @@ def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floati
         Mean squared error as a single float
     """
     return np.mean((y_pred - y) ** 2)
+
+def binary_cross_entropy(
+    A: NDArray[np.floating], y: NDArray[np.floating]
+) -> np.floating:
+    """
+    Compute the Binary Cross-Entropy loss between predicted probabilities and true labels.
+    Args:
+        A: Predicted probabilities (after sigmoid), array of shape (n,) or (n,1), values in [0, 1]
+        y: True binary labels, array of shape (n,) or (n,1), values in {0, 1}
+    Returns:
+        Binary cross-entropy loss as a single float
+    """
+    # Add small epsilon to avoid log(0) issues
+    epsilon = 1e-15
+    return -np.mean(y * np.log(A + epsilon) + (1 - y) * np.log(1 - A + epsilon))
