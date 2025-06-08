@@ -5,8 +5,6 @@ date = "2025-06-05"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0047-deep-numpy-23-mini-batch"
 +++
 
-# Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent
-
 ## Introduction
 
 Welcome back to our blog series, _"Learn Deep Learning with NumPy"_! In Part
