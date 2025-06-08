@@ -11,9 +11,6 @@ def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floati
     Returns:
         Mean squared error as a single float
     """
-    # sub: NDArray[np.floating] = y_pred - y
-    # pow: NDArray[np.floating] = sub ** 2
-    # return np.mean(pow)
     return np.mean((y_pred - y) ** 2)
 
 # Example: Synthetic regression data (y = 2x + 1)

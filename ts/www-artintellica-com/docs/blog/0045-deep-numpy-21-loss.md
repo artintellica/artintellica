@@ -114,7 +114,7 @@ import numpy as np
 from numpy.typing import NDArray
 from typing import Union
 
-def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> float:
+def mse_loss(y_pred: NDArray[np.floating], y: NDArray[np.floating]) -> np.floating:
     """
     Compute the Mean Squared Error loss between predicted and true values.
     Args:
@@ -137,6 +137,7 @@ print("Predicted y_pred (4x1):\n", y_pred)
 print("True y_true (4x1):\n", y_true)
 loss_mse = mse_loss(y_pred, y_true)
 print("MSE Loss:", loss_mse)
+
 ```
 
 **Output**:
