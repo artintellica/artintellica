@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Mon, 09 Jun 2025 22:26:50 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jun 2025 22:30:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions]]></title>
+            <link>https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md</guid>
+            <pubDate>Mon, 09 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Deep Learning with NumPy, Part 4.5: Advanced Optimization and Capstone]]></title>
             <link>https://artintellica.com/blog/0057-deep-numpy-45-advanced.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0039-linalg-20-random.md</guid>
             <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Linear Algebra for Machine Learning, Part 19: Kernel Methods and Feature Spaces]]></title>
-            <link>https://artintellica.com/blog/0038-linalg-19-kernel.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0038-linalg-19-kernel.md</guid>
-            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Linear Algebra for Machine Learning, Part 19: Kernel Methods and Feature Spaces]]></description>
         </item>
     </channel>
 </rss>

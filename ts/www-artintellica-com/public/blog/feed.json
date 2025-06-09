@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md",
+            "title": "Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions",
+            "date_modified": "2025-06-09T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0057-deep-numpy-45-advanced.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0057-deep-numpy-45-advanced.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0039-linalg-20-random.md",
             "title": "Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms",
-            "date_modified": "2025-06-05T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0038-linalg-19-kernel.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0038-linalg-19-kernel.md",
-            "title": "Linear Algebra for Machine Learning, Part 19: Kernel Methods and Feature Spaces",
             "date_modified": "2025-06-05T07:00:00.000Z"
         }
     ]
