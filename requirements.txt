@@ -284,6 +284,7 @@ numpy==2.2.6 \
     #   pandas
     #   scikit-learn
     #   scipy
+    #   torchvision
 nvidia-cublas-cu12==12.6.4.1 ; platform_machine == 'x86_64' and sys_platform == 'linux' \
     --hash=sha256:08ed2686e9875d01b58e3cb379c6896df8e76c75e0d4a7f7dace3d7b6d9ef8eb
     # via
@@ -429,7 +430,9 @@ pillow==11.2.1 \
     --hash=sha256:f91ebf30830a48c825590aede79376cb40f110b387c17ee9bd59932c961044f9 \
     --hash=sha256:fdec757fea0b793056419bca3e9932eb2b0ceec90ef4813ea4c1e072c389eb28 \
     --hash=sha256:fe15238d3798788d00716637b3d4e7bb6bde18b26e5d08335a96e88564a36b6b
-    # via matplotlib
+    # via
+    #   matplotlib
+    #   torchvision
 pyparsing==3.2.3 \
     --hash=sha256:a749938e02d6fd0b59b356ca504a24982314bb090c383e3cf201c95ef7e2bfcf \
     --hash=sha256:b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be
@@ -542,6 +545,45 @@ torch==2.7.1 \
     --hash=sha256:d632f5417b6980f61404a125b999ca6ebd0b8b4bbdbb5fbbba44374ab619a412 \
     --hash=sha256:d8bf6e1856ddd1807e79dc57e54d3335f2b62e6f316ed13ed3ecfe1fc1df3d8b \
     --hash=sha256:e08d7e6f21a617fe38eeb46dd2213ded43f27c072e9165dc27300c9ef9570934
+    # via
+    #   artintellica
+    #   torchaudio
+    #   torchvision
+torchaudio==2.7.1 \
+    --hash=sha256:0ae0678ad27355eebea5a9fdd9ae9bfec444f8405f9b6c60026905ba3665c43a \
+    --hash=sha256:1850475ef9101ea0b3593fe93ff6ee4e7a20598f6da6510761220b9fe56eb7fa \
+    --hash=sha256:18560955b8beb2a8d39a6bfae20a442337afcefb3dfd4ee007ce82233a796799 \
+    --hash=sha256:1862b063d8d4e55cb4862bcbd63568545f549825a3c5605bd312224c3ebb1919 \
+    --hash=sha256:271f717844e5c7f9e05c8328de817bf90f46d83281c791e94f54d4edea2f5817 \
+    --hash=sha256:53bc4ba12e7468be34a7ca2ee837ee5c8bd5755b25c12f665af9339cae37e265 \
+    --hash=sha256:9306dcfc4586cebd7647a93fe9a448e791c4f83934da616b9433b75597a1f978 \
+    --hash=sha256:98257fc14dd493ba5a3258fb6d61d27cd64a48ee79537c3964c4da26b9bf295f \
+    --hash=sha256:9cbcdaab77ad9a73711acffee58f4eebc8a0685289a938a3fa6f660af9489aee \
+    --hash=sha256:9cfb8f6ace8e01e2b89de74eb893ba5ce936b88b415383605b0a4d974009dec7 \
+    --hash=sha256:c802e0dcbf38669007327bb52f065573cc5cac106eaca987f6e1a32e6282263a \
+    --hash=sha256:d5a62f88c629035913f506df03f710c48fc8bb9637191933f27c67088d5ca136 \
+    --hash=sha256:d66bd76b226fdd4135c97650e1b7eb63fb7659b4ed0e3a778898e41dbba21b61 \
+    --hash=sha256:e5f0599a507f4683546878ed9667e1b32d7ca3c8a957e4c15c6b302378ef4dee \
+    --hash=sha256:edb4deaa6f95acd5522912ed643303d0b86d79a6f15914362f5a5d49baaf5d13 \
+    --hash=sha256:f8bd69354a397753b9dea9699d9e1251f8496fbbdf3028c7086a57a615bf33c3
+    # via artintellica
+torchvision==0.22.1 \
+    --hash=sha256:043d9e35ed69c2e586aff6eb9e2887382e7863707115668ac9d140da58f42cba \
+    --hash=sha256:153f1790e505bd6da123e21eee6e83e2e155df05c0fe7d56347303067d8543c5 \
+    --hash=sha256:2566cafcfa47ecfdbeed04bab8cef1307c8d4ef75046f7624b9e55f384880dfe \
+    --hash=sha256:27142bcc8a984227a6dcf560985e83f52b82a7d3f5fe9051af586a2ccc46ef26 \
+    --hash=sha256:4a614a6a408d2ed74208d0ea6c28a2fbb68290e9a7df206c5fef3f0b6865d307 \
+    --hash=sha256:4addf626e2b57fc22fd6d329cf1346d474497672e6af8383b7b5b636fba94a53 \
+    --hash=sha256:699c2d70d33951187f6ed910ea05720b9b4aaac1dcc1135f53162ce7d42481d3 \
+    --hash=sha256:7414eeacfb941fa21acddcd725f1617da5630ec822e498660a4b864d7d998075 \
+    --hash=sha256:75e0897da7a8e43d78632f66f2bdc4f6e26da8d3f021a7c0fa83746073c2597b \
+    --hash=sha256:7ee682be589bb1a002b7704f06b8ec0b89e4b9068f48e79307d2c6e937a9fdf4 \
+    --hash=sha256:8b4a53a6067d63adba0c52f2b8dd2290db649d642021674ee43c0c922f0c6a69 \
+    --hash=sha256:964414eef19459d55a10e886e2fca50677550e243586d1678f65e3f6f6bac47a \
+    --hash=sha256:9c3ae3319624c43cc8127020f46c14aa878406781f0899bb6283ae474afeafbf \
+    --hash=sha256:b7866a3b326413e67724ac46f1ee594996735e10521ba9e6cdbe0fa3cd98c2f2 \
+    --hash=sha256:bb3f6df6f8fd415ce38ec4fd338376ad40c62e86052d7fc706a0dd51efac1718 \
+    --hash=sha256:ef46e065502f7300ad6abc98554131c35dc4c837b978d91306658f1a65c00baa
     # via artintellica
 triton==3.3.1 ; platform_machine == 'x86_64' and sys_platform == 'linux' \
     --hash=sha256:9999e83aba21e1a78c1f36f21bce621b77bcaa530277a50484a7cb4a822f6e43 \
