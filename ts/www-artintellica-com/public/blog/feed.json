@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md",
+            "title": "Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation",
+            "date_modified": "2025-06-05T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0050-deep-numpy-32-activation.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0050-deep-numpy-32-activation.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0032-linalg-13-pca.md",
             "title": "Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)",
             "date_modified": "2025-06-04T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0031-linalg-12-pos-def.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0031-linalg-12-pos-def.md",
-            "title": "Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices",
-            "date_modified": "2025-06-03T07:00:00.000Z"
         }
     ]
 }

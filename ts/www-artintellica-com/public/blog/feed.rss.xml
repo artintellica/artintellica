@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Mon, 09 Jun 2025 16:30:52 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jun 2025 16:35:58 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation]]></title>
+            <link>https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md</guid>
+            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks]]></title>
             <link>https://artintellica.com/blog/0050-deep-numpy-32-activation.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0032-linalg-13-pca.md</guid>
             <pubDate>Wed, 04 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices]]></title>
-            <link>https://artintellica.com/blog/0031-linalg-12-pos-def.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0031-linalg-12-pos-def.md</guid>
-            <pubDate>Tue, 03 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices]]></description>
         </item>
     </channel>
 </rss>
