@@ -24,6 +24,7 @@ and be ready to dive into the first module with enthusiasm. Let’s get started!
 
 ## Full Outline
 
+- [0: Introduction](/blog/0041-deep-numpy-00-intro.md)
 - [1.1: Getting Started with NumPy Arrays](/blog/0042-deep-numpy-11-arrays.md)
 - [1.2: Matrix Operations for Neural Networks](/blog/0043-deep-numpy-12-matrix.md)
 - [1.3: Mathematical Functions and Activation Basics](/blog/0044-deep-numpy-13-mathematical.md)
@@ -40,6 +41,7 @@ and be ready to dive into the first module with enthusiasm. Let’s get started!
 - [4.3: Pooling and CNN Architecture](/blog/0055-deep-numpy-43-pooling.md)
 - [4.4: Regularization Techniques](/blog/0056-deep-numpy-44-regularization.md)
 - [4.5: Advanced Optimization and Capstone](/blog/0057-deep-numpy-45-advanced.md)
+- [5: Conclusion](/blog/0058-deep-numpy-50-conclusion.md)
 
 ---
 
