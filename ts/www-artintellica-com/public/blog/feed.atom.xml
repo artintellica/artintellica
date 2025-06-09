@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-09T22:58:22.263Z</updated>
+    <updated>2025-06-09T23:21:15.955Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learning Reinforcement Learning with PyTorch, Part 1.1: The Course, the Blog, and Why PyTorch]]></title>
+        <id>https://artintellica.com/blog/0059-reinforcement-11-introduction.md</id>
+        <link href="https://artintellica.com/blog/0059-reinforcement-11-introduction.md"/>
+        <updated>2024-06-09T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learning Reinforcement Learning with PyTorch, Part 1.1: The Course, the Blog, and Why PyTorch]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions]]></title>
         <id>https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0040-linalg-21-conclusion.md"/>
         <updated>2025-06-05T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Linear Algebra for Machine Learning: A Concluding Reflection on Our 20-Part Journey]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms]]></title>
-        <id>https://artintellica.com/blog/0039-linalg-20-random.md</id>
-        <link href="https://artintellica.com/blog/0039-linalg-20-random.md"/>
-        <updated>2025-06-05T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Linear Algebra for Machine Learning, Part 20: Random Projections and Fast Transforms]]></summary>
     </entry>
 </feed>

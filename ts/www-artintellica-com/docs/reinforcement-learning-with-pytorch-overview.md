@@ -362,10 +362,7 @@
 * **Exercise 3:** Analyze emergent strategies.
 * **Exercise 4:** Plot win/loss curves over time.
 
-### 3. Curriculum
-
-
-Learning and Task Transfer
+### 3. Curriculum Learning and Task Transfer
 
 * **Exercise 1:** Define tasks of increasing difficulty.
 * **Exercise 2:** Train an agent on easier tasks before harder ones.
@@ -385,3 +382,7 @@ Learning and Task Transfer
 * **Exercise 2:** Rewrite data loader for large-scale training.
 * **Exercise 3:** Test model parallelism with PyTorch’s DataParallel (if available).
 * **Exercise 4:** Benchmark training time as you scale up hardware.
+
+---
+
+**This outline provides exercises for every post—concrete, PyTorch-based, and always hands-on. Ready to flesh out an individual blog post, or need code for any exercise? Just ask!**
