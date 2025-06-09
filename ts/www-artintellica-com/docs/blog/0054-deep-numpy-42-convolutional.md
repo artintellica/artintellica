@@ -1,7 +1,8 @@
 +++
 title = "Learn Deep Learning with NumPy, Part 4.2: Convolutional Layers for CNNs"
 author = "Artintellica"
-date = "2025-06-05"
+date = "2025-06-09"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0054-deep-numpy-42-convolutional"
 +++
 
 ## Introduction
