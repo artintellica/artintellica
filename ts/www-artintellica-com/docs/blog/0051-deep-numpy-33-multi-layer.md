@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation"
 author = "Artintellica"
 date = "2025-06-09"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0051-deep-numpy-33-multi-layer"
 +++
 
 ## Introduction
