@@ -24,3 +24,21 @@ def l2_regularization(
     l2_penalty *= lambda_
     l2_penalty = cast(float, l2_penalty)  # Ensure penalty is a scalar
     return l2_penalty, l2_grads
+
+
+def dropout(
+    A: NDArray[np.floating], p: float, training: bool = True
+) -> NDArray[np.floating]:
+    """
+    Apply dropout to an activation matrix by randomly setting elements to 0.
+    Args:
+        A: Activation matrix, shape (any)
+        p: Keep probability (e.g., 0.8 to keep 80% of neurons)
+        training: Boolean, apply dropout only during training (default: True)
+    Returns:
+        Activation matrix after dropout (same shape as input)
+    """
+    if training:
+        mask = np.random.binomial(1, p, size=A.shape)
+        return A * mask
+    return A
