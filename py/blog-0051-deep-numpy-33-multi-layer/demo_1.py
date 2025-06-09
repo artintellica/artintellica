@@ -29,3 +29,16 @@ def forward_mlp(
     Z2 = A1 @ W2 + b2  # Second layer linear combination
     A2 = softmax(Z2)  # Softmax activation for output layer
     return A1, A2
+
+
+def cross_entropy(A: NDArray[np.floating], y: NDArray[np.floating]) -> float:
+    """
+    Compute categorical cross-entropy loss for multi-class classification.
+    Args:
+        A: Predicted probabilities after softmax, shape (n_samples, n_classes)
+        y: True labels, one-hot encoded, shape (n_samples, n_classes)
+    Returns:
+        Cross-entropy loss as a single float
+    """
+    epsilon = 1e-15  # Small value to prevent log(0)
+    return -np.mean(np.sum(y * np.log(A + epsilon), axis=1))
