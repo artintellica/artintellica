@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 4.4: Regularization Techniques"
 author = "Artintellica"
 date = "2025-06-09"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0056-deep-numpy-44-regularization"
 +++
 
 ## Introduction
@@ -352,8 +353,8 @@ In this example, we train a 3-layer MLP (784 → 256 → 128 → 10) on a subset
 MNIST (5000 samples for CPU efficiency) over 20 epochs with batch size 64. We
 compare two setups: one with L2 regularization (`lambda_=0.01`) and dropout
 (`p=0.8`), and one without. The model with regularization often achieves
-slightly better test accuracy (~88-90% vs. ~85-87%) due to reduced overfitting,
-though training loss might be higher. Training time remains manageable (~3-6
+slightly better test accuracy (\~88-90% vs. \~85-87%) due to reduced overfitting,
+though training loss might be higher. Training time remains manageable (\~3-6
 minutes on CPU).
 
 ---
