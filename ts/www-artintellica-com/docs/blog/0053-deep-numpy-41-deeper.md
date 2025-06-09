@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 4.1: Deeper MLPs and Vanishing Gradients"
 author = "Artintellica"
 date = "2025-06-09"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0053-deep-numpy-41-deeper"
 +++
 
 ## Introduction
