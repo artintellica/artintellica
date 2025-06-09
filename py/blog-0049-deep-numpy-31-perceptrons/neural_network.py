@@ -135,7 +135,7 @@ def gradient_descent(
         y_pred_full = activation_fn(X @ W + b)
         loss = loss_fn(y_pred_full, y)
         loss_history.append(loss)
-        print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss:.4f}")
+        # print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss:.4f}")
 
     return W, b, loss_history
 
