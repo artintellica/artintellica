@@ -432,5 +432,12 @@
     "date": "2025-06-09",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0055-deep-numpy-43-pooling",
     "content": ""
+  },
+  {
+    "filename": "0056-deep-numpy-44-regularization.md",
+    "title": "Learn Deep Learning with NumPy, Part 4.4: Regularization Techniques",
+    "author": "Artintellica",
+    "date": "2025-06-09",
+    "content": ""
   }
 ]

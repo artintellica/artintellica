@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0056-deep-numpy-44-regularization.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0056-deep-numpy-44-regularization.md",
+            "title": "Learn Deep Learning with NumPy, Part 4.4: Regularization Techniques",
+            "date_modified": "2025-06-09T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0055-deep-numpy-43-pooling.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0055-deep-numpy-43-pooling.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0037-linalg-18-spectral.md",
             "title": "Linear Algebra for Machine Learning, Part 18: Spectral Methods in ML (Graph Laplacians, etc.)",
-            "date_modified": "2025-06-04T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0036-linalg-17-tensors.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0036-linalg-17-tensors.md",
-            "title": "Linear Algebra for Machine Learning, Part 17: Tensors and Higher-Order Generalizations",
             "date_modified": "2025-06-04T07:00:00.000Z"
         }
     ]
