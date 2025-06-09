@@ -6,60 +6,100 @@ date = "2025-06-05"
 
 ## Introduction
 
-Welcome back to our blog series, _"Learn Deep Learning with NumPy"_! In Part 4.1, we extended our Multi-Layer Perceptron (MLP) to a deeper 3-layer architecture and explored challenges like vanishing gradients in training deep networks. Now, in Part 4.2, we’re shifting focus to a transformative component of modern deep learning: *Convolutional Neural Networks (CNNs)*. We’ll start by implementing convolutional layers, the core building block of CNNs, which are particularly powerful for processing image data like MNIST.
+Welcome back to our blog series, _"Learn Deep Learning with NumPy"_! In Part
+4.1, we extended our Multi-Layer Perceptron (MLP) to a deeper 3-layer
+architecture and explored challenges like vanishing gradients in training deep
+networks. Now, in Part 4.2, we’re shifting focus to a transformative component
+of modern deep learning: _Convolutional Neural Networks (CNNs)_. We’ll start by
+implementing convolutional layers, the core building block of CNNs, which are
+particularly powerful for processing image data like MNIST.
 
-By the end of this post, you’ll understand the mathematics of convolution, implement a `conv2d()` function using `scipy.signal.convolve2d`, and apply it to MNIST images to extract feature maps with a 3x3 filter. This marks our first step into CNNs, enabling spatial feature extraction that outperforms fully connected layers for visual data. Let’s dive into the math and code for convolutional layers!
+By the end of this post, you’ll understand the mathematics of convolution,
+implement a `conv2d()` function using `scipy.signal.convolve2d`, and apply it to
+MNIST images to extract feature maps with a 3x3 filter. This marks our first
+step into CNNs, enabling spatial feature extraction that outperforms fully
+connected layers for visual data. Let’s dive into the math and code for
+convolutional layers!
 
 ---
 
 ## Why Convolutional Layers Matter in Deep Learning
 
-Fully connected layers, as in MLPs, treat every input feature (e.g., pixel) independently, ignoring spatial relationships in data like images. This leads to a massive number of parameters for large inputs and a loss of local pattern information. *Convolutional layers*, the foundation of CNNs, address this by applying small, shared filters (or kernels) across the input, capturing local patterns like edges or textures while drastically reducing parameter count through weight sharing.
+Fully connected layers, as in MLPs, treat every input feature (e.g., pixel)
+independently, ignoring spatial relationships in data like images. This leads to
+a massive number of parameters for large inputs and a loss of local pattern
+information. _Convolutional layers_, the foundation of CNNs, address this by
+applying small, shared filters (or kernels) across the input, capturing local
+patterns like edges or textures while drastically reducing parameter count
+through weight sharing.
 
 In deep learning, convolutional layers are crucial because:
+
 - They preserve spatial structure by operating on local regions of the input.
 - They reduce parameters via shared weights, making training more efficient.
-- They learn hierarchical features (e.g., edges in early layers, complex shapes in deeper layers), excelling at tasks like image classification.
+- They learn hierarchical features (e.g., edges in early layers, complex shapes
+  in deeper layers), excelling at tasks like image classification.
 
-In this post, we’ll implement a basic convolutional layer for 2D inputs, apply it to MNIST images (28x28), and generate feature maps using a 3x3 filter. This sets the stage for full CNNs in future posts. Let’s explore the math behind convolution.
+In this post, we’ll implement a basic convolutional layer for 2D inputs, apply
+it to MNIST images (28x28), and generate feature maps using a 3x3 filter. This
+sets the stage for full CNNs in future posts. Let’s explore the math behind
+convolution.
 
 ---
 
 ## Mathematical Foundations: Convolution in 2D
 
-Convolution is a mathematical operation that slides a small filter (or kernel) over an input image, computing a weighted sum of local regions to produce a feature map. For a 2D input image $I$ (shape $H \times W$) and a filter $F$ (shape $f_h \times f_w$, e.g., 3x3), the output at position $(i, j)$ of the feature map is:
+Convolution is a mathematical operation that slides a small filter (or kernel)
+over an input image, computing a weighted sum of local regions to produce a
+feature map. For a 2D input image $I$ (shape $H \times W$) and a filter $F$
+(shape $f_h \times f_w$, e.g., 3x3), the output at position $(i, j)$ of the
+feature map is:
 
 $$
 \text{out}[i, j] = \sum_{m=0}^{f_h-1} \sum_{n=0}^{f_w-1} I[i+m, j+n] \cdot F[m, n]
 $$
 
 Where:
-- $i$ and $j$ are the top-left coordinates of the current filter position on the image.
+
+- $i$ and $j$ are the top-left coordinates of the current filter position on the
+  image.
 - $m$ and $n$ iterate over the filter’s dimensions.
-- The output size depends on the input size, filter size, stride (step size of filter sliding), and padding (optional border zeros).
+- The output size depends on the input size, filter size, stride (step size of
+  filter sliding), and padding (optional border zeros).
 
 ### Stride and Output Size
 
-- **Stride ($s$)**: The number of pixels the filter shifts each step. A stride of 1 moves one pixel at a time; a stride of 2 skips every other pixel.
-- **Output Size**: For input height $H$, filter height $f_h$, and stride $s$, the output height is:
+- **Stride ($s$)**: The number of pixels the filter shifts each step. A stride
+  of 1 moves one pixel at a time; a stride of 2 skips every other pixel.
+- **Output Size**: For input height $H$, filter height $f_h$, and stride $s$,
+  the output height is:
   $$
   H_{\text{out}} = \lfloor \frac{H - f_h}{s} \rfloor + 1
   $$
-  Similarly for width. No padding is assumed here (valid convolution); padding will be covered in later posts.
+  Similarly for width. No padding is assumed here (valid convolution); padding
+  will be covered in later posts.
 
 ### Intuition
 
-Convolution acts like a sliding window, applying the same filter weights to every local patch of the image, detecting patterns (e.g., edges if the filter is an edge detector). Multiple filters produce multiple feature maps, each highlighting different aspects of the input. Now, let’s implement a 2D convolution operation in NumPy using `scipy.signal.convolve2d` for efficiency.
+Convolution acts like a sliding window, applying the same filter weights to
+every local patch of the image, detecting patterns (e.g., edges if the filter is
+an edge detector). Multiple filters produce multiple feature maps, each
+highlighting different aspects of the input. Now, let’s implement a 2D
+convolution operation in NumPy using `scipy.signal.convolve2d` for efficiency.
 
 ---
 
 ## Implementing Convolutional Layers with NumPy
 
-We’ll create a `conv2d()` function to perform 2D convolution on image data, leveraging `scipy.signal.convolve2d` for optimized computation. We’ll apply it to MNIST images (28x28) using a 3x3 filter to generate feature maps, demonstrating spatial feature extraction.
+We’ll create a `conv2d()` function to perform 2D convolution on image data,
+leveraging `scipy.signal.convolve2d` for optimized computation. We’ll apply it
+to MNIST images (28x28) using a 3x3 filter to generate feature maps,
+demonstrating spatial feature extraction.
 
 ### 2D Convolution Implementation
 
-Here’s the implementation of `conv2d()` for a single filter, supporting stride and valid padding (no border zeros):
+Here’s the implementation of `conv2d()` for a single filter, supporting stride
+and valid padding (no border zeros):
 
 ```python
 import numpy as np
@@ -80,19 +120,23 @@ def conv2d(image: NDArray[np.floating], filter_kernel: NDArray[np.floating], str
     # Use scipy.signal.convolve2d with 'valid' mode (no padding)
     # 'valid' mode means output size is reduced based on filter size
     output = signal.convolve2d(image, filter_kernel, mode='valid', boundary='fill', fillvalue=0)
-    
+
     # Apply stride by downsampling the output
     if stride > 1:
         output = output[::stride, ::stride]
-    
+
     return output
 ```
 
 ### Example: Applying Convolution to MNIST Images
 
-Let’s apply our `conv2d()` function to MNIST images (28x28) using a 3x3 filter to detect simple features. We’ll visualize the input image and output feature map using `matplotlib`.
+Let’s apply our `conv2d()` function to MNIST images (28x28) using a 3x3 filter
+to detect simple features. We’ll visualize the input image and output feature
+map using `matplotlib`.
 
-**Note**: Ensure you have `sklearn` (`pip install scikit-learn`) for loading MNIST and `matplotlib` (`pip install matplotlib`) for visualization. We’ll use a single image for simplicity.
+**Note**: Ensure you have `sklearn` (`pip install scikit-learn`) for loading
+MNIST and `matplotlib` (`pip install matplotlib`) for visualization. We’ll use a
+single image for simplicity.
 
 ```python
 import numpy as np
@@ -133,21 +177,32 @@ print("Feature Map Shape:", feature_map.shape)
 ```
 
 **Output** (approximate, shapes are exact):
+
 ```
 Loading MNIST data...
 Input Image Shape: (28, 28)
 Feature Map Shape: (26, 26)
 ```
 
-**Visualization**: (Two `matplotlib` plots will display: the input MNIST digit image and the output feature map after convolution with a 3x3 edge-detection filter. The feature map highlights areas of intensity change, like digit boundaries.)
+**Visualization**: (Two `matplotlib` plots will display: the input MNIST digit
+image and the output feature map after convolution with a 3x3 edge-detection
+filter. The feature map highlights areas of intensity change, like digit
+boundaries.)
 
-In this example, we apply a 3x3 Sobel-like filter to a single MNIST image (28x28), producing a feature map of shape (26, 26) due to 'valid' convolution (no padding) with stride=1. The output size is reduced because the filter can’t fully cover the edges without padding. The visualization shows the filter detecting edges or sharp changes in pixel intensity, a basic form of feature extraction crucial for CNNs.
+In this example, we apply a 3x3 Sobel-like filter to a single MNIST image
+(28x28), producing a feature map of shape (26, 26) due to 'valid' convolution
+(no padding) with stride=1. The output size is reduced because the filter can’t
+fully cover the edges without padding. The visualization shows the filter
+detecting edges or sharp changes in pixel intensity, a basic form of feature
+extraction crucial for CNNs.
 
 ---
 
 ## Organizing Our Growing Library
 
-Let’s update our `neural_network.py` file to include the `conv2d()` function alongside our previous implementations. This function will be a building block for constructing full CNNs in future posts.
+Let’s update our `neural_network.py` file to include the `conv2d()` function
+alongside our previous implementations. This function will be a building block
+for constructing full CNNs in future posts.
 
 ```python
 # neural_network.py
@@ -253,8 +308,8 @@ def cross_entropy(A: NDArray[np.floating], y: NDArray[np.floating]) -> float:
     epsilon = 1e-15  # Small value to prevent log(0)
     return -np.mean(np.sum(y * np.log(A + epsilon), axis=1))
 
-def gradient_descent(X: NDArray[np.floating], y: NDArray[np.floating], W: NDArray[np.floating], 
-                     b: NDArray[np.floating], lr: float, num_epochs: int, batch_size: int, 
+def gradient_descent(X: NDArray[np.floating], y: NDArray[np.floating], W: NDArray[np.floating],
+                     b: NDArray[np.floating], lr: float, num_epochs: int, batch_size: int,
                      loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], float],
                      activation_fn: Callable[[NDArray[np.floating]], NDArray[np.floating]] = lambda x: x) -> Tuple[NDArray[np.floating], NDArray[np.floating], List[float]]:
     """
@@ -274,18 +329,18 @@ def gradient_descent(X: NDArray[np.floating], y: NDArray[np.floating], W: NDArra
     """
     n_samples = X.shape[0]
     loss_history = []
-    
+
     for epoch in range(num_epochs):
         indices = np.random.permutation(n_samples)
         X_shuffled = X[indices]
         y_shuffled = y[indices]
-        
+
         for start_idx in range(0, n_samples, batch_size):
             end_idx = min(start_idx + batch_size, n_samples)
             X_batch = X_shuffled[start_idx:end_idx]
             y_batch = y_shuffled[start_idx:end_idx]
             batch_size_actual = X_batch.shape[0]
-            
+
             Z_batch = X_batch @ W + b
             y_pred_batch = activation_fn(Z_batch)
             error = y_pred_batch - y_batch
@@ -293,17 +348,17 @@ def gradient_descent(X: NDArray[np.floating], y: NDArray[np.floating], W: NDArra
             grad_b = np.mean(error)
             W = W - lr * grad_W
             b = b - lr * grad_b
-        
+
         y_pred_full = activation_fn(X @ W + b)
         loss = loss_fn(y_pred_full, y)
         loss_history.append(loss)
         print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss:.4f}")
-    
+
     return W, b, loss_history
 
-def numerical_gradient(X: NDArray[np.floating], y: NDArray[np.floating], params: Dict[str, NDArray[np.floating]], 
-                      loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], float], 
-                      forward_fn: Callable[[NDArray[np.floating], Dict[str, NDArray[np.floating]]], NDArray[np.floating]], 
+def numerical_gradient(X: NDArray[np.floating], y: NDArray[np.floating], params: Dict[str, NDArray[np.floating]],
+                      loss_fn: Callable[[NDArray[np.floating], NDArray[np.floating]], float],
+                      forward_fn: Callable[[NDArray[np.floating], Dict[str, NDArray[np.floating]]], NDArray[np.floating]],
                       h: float = 1e-4) -> Dict[str, NDArray[np.floating]]:
     """
     Compute numerical gradients for parameters using central difference approximation.
@@ -318,29 +373,29 @@ def numerical_gradient(X: NDArray[np.floating], y: NDArray[np.floating], params:
         Dictionary of numerical gradients for each parameter
     """
     num_grads = {}
-    
+
     for param_name, param_value in params.items():
         num_grad = np.zeros_like(param_value)
         it = np.nditer(param_value, flags=['multi_index'])
         while not it.finished:
             idx = it.multi_index
             original_value = param_value[idx]
-            
+
             param_value[idx] = original_value + h
             y_pred_plus = forward_fn(X, params)
             loss_plus = loss_fn(y_pred_plus, y)
-            
+
             param_value[idx] = original_value - h
             y_pred_minus = forward_fn(X, params)
             loss_minus = loss_fn(y_pred_minus, y)
-            
+
             num_grad[idx] = (loss_plus - loss_minus) / (2 * h)
-            
+
             param_value[idx] = original_value
             it.iternext()
-        
+
         num_grads[param_name] = num_grad
-    
+
     return num_grads
 
 def forward_perceptron(X: NDArray[np.floating], W: NDArray[np.floating], b: NDArray[np.floating]) -> NDArray[np.floating]:
@@ -357,7 +412,7 @@ def forward_perceptron(X: NDArray[np.floating], W: NDArray[np.floating], b: NDAr
     A = sigmoid(Z)  # Sigmoid activation
     return A
 
-def forward_mlp(X: NDArray[np.floating], W1: NDArray[np.floating], b1: NDArray[np.floating], 
+def forward_mlp(X: NDArray[np.floating], W1: NDArray[np.floating], b1: NDArray[np.floating],
                 W2: NDArray[np.floating], b2: NDArray[np.floating]) -> Tuple[NDArray[np.floating], NDArray[np.floating]]:
     """
     Compute the forward pass of a 2-layer MLP.
@@ -378,8 +433,8 @@ def forward_mlp(X: NDArray[np.floating], W1: NDArray[np.floating], b1: NDArray[n
     A2 = softmax(Z2)   # Softmax activation for output layer
     return A1, A2
 
-def backward_mlp(X: NDArray[np.floating], A1: NDArray[np.floating], A2: NDArray[np.floating], 
-                y: NDArray[np.floating], W1: NDArray[np.floating], W2: NDArray[np.floating], 
+def backward_mlp(X: NDArray[np.floating], A1: NDArray[np.floating], A2: NDArray[np.floating],
+                y: NDArray[np.floating], W1: NDArray[np.floating], W2: NDArray[np.floating],
                 Z1: NDArray[np.floating]) -> Tuple[NDArray[np.floating], NDArray[np.floating], NDArray[np.floating], NDArray[np.floating]]:
     """
     Compute gradients for a 2-layer MLP using backpropagation.
@@ -395,26 +450,26 @@ def backward_mlp(X: NDArray[np.floating], A1: NDArray[np.floating], A2: NDArray[
         Tuple of gradients (grad_W1, grad_b1, grad_W2, grad_b2)
     """
     n = X.shape[0]
-    
+
     # Output layer error (delta2)
     delta2 = A2 - y  # Shape (n_samples, n_classes)
-    
+
     # Gradients for output layer (W2, b2)
     grad_W2 = (A1.T @ delta2) / n  # Shape (n_hidden, n_classes)
     grad_b2 = np.mean(delta2, axis=0, keepdims=True)  # Shape (1, n_classes)
-    
+
     # Hidden layer error (delta1)
     delta1 = (delta2 @ W2.T) * (Z1 > 0)  # ReLU derivative: 1 if Z1 > 0, 0 otherwise
     # Shape (n_samples, n_hidden)
-    
+
     # Gradients for hidden layer (W1, b1)
     grad_W1 = (X.T @ delta1) / n  # Shape (n_features, n_hidden)
     grad_b1 = np.mean(delta1, axis=0, keepdims=True)  # Shape (1, n_hidden)
-    
+
     return grad_W1, grad_b1, grad_W2, grad_b2
 
-def forward_mlp_3layer(X: NDArray[np.floating], W1: NDArray[np.floating], b1: NDArray[np.floating], 
-                       W2: NDArray[np.floating], b2: NDArray[np.floating], 
+def forward_mlp_3layer(X: NDArray[np.floating], W1: NDArray[np.floating], b1: NDArray[np.floating],
+                       W2: NDArray[np.floating], b2: NDArray[np.floating],
                        W3: NDArray[np.floating], b3: NDArray[np.floating]) -> Tuple[NDArray[np.floating], NDArray[np.floating], NDArray[np.floating]]:
     """
     Compute the forward pass of a 3-layer MLP.
@@ -440,9 +495,9 @@ def forward_mlp_3layer(X: NDArray[np.floating], W1: NDArray[np.floating], b1: ND
     A3 = softmax(Z3)
     return A1, A2, A3
 
-def backward_mlp_3layer(X: NDArray[np.floating], A1: NDArray[np.floating], A2: NDArray[np.floating], 
-                        A3: NDArray[np.floating], y: NDArray[np.floating], 
-                        W1: NDArray[np.floating], W2: NDArray[np.floating], W3: NDArray[np.floating], 
+def backward_mlp_3layer(X: NDArray[np.floating], A1: NDArray[np.floating], A2: NDArray[np.floating],
+                        A3: NDArray[np.floating], y: NDArray[np.floating],
+                        W1: NDArray[np.floating], W2: NDArray[np.floating], W3: NDArray[np.floating],
                         Z1: NDArray[np.floating], Z2: NDArray[np.floating]) -> Tuple[NDArray[np.floating], NDArray[np.floating], NDArray[np.floating], NDArray[np.floating], NDArray[np.floating], NDArray[np.floating]]:
     """
     Compute gradients for a 3-layer MLP using backpropagation.
@@ -461,30 +516,30 @@ def backward_mlp_3layer(X: NDArray[np.floating], A1: NDArray[np.floating], A2: N
         Tuple of gradients (grad_W1, grad_b1, grad_W2, grad_b2, grad_W3, grad_b3)
     """
     n = X.shape[0]
-    
+
     # Output layer error (delta3)
     delta3 = A3 - y  # Shape (n_samples, n_classes)
-    
+
     # Gradients for output layer (W3, b3)
     grad_W3 = (A2.T @ delta3) / n  # Shape (n_hidden2, n_classes)
     grad_b3 = np.mean(delta3, axis=0, keepdims=True)  # Shape (1, n_classes)
-    
+
     # Second hidden layer error (delta2)
     delta2 = (delta3 @ W3.T) * (Z2 > 0)  # ReLU derivative: 1 if Z2 > 0, 0 otherwise
     # Shape (n_samples, n_hidden2)
-    
+
     # Gradients for second hidden layer (W2, b2)
     grad_W2 = (A1.T @ delta2) / n  # Shape (n_hidden1, n_hidden2)
     grad_b2 = np.mean(delta2, axis=0, keepdims=True)  # Shape (1, n_hidden2)
-    
+
     # First hidden layer error (delta1)
     delta1 = (delta2 @ W2.T) * (Z1 > 0)  # ReLU derivative: 1 if Z1 > 0, 0 otherwise
     # Shape (n_samples, n_hidden1)
-    
+
     # Gradients for first hidden layer (W1, b1)
     grad_W1 = (X.T @ delta1) / n  # Shape (n_features, n_hidden1)
     grad_b1 = np.mean(delta1, axis=0, keepdims=True)  # Shape (1, n_hidden1)
-    
+
     return grad_W1, grad_b1, grad_W2, grad_b2, grad_W3, grad_b3
 
 def conv2d(image: NDArray[np.floating], filter_kernel: NDArray[np.floating], stride: int = 1) -> NDArray[np.floating]:
@@ -503,16 +558,26 @@ def conv2d(image: NDArray[np.floating], filter_kernel: NDArray[np.floating], str
     return output
 ```
 
-You can now import this new function using `from neural_network import conv2d`. It serves as a foundational component for building Convolutional Neural Networks (CNNs) in future posts, enabling spatial feature extraction from image data.
+You can now import this new function using `from neural_network import conv2d`.
+It serves as a foundational component for building Convolutional Neural Networks
+(CNNs) in future posts, enabling spatial feature extraction from image data.
 
 ---
 
 ## Exercises: Practice with Convolutional Layers
 
-To reinforce your understanding of convolutional layers and their application to image data, try these Python-focused coding exercises. They’ll help you build intuition for how convolution extracts features and the impact of parameters like stride. Run the code and compare outputs to verify your solutions.
+To reinforce your understanding of convolutional layers and their application to
+image data, try these Python-focused coding exercises. They’ll help you build
+intuition for how convolution extracts features and the impact of parameters
+like stride. Run the code and compare outputs to verify your solutions.
 
 1. **Convolution with a Simple Filter on Synthetic Image**  
-   Create a small synthetic image `image = np.array([[1, 1, 1, 1], [1, 2, 2, 1], [1, 2, 2, 1], [1, 1, 1, 1]])` (4x4). Define a 2x2 averaging filter `filter_kernel = np.array([[0.25, 0.25], [0.25, 0.25]])`. Apply `conv2d()` with `stride=1` and print the input image and output feature map. Verify the output size and that it smooths the input values.
+   Create a small synthetic image
+   `image = np.array([[1, 1, 1, 1], [1, 2, 2, 1], [1, 2, 2, 1], [1, 1, 1, 1]])`
+   (4x4). Define a 2x2 averaging filter
+   `filter_kernel = np.array([[0.25, 0.25], [0.25, 0.25]])`. Apply `conv2d()`
+   with `stride=1` and print the input image and output feature map. Verify the
+   output size and that it smooths the input values.
 
    ```python
    # Your code here
@@ -525,7 +590,10 @@ To reinforce your understanding of convolutional layers and their application to
    ```
 
 2. **Effect of Stride on Output Size**  
-   Using the same image and filter from Exercise 1, apply `conv2d()` with `stride=2`. Print the input image and output feature map. Verify that the output size is reduced compared to `stride=1` and note how stride affects the result.
+   Using the same image and filter from Exercise 1, apply `conv2d()` with
+   `stride=2`. Print the input image and output feature map. Verify that the
+   output size is reduced compared to `stride=1` and note how stride affects the
+   result.
 
    ```python
    # Your code here
@@ -538,7 +606,12 @@ To reinforce your understanding of convolutional layers and their application to
    ```
 
 3. **Convolution on MNIST with Edge Detection Filter**  
-   Load a single MNIST image (e.g., first image) using `fetch_openml('mnist_784', version=1, return_X_y=True, as_frame=False)`. Reshape it to 28x28. Define a 3x3 horizontal edge detection filter `filter_kernel = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]])`. Apply `conv2d()` with `stride=1` and visualize the input image and output feature map using `matplotlib`. Observe where the filter highlights horizontal edges.
+   Load a single MNIST image (e.g., first image) using
+   `fetch_openml('mnist_784', version=1, return_X_y=True, as_frame=False)`.
+   Reshape it to 28x28. Define a 3x3 horizontal edge detection filter
+   `filter_kernel = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]])`. Apply
+   `conv2d()` with `stride=1` and visualize the input image and output feature
+   map using `matplotlib`. Observe where the filter highlights horizontal edges.
 
    ```python
    # Your code here
@@ -564,7 +637,11 @@ To reinforce your understanding of convolutional layers and their application to
    ```
 
 4. **Multiple Filters on a Single MNIST Image**  
-   Load a single MNIST image as in Exercise 3. Define two 3x3 filters: one for horizontal edges `[[-1, -1, -1], [0, 0, 0], [1, 1, 1]]` and one for vertical edges `[[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]]`. Apply `conv2d()` with each filter (stride=1) and visualize the input image and both feature maps. Observe how different filters extract different spatial features.
+   Load a single MNIST image as in Exercise 3. Define two 3x3 filters: one for
+   horizontal edges `[[-1, -1, -1], [0, 0, 0], [1, 1, 1]]` and one for vertical
+   edges `[[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]]`. Apply `conv2d()` with each
+   filter (stride=1) and visualize the input image and both feature maps.
+   Observe how different filters extract different spatial features.
 
    ```python
    # Your code here
@@ -595,16 +672,28 @@ To reinforce your understanding of convolutional layers and their application to
    print("Vertical Feature Map Shape:", vertical_map.shape)
    ```
 
-These exercises will help you build intuition for how convolutional layers work, the effect of filter design and stride on output feature maps, and their role in extracting spatial features from images.
+These exercises will help you build intuition for how convolutional layers work,
+the effect of filter design and stride on output feature maps, and their role in
+extracting spatial features from images.
 
 ---
 
 ## Closing Thoughts
 
-Congratulations on implementing your first convolutional layer with `conv2d()`! In this post, we’ve explored the mathematics of 2D convolution, built a reusable function using `scipy.signal.convolve2d`, and applied it to MNIST images to extract feature maps with a 3x3 filter. This marks a pivotal shift from fully connected MLPs to spatially aware CNNs, setting the stage for more powerful image processing models.
+Congratulations on implementing your first convolutional layer with `conv2d()`!
+In this post, we’ve explored the mathematics of 2D convolution, built a reusable
+function using `scipy.signal.convolve2d`, and applied it to MNIST images to
+extract feature maps with a 3x3 filter. This marks a pivotal shift from fully
+connected MLPs to spatially aware CNNs, setting the stage for more powerful
+image processing models.
 
-In the next chapter (Part 4.3: _Pooling Layers and CNN Architecture_), we’ll complement convolutional layers with pooling layers to reduce spatial dimensions and build a basic CNN architecture for MNIST classification, further improving efficiency and performance.
+In the next chapter (Part 4.3: _Pooling Layers and CNN Architecture_), we’ll
+complement convolutional layers with pooling layers to reduce spatial dimensions
+and build a basic CNN architecture for MNIST classification, further improving
+efficiency and performance.
 
-Until then, experiment with the code and exercises above. If you have questions or want to share your solutions, drop a comment below—I’m excited to hear from you. Let’s keep building our deep learning toolkit together!
+Until then, experiment with the code and exercises above. If you have questions
+or want to share your solutions, drop a comment below—I’m excited to hear from
+you. Let’s keep building our deep learning toolkit together!
 
 **Next Up**: Part 4.3 – Pooling Layers and CNN Architecture
