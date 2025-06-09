@@ -7235,4 +7235,8 @@ Until then, experiment with the code and exercises above. If you have questions 
 
 # === USER ===
 
+great, now it's time for the final blog post. can you please write the final blog post? the description is:
 
+| **4.5** | **Advanced Optimization and Capstone**  | **Description**: Implement momentum-based gradient descent and train a final deep learning model (MLP or CNN) as a capstone.<br>**Math**: Momentum (\( v = \mu v - \eta \nabla L \), \( W \leftarrow W + v \)), accuracy (\( \text{acc} = \frac{\text{correct}}{\text{total}} \)).<br>**Code**: Write `momentum_update(v, grad, mu, lr)` and `accuracy(y_pred, y)`. Example: Train CNN or 3-layer MLP on MNIST (~90% accuracy), visualize filters and accuracy.<br>**Contribution**: Completes deep learning model with advanced optimization. |
+
+please add math, python code, and exercises as usual. (note that this blog post is not reall final, as we will also add a conclusion after this one).

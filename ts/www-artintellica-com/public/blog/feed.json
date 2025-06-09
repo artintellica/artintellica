@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0057-deep-numpy-45-advanced.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0057-deep-numpy-45-advanced.md",
+            "title": "Learn Deep Learning with NumPy, Part 4.5: Advanced Optimization and Capstone",
+            "date_modified": "2025-06-09T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0056-deep-numpy-44-regularization.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0056-deep-numpy-44-regularization.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0038-linalg-19-kernel.md",
             "title": "Linear Algebra for Machine Learning, Part 19: Kernel Methods and Feature Spaces",
             "date_modified": "2025-06-05T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0037-linalg-18-spectral.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0037-linalg-18-spectral.md",
-            "title": "Linear Algebra for Machine Learning, Part 18: Spectral Methods in ML (Graph Laplacians, etc.)",
-            "date_modified": "2025-06-04T07:00:00.000Z"
         }
     ]
 }
