@@ -9,9 +9,9 @@ from neural_network import (
 )
 
 
-# XOR data: inputs and outputs
+# AND data: inputs and outputs
 X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])  # Input (4 samples, 2 features)
-y = np.array([[0], [1], [1], [0]])  # Output (XOR: 1 if inputs differ, 0 otherwise)
+y = np.array([[0], [0], [0], [1]]) # Output: (AND: 1 if both inputs are 1, else 0)
 
 # Initialize parameters
 n_features = X.shape[1]
@@ -19,7 +19,7 @@ n_samples = X.shape[0]
 W_init = np.zeros((n_features, 1))  # Initial weights
 b_init = np.zeros((1, 1))  # Initial bias
 lr = 0.1  # Learning rate
-num_epochs = 1000  # Number of epochs (high to attempt convergence)
+num_epochs = 10000  # Number of epochs (high to attempt convergence)
 batch_size = 4  # Full batch since dataset is small
 
 # Train perceptron using gradient_descent with sigmoid activation
