@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0050-deep-numpy-32-activation.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0050-deep-numpy-32-activation.md",
+            "title": "Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks",
+            "date_modified": "2025-06-05T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0031-linalg-12-pos-def.md",
             "title": "Linear Algebra for Machine Learning, Part 12: Positive Definite Matrices",
             "date_modified": "2025-06-03T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0030-linalg-11-svd.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0030-linalg-11-svd.md",
-            "title": "Linear Algebra for Machine Learning, Part 11: Singular Value Decomposition (SVD)",
-            "date_modified": "2025-05-30T07:00:00.000Z"
         }
     ]
 }

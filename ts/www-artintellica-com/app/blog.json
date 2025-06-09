@@ -384,5 +384,12 @@
     "date": "2025-06-05",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0049-deep-numpy-31-perceptrons",
     "content": ""
+  },
+  {
+    "filename": "0050-deep-numpy-32-activation.md",
+    "title": "Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks",
+    "author": "Artintellica",
+    "date": "2025-06-05",
+    "content": ""
   }
 ]
