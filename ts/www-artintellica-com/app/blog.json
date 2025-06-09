@@ -376,5 +376,12 @@
     "date": "2025-06-08",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0048-deep-numpy-24-debugging",
     "content": ""
+  },
+  {
+    "filename": "0049-deep-numpy-31-perceptrons.md",
+    "title": "Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons",
+    "author": "Artintellica",
+    "date": "2025-06-05",
+    "content": ""
   }
 ]
