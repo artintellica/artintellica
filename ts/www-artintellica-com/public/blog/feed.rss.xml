@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Mon, 09 Jun 2025 15:57:27 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jun 2025 15:58:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,14 +14,14 @@
             <title><![CDATA[Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks]]></title>
             <link>https://artintellica.com/blog/0050-deep-numpy-32-activation.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0050-deep-numpy-32-activation.md</guid>
-            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
+            <pubDate>Mon, 09 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks]]></description>
         </item>
         <item>
             <title><![CDATA[Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons]]></title>
             <link>https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md</guid>
-            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
+            <pubDate>Mon, 09 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons]]></description>
         </item>
         <item>

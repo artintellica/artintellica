@@ -1,7 +1,7 @@
 +++
 title = "Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks"
 author = "Artintellica"
-date = "2025-06-05"
+date = "2025-06-09"
 +++
 
 ## Introduction

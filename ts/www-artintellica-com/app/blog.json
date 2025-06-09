@@ -381,7 +381,7 @@
     "filename": "0049-deep-numpy-31-perceptrons.md",
     "title": "Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons",
     "author": "Artintellica",
-    "date": "2025-06-05",
+    "date": "2025-06-09",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0049-deep-numpy-31-perceptrons",
     "content": ""
   },
@@ -389,7 +389,7 @@
     "filename": "0050-deep-numpy-32-activation.md",
     "title": "Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks",
     "author": "Artintellica",
-    "date": "2025-06-05",
+    "date": "2025-06-09",
     "content": ""
   }
 ]

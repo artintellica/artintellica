@@ -1,7 +1,7 @@
 +++
 title = "Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons"
 author = "Artintellica"
-date = "2025-06-05"
+date = "2025-06-09"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0049-deep-numpy-31-perceptrons"
 +++
 

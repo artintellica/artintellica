@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-09T15:57:27.137Z</updated>
+    <updated>2025-06-09T15:58:06.052Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -18,14 +18,14 @@
         <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks]]></title>
         <id>https://artintellica.com/blog/0050-deep-numpy-32-activation.md</id>
         <link href="https://artintellica.com/blog/0050-deep-numpy-32-activation.md"/>
-        <updated>2025-06-05T07:00:00.000Z</updated>
+        <updated>2025-06-09T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons]]></title>
         <id>https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md</id>
         <link href="https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md"/>
-        <updated>2025-06-05T07:00:00.000Z</updated>
+        <updated>2025-06-09T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons]]></summary>
     </entry>
     <entry>
