@@ -6299,4 +6299,8 @@ Until then, experiment with the code and exercises above. If you have questions 
 
 # === USER ===
 
+great, we're getting near the end. time to do the second-to-last blog post. can you please write the next blog post? the description is:
 
+| **4.4** | **Regularization Techniques**           | **Description**: Add L2 regularization and dropout to prevent overfitting in deep models.<br>**Math**: L2 regularization (\( L = L*{\text{data}} + \lambda \sum W^2 \)), dropout (\( A*{\text{drop}} = A \cdot \text{mask}, \text{mask} \sim \text{Bernoulli}(p) \)).<br>**Code**: Implement `l2_regularization(W, lambda_)` and `dropout(A, p)`. Example: Train 3-layer MLP with L2 and dropout, compare accuracy on MNIST.<br>**Contribution**: Enhances training with regularization, reusing `gradient_descent()`.                         |
+
+please add math, python code, and exercises as usual.
