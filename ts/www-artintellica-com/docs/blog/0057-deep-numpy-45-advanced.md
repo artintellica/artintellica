@@ -1074,4 +1074,4 @@ Until then, experiment with the code and exercises above. If you have questions
 or want to share your solutions, drop a comment below—I’m excited to hear from
 you. Let’s wrap up our deep learning toolkit together!
 
-**Next Up**: Part 4.6 – Series Conclusion and Future Directions
+**Next Up**: Series Conclusion and Future Directions
