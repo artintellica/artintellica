@@ -2,6 +2,7 @@
 title = "Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks"
 author = "Artintellica"
 date = "2025-06-09"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0050-deep-numpy-32-activation"
 +++
 
 ## Introduction
