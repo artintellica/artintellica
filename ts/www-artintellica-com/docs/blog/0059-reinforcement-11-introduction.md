@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2024-06-09"
 +++
 
-# Introduction: Kicking Off Reinforcement Learning with PyTorch
-
 Welcome to Artintellica's open-source series on learning reinforcement learning with PyTorch! If you’ve followed along so far, you’ve primed yourself with linear algebra, calculus, and deep learning—so you’re in the perfect position to step into the world of reinforcement learning (RL). In this post, we’ll set the stage for the journey ahead: what this blog series is about, why PyTorch is our framework of choice, and how you’ll rapidly build the mathematical and coding fluency needed for deep RL research and projects.
 
 We'll wrap up with hands-on Python exercises to get your system configured and your PyTorch tensors up and running.
