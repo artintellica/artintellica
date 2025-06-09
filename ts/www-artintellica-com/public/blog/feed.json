@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0055-deep-numpy-43-pooling.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0055-deep-numpy-43-pooling.md",
+            "title": "Learn Deep Learning with NumPy, Part 4.3: Pooling and CNN Architecture",
+            "date_modified": "2025-06-09T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0054-deep-numpy-42-convolutional.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0054-deep-numpy-42-convolutional.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0036-linalg-17-tensors.md",
             "title": "Linear Algebra for Machine Learning, Part 17: Tensors and Higher-Order Generalizations",
-            "date_modified": "2025-06-04T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0035-linalg-16-neural-networks.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0035-linalg-16-neural-networks.md",
-            "title": "Linear Algebra for Machine Learning, Part 16: Neural Networks as Matrix Functions",
             "date_modified": "2025-06-04T07:00:00.000Z"
         }
     ]
