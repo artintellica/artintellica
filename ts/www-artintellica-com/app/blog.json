@@ -400,5 +400,12 @@
     "date": "2025-06-09",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0051-deep-numpy-33-multi-layer",
     "content": ""
+  },
+  {
+    "filename": "0052-deep-numpy-34-backpropagation.md",
+    "title": "Learn Deep Learning with NumPy, Part 3.4: Backpropagation for Training MLPs",
+    "author": "Artintellica",
+    "date": "2025-06-09",
+    "content": ""
   }
 ]

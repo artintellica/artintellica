@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0052-deep-numpy-34-backpropagation.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0052-deep-numpy-34-backpropagation.md",
+            "title": "Learn Deep Learning with NumPy, Part 3.4: Backpropagation for Training MLPs",
+            "date_modified": "2025-06-09T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0033-linalg-14-least-squares.md",
             "title": "Linear Algebra for Machine Learning, Part 14: Least Squares and Linear Regression",
-            "date_modified": "2025-06-04T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0032-linalg-13-pca.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0032-linalg-13-pca.md",
-            "title": "Linear Algebra for Machine Learning, Part 13: Principal Component Analysis (PCA)",
             "date_modified": "2025-06-04T07:00:00.000Z"
         }
     ]
