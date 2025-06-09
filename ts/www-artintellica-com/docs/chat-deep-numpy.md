@@ -5348,4 +5348,8 @@ Yes, you're correct! A single-layer perceptron, as implemented with `forward_per
 
 # === USER ===
 
+ok great, now, can you help me write the next blog post? the description is:
 
+| **3.2** | **Activation Functions for Neural Networks**        | **Description**: Implement activation functions to introduce non-linearity, enabling complex patterns in neural networks.<br>**Math**: ReLU (\( f(z) = \max(0, z) \)), softmax (\( \text{softmax}(z)\_i = \frac{e^{z_i}}{\sum e^{z_j}} \)), derivatives (\( \frac{\partial \text{ReLU}}{\partial z} = 1 \text{ if } z > 0 \), else 0).<br>**Code**: Write `relu(Z)` and `softmax(Z)`. Example: Apply ReLU to a 3x2 matrix and softmax to a 4x10 output for MNIST classification.<br>**Contribution**: Builds `relu()` and `softmax()`, reused in MLPs.                                                 |
+
+please include math, python code, and exercises as usual.
