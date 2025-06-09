@@ -102,6 +102,19 @@ def binary_cross_entropy(
     return -np.mean(y * np.log(A + epsilon) + (1 - y) * np.log(1 - A + epsilon))
 
 
+def cross_entropy(A: NDArray[np.floating], y: NDArray[np.floating]) -> float:
+    """
+    Compute categorical cross-entropy loss for multi-class classification.
+    Args:
+        A: Predicted probabilities after softmax, shape (n_samples, n_classes)
+        y: True labels, one-hot encoded, shape (n_samples, n_classes)
+    Returns:
+        Cross-entropy loss as a single float
+    """
+    epsilon = 1e-15  # Small value to prevent log(0)
+    return -np.mean(np.sum(y * np.log(A + epsilon), axis=1))
+
+
 def gradient_descent(
     X: NDArray[np.floating],
     y: NDArray[np.floating],
