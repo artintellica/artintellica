@@ -1,6 +1,7 @@
 import numpy as np
 from numpy.typing import NDArray
 from typing import Union, Callable, Tuple, List, Dict
+from scipy import signal
 
 
 def normalize(X: NDArray[np.floating]) -> NDArray[np.floating]:
@@ -418,3 +419,28 @@ def backward_mlp_3layer(
     grad_b1 = np.mean(delta1, axis=0, keepdims=True)  # Shape (1, n_hidden1)
 
     return grad_W1, grad_b1, grad_W2, grad_b2, grad_W3, grad_b3
+
+
+def conv2d(
+    image: NDArray[np.floating], filter_kernel: NDArray[np.floating], stride: int = 1
+) -> NDArray[np.floating]:
+    """
+    Perform 2D convolution on an image using a filter kernel.
+    Args:
+        image: Input image, shape (height, width)
+        filter_kernel: Convolution filter, shape (filter_height, filter_width)
+        stride: Stride of the convolution operation (default: 1)
+    Returns:
+        Output feature map after convolution, shape depends on input, filter size, and stride
+    """
+    # Use scipy.signal.convolve2d with 'valid' mode (no padding)
+    # 'valid' mode means output size is reduced based on filter size
+    output = signal.convolve2d(
+        image, filter_kernel, mode="valid", boundary="fill", fillvalue=0
+    )
+
+    # Apply stride by downsampling the output
+    if stride > 1:
+        output = output[::stride, ::stride]
+
+    return output
