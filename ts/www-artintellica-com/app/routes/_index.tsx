@@ -37,7 +37,7 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
         Artintellica
       </h1>
       <h2 className="my-4 text-center text-black dark:text-white">
-        Open-source AI resources.
+        Learn machine learning with AI.
       </h2>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
       <div className="mx-auto my-4 max-w-[600px] px-2">

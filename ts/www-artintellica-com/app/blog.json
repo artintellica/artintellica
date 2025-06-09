@@ -457,7 +457,7 @@
     "content": ""
   },
   {
-    "filename": "0059-reinforcement-11-introduction.md",
+    "filename": "0059-rl-torch-11-introduction.md",
     "title": "Learning Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch",
     "author": "Artintellica",
     "date": "2024-06-09",

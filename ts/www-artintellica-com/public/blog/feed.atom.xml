@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-09T23:26:55.791Z</updated>
+    <updated>2025-06-09T23:49:17.437Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -16,8 +16,8 @@
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
     <entry>
         <title type="html"><![CDATA[Learning Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch]]></title>
-        <id>https://artintellica.com/blog/0059-reinforcement-11-introduction.md</id>
-        <link href="https://artintellica.com/blog/0059-reinforcement-11-introduction.md"/>
+        <id>https://artintellica.com/blog/0059-rl-torch-11-introduction.md</id>
+        <link href="https://artintellica.com/blog/0059-rl-torch-11-introduction.md"/>
         <updated>2024-06-09T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learning Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch]]></summary>
     </entry>
