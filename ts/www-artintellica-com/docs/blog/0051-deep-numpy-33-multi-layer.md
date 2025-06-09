@@ -1,7 +1,7 @@
 +++
 title = "Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation"
 author = "Artintellica"
-date = "2025-06-05"
+date = "2025-06-09"
 +++
 
 ## Introduction

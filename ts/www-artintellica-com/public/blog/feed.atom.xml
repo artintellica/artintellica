@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-09T16:35:58.537Z</updated>
+    <updated>2025-06-09T16:36:14.399Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -18,7 +18,7 @@
         <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation]]></title>
         <id>https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md</id>
         <link href="https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md"/>
-        <updated>2025-06-05T07:00:00.000Z</updated>
+        <updated>2025-06-09T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation]]></summary>
     </entry>
     <entry>
