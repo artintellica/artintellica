@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0060-rl-torch-12-vectors.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0060-rl-torch-12-vectors.md",
+            "title": "Learning Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors",
+            "date_modified": "2024-06-09T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0059-rl-torch-11-introduction.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0059-rl-torch-11-introduction.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0041-deep-numpy-00-intro.md",
             "title": "Learn Deep Learning with NumPy, Part 0: Introduction",
-            "date_modified": "2025-06-05T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0040-linalg-21-conclusion.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0040-linalg-21-conclusion.md",
-            "title": "Linear Algebra for Machine Learning: A Concluding Reflection on Our 20-Part Journey",
             "date_modified": "2025-06-05T07:00:00.000Z"
         }
     ]

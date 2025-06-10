@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 10 Jun 2025 12:42:02 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jun 2025 12:48:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learning Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors]]></title>
+            <link>https://artintellica.com/blog/0060-rl-torch-12-vectors.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0060-rl-torch-12-vectors.md</guid>
+            <pubDate>Sun, 09 Jun 2024 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learning Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors]]></description>
+        </item>
         <item>
             <title><![CDATA[Learning Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch]]></title>
             <link>https://artintellica.com/blog/0059-rl-torch-11-introduction.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0041-deep-numpy-00-intro.md</guid>
             <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Deep Learning with NumPy, Part 0: Introduction]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Linear Algebra for Machine Learning: A Concluding Reflection on Our 20-Part Journey]]></title>
-            <link>https://artintellica.com/blog/0040-linalg-21-conclusion.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0040-linalg-21-conclusion.md</guid>
-            <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Linear Algebra for Machine Learning: A Concluding Reflection on Our 20-Part Journey]]></description>
         </item>
     </channel>
 </rss>
