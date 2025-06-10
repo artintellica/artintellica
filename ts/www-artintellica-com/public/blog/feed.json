@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0065-rl-torch-17-geometry.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0065-rl-torch-17-geometry.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections",
+            "date_modified": "2024-06-10T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0064-rl-torch-16-matmul.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0064-rl-torch-16-matmul.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0046-deep-numpy-22-gradient.md",
             "title": "Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization",
-            "date_modified": "2025-06-08T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0045-deep-numpy-21-loss.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0045-deep-numpy-21-loss.md",
-            "title": "Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions",
             "date_modified": "2025-06-08T07:00:00.000Z"
         }
     ]

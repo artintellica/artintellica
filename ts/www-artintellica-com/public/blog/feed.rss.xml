@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 10 Jun 2025 17:33:31 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jun 2025 17:36:56 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections]]></title>
+            <link>https://artintellica.com/blog/0065-rl-torch-17-geometry.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0065-rl-torch-17-geometry.md</guid>
+            <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.6: Matrix Multiplication and Transpose—What, Why, and How]]></title>
             <link>https://artintellica.com/blog/0064-rl-torch-16-matmul.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0046-deep-numpy-22-gradient.md</guid>
             <pubDate>Sun, 08 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions]]></title>
-            <link>https://artintellica.com/blog/0045-deep-numpy-21-loss.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0045-deep-numpy-21-loss.md</guid>
-            <pubDate>Sun, 08 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions]]></description>
         </item>
     </channel>
 </rss>

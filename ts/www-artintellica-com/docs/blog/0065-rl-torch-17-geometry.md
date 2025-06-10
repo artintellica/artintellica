@@ -1,12 +1,16 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections"
 author = "Artintellica"
-date = "2024-06-09"
+date = "2024-06-10"
 +++
 
 ## Introduction
 
-Welcome back to Artintellica’s RL with PyTorch! After conquering matrix multiplication and transpose, you’re ready for the next foundation: **geometry with tensors**. Modern machine learning is deeply geometric. Understanding vector length, distance, angle, and projections lets you reason about similarity, optimization, and even why RL agents make the decisions they do.
+Welcome back to Artintellica’s RL with PyTorch! After conquering matrix
+multiplication and transpose, you’re ready for the next foundation: **geometry
+with tensors**. Modern machine learning is deeply geometric. Understanding
+vector length, distance, angle, and projections lets you reason about
+similarity, optimization, and even why RL agents make the decisions they do.
 
 In this post, you’ll:
 
@@ -51,17 +55,21 @@ $$
 - $\cos\theta = 0$ means they are perpendicular.
 - $\cos\theta = -1$ means they point in opposite directions.
 
-Cosine similarity is a key measure in ML and RL for comparing states, actions, or gradients.
+Cosine similarity is a key measure in ML and RL for comparing states, actions,
+or gradients.
 
 ### Projection of One Vector onto Another
 
-The **projection** of $\mathbf{a}$ onto $\mathbf{b}$ (think: the shadow of $\mathbf{a}$ on $\mathbf{b}$), denoted $\operatorname{proj}_{\mathbf{b}} \mathbf{a}$, is:
+The **projection** of $\mathbf{a}$ onto $\mathbf{b}$ (think: the shadow of
+$\mathbf{a}$ on $\mathbf{b}$), denoted
+$\operatorname{proj}_{\mathbf{b}} \mathbf{a}$, is:
 
 $$
 \operatorname{proj}_{\mathbf{b}} \mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|^2} \mathbf{b}
 $$
 
-This decomposes $\mathbf{a}$ into a component "along" $\mathbf{b}$ (the projection) and the remainder (orthogonal).
+This decomposes $\mathbf{a}$ into a component "along" $\mathbf{b}$ (the
+projection) and the remainder (orthogonal).
 
 ---
 
@@ -79,6 +87,7 @@ norm_v: torch.Tensor = torch.norm(v, p=2)
 print("Vector v:", v)
 print("Euclidean norm (||v||):", norm_v.item())
 ```
+
 **Output:**  
 Should print $5.0$ since $\sqrt{3^2 + 4^2} = 5$.
 
@@ -167,7 +176,8 @@ Use these to deepen your understanding and intuition!
 ### **Exercise 3:** Calculate the Cosine Similarity Between Two Vectors
 
 - Use the same `a` and `b` as Exercise 2.
-- Calculate the cosine similarity using both the formula and `torch.nn.functional.cosine_similarity`.
+- Calculate the cosine similarity using both the formula and
+  `torch.nn.functional.cosine_similarity`.
 
 ### **Exercise 4:** Project One Vector onto Another and Plot Both
 
@@ -231,12 +241,16 @@ plt.show()
 
 ## Conclusion
 
-Geometry underpins how we measure, compare, and manipulate data in ML and RL. In this post, you’ve:
+Geometry underpins how we measure, compare, and manipulate data in ML and RL. In
+this post, you’ve:
 
 - Calculated norms, distances, and angles with PyTorch.
-- Used projections to decompose vectors—just like you’ll do with state values and features in RL.
+- Used projections to decompose vectors—just like you’ll do with state values
+  and features in RL.
 - Built your geometric and coding intuition for higher-level RL structures.
 
-**Next up:** We’ll use these geometric tools for *linear transformations*—rotations, scalings, and the transformations at the heart of data processing and neural networks.
+**Next up:** We’ll use these geometric tools for _linear
+transformations_—rotations, scalings, and the transformations at the heart of
+data processing and neural networks.
 
-*See you in Part 1.8!*
+_See you in Part 1.8!_
