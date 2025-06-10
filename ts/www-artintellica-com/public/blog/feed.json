@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0062-rl-torch-14-matrices.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0062-rl-torch-14-matrices.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 1.4: Matrices—Construction, Shapes, and Basic Operations",
+            "date_modified": "2024-06-10T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0061-rl-torch-13-operations.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0061-rl-torch-13-operations.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0043-deep-numpy-12-matrix.md",
             "title": "Learn Deep Learning with NumPy, Part 1.2: Matrix Operations for Neural Networks",
             "date_modified": "2025-06-06T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0042-deep-numpy-11-arrays.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0042-deep-numpy-11-arrays.md",
-            "title": "Learn Deep Learning with NumPy, Part 1.1: Getting Started with NumPy Arrays",
-            "date_modified": "2025-06-05T07:00:00.000Z"
         }
     ]
 }

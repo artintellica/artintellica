@@ -1354,4 +1354,13 @@ In this post, you’ve taken a significant step forward by mastering basic vecto
 
 # === USER ===
 
+great, now, can you help me write the next blog post? the description is:
 
+### 4. Matrices: Construction, Shapes, and Basic Matrix Operations
+
+* **Exercise 1:** Create 2D tensors (matrices) with specific shapes.
+* **Exercise 2:** Transpose a matrix and verify with PyTorch.
+* **Exercise 3:** Perform elementwise addition and multiplication on two matrices.
+* **Exercise 4:** Demonstrate broadcasting with a matrix and a vector.
+
+please include math, python demonstrations, and python exercises as usual.
