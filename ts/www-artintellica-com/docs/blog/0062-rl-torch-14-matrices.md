@@ -6,13 +6,21 @@ date = "2024-06-10"
 
 ## Introduction
 
-Welcome back to Artintellica’s open-source Reinforcement Learning course with PyTorch! After mastering vector operations like addition, scalar multiplication, and dot products, it’s time to step into the world of **matrices**—2D tensors that are fundamental to machine learning and reinforcement learning (RL). Matrices represent linear transformations, weight layers in neural networks, and transition models in RL environments, making them indispensable.
+Welcome back to Artintellica’s open-source Reinforcement Learning course with
+PyTorch! After mastering vector operations like addition, scalar multiplication,
+and dot products, it’s time to step into the world of **matrices**—2D tensors
+that are fundamental to machine learning and reinforcement learning (RL).
+Matrices represent linear transformations, weight layers in neural networks, and
+transition models in RL environments, making them indispensable.
 
 In this post, you will:
 
-- Learn how to construct matrices as 2D tensors in PyTorch and understand their shapes.
-- Explore basic matrix operations like transposition, element-wise addition, and multiplication.
-- Understand broadcasting between matrices and vectors, a powerful feature of PyTorch.
+- Learn how to construct matrices as 2D tensors in PyTorch and understand their
+  shapes.
+- Explore basic matrix operations like transposition, element-wise addition, and
+  multiplication.
+- Understand broadcasting between matrices and vectors, a powerful feature of
+  PyTorch.
 - Practice these concepts with hands-on coding exercises.
 
 Let’s build on our vector knowledge and dive into the 2D realm!
@@ -21,7 +29,10 @@ Let’s build on our vector knowledge and dive into the 2D realm!
 
 ## Mathematics: Matrices and Basic Operations
 
-A **matrix** is a rectangular array of numbers arranged in rows and columns, often denoted as $A \in \mathbb{R}^{m \times n}$, where $m$ is the number of rows and $n$ is the number of columns. For example, a $2 \times 3$ matrix looks like:
+A **matrix** is a rectangular array of numbers arranged in rows and columns,
+often denoted as $A \in \mathbb{R}^{m \times n}$, where $m$ is the number of
+rows and $n$ is the number of columns. For example, a $2 \times 3$ matrix looks
+like:
 
 $$
 A = \begin{bmatrix}
@@ -34,19 +45,29 @@ In PyTorch, matrices are represented as 2D tensors with shape `(m, n)`.
 
 ### Key Concepts and Operations
 
-1. **Shape**: The dimensions of a matrix, e.g., `(rows, columns)`. Shape determines compatibility for operations.
-2. **Transpose**: The transpose of a matrix $A$, denoted $A^T$, swaps rows and columns, so $A^T_{ij} = A_{ji}$. For the above matrix, $A^T$ is a $3 \times 2$ matrix.
-3. **Element-wise Addition**: For two matrices $A$ and $B$ of the same shape, $C = A + B$ means $c_{ij} = a_{ij} + b_{ij}$.
-4. **Element-wise Multiplication**: Similarly, $C = A * B$ means $c_{ij} = a_{ij} \cdot b_{ij}$ (also called the Hadamard product).
-5. **Broadcasting**: PyTorch can automatically expand smaller tensors to match the shape of larger ones during operations, enabling efficient computation without explicit looping.
+1. **Shape**: The dimensions of a matrix, e.g., `(rows, columns)`. Shape
+   determines compatibility for operations.
+2. **Transpose**: The transpose of a matrix $A$, denoted $A^T$, swaps rows and
+   columns, so $A^T_{ij} = A_{ji}$. For the above matrix, $A^T$ is a
+   $3 \times 2$ matrix.
+3. **Element-wise Addition**: For two matrices $A$ and $B$ of the same shape,
+   $C = A + B$ means $c_{ij} = a_{ij} + b_{ij}$.
+4. **Element-wise Multiplication**: Similarly, $C = A * B$ means
+   $c_{ij} = a_{ij} \cdot b_{ij}$ (also called the Hadamard product).
+5. **Broadcasting**: PyTorch can automatically expand smaller tensors to match
+   the shape of larger ones during operations, enabling efficient computation
+   without explicit looping.
 
-These operations are foundational for neural network layers (where weights are matrices) and RL algorithms (where matrices might represent state transitions or policy mappings).
+These operations are foundational for neural network layers (where weights are
+matrices) and RL algorithms (where matrices might represent state transitions or
+policy mappings).
 
 ---
 
 ## Python Demonstrations
 
-Let’s see how to work with matrices in PyTorch. We’ll construct matrices, inspect their shapes, and perform basic operations.
+Let’s see how to work with matrices in PyTorch. We’ll construct matrices,
+inspect their shapes, and perform basic operations.
 
 ### Demo 1: Creating Matrices with Specific Shapes
 
@@ -66,6 +87,7 @@ print("Shape of B:", B.shape)
 ```
 
 **Expected Output:**
+
 ```
 Matrix A:
  tensor([[1., 2., 3.],
@@ -88,6 +110,7 @@ print("Shape of A^T:", A_transpose.shape)
 ```
 
 **Expected Output:**
+
 ```
 Transpose of A (A^T):
  tensor([[1., 4.],
@@ -113,6 +136,7 @@ print("Element-wise multiplication (A * C):\n", D_mul)
 ```
 
 **Expected Output:**
+
 ```
 Element-wise addition (A + C):
  tensor([[1.5, 3.5, 5.5],
@@ -124,7 +148,8 @@ Element-wise multiplication (A * C):
 
 ### Demo 4: Broadcasting with a Matrix and a Vector
 
-Broadcasting allows PyTorch to align dimensions automatically. Let’s add a vector to each row of a matrix.
+Broadcasting allows PyTorch to align dimensions automatically. Let’s add a
+vector to each row of a matrix.
 
 ```python
 # 1D vector to broadcast
@@ -138,6 +163,7 @@ print("A + broadcasted vec:\n", result_broadcast)
 ```
 
 **Expected Output:**
+
 ```
 Vector to broadcast: tensor([10., 20., 30.])
 Shape of vec: torch.Size([3])
@@ -146,18 +172,22 @@ A + broadcasted vec:
          [14., 25., 36.]])
 ```
 
-Here, `vec` (shape `(3,)`) is broadcasted to match the shape of `A` (shape `(2, 3)`), effectively adding it to each row.
+Here, `vec` (shape `(3,)`) is broadcasted to match the shape of `A` (shape
+`(2, 3)`), effectively adding it to each row.
 
 ---
 
 ## Exercises
 
-Let’s apply these concepts with hands-on coding tasks. Use a new Python script or Jupyter notebook for these exercises.
+Let’s apply these concepts with hands-on coding tasks. Use a new Python script
+or Jupyter notebook for these exercises.
 
 ### **Exercise 1: Create 2D Tensors (Matrices) with Specific Shapes**
 
-- Create a $3 \times 4$ matrix `M1` filled with sequential numbers from 0 to 11 (use `torch.arange` and `reshape`).
-- Create a $2 \times 5$ matrix `M2` filled with random numbers between 0 and 1 (use `torch.rand`).
+- Create a $3 \times 4$ matrix `M1` filled with sequential numbers from 0 to 11
+  (use `torch.arange` and `reshape`).
+- Create a $2 \times 5$ matrix `M2` filled with random numbers between 0 and 1
+  (use `torch.rand`).
 - Print both matrices and their shapes.
 
 ### **Exercise 2: Transpose a Matrix and Verify with PyTorch**
@@ -168,7 +198,8 @@ Let’s apply these concepts with hands-on coding tasks. Use a new Python script
 
 ### **Exercise 3: Perform Element-wise Addition and Multiplication on Two Matrices**
 
-- Create two $3 \times 3$ matrices `M3` and `M4` with any float values (e.g., use `torch.tensor` manually or `torch.ones`/`torch.full`).
+- Create two $3 \times 3$ matrices `M3` and `M4` with any float values (e.g.,
+  use `torch.tensor` manually or `torch.ones`/`torch.full`).
 - Compute their element-wise sum and product.
 - Print the original matrices and the results.
 
@@ -229,13 +260,18 @@ print("M5 + broadcasted v1:\n", result_broadcast)
 
 ## Conclusion
 
-In this post, you’ve expanded your PyTorch toolkit by mastering matrices—2D tensors that are critical for representing and manipulating data in reinforcement learning and beyond. You’ve learned:
+In this post, you’ve expanded your PyTorch toolkit by mastering matrices—2D
+tensors that are critical for representing and manipulating data in
+reinforcement learning and beyond. You’ve learned:
 
 - How to construct matrices with specific shapes and inspect their dimensions.
 - How to transpose matrices, swapping rows and columns.
 - How to perform element-wise operations like addition and multiplication.
 - How broadcasting enables efficient operations between matrices and vectors.
 
-**Next Up:** In Part 1.5, we’ll dive deeper into **broadcasting and element-wise operations**, exploring more complex scenarios and pitfalls to avoid. Matrices are the gateway to neural networks and linear transformations, so keep practicing these basics—they’ll pay off as we move toward RL algorithms!
+**Next Up:** In Part 1.5, we’ll dive deeper into **broadcasting and element-wise
+operations**, exploring more complex scenarios and pitfalls to avoid. Matrices
+are the gateway to neural networks and linear transformations, so keep
+practicing these basics—they’ll pay off as we move toward RL algorithms!
 
-*See you in the next post!*
+_See you in the next post!_
