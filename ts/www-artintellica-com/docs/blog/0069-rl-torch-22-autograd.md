@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 2.2: Autograd—Automatic Differentiation Demystified"
 author = "Artintellica"
 date = "2024-06-10"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0069-rl-torch-22-autograd"
 +++
 
 ## Introduction
@@ -55,7 +56,10 @@ f = x**2
 f.backward()  # Compute the gradient ∂f/∂x at x=3
 
 print("Value of f(x):", f.item())
-print("Gradient at x=3 (df/dx):", x.grad.item())  # Should be 6.0
+print(
+    "Gradient at x=3 (df/dx):",
+    x.grad.item() if x.grad is not None else "No gradient computed",
+)
 ```
 
 ---
