@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0064-rl-torch-16-matmul.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0064-rl-torch-16-matmul.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 1.6: Matrix Multiplication and Transpose—What, Why, and How",
+            "date_modified": "2024-06-10T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0063-rl-torch-15-broadcasting.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0063-rl-torch-15-broadcasting.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0045-deep-numpy-21-loss.md",
             "title": "Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions",
             "date_modified": "2025-06-08T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0044-deep-numpy-13-mathematical.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0044-deep-numpy-13-mathematical.md",
-            "title": "Learn Deep Learning with NumPy, Part 1.3: Mathematical Functions and Activation Basics",
-            "date_modified": "2025-06-06T07:00:00.000Z"
         }
     ]
 }

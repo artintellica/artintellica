@@ -6,14 +6,20 @@ date = "2024-06-10"
 
 ## Introduction
 
-Welcome back to Artintellica’s RL with PyTorch series! Having mastered elementwise operations and broadcasting, you’re ready to level up: **matrix multiplication** and **transpose** are truly foundational topics for neural networks (layers are matrix multiplies!), data transformations, and even understanding how RL agents learn.
+Welcome back to Artintellica’s RL with PyTorch series! Having mastered
+elementwise operations and broadcasting, you’re ready to level up: **matrix
+multiplication** and **transpose** are truly foundational topics for neural
+networks (layers are matrix multiplies!), data transformations, and even
+understanding how RL agents learn.
 
 In this post, you will:
 
-- Grasp the *why* and *how* of matrix multiplication and transpose, in both math and code.
+- Grasp the _why_ and _how_ of matrix multiplication and transpose, in both math
+  and code.
 - Learn to multiply matrices “the PyTorch way” and manually with loops.
 - See visually how the transpose reshapes your data and why it matters.
-- Troubleshoot and fix common matrix shape errors—a crucial skill for debugging neural nets and RL code.
+- Troubleshoot and fix common matrix shape errors—a crucial skill for debugging
+  neural nets and RL code.
 
 Let's dive in!
 
@@ -23,18 +29,22 @@ Let's dive in!
 
 ### Matrix Multiplication
 
-Given matrices $A$ of shape $(m, n)$ and $B$ of shape $(n, p)$, the product $C = AB$ is a new matrix of shape $(m, p)$:
+Given matrices $A$ of shape $(m, n)$ and $B$ of shape $(n, p)$, the product
+$C = AB$ is a new matrix of shape $(m, p)$:
 
 $$
 C_{ij} = \sum_{k=1}^{n} A_{ik} \cdot B_{kj}
 $$
 
-- Each entry $C_{ij}$ is the dot product of the $i$-th row of $A$ and the $j$-th column of $B$.
-- **Dimensional rule:** The number of *columns* in $A$ must equal the number of *rows* in $B$.
+- Each entry $C_{ij}$ is the dot product of the $i$-th row of $A$ and the $j$-th
+  column of $B$.
+- **Dimensional rule:** The number of _columns_ in $A$ must equal the number of
+  _rows_ in $B$.
 
 ### Matrix Transpose
 
-The **transpose** of a matrix $A$, denoted as $A^T$, swaps row and column indices:
+The **transpose** of a matrix $A$, denoted as $A^T$, swaps row and column
+indices:
 
 $$
 (A^T)_{ij} = A_{ji}
@@ -73,6 +83,7 @@ print("torch.matmul(A, B):\n", C2)
 ```
 
 **Output:**
+
 ```
 A @ B:
  tensor([[ 58.,  64.],
@@ -129,7 +140,8 @@ plt.show()
 
 ### Demo 4: Shape-Mismatch Error and How to Fix
 
-A common scenario: trying to multiply incompatible matrices. Let’s see how to catch and fix it.
+A common scenario: trying to multiply incompatible matrices. Let’s see how to
+catch and fix it.
 
 ```python
 D: torch.Tensor = torch.tensor([[1.0, 2.0]])
@@ -159,18 +171,22 @@ Practice and visualize these concepts with hands-on code!
 ### **Exercise 2:** Implement Matrix Multiplication “By Hand” Using Loops and Compare
 
 - Implement matrix multiplication manually using nested loops.
-- Compare the manual result with PyTorch’s builtin `@`; confirm they are identical.
+- Compare the manual result with PyTorch’s builtin `@`; confirm they are
+  identical.
 
 ### **Exercise 3:** Visualize the Effect of Transposing a Matrix
 
 - Create any $3 \times 5$ matrix with sequential values.
-- Plot the matrix and its transpose side-by-side using `imshow` and print their shapes.
+- Plot the matrix and its transpose side-by-side using `imshow` and print their
+  shapes.
 
 ### **Exercise 4:** Explain and Fix a Common Shape-Mismatch Error in Matmul
 
-- Intentionally attempt $X @ Y$ where $X$ is $3 \times 2$ and $Y$ is $3 \times 2$ (not allowed).
+- Intentionally attempt $X @ Y$ where $X$ is $3 \times 2$ and $Y$ is
+  $3 \times 2$ (not allowed).
 - Print the error.
-- Fix the error by transposing $Y$ or $X$ and perform the multiplication successfully.
+- Fix the error by transposing $Y$ or $X$ and perform the multiplication
+  successfully.
 
 ---
 
@@ -235,12 +251,18 @@ print("Fixed multiplication:\n", fixed)
 
 ## Conclusion
 
-You’ve now mastered **matrix multiplication** and **transpose**—two of the most common and important operations in both deep learning and reinforcement learning.
+You’ve now mastered **matrix multiplication** and **transpose**—two of the most
+common and important operations in both deep learning and reinforcement
+learning.
 
-- You know the math, the code, and the *why*.
-- You can implement and debug matrix multiplies manually, and can spot and fix common shape mistakes.
-- You saw how transposes alter shapes and why that matters for data pipelines and neural nets.
+- You know the math, the code, and the _why_.
+- You can implement and debug matrix multiplies manually, and can spot and fix
+  common shape mistakes.
+- You saw how transposes alter shapes and why that matters for data pipelines
+  and neural nets.
 
-**Next up:** We'll explore the geometry of tensors, norms, distances, and projections—a crucial stepping stone to understanding state spaces and rewards in RL!
+**Next up:** We'll explore the geometry of tensors, norms, distances, and
+projections—a crucial stepping stone to understanding state spaces and rewards
+in RL!
 
-*Keep experimenting with shapes and products, and see you in Part 1.7!*
+_Keep experimenting with shapes and products, and see you in Part 1.7!_

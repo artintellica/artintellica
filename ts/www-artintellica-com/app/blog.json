@@ -495,5 +495,12 @@
     "date": "2024-06-10",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0063-rl-torch-15-broadcasting",
     "content": ""
+  },
+  {
+    "filename": "0064-rl-torch-16-matmul.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 1.6: Matrix Multiplication and Transpose—What, Why, and How",
+    "author": "Artintellica",
+    "date": "2024-06-10",
+    "content": ""
   }
 ]

@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 10 Jun 2025 17:17:56 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jun 2025 17:20:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.6: Matrix Multiplication and Transpose—What, Why, and How]]></title>
+            <link>https://artintellica.com/blog/0064-rl-torch-16-matmul.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0064-rl-torch-16-matmul.md</guid>
+            <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.6: Matrix Multiplication and Transpose—What, Why, and How]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.5: Broadcasting and Elementwise Operations in PyTorch]]></title>
             <link>https://artintellica.com/blog/0063-rl-torch-15-broadcasting.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0045-deep-numpy-21-loss.md</guid>
             <pubDate>Sun, 08 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Deep Learning with NumPy, Part 2.1: Understanding Loss Functions]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Deep Learning with NumPy, Part 1.3: Mathematical Functions and Activation Basics]]></title>
-            <link>https://artintellica.com/blog/0044-deep-numpy-13-mathematical.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0044-deep-numpy-13-mathematical.md</guid>
-            <pubDate>Fri, 06 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Deep Learning with NumPy, Part 1.3: Mathematical Functions and Activation Basics]]></description>
         </item>
     </channel>
 </rss>
