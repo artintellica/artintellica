@@ -6,14 +6,23 @@ date = "2024-06-09"
 
 ## Introduction
 
-Welcome back to Artintellica’s open-source RL course! After setting up PyTorch and running your first tensor operations, it’s time to ground ourselves in the basics: **vectors and scalars**. Tensors are the backbone of all computations in PyTorch and reinforcement learning. Understanding how to create, reshape, and manipulate these 1D (and 0D) structures is crucial whether you’re implementing bandits, processing observations, or building neural networks.
+Welcome back to Artintellica’s open-source RL course! After setting up PyTorch
+and running your first tensor operations, it’s time to ground ourselves in the
+basics: **vectors and scalars**. Tensors are the backbone of all computations in
+PyTorch and reinforcement learning. Understanding how to create, reshape, and
+manipulate these 1D (and 0D) structures is crucial whether you’re implementing
+bandits, processing observations, or building neural networks.
 
 In this post, we’ll:
 
-- See how **scalars** (single numbers) and **vectors** (1D arrays) arise in both mathematics and PyTorch.
-- Learn how to create and reshape tensors, index and slice them, and compute basic statistics.
-- Visualize vectors as sequences—an essential skill for debugging neural networks and RL environments.
-- Provide hands-on coding exercises so you have full mastery before moving on to matrices (next time).
+- See how **scalars** (single numbers) and **vectors** (1D arrays) arise in both
+  mathematics and PyTorch.
+- Learn how to create and reshape tensors, index and slice them, and compute
+  basic statistics.
+- Visualize vectors as sequences—an essential skill for debugging neural
+  networks and RL environments.
+- Provide hands-on coding exercises so you have full mastery before moving on to
+  matrices (next time).
 
 Let’s get started!
 
@@ -23,15 +32,20 @@ Let’s get started!
 
 Mathematically,
 
-- A **scalar** is a single number, $a \in \mathbb{R}$ (for example, the reward at a particular step).
-- A **vector** is a one-dimensional array of numbers, $\mathbf{x} = [x_1, x_2, \ldots, x_n]^\top$, where $n$ is the number of elements (for example, an agent’s observation or a parameter vector).
+- A **scalar** is a single number, $a \in \mathbb{R}$ (for example, the reward
+  at a particular step).
+- A **vector** is a one-dimensional array of numbers,
+  $\mathbf{x} = [x_1, x_2, \ldots, x_n]^\top$, where $n$ is the number of
+  elements (for example, an agent’s observation or a parameter vector).
 
 In PyTorch:
 
 - **Scalar tensor:** A tensor of zero dimensions (`torch.tensor(3.0)`)
-- **Vector tensor:** A tensor with shape `(n,)` for $n$ elements, i.e., `torch.tensor([1.0, 2.0, 3.0])`
+- **Vector tensor:** A tensor with shape `(n,)` for $n$ elements, i.e.,
+  `torch.tensor([1.0, 2.0, 3.0])`
 
-PyTorch allows you to reshape, index, slice, and analyze these with almost NumPy-like power—plus GPU acceleration.
+PyTorch allows you to reshape, index, slice, and analyze these with almost
+NumPy-like power—plus GPU acceleration.
 
 ---
 
@@ -94,7 +108,8 @@ print(f"Std: {std_v.item():.2f}")
 
 ### Plotting Vectors with Matplotlib
 
-For visualization (so important in RL diagnostics!), let’s plot a vector as a line graph.
+For visualization (so important in RL diagnostics!), let’s plot a vector as a
+line graph.
 
 ```python
 import matplotlib.pyplot as plt
@@ -120,7 +135,8 @@ plt.show()
 
 - Create a scalar tensor with the value $42$.
 - Create a vector tensor with values $[3, 1, 4, 1, 5, 9]$ as floats.
-- Reshape your vector to a **column** (shape $(6, 1)$) and then back to **row** (shape $(6,)$).
+- Reshape your vector to a **column** (shape $(6, 1)$) and then back to **row**
+  (shape $(6,)$).
 
 #### **Exercise 2: Index, Slice, and Reverse Vectors**
 
@@ -130,11 +146,13 @@ plt.show()
 
 #### **Exercise 3: Compute Mean, Sum, and Standard Deviation**
 
-- Compute and print the mean, sum, and standard deviation of your vector, with each rounded to two decimals.
+- Compute and print the mean, sum, and standard deviation of your vector, with
+  each rounded to two decimals.
 
 #### **Exercise 4: Plot a Vector as a Line Graph Using Matplotlib**
 
-- Create a PyTorch vector containing $100$ linearly spaced points between $0$ and $4\pi$.
+- Create a PyTorch vector containing $100$ linearly spaced points between $0$
+  and $4\pi$.
 - Compute the cosine of each value.
 - Use matplotlib to plot the vector as a line graph.
 
@@ -182,8 +200,15 @@ plt.show()
 
 ## Conclusion
 
-Today, you’ve gained hands-on experience with the two most fundamental building blocks in PyTorch and RL—scalars and vectors. You learned to create, reshape, index, reverse, compute statistics, and even plot them. Mastery of these basics makes everything to come—matrix math, neural networks, and reinforcement learning algorithms—much easier and more intuitive.
+Today, you’ve gained hands-on experience with the two most fundamental building
+blocks in PyTorch and RL—scalars and vectors. You learned to create, reshape,
+index, reverse, compute statistics, and even plot them. Mastery of these basics
+makes everything to come—matrix math, neural networks, and reinforcement
+learning algorithms—much easier and more intuitive.
 
-**In the next post**, we will extend these skills to *vector operations*: addition, scaling, and dot products. Being comfortable with tensors, dimensions, and slicing will let you focus on building and debugging RL agents instead of being tripped up by tensor shapes!
+**In the next post**, we will extend these skills to _vector operations_:
+addition, scaling, and dot products. Being comfortable with tensors, dimensions,
+and slicing will let you focus on building and debugging RL agents instead of
+being tripped up by tensor shapes!
 
-*Keep practicing, play with your own vectors, and see you in Part 1.3!*
+_Keep practicing, play with your own vectors, and see you in Part 1.3!_
