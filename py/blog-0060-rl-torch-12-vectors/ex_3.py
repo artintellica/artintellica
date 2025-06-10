@@ -8,17 +8,14 @@ print("v last element:", v[-1])  # Access last element
 # Mean
 v_mean: torch.Tensor = v.mean()
 # round to 2 decimal places
-v_mean_rounded: torch.Tensor = torch.round(v_mean * 100) / 100
-print("Mean of v:", v_mean_rounded.item())
+print("Mean of v: {:.2f}".format(v_mean.item()))
 
 # Sum
 v_sum: torch.Tensor = v.sum()
 # round to 2 decimal places
-v_sum_rounded: torch.Tensor = torch.round(v_sum * 100) / 100
-print("Sum of v:", v_sum_rounded.item())
+print("Sum of v: {:.2f}".format(v_sum.item()))
 
 # Standard deviation
 v_std: torch.Tensor = v.std(unbiased=False)  # Match numpy's normalization
 # round to 2 decimal places
-v_std_rounded: torch.Tensor = torch.round(v_std * 100) / 100
-print("Standard deviation of v:", v_std_rounded.item())
+print("Standard deviation of v: {:.2f}".format(v_std.item()))
