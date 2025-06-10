@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors"
 author = "Artintellica"
 date = "2024-06-09"
+code = "http://github.com/artintellica/artintellica/tree/main/py/blog-0060-rl-torch-12-vectors"
 +++
 
 ## Introduction
