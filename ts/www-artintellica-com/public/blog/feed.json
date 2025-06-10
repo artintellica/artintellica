@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0068-rl-torch-21-gradient.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0068-rl-torch-21-gradient.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 2.1: Introduction to Gradient Descent—Math and Code",
+            "date_modified": "2024-06-10T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0067-rl-torch-19-visualizing.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0067-rl-torch-19-visualizing.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md",
             "title": "Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons",
             "date_modified": "2025-06-09T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0048-deep-numpy-24-debugging.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0048-deep-numpy-24-debugging.md",
-            "title": "Learn Deep Learning with NumPy, Part 2.4: Debugging with Numerical Gradients",
-            "date_modified": "2025-06-08T07:00:00.000Z"
         }
     ]
 }

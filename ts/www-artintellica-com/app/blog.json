@@ -527,5 +527,12 @@
     "date": "2024-06-10",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0067-rl-torch-19-visualizing",
     "content": ""
+  },
+  {
+    "filename": "0068-rl-torch-21-gradient.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 2.1: Introduction to Gradient Descent—Math and Code",
+    "author": "Artintellica",
+    "date": "2024-06-10",
+    "content": ""
   }
 ]
