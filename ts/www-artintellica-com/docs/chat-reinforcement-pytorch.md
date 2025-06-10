@@ -2371,4 +2371,13 @@ Geometry underpins how we measure, compare, and manipulate data in ML and RL. In
 
 # === USER ===
 
+great, now can you help me write the next blog post? the description is:
 
+### 8. Linear Transformations and Simple Data Transformations
+
+* **Exercise 1:** Create rotation and scaling matrices.
+* **Exercise 2:** Apply a rotation matrix to a set of 2D points.
+* **Exercise 3:** Visualize the effect of a transformation on a shape (e.g., a square).
+* **Exercise 4:** Chain multiple transformations and describe the result.
+
+please include math, python demonstrations, and python exercises as usual.

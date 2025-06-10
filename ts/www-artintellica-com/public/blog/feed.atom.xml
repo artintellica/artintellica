@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-10T18:51:46.381Z</updated>
+    <updated>2025-06-10T18:53:54.101Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.8: Linear Transformations and Simple Data Transformations]]></title>
+        <id>https://artintellica.com/blog/0066-rl-torch-18-transformations.md</id>
+        <link href="https://artintellica.com/blog/0066-rl-torch-18-transformations.md"/>
+        <updated>2024-06-10T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.8: Linear Transformations and Simple Data Transformations]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections]]></title>
         <id>https://artintellica.com/blog/0065-rl-torch-17-geometry.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md"/>
         <updated>2025-06-08T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization]]></title>
-        <id>https://artintellica.com/blog/0046-deep-numpy-22-gradient.md</id>
-        <link href="https://artintellica.com/blog/0046-deep-numpy-22-gradient.md"/>
-        <updated>2025-06-08T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization]]></summary>
     </entry>
 </feed>

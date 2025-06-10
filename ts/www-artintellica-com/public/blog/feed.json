@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0066-rl-torch-18-transformations.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0066-rl-torch-18-transformations.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 1.8: Linear Transformations and Simple Data Transformations",
+            "date_modified": "2024-06-10T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0065-rl-torch-17-geometry.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0065-rl-torch-17-geometry.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0047-deep-numpy-23-mini-batch.md",
             "title": "Learn Deep Learning with NumPy, Part 2.3: Mini-Batch Gradient Descent",
-            "date_modified": "2025-06-08T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0046-deep-numpy-22-gradient.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0046-deep-numpy-22-gradient.md",
-            "title": "Learn Deep Learning with NumPy, Part 2.2: Gradient Descent for Optimization",
             "date_modified": "2025-06-08T07:00:00.000Z"
         }
     ]

@@ -511,5 +511,12 @@
     "date": "2024-06-10",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0065-rl-torch-17-geometry",
     "content": ""
+  },
+  {
+    "filename": "0066-rl-torch-18-transformations.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 1.8: Linear Transformations and Simple Data Transformations",
+    "author": "Artintellica",
+    "date": "2024-06-10",
+    "content": ""
   }
 ]
