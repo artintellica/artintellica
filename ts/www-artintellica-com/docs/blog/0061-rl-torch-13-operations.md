@@ -6,61 +6,83 @@ date = "2024-06-09"
 
 ## Introduction
 
-Welcome back to Artintellica’s open-source Reinforcement Learning course with PyTorch! Having mastered creating, reshaping, and visualizing vectors and scalars in the previous post, we’re now ready to perform fundamental operations on them. Today, we’ll explore **vector addition**, **scalar multiplication**, and the **dot product**—operations that are at the heart of nearly every computation in machine learning and reinforcement learning (RL).
+Welcome back to Artintellica’s open-source Reinforcement Learning course with
+PyTorch! Having mastered creating, reshaping, and visualizing vectors and
+scalars in the previous post, we’re now ready to perform fundamental operations
+on them. Today, we’ll explore **vector addition**, **scalar multiplication**,
+and the **dot product**—operations that are at the heart of nearly every
+computation in machine learning and reinforcement learning (RL).
 
 In this post, you will:
 
-- Understand the mathematical definitions and intuitions behind these operations.
+- Understand the mathematical definitions and intuitions behind these
+  operations.
 - See how PyTorch makes them intuitive and efficient with tensor operations.
 - Apply these concepts through hands-on code demonstrations.
 - Practice with exercises, including visualizing vector operations in 2D space.
 
-These operations are building blocks for everything from updating agent parameters in RL to computing rewards or state transitions. Let’s dive in!
+These operations are building blocks for everything from updating agent
+parameters in RL to computing rewards or state transitions. Let’s dive in!
 
 ---
 
 ## Mathematics: Vector Operations
 
-Let’s start with the mathematical foundations of the operations we’ll implement. We’ll use vectors in $\mathbb{R}^n$, meaning they have $n$ components.
+Let’s start with the mathematical foundations of the operations we’ll implement.
+We’ll use vectors in $\mathbb{R}^n$, meaning they have $n$ components.
 
 ### Vector Addition
-Given two vectors $\mathbf{u} = [u_1, u_2, \ldots, u_n]$ and $\mathbf{v} = [v_1, v_2, \ldots, v_n]$ of the same dimension, their sum is defined element-wise:
+
+Given two vectors $\mathbf{u} = [u_1, u_2, \ldots, u_n]$ and
+$\mathbf{v} = [v_1, v_2, \ldots, v_n]$ of the same dimension, their sum is
+defined element-wise:
 
 $$
 \mathbf{w} = \mathbf{u} + \mathbf{v} = [u_1 + v_1, u_2 + v_2, \ldots, u_n + v_n]
 $$
 
-Geometrically, this corresponds to placing the tail of $\mathbf{v}$ at the head of $\mathbf{u}$ and finding the resulting vector from the tail of $\mathbf{u}$ to the head of $\mathbf{v}$.
+Geometrically, this corresponds to placing the tail of $\mathbf{v}$ at the head
+of $\mathbf{u}$ and finding the resulting vector from the tail of $\mathbf{u}$
+to the head of $\mathbf{v}$.
 
 ### Scalar Multiplication
-Multiplying a vector $\mathbf{u}$ by a scalar $c \in \mathbb{R}$ scales each component:
+
+Multiplying a vector $\mathbf{u}$ by a scalar $c \in \mathbb{R}$ scales each
+component:
 
 $$
 c \cdot \mathbf{u} = [c \cdot u_1, c \cdot u_2, \ldots, c \cdot u_n]
 $$
 
-Geometrically, this stretches (if $|c| > 1$), shrinks (if $|c| < 1$), or reverses (if $c < 0$) the vector while keeping its direction (or flipping it if negative).
+Geometrically, this stretches (if $|c| > 1$), shrinks (if $|c| < 1$), or
+reverses (if $c < 0$) the vector while keeping its direction (or flipping it if
+negative).
 
 ### Dot Product
-The dot product of two vectors $\mathbf{u}$ and $\mathbf{v}$ of the same dimension is a scalar value computed as:
+
+The dot product of two vectors $\mathbf{u}$ and $\mathbf{v}$ of the same
+dimension is a scalar value computed as:
 
 $$
 \mathbf{u} \cdot \mathbf{v} = u_1 \cdot v_1 + u_2 \cdot v_2 + \ldots + u_n \cdot v_n
 $$
 
-Geometrically, it measures how much one vector "goes in the direction" of another and is related to the angle $\theta$ between them via:
+Geometrically, it measures how much one vector "goes in the direction" of
+another and is related to the angle $\theta$ between them via:
 
 $$
 \mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \cdot \|\mathbf{v}\| \cdot \cos(\theta)
 $$
 
-where $\|\mathbf{u}\|$ is the magnitude (Euclidean norm) of $\mathbf{u}$. In RL, dot products are often used in similarity measures or projections.
+where $\|\mathbf{u}\|$ is the magnitude (Euclidean norm) of $\mathbf{u}$. In RL,
+dot products are often used in similarity measures or projections.
 
 ---
 
 ## Python Demonstrations
 
-Let’s implement these operations using PyTorch tensors. We’ll work with small vectors for clarity, but these operations scale to any dimension.
+Let’s implement these operations using PyTorch tensors. We’ll work with small
+vectors for clarity, but these operations scale to any dimension.
 
 ### Demo 1: Vector Addition
 
@@ -79,6 +101,7 @@ print("u + v:", w)
 ```
 
 **Expected Output:**
+
 ```
 u: tensor([1., 2., 3.])
 v: tensor([4., 5., 6.])
@@ -95,11 +118,13 @@ print(f"u scaled by {c}:", scaled_u)
 ```
 
 **Expected Output:**
+
 ```
 u scaled by 2.0: tensor([2., 4., 6.])
 ```
 
-PyTorch uses **broadcasting** to apply the scalar across all elements, so you don’t need to loop manually.
+PyTorch uses **broadcasting** to apply the scalar across all elements, so you
+don’t need to loop manually.
 
 ### Demo 3: Dot Product (Manual and Built-In)
 
@@ -114,16 +139,19 @@ print("Built-in dot product (u · v):", builtin_dot.item())
 ```
 
 **Expected Output:**
+
 ```
 Manual dot product (u · v): 32.0
 Built-in dot product (u · v): 32.0
 ```
 
-Both methods yield the same result: $1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6 = 4 + 10 + 18 = 32$.
+Both methods yield the same result:
+$1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6 = 4 + 10 + 18 = 32$.
 
 ### Demo 4: Visualizing Vector Addition and Scalar Multiplication in 2D
 
-Visualization helps build geometric intuition. We’ll use 2D vectors for simplicity.
+Visualization helps build geometric intuition. We’ll use 2D vectors for
+simplicity.
 
 ```python
 import matplotlib.pyplot as plt
@@ -153,38 +181,46 @@ plt.legend()
 plt.show()
 ```
 
-This plots vectors as arrows from the origin, showing how addition forms a parallelogram resultant and how scaling stretches a vector.
+This plots vectors as arrows from the origin, showing how addition forms a
+parallelogram resultant and how scaling stretches a vector.
 
 ---
 
 ## Exercises
 
-Let’s apply what you’ve learned with hands-on coding tasks. Use a new Python script or Jupyter notebook for these exercises.
+Let’s apply what you’ve learned with hands-on coding tasks. Use a new Python
+script or Jupyter notebook for these exercises.
 
 ### **Exercise 1: Implement Vector Addition Using PyTorch**
 
-- Create two 1D vectors $\mathbf{a} = [2, 3, 4, 5]$ and $\mathbf{b} = [1, 1, 1, 1]$ as float tensors.
+- Create two 1D vectors $\mathbf{a} = [2, 3, 4, 5]$ and
+  $\mathbf{b} = [1, 1, 1, 1]$ as float tensors.
 - Compute their sum $\mathbf{c} = \mathbf{a} + \mathbf{b}$ using PyTorch.
 - Print all three vectors.
 
 ### **Exercise 2: Scale a Vector by a Scalar (Both Manual and Using Broadcasting)**
 
 - Take vector $\mathbf{a}$ from Exercise 1 and scale it by $c = 3.0$.
-- First, do this manually by multiplying each element (using a loop or element-wise operation).
+- First, do this manually by multiplying each element (using a loop or
+  element-wise operation).
 - Then, use PyTorch’s broadcasting (direct multiplication).
 - Print both results to confirm they match.
 
 ### **Exercise 3: Compute the Dot Product of Two Vectors (Manual and Built-In)**
 
-- Using vectors $\mathbf{a}$ and $\mathbf{b}$ from Exercise 1, compute their dot product manually (element-wise multiply and sum).
+- Using vectors $\mathbf{a}$ and $\mathbf{b}$ from Exercise 1, compute their dot
+  product manually (element-wise multiply and sum).
 - Compute the dot product using PyTorch’s built-in `torch.dot` function.
 - Print both results to confirm they are identical.
 
 ### **Exercise 4: Visualize Vector Addition and Scalar Multiplication in 2D with Matplotlib**
 
 - Create two 2D vectors $\mathbf{d} = [1, 3]$ and $\mathbf{e} = [2, 1]$.
-- Compute their sum $\mathbf{f} = \mathbf{d} + \mathbf{e}$ and a scaled version of $\mathbf{d}$ by $c = 0.5$.
-- Plot all four vectors ($\mathbf{d}$, $\mathbf{e}$, $\mathbf{f}$, and scaled $\mathbf{d}$) using `plt.quiver` as arrows from the origin, with different colors and a legend.
+- Compute their sum $\mathbf{f} = \mathbf{d} + \mathbf{e}$ and a scaled version
+  of $\mathbf{d}$ by $c = 0.5$.
+- Plot all four vectors ($\mathbf{d}$, $\mathbf{e}$, $\mathbf{f}$, and scaled
+  $\mathbf{d}$) using `plt.quiver` as arrows from the origin, with different
+  colors and a legend.
 
 ---
 
@@ -245,12 +281,22 @@ plt.show()
 
 ## Conclusion
 
-In this post, you’ve taken a significant step forward by mastering basic vector operations—addition, scalar multiplication, and the dot product—using PyTorch. These operations are not just mathematical abstractions; they are the foundation of nearly every computation in reinforcement learning, from updating policies to computing value functions.
+In this post, you’ve taken a significant step forward by mastering basic vector
+operations—addition, scalar multiplication, and the dot product—using PyTorch.
+These operations are not just mathematical abstractions; they are the foundation
+of nearly every computation in reinforcement learning, from updating policies to
+computing value functions.
 
-- You’ve learned the mathematical definitions and geometric intuitions behind these operations.
-- You’ve implemented them efficiently in PyTorch, leveraging broadcasting and built-in functions.
-- You’ve visualized how vectors combine and scale in 2D space, building intuition for higher-dimensional operations.
+- You’ve learned the mathematical definitions and geometric intuitions behind
+  these operations.
+- You’ve implemented them efficiently in PyTorch, leveraging broadcasting and
+  built-in functions.
+- You’ve visualized how vectors combine and scale in 2D space, building
+  intuition for higher-dimensional operations.
 
-**Next Up:** In Part 1.4, we’ll extend these concepts to **matrices**—2D tensors that represent linear transformations and are critical for neural networks and state transitions in RL. Keep practicing these vector operations, as they’ll be essential for everything to come!
+**Next Up:** In Part 1.4, we’ll extend these concepts to **matrices**—2D tensors
+that represent linear transformations and are critical for neural networks and
+state transitions in RL. Keep practicing these vector operations, as they’ll be
+essential for everything to come!
 
-*See you in the next post!*
+_See you in the next post!_
