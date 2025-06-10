@@ -1,5 +1,6 @@
 import torch
 
+
 # - Implement matrix multiplication manually using nested loops.
 # - Compare the manual result with PyTorch’s builtin `@`; confirm they are
 #   identical.
@@ -14,6 +15,7 @@ def matmul_manual(A: torch.Tensor, B: torch.Tensor) -> torch.Tensor:
                 C[i, j] += A[i, k] * B[k, j]
     return C
 
+
 # Example matrices
 A: torch.Tensor = torch.tensor([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
 B: torch.Tensor = torch.tensor([[7.0, 8.0], [9.0, 10.0], [11.0, 12.0]])
@@ -27,4 +29,3 @@ are_equal: bool = torch.allclose(C_manual, C_builtin)
 print("Manual multiplication result:\n", C_manual)
 print("PyTorch multiplication result (using @):\n", C_builtin)
 print("Are the results equal?", are_equal)
-
