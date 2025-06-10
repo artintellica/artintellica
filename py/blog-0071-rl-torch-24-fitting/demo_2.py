@@ -21,14 +21,10 @@ for epoch in range(80):
     y_pred = w * x + b  # Linear model
     loss = ((y_pred - y) ** 2).mean()  # MSE
     loss.backward()
-    if w.grad is None or b.grad is None:
-        # exit
-        break
     with torch.no_grad():
-        w -= lr * w.grad
-        b -= lr * b.grad
+        w -= lr * w.grad if w.grad is not None else 0
+        b -= lr * b.grad if b.grad is not None else 0
     if w.grad is None or b.grad is None:
-        # exit
         break
     w.grad.zero_()
     b.grad.zero_()
