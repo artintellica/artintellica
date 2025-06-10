@@ -15,8 +15,9 @@ print("Dimensions:", v.dim())
 # Changing shape: Reshape vector v to a column vector (n, 1)
 v_col: torch.Tensor = v.unsqueeze(1)  # adds a new dimension at position 1
 print("v as column vector (shape):", v_col.shape)
+print("v as column vector (data):", v_col)
 
 # Flatten v_col back to 1D
 v_flat: torch.Tensor = v_col.squeeze()
 print("v_col squeezed to 1D:", v_flat.shape)
-
+print("v_col squeezed to 1D (data):", v_flat)
