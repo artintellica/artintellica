@@ -1,7 +1,7 @@
 +++
 title = "Learning Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch"
 author = "Artintellica"
-date = "2024-06-09"
+date = "2024-06-10"
 +++
 
 Welcome! This is the first entry in **Artintellica's Reinforcement Learning
