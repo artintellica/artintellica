@@ -557,6 +557,7 @@
     "title": "Learn Reinforcement Learning with PyTorch, Part 2.4: Fitting a Line—Linear Regression from Scratch with PyTorch",
     "author": "Artintellica",
     "date": "2024-06-10",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0071-rl-torch-24-fitting",
     "content": ""
   }
 ]
