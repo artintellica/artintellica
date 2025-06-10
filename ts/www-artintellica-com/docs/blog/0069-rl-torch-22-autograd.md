@@ -1,12 +1,17 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 2.2: Autograd—Automatic Differentiation Demystified"
 author = "Artintellica"
-date = "2024-06-09"
+date = "2024-06-10"
 +++
 
 ## Introduction
 
-Welcome back to Module 2 of Artintellica’s RL with PyTorch! Previously, you implemented gradient descent "by hand." Now it’s time to take the next leap: **automatic differentiation**. PyTorch’s `autograd` is its most magical, productivity-enhancing feature. It allows you to compute gradients of complex, multi-step functions automatically—fueling modern deep learning, RL policies, and more.
+Welcome back to Module 2 of Artintellica’s RL with PyTorch! Previously, you
+implemented gradient descent "by hand." Now it’s time to take the next leap:
+**automatic differentiation**. PyTorch’s `autograd` is its most magical,
+productivity-enhancing feature. It allows you to compute gradients of complex,
+multi-step functions automatically—fueling modern deep learning, RL policies,
+and more.
 
 In this post you will:
 
@@ -16,13 +21,18 @@ In this post you will:
 - See why (and how) to "zero" gradients in optimization loops.
 - Manually verify autograd’s gradient calculations for trust and understanding.
 
-Let’s open the black box, see how autograd works, and demystify gradients for good.
+Let’s open the black box, see how autograd works, and demystify gradients for
+good.
 
 ---
 
 ## Mathematics: What is Automatic Differentiation?
 
-**Automatic differentiation** is a technique where the library automatically records all operations performed on tensors with `requires_grad=True` to build a computation graph. When you call `.backward()`, PyTorch traces this graph **backwards** from your output (often the loss) and computes derivatives with respect to all required inputs using the **chain rule**.
+**Automatic differentiation** is a technique where the library automatically
+records all operations performed on tensors with `requires_grad=True` to build a
+computation graph. When you call `.backward()`, PyTorch traces this graph
+**backwards** from your output (often the loss) and computes derivatives with
+respect to all required inputs using the **chain rule**.
 
 For $f(x, y) = x^2 + y^3$:
 
@@ -67,7 +77,9 @@ print("df/dy at (y=-1):", y.grad.item())  # Should be 3*(-1)**2 = 3.0
 
 ### Demo 3: Zero Gradients—Why and How
 
-PyTorch accumulates gradients by default. If you don’t zero them in each optimization step, you’ll add up gradients across steps, which is almost always undesirable.
+PyTorch accumulates gradients by default. If you don’t zero them in each
+optimization step, you’ll add up gradients across steps, which is almost always
+undesirable.
 
 ```python
 w = torch.tensor(1.0, requires_grad=True)
@@ -79,8 +91,10 @@ for step in range(2):
     w.grad.zero_()  # Zero the gradient for the next step
 ```
 
-**Why zero?**  
-- Each call to `.backward()` adds to `.grad`—unless you zero, your gradients accumulate and your parameter updates become wrong!
+**Why zero?**
+
+- Each call to `.backward()` adds to `.grad`—unless you zero, your gradients
+  accumulate and your parameter updates become wrong!
 
 ---
 
@@ -126,9 +140,11 @@ Apply and verify your knowledge:
 
 ### **Exercise 3:** Zero Gradients and Explain Why This is Necessary in Training Loops
 
-- Re-run the previous gradient calculation **twice in a row** without zeroing gradients.
+- Re-run the previous gradient calculation **twice in a row** without zeroing
+  gradients.
 - Observe the value of `.grad` on the second `.backward()`.
-- Now use `.grad.zero_()` after each `.backward()` and verify `.grad` is correct each time.
+- Now use `.grad.zero_()` after each `.backward()` and verify `.grad` is correct
+  each time.
 
 ---
 
@@ -179,13 +195,16 @@ print("Manual grad:", 14 * x2.item())
 
 ## Conclusion
 
-PyTorch's **autograd** is the engine behind every neural network, policy gradient, or optimizer. You’ve learned how to:
+PyTorch's **autograd** is the engine behind every neural network, policy
+gradient, or optimizer. You’ve learned how to:
 
 - Compute gradients automatically for any scalar function.
 - Handle multi-variable functions and check their gradients.
 - Properly zero gradients in training loops to prevent subtle bugs.
 - Manually verify autograd results and ensure your math lines up!
 
-**Next:** You’ll see how all this feeds into **loss functions and surfaces**: how we measure error and steer optimization in deep learning and RL.
+**Next:** You’ll see how all this feeds into **loss functions and surfaces**:
+how we measure error and steer optimization in deep learning and RL.
 
-*Experiment with more complicated functions and see how PyTorch does the calculus for you! See you in Part 2.3!*
+_Experiment with more complicated functions and see how PyTorch does the
+calculus for you! See you in Part 2.3!_

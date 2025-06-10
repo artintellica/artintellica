@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0069-rl-torch-22-autograd.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0069-rl-torch-22-autograd.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 2.2: Autograd—Automatic Differentiation Demystified",
+            "date_modified": "2024-06-10T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0068-rl-torch-21-gradient.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0068-rl-torch-21-gradient.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0050-deep-numpy-32-activation.md",
             "title": "Learn Deep Learning with NumPy, Part 3.2: Activation Functions for Neural Networks",
-            "date_modified": "2025-06-09T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0049-deep-numpy-31-perceptrons.md",
-            "title": "Learn Deep Learning with NumPy, Part 3.1: Single-Layer Perceptrons",
             "date_modified": "2025-06-09T07:00:00.000Z"
         }
     ]

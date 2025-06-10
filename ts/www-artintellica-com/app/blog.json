@@ -535,5 +535,12 @@
     "date": "2024-06-10",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0068-rl-torch-21-gradient",
     "content": ""
+  },
+  {
+    "filename": "0069-rl-torch-22-autograd.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 2.2: Autograd—Automatic Differentiation Demystified",
+    "author": "Artintellica",
+    "date": "2024-06-10",
+    "content": ""
   }
 ]
