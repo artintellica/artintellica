@@ -1,5 +1,5 @@
 +++
-title = "Learning Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors"
+title = "Learn Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors"
 author = "Artintellica"
 date = "2024-06-09"
 +++
