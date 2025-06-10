@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0072-rl-torch-25-nonlinear.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0072-rl-torch-25-nonlinear.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 2.5: Fitting Nonlinear Curves—Polynomial Regression",
+            "date_modified": "2024-06-10T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0071-rl-torch-24-fitting.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0071-rl-torch-24-fitting.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0053-deep-numpy-41-deeper.md",
             "title": "Learn Deep Learning with NumPy, Part 4.1: Deeper MLPs and Vanishing Gradients",
-            "date_modified": "2025-06-09T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0052-deep-numpy-34-backpropagation.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0052-deep-numpy-34-backpropagation.md",
-            "title": "Learn Deep Learning with NumPy, Part 3.4: Backpropagation for Training MLPs",
             "date_modified": "2025-06-09T07:00:00.000Z"
         }
     ]
