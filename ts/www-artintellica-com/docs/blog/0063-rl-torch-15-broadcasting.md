@@ -6,9 +6,15 @@ date = "2024-06-10"
 
 ## Introduction
 
-Welcome back to Artintellica’s open-source RL journey with PyTorch! In the last post, we learned about matrices, their construction, and basic operations. Today, we’re focusing on a feature that makes PyTorch (and NumPy) extremely expressive and concise: **broadcasting**.
+Welcome back to Artintellica’s open-source RL journey with PyTorch! In the last
+post, we learned about matrices, their construction, and basic operations.
+Today, we’re focusing on a feature that makes PyTorch (and NumPy) extremely
+expressive and concise: **broadcasting**.
 
-Broadcasting allows you to perform elementwise operations across tensors of different shapes without manual replication, making code shorter, less error-prone, and more efficient. It's a cornerstone for neural networks, RL policy parameters, quick dataset transformations, and more.
+Broadcasting allows you to perform elementwise operations across tensors of
+different shapes without manual replication, making code shorter, less
+error-prone, and more efficient. It's a cornerstone for neural networks, RL
+policy parameters, quick dataset transformations, and more.
 
 In this post, you’ll:
 
@@ -22,18 +28,25 @@ In this post, you’ll:
 ## Mathematics: Broadcasting and Elementwise Operations
 
 **Elementwise Operations:**  
-Given two tensors $A$ and $B$ of the same shape, an elementwise operation (e.g., addition or multiplication) produces a tensor $C$ where $c_{ij} = f(a_{ij}, b_{ij})$ for some binary function $f$ (like $+$ or $\times$).
+Given two tensors $A$ and $B$ of the same shape, an elementwise operation (e.g.,
+addition or multiplication) produces a tensor $C$ where
+$c_{ij} = f(a_{ij}, b_{ij})$ for some binary function $f$ (like $+$ or
+$\times$).
 
 **Broadcasting:**  
-If shapes are compatible (more below), PyTorch "broadcasts" the smaller tensor across the larger one as needed, implicitly "expanding" its dimensions so elementwise operations are still possible without extra memory cost.
+If shapes are compatible (more below), PyTorch "broadcasts" the smaller tensor
+across the larger one as needed, implicitly "expanding" its dimensions so
+elementwise operations are still possible without extra memory cost.
 
 **Broadcasting rules:**  
 For each dimension, starting from the end:
+
 - If the dimensions are equal, or
 - If one dimension is 1,  
-then the operation can proceed by expanding the size-1 dimension as needed.
+  then the operation can proceed by expanding the size-1 dimension as needed.
 
 For example, $A$ of shape $(m, n)$ and $b$ of shape $(n,)$:
+
 - $b$ is broadcast to shape $(m, n)$, so $A + b$ adds $b$ to every row of $A$.
 
 ---
@@ -58,7 +71,8 @@ print("Result of A + row:\n", A_plus_row)
 ```
 
 **Explanation:**  
-Here, `row` is broadcast to each row of `A`, so each element of the row vector is added to the corresponding column of every row.
+Here, `row` is broadcast to each row of `A`, so each element of the row vector
+is added to the corresponding column of every row.
 
 ---
 
@@ -74,13 +88,15 @@ print("Result of A * col:\n", A_times_col)
 ```
 
 **Explanation:**  
-Here, the column vector (shape `(3,1)`) multiplies each row of `A` by a different scalar (2, 3, 4), thanks to broadcasting along the columns.
+Here, the column vector (shape `(3,1)`) multiplies each row of `A` by a
+different scalar (2, 3, 4), thanks to broadcasting along the columns.
 
 ---
 
 ### Demo 3: Identify and Fix a Broadcasting Error
 
-Some shapes cannot be broadcast due to mismatch. Let's see an example and fix it:
+Some shapes cannot be broadcast due to mismatch. Let's see an example and fix
+it:
 
 ```python
 try:
@@ -100,7 +116,8 @@ print("Fixed result (A + good_vec):\n", fixed_res)
 
 ### Demo 4: Compare Manual Elementwise Operations with PyTorch's Broadcasting
 
-You could implement element-wise addition using loops, but broadcasting is faster and more readable.
+You could implement element-wise addition using loops, but broadcasting is
+faster and more readable.
 
 ```python
 # Manual using loops (for small examples)
@@ -133,7 +150,8 @@ Try these in a Python file or Jupyter notebook:
 
 ### **Exercise 2:** Multiply a Matrix by a Column Vector Using Broadcasting
 
-- Create a $4 \times 2$ matrix `N` (e.g., with `torch.tensor` or `torch.arange`).
+- Create a $4 \times 2$ matrix `N` (e.g., with `torch.tensor` or
+  `torch.arange`).
 - Create a column vector of shape $(4,1)$ (e.g., [[2.], [4.], [6.], [8.]]).
 - Use broadcasting to multiply `N` and the column vector. Print the result.
 
@@ -141,14 +159,15 @@ Try these in a Python file or Jupyter notebook:
 
 - Intentionally try to broadcast a $(5,3)$ matrix with a vector of shape $(2,)$.
 - Observe and print the error message.
-- Fix the shapes so that broadcasting works (e.g., use a vector of shape $(3,)$ or $(5,1)$).
+- Fix the shapes so that broadcasting works (e.g., use a vector of shape $(3,)$
+  or $(5,1)$).
 
 ### **Exercise 4:** Compare Manual Elementwise Operations with PyTorch’s Operators
 
 - For a $2 \times 3$ matrix `P` and a row vector `w` of length 3,
-    - Compute `P + w` using explicit loops and save to `P_manual`.
-    - Compute `P + w` using broadcasting (`P + w`) and save as `P_broadcast`.
-    - Print both results and confirm they are identical.
+  - Compute `P + w` using explicit loops and save to `P_manual`.
+  - Compute `P + w` using broadcasting (`P + w`) and save as `P_broadcast`.
+  - Print both results and confirm they are identical.
 
 ---
 
@@ -213,12 +232,17 @@ print("Equal?", torch.allclose(P_manual, P_broadcast))
 
 ## Conclusion
 
-In this post, you learned how broadcasting makes your tensor code more elegant, efficient, and readable. You can now:
+In this post, you learned how broadcasting makes your tensor code more elegant,
+efficient, and readable. You can now:
 
 - Use broadcasting to add row and column vectors to matrices seamlessly.
 - Diagnose and fix shape incompatibilities in elementwise operations.
-- Appreciate how PyTorch's built-in operators allow you to avoid explicit Python loops.
+- Appreciate how PyTorch's built-in operators allow you to avoid explicit Python
+  loops.
 
-**Next Time:** We'll explore **matrix multiplication and the transpose**—the foundation of neural network layers and linear transformations in RL. Make sure to experiment with manual and broadcasted operations, as shape errors are the #1 source of data bugs in deep learning and RL!
+**Next Time:** We'll explore **matrix multiplication and the transpose**—the
+foundation of neural network layers and linear transformations in RL. Make sure
+to experiment with manual and broadcasted operations, as shape errors are the #1
+source of data bugs in deep learning and RL!
 
-*See you in Part 1.6!*
+_See you in Part 1.6!_
