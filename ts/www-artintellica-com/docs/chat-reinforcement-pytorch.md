@@ -1851,4 +1851,13 @@ In this post, you learned how broadcasting makes your tensor code more elegant, 
 
 # === USER ===
 
+great, now can you help me write the next blog post? the description is:
 
+### 6. Matrix Multiplication and Transpose—What, Why, and How
+
+* **Exercise 1:** Multiply two matrices using `@` and `torch.matmul`.
+* **Exercise 2:** Implement matrix multiplication “by hand” using loops and compare with PyTorch.
+* **Exercise 3:** Visualize the effect of transposing a matrix on its shape and data.
+* **Exercise 4:** Explain and fix a common shape-mismatch error in matmul.
+
+please include math, python demonstrations, and python exercises as usual.
