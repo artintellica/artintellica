@@ -160,7 +160,7 @@ print("Dtype:", x.dtype)
 # Detect GPUs or MPS device (Apple Silicon)
 if torch.cuda.is_available():
     device: torch.device = torch.device("cuda")
-elif getattr(torch, "has_mps", False) and torch.backends.mps.is_available():
+elif torch.backends.mps.is_available():
     device = torch.device("mps")
 else:
     device = torch.device("cpu")
