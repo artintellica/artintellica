@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 1.5: Broadcasting and Elementwise Operations in PyTorch"
 author = "Artintellica"
 date = "2024-06-10"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0063-rl-torch-15-broadcasting"
 +++
 
 ## Introduction
