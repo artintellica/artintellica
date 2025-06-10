@@ -14,3 +14,7 @@ print(f"Using device: {device}")
 
 x_gpu: torch.Tensor = x.to(device)
 print("x is on device:", x_gpu.device)
+
+y: torch.Tensor = torch.ones(5, dtype=torch.float32, device=device)
+z: torch.Tensor = x_gpu + y  # elementwise add
+print("z:", z)
