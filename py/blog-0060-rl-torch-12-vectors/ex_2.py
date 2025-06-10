@@ -9,3 +9,7 @@ print("v last element:", v[-1])  # Access last element
 u: torch.Tensor = v[::2]
 print("u (every other element):", u)
 print("u shape:", u.shape)  # Shape of the sliced tensor
+
+# Reverse the tensor
+reversed_v: torch.Tensor = v.flip(0)
+print("Reversed v:", reversed_v)
