@@ -3862,4 +3862,13 @@ Loss functions shape how models learn and what they prioritize. You’ve now:
 
 # === USER ===
 
+ok great, now let's move onto the next one. can you please write the next blog post? the description is:
 
+### 4. Fitting a Line: Linear Regression from Scratch with PyTorch
+
+* **Exercise 1:** Generate synthetic linear data with noise.
+* **Exercise 2:** Implement linear regression training loop from scratch (using only tensors).
+* **Exercise 3:** Use PyTorch’s autograd and optimizer to fit a line.
+* **Exercise 4:** Plot predictions vs. ground truth and compute R² score.
+
+please include math, python demonstrations, and python exercises as usual.

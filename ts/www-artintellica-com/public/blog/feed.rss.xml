@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 10 Jun 2025 20:54:42 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jun 2025 20:58:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.4: Fitting a Line—Linear Regression from Scratch with PyTorch]]></title>
+            <link>https://artintellica.com/blog/0071-rl-torch-24-fitting.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0071-rl-torch-24-fitting.md</guid>
+            <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.4: Fitting a Line—Linear Regression from Scratch with PyTorch]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.3: Loss Functions and Cost Surfaces—Visual and Practical Intuition]]></title>
             <link>https://artintellica.com/blog/0070-rl-torch-23-loss.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0052-deep-numpy-34-backpropagation.md</guid>
             <pubDate>Mon, 09 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Deep Learning with NumPy, Part 3.4: Backpropagation for Training MLPs]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation]]></title>
-            <link>https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0051-deep-numpy-33-multi-layer.md</guid>
-            <pubDate>Mon, 09 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Deep Learning with NumPy, Part 3.3: Multi-Layer Perceptrons and Forward Propagation]]></description>
         </item>
     </channel>
 </rss>
