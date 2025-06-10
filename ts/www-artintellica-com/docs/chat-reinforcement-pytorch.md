@@ -557,3 +557,12 @@ In this post, you've:
 
 # === USER ===
 
+that was great, i have finished going through the first blog post. now, can you please write the second blog post? the description is:
+
+### 2. Vectors and Scalars—Hands-On with PyTorch Tensors
+
+* **Exercise 1:** Create scalar and 1D vector tensors; change their shape.
+* **Exercise 2:** Index and slice vectors; reverse a vector.
+* **Exercise 3:** Compute mean, sum, and standard deviation of a vector.
+* **Exercise 4:** Plot a vector as a line graph using Matplotlib.
+
