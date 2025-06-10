@@ -1,7 +1,8 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 1.3: Basic Vector Operations—Addition, Scalar Multiplication, and Dot Product"
 author = "Artintellica"
-date = "2024-06-09"
+date = "2024-06-10"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0061-rl-torch-13-operations"
 +++
 
 ## Introduction

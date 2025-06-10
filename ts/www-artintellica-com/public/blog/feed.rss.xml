@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 10 Jun 2025 15:40:53 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jun 2025 16:02:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.3: Basic Vector Operations—Addition, Scalar Multiplication, and Dot Product]]></title>
             <link>https://artintellica.com/blog/0061-rl-torch-13-operations.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0061-rl-torch-13-operations.md</guid>
-            <pubDate>Sun, 09 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.3: Basic Vector Operations—Addition, Scalar Multiplication, and Dot Product]]></description>
         </item>
         <item>
