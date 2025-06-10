@@ -2,6 +2,7 @@
 title = "Learning Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch"
 author = "Artintellica"
 date = "2024-06-10"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0059-rl-torch-11-introduction"
 +++
 
 Welcome! This is the first entry in **Artintellica's Reinforcement Learning
