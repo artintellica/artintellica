@@ -44,12 +44,6 @@ for epoch in range(1000):
     losses.append(bce.item())
     if epoch % 200 == 0 or epoch == 999:
         print(f"Epoch {epoch}: BCE loss={bce.item():.3f}")
-plt.plot(losses)
-plt.title("Training Loss: Logistic Regression (Scratch)")
-plt.xlabel("Epoch")
-plt.ylabel("BCE Loss")
-plt.grid(True)
-plt.show()
 
 # ### **Exercise 3:** Train with PyTorch’s Optimizer and Compare Results
 
@@ -67,12 +61,6 @@ for epoch in range(1000):
     optimizer.step()
     optimizer.zero_grad()
     losses2.append(bce.item())
-plt.plot(losses2, label="Optimizer loss")
-plt.title("PyTorch Optimizer BCE Loss")
-plt.xlabel("Epoch")
-plt.ylabel("BCE Loss")
-plt.grid(True)
-plt.show()
 
 print("Final weights (manual):", w.detach().numpy())
 print("Final weights (optimizer):", w2.detach().numpy())
