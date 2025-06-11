@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way",
+            "date_modified": "2024-06-11T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0077-rl-torch-32-feedforward.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0077-rl-torch-32-feedforward.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0059-rl-torch-11-introduction.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch",
             "date_modified": "2024-06-10T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md",
-            "title": "Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions",
-            "date_modified": "2025-06-09T07:00:00.000Z"
         }
     ]
 }

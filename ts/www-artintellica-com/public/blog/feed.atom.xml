@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-11T23:35:28.756Z</updated>
+    <updated>2025-06-11T23:40:09.150Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way]]></title>
+        <id>https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md</id>
+        <link href="https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md"/>
+        <updated>2024-06-11T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)]]></title>
         <id>https://artintellica.com/blog/0077-rl-torch-32-feedforward.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0059-rl-torch-11-introduction.md"/>
         <updated>2024-06-10T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions]]></title>
-        <id>https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md</id>
-        <link href="https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md"/>
-        <updated>2025-06-09T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions]]></summary>
     </entry>
 </feed>

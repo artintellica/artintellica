@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Wed, 11 Jun 2025 23:35:28 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 11 Jun 2025 23:40:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way]]></title>
+            <link>https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md</guid>
+            <pubDate>Tue, 11 Jun 2024 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)]]></title>
             <link>https://artintellica.com/blog/0077-rl-torch-32-feedforward.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0059-rl-torch-11-introduction.md</guid>
             <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions]]></title>
-            <link>https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0058-deep-numpy-50-conclusion.md</guid>
-            <pubDate>Mon, 09 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Deep Learning with NumPy, Part 5: Series Conclusion and Future Directions]]></description>
         </item>
     </channel>
 </rss>
