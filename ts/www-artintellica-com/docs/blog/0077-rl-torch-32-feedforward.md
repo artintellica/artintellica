@@ -1,34 +1,45 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)"
 author = "Artintellica"
-date = "2024-06-09"
+date = "2024-06-11"
 +++
 
 ## Introduction
 
-Welcome back! In the last lesson, you implemented and visualized the perceptron—the building block for all neural networks. Today, you'll learn how to construct and train **feedforward neural networks (multilayer perceptrons) from scratch**, using only tensors, matrix multiplications, and autograd—**no `nn.Module` or convenience libraries!**
+Welcome back! In the last lesson, you implemented and visualized the
+perceptron—the building block for all neural networks. Today, you'll learn how
+to construct and train **feedforward neural networks (multilayer perceptrons)
+from scratch**, using only tensors, matrix multiplications, and autograd—**no
+`nn.Module` or convenience libraries!**
 
-This bootstraps your intuition for how NNs work under the hood—and will serve you well both in RL and practical ML engineering.
+This bootstraps your intuition for how NNs work under the hood—and will serve
+you well both in RL and practical ML engineering.
 
 ---
 
 ## Mathematics: Two-Layer Neural Network
 
-A **two-layer neural network** for input $\mathbf{x} \in \mathbb{R}^{d_\text{in}}$, hidden dimension $h$, and output size $d_\text{out}$ is:
+A **two-layer neural network** for input
+$\mathbf{x} \in \mathbb{R}^{d_\text{in}}$, hidden dimension $h$, and output size
+$d_\text{out}$ is:
 
 **Layer 1 (hidden):**
+
 $$
 \mathbf{h} = f(\mathbf{x} W_1 + \mathbf{b}_1)
 $$
 
 **Layer 2 (output):**
+
 $$
 \mathbf{o} = \mathbf{h} W_2 + \mathbf{b}_2
 $$
 
 Where
+
 - $W_1 \in \mathbb{R}^{d_\text{in} \times h}$, $\mathbf{b}_1 \in \mathbb{R}^{h}$
-- $W_2 \in \mathbb{R}^{h \times d_\text{out}}$, $\mathbf{b}_2 \in \mathbb{R}^{d_\text{out}}$
+- $W_2 \in \mathbb{R}^{h \times d_\text{out}}$,
+  $\mathbf{b}_2 \in \mathbb{R}^{d_\text{out}}$
 - $f$ is a nonlinear activation (e.g. ReLU, sigmoid, tanh)
 
 For classification, $\mathbf{o}$ is sent to softmax (for cross-entropy loss).
@@ -37,23 +48,28 @@ For classification, $\mathbf{o}$ is sent to softmax (for cross-entropy loss).
 
 ## Explanation: How the Math Connects to Code
 
-- **Weights and biases** are tensors you initialize and update (*not* `nn.Linear` modules).
-- **Forward pass**:  
-    1. Multiply inputs $X$ by $W_1$ and add $b_1$ (matrix multiply + broadcast).  
-    2. Apply nonlinear activation, e.g. ReLU.  
-    3. Multiply by $W_2$ and add $b_2$ for class logits.
+- **Weights and biases** are tensors you initialize and update (_not_
+  `nn.Linear` modules).
+- **Forward pass**:
+  1. Multiply inputs $X$ by $W_1$ and add $b_1$ (matrix multiply + broadcast).
+  2. Apply nonlinear activation, e.g. ReLU.
+  3. Multiply by $W_2$ and add $b_2$ for class logits.
 - **Loss:** Use cross-entropy between logits and integer labels.
-- **Backward pass:**  
-    - If you want maximum insight, you can manually compute gradients using chain rule.
-    - Or, let PyTorch `autograd` handle derivatives by calling `.backward()` after computing loss.
+- **Backward pass:**
+  - If you want maximum insight, you can manually compute gradients using chain
+    rule.
+  - Or, let PyTorch `autograd` handle derivatives by calling `.backward()` after
+    computing loss.
 
-This is the backbone of modern ML and RL—autograd or not, everything boils down to math on tensors and gradients.
+This is the backbone of modern ML and RL—autograd or not, everything boils down
+to math on tensors and gradients.
 
 ---
 
 ## Python Demonstrations
 
-We’ll use a synthetic 2D classification dataset (moons or blobs) for demonstration.
+We’ll use a synthetic 2D classification dataset (moons or blobs) for
+demonstration.
 
 ### Demo 1: Implement a Two-Layer Neural Network Using Tensors and Matrix Ops
 
@@ -66,7 +82,7 @@ def relu(x: torch.Tensor) -> torch.Tensor:
     return torch.clamp(x, min=0.0)
 
 def two_layer_forward(
-    X: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor, 
+    X: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor,
     W2: torch.Tensor, b2: torch.Tensor
 ) -> torch.Tensor:
     # X: (N, d_in), W1: (d_in, h), b1: (h,), W2: (h, d_out), b2: (d_out,)
@@ -133,7 +149,9 @@ print("b2.grad shape:", b2.grad.shape)
 ```
 
 #### (b) (Optional) Manual Gradients (by hand)
-Manually computing gradients for all weights is a classic exercise in chain rule. For most real tasks, use autograd for accuracy and simplicity.
+
+Manually computing gradients for all weights is a classic exercise in chain
+rule. For most real tasks, use autograd for accuracy and simplicity.
 
 ---
 
@@ -141,8 +159,8 @@ Manually computing gradients for all weights is a classic exercise in chain rule
 
 ```python
 def train_nn(
-    X: torch.Tensor, y: torch.Tensor, 
-    W1: torch.Tensor, b1: torch.Tensor, W2: torch.Tensor, b2: torch.Tensor, 
+    X: torch.Tensor, y: torch.Tensor,
+    W1: torch.Tensor, b1: torch.Tensor, W2: torch.Tensor, b2: torch.Tensor,
     epochs: int = 300, lr: float = 0.08
 ) -> list[float]:
     loss_hist: list[float] = []
@@ -179,14 +197,16 @@ plt.show()
 
 ### **Exercise 1:** Implement a Two-Layer Neural Network Using Tensors and Matrix Ops
 
-- Explicitly define and initialize $W_1$, $b_1$, $W_2$, $b_2$ tensors (with gradients).
+- Explicitly define and initialize $W_1$, $b_1$, $W_2$, $b_2$ tensors (with
+  gradients).
 - Implement a function for forward pass with ReLU.
 
 ---
 
 ### **Exercise 2:** Forward Propagate and Compute Loss for a Batch of Inputs
 
-- For your synthetic batch, compute logits (before softmax) and cross-entropy loss.
+- For your synthetic batch, compute logits (before softmax) and cross-entropy
+  loss.
 
 ---
 
@@ -219,7 +239,7 @@ def relu(x: torch.Tensor) -> torch.Tensor:
 
 # EXERCISE 1
 def two_layer_forward(
-    X: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor, 
+    X: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor,
     W2: torch.Tensor, b2: torch.Tensor
 ) -> torch.Tensor:
     h = relu(X @ W1 + b1)
@@ -232,7 +252,7 @@ def make_blobs(
 ) -> Tuple[torch.Tensor, torch.Tensor]:
     np.random.seed(random_state)
     X = np.vstack([
-        np.random.randn(n_samples // centers, 2) + np.array([i*2, i*2]) 
+        np.random.randn(n_samples // centers, 2) + np.array([i*2, i*2])
         for i in range(centers)
     ])
     y = np.hstack([np.full(n_samples // centers, i) for i in range(centers)])
@@ -260,8 +280,8 @@ for p in [W1, b1, W2, b2]:
 
 # EXERCISE 4
 def train_nn(
-    X: torch.Tensor, y: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor, 
-    W2: torch.Tensor, b2: torch.Tensor, 
+    X: torch.Tensor, y: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor,
+    W2: torch.Tensor, b2: torch.Tensor,
     epochs: int = 200, lr: float = 0.07
 ) -> list[float]:
     loss_hist: list[float] = []
@@ -290,8 +310,12 @@ plt.xlabel('Epoch'); plt.ylabel('Loss'); plt.title('Training Loss'); plt.grid();
 
 ## Conclusion
 
-You’ve constructed a real neural network *by hand* in PyTorch, built up the full forward and backward logic, and watched your model learn. These are the real nuts and bolts behind every deep reinforcement learning agent and modern classifier.
+You’ve constructed a real neural network _by hand_ in PyTorch, built up the full
+forward and backward logic, and watched your model learn. These are the real
+nuts and bolts behind every deep reinforcement learning agent and modern
+classifier.
 
-**Up next:** You’ll discover PyTorch’s higher-level abstractions (`nn.Module` and layers), making your life easier as you scale up your architectures.
+**Up next:** You’ll discover PyTorch’s higher-level abstractions (`nn.Module`
+and layers), making your life easier as you scale up your architectures.
 
-*Congrats—now you know how the engine runs! See you in Part 3.3.*
+_Congrats—now you know how the engine runs! See you in Part 3.3._
