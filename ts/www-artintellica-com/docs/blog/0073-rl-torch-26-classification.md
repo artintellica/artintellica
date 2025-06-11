@@ -6,12 +6,17 @@ date = "2024-06-10"
 
 ## Introduction
 
-Linear regression is great for continuous outcomes, but most RL problems involve **making decisions**—classifying between actions, states, or outcomes. The simplest classification model is **logistic regression**, which uses a “soft” step function to produce probabilities and binary classifications from input features.
+Linear regression is great for continuous outcomes, but most RL problems involve
+**making decisions**—classifying between actions, states, or outcomes. The
+simplest classification model is **logistic regression**, which uses a “soft”
+step function to produce probabilities and binary classifications from input
+features.
 
 In this post you will:
 
 - Generate and visualize synthetic binary classification data.
-- Implement logistic regression “from scratch” using tensors (sigmoid and binary cross-entropy).
+- Implement logistic regression “from scratch” using tensors (sigmoid and binary
+  cross-entropy).
 - Train with PyTorch’s optimizer and compare both approaches.
 - Plot the decision boundary and evaluate accuracy.
 
@@ -21,7 +26,8 @@ Let’s open the door to classification—the bedrock of RL decision-making.
 
 ## Mathematics: Logistic Regression
 
-Given input vector $\mathbf{x} \in \mathbb{R}^d$, **logistic regression** predicts:
+Given input vector $\mathbf{x} \in \mathbb{R}^d$, **logistic regression**
+predicts:
 
 $$
 y = \begin{cases}
@@ -31,13 +37,17 @@ y = \begin{cases}
 $$
 
 where:
-- $\sigma(z) = \frac{1}{1 + e^{-z}}$ is the **sigmoid** function (maps real numbers to $(0, 1)$ probability).
+
+- $\sigma(z) = \frac{1}{1 + e^{-z}}$ is the **sigmoid** function (maps real
+  numbers to $(0, 1)$ probability).
 - Model parameters: $\mathbf{w}$ (weights), $b$ (bias).
 
 The **binary cross-entropy (BCE) loss** for a dataset $(\mathbf{x}_i, y_i)$ is:
+
 $$
 L_{\text{BCE}} = -\frac{1}{n} \sum_{i=1}^n \left[ y_i\log p_i + (1-y_i)\log(1-p_i)\right]
 $$
+
 where $p_i = \sigma(\mathbf{w}^\top\mathbf{x}_i + b)$.
 
 ---
@@ -144,7 +154,7 @@ with torch.no_grad():
     x1g, x2g = torch.meshgrid(torch.linspace(-6, 6, 100), torch.linspace(-4, 5, 100), indexing='ij')
     Xg = torch.stack([x1g.reshape(-1), x2g.reshape(-1), torch.ones(100*100)], dim=1)
     p_grid = sigmoid(Xg @ w2).reshape(100, 100)
-    
+
     # Predictions for accuracy
     preds = (sigmoid(X_aug @ w2) > 0.5).float()
     acc = (preds == y).float().mean().item()
@@ -163,7 +173,8 @@ plt.legend(); plt.show()
 
 ### **Exercise 1:** Generate Binary Classification Data
 
-- Make two clouds in 2D using Gaussians with means $[0, 0]$ and $[3, 2]$ and a shared covariance.
+- Make two clouds in 2D using Gaussians with means $[0, 0]$ and $[3, 2]$ and a
+  shared covariance.
 - Stack them to form $N=100$ dataset and make integer labels $0$ and $1$.
 - Plot the dataset, color by class.
 
@@ -267,9 +278,13 @@ plt.xlabel('x1'); plt.ylabel('x2'); plt.legend(); plt.show()
 You’ve learned to:
 
 - Generate and visualize binary data.
-- Code and optimize logistic regression with explicit tensor ops and with PyTorch’s optimizer.
+- Code and optimize logistic regression with explicit tensor ops and with
+  PyTorch’s optimizer.
 - See the effect of decision boundaries and evaluate classification accuracy.
 
-**Next up:** Multiclass classification—move beyond binary to solving problems where you need to pick from more than two possible actions or classes. We're almost ready for neural nets!
+**Next up:** Multiclass classification—move beyond binary to solving problems
+where you need to pick from more than two possible actions or classes. We're
+almost ready for neural nets!
 
-*Keep experimenting—classification is the true foundation of RL actions and decisions! See you in Part 2.7!*
+_Keep experimenting—classification is the true foundation of RL actions and
+decisions! See you in Part 2.7!_
