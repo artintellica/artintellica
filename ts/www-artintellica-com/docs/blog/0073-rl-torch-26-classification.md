@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 2.6: Classification Basics—Logistic Regression"
 author = "Artintellica"
-date = "2024-06-10"
+date = "2024-06-11"
 +++
 
 ## Introduction
