@@ -5996,3 +5996,633 @@ You’ve brought the world’s first artificial neuron to life! Today, you:
 # === USER ===
 
 can you please add type hints to all of your python code? please respond with the full blog post, including the type hints.
+
+# === ASSISTANT ===
+
++++
+title = "Learn Reinforcement Learning with PyTorch, Part 3.1: The Perceptron—Oldest Neural Network"
+author = "Artintellica"
+date = "2024-06-09"
++++
+
+## Introduction
+
+Welcome to **Module 3: Neural Networks—Building Blocks and Training**! Today you’ll go back to the very roots of deep learning: the **perceptron**. Invented in the 1950s, the perceptron is the simplest neural network—an algorithm for classifying points by a weighted sum and a threshold. Every modern neural net layer (including all of deep RL) is a direct descendant of this little algorithm!
+
+You will:
+
+- Learn the perceptron's math and why it works.
+- Implement the update rule from scratch in PyTorch.
+- Train the perceptron on linearly separable and non-separable data.
+- Visualize decision boundaries and analyze successes and failures.
+
+Let’s awaken the ancestor of all modern AI.
+
+---
+
+## Mathematics: The Classic Perceptron
+
+The perceptron is a binary classifier for input $\mathbf{x} \in \mathbb{R}^d$. Given weights $\mathbf{w} \in \mathbb{R}^d$ and bias $b$:
+
+$$
+\text{output } \hat{y} = \begin{cases}
+1 & \text{if } \mathbf{w}^\top\mathbf{x} + b > 0 \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+**Learning rule:**  
+For each data point $(\mathbf{x}_i, y_i)$, if the prediction is incorrect:
+- For $y_i = 1$: increase weights toward $\mathbf{x}_i$ (make output more likely $>0$)
+- For $y_i = 0$: decrease weights toward $\mathbf{x}_i$ (make output more likely $<0$)
+
+The parameter update after each sample:
+
+$$
+\mathbf{w} \leftarrow \mathbf{w} + \eta \, (y_i - \hat{y}_i) \, \mathbf{x}_i \\
+b \leftarrow b + \eta \, (y_i - \hat{y}_i)
+$$
+
+Where $\eta$ is the learning rate.
+
+**Key property:** If the data is linearly separable, this algorithm finds a separating hyperplane in finite steps.
+
+---
+
+## Explanation: How the Math Connects to Code
+
+The perceptron models the **simplest neural network**—a single weighted sum followed by a step function. At each step through the data, the perceptron checks if its prediction matches the true label:
+- If **correct**, do nothing.
+- If **wrong**, it nudges the weights toward or away from the input, shifting the decision boundary accordingly. This process is repeated over several "epochs".
+
+**Training loop:**
+- Loop over the data; after each data point, update parameters only if misclassified.
+- Repeat for several epochs, updating the boundary after each.
+
+**Visualizing the boundary**:  
+Since the perceptron produces a linear separator (a line in 2D), you can plot this line after each epoch. On non-separable data, the perceptron will not converge, highlighting an important limitation compared to modern neural nets.
+
+---
+
+## Python Demonstrations
+
+### Demo 1: Implement the Perceptron Update Rule for a Binary Task
+
+```python
+import torch
+
+def perceptron_step(
+    x: torch.Tensor, 
+    y: float, 
+    w: torch.Tensor, 
+    b: float, 
+    lr: float = 1.0
+) -> tuple[torch.Tensor, float]:
+    """
+    x: input vector (d,)
+    y: true label (0 or 1)
+    w: weight vector (d,)
+    b: bias (scalar)
+    Returns updated w, b
+    """
+    # Prediction: if w^T x + b > 0: 1 else 0
+    z: float = torch.dot(w, x).item() + b
+    y_pred: float = 1.0 if z > 0 else 0.0
+    if y != y_pred:
+        # Update rule
+        w = w + lr * (y - y_pred) * x
+        b = b + lr * (y - y_pred)
+    return w, b
+
+# Simple test
+w: torch.Tensor = torch.zeros(2)
+b: float = 0.0
+x: torch.Tensor = torch.tensor([1.0, -1.0])
+y: float = 1.0
+w, b = perceptron_step(x, y, w, b)
+print("Updated w/b:", w, b)
+```
+
+---
+
+### Demo 2: Train the Perceptron on Linearly Separable Data
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate simple separable data
+np.random.seed(0)
+N: int = 40
+X0: np.ndarray = np.random.randn(N, 2) + np.array([2,2])
+X1: np.ndarray = np.random.randn(N, 2) + np.array([-2,-2])
+X: np.ndarray = np.concatenate([X0, X1])
+y: np.ndarray = np.concatenate([np.ones(N), np.zeros(N)])
+
+X_t: torch.Tensor = torch.tensor(X, dtype=torch.float32)
+y_t: torch.Tensor = torch.tensor(y, dtype=torch.float32)
+w: torch.Tensor = torch.zeros(2)
+b: float = 0.0
+
+epochs: int = 12
+boundary_history: list[tuple[torch.Tensor, float]] = []
+
+for epoch in range(epochs):
+    for i in range(len(X)):
+        w, b = perceptron_step(X_t[i], y_t[i].item(), w, b, lr=0.7)
+    boundary_history.append((w.clone(), b))
+
+print("Final weights:", w, "Final bias:", b)
+```
+
+---
+
+### Demo 3: Visualize Decision Boundary After Each Epoch
+
+```python
+def plot_perceptron_decision(
+    X: np.ndarray, 
+    y: np.ndarray, 
+    boundary_history: list[tuple[torch.Tensor, float]]
+) -> None:
+    plt.figure(figsize=(8,5))
+    plt.scatter(X[y==0,0], X[y==0,1], color="orange", label="Class 0")
+    plt.scatter(X[y==1,0], X[y==1,1], color="blue", label="Class 1")
+    x_vals: np.ndarray = np.array(plt.gca().get_xlim())
+    for i, (w, b) in enumerate(boundary_history):
+        # Line: w1*x + w2*y + b = 0 => y = (-w1*x - b)/w2
+        if w[1].abs() > 1e-6:
+            y_vals = (-w[0].item() * x_vals - b) / w[1].item()
+            plt.plot(x_vals, y_vals, alpha=0.3 + 0.7*i/len(boundary_history), label=f"Epoch {i+1}" if i==len(boundary_history)-1 else None)
+    plt.legend(); plt.title("Perceptron Decision Boundary Evolution")
+    plt.xlabel("x1"); plt.ylabel("x2")
+    plt.show()
+
+plot_perceptron_decision(X, y, boundary_history)
+```
+
+---
+
+### Demo 4: Test on Non-Separable Data and Analyze Behavior
+
+```python
+# Make non-separable data (add noise and overlap)
+np.random.seed(3)
+N: int = 40
+X0_ns: np.ndarray = np.random.randn(N, 2) + np.array([1,1])
+X1_ns: np.ndarray = np.random.randn(N, 2) + np.array([2,2])
+X_ns: np.ndarray = np.concatenate([X0_ns, X1_ns])
+y_ns: np.ndarray = np.concatenate([np.zeros(N), np.ones(N)])
+
+X_t_ns: torch.Tensor = torch.tensor(X_ns, dtype=torch.float32)
+y_t_ns: torch.Tensor = torch.tensor(y_ns, dtype=torch.float32)
+w_ns: torch.Tensor = torch.zeros(2)
+b_ns: float = 0.0
+boundary_history_ns: list[tuple[torch.Tensor, float]] = []
+
+for epoch in range(12):
+    for i in range(len(X_ns)):
+        w_ns, b_ns = perceptron_step(X_t_ns[i], y_t_ns[i].item(), w_ns, b_ns, lr=0.7)
+    boundary_history_ns.append((w_ns.clone(), b_ns))
+
+plot_perceptron_decision(X_ns, y_ns, boundary_history_ns)
+print("Final weights (non-separable):", w_ns, "Final bias:", b_ns)
+```
+
+---
+
+## Exercises
+
+### **Exercise 1:** Implement the Perceptron Update Rule for a Binary Task
+
+- Write a function or code block that updates weights $w$ and bias $b$ given one sample $(x, y)$, as above.
+
+---
+
+### **Exercise 2:** Train the Perceptron on Linearly Separable Data
+
+- Generate two clearly separate clusters in 2D.
+- Train the perceptron for 10+ epochs using your update rule.
+- Plot how decision boundary evolves over epochs.
+
+---
+
+### **Exercise 3:** Visualize Decision Boundary After Each Epoch
+
+- After every epoch, store current $w$ and $b$.
+- Plot all boundaries together (use transparency so they overlay).
+- See how the classifier converges to a perfect separator.
+
+---
+
+### **Exercise 4:** Test on Non-Separable Data and Analyze Behavior
+
+- Generate two noisy overlapping clusters.
+- Train and plot as above.
+- Does the perceptron converge? What does the final boundary look like?
+
+---
+
+### **Sample Starter Code for Exercises**
+
+```python
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+
+def perceptron_step(
+    x: torch.Tensor, 
+    y: float, 
+    w: torch.Tensor, 
+    b: float, 
+    lr: float = 1.0
+) -> tuple[torch.Tensor, float]:
+    z: float = torch.dot(w, x).item() + b
+    y_pred: float = 1.0 if z > 0 else 0.0
+    if y != y_pred:
+        w = w + lr * (y - y_pred) * x
+        b = b + lr * (y - y_pred)
+    return w, b
+
+# EXERCISE 1: Already shown in demo
+
+# EXERCISE 2: Linearly separable data
+np.random.seed(1)
+N: int = 50
+X0: np.ndarray = np.random.randn(N, 2) + np.array([3,3])
+X1: np.ndarray = np.random.randn(N, 2) + np.array([-3,-3])
+X: np.ndarray = np.vstack([X0, X1])
+y: np.ndarray = np.hstack([np.ones(N), np.zeros(N)])
+X_t: torch.Tensor = torch.tensor(X, dtype=torch.float32)
+y_t: torch.Tensor = torch.tensor(y, dtype=torch.float32)
+w: torch.Tensor = torch.zeros(2)
+b: float = 0.0
+history: list[tuple[torch.Tensor, float]] = []
+for epoch in range(15):
+    for i in range(len(X)):
+        w, b = perceptron_step(X_t[i], y_t[i].item(), w, b, lr=0.9)
+    history.append((w.clone(), b))
+# EXERCISE 3
+def plot_perceptron(
+    X: np.ndarray, 
+    y: np.ndarray, 
+    history: list[tuple[torch.Tensor, float]]
+) -> None:
+    plt.scatter(X[y==0, 0], X[y==0, 1], c='red', label='Class 0')
+    plt.scatter(X[y==1, 0], X[y==1, 1], c='blue', label='Class 1')
+    x_vals: np.ndarray = np.linspace(X[:,0].min(), X[:,0].max(), 100)
+    for i, (w_, b_) in enumerate(history):
+        if abs(w_[1]) > 1e-4:
+            y_vals = (-w_[0].item() * x_vals - b_) / w_[1].item()
+            plt.plot(x_vals, y_vals, alpha=(i+1)/len(history), label=f'Epoch {i+1}' if i == len(history)-1 else None)
+    plt.xlabel('x1'); plt.ylabel('x2'); plt.legend(); plt.show()
+plot_perceptron(X, y, history)
+
+# EXERCISE 4: Non-separable case
+np.random.seed(11)
+X0_ns: np.ndarray = np.random.randn(N, 2) + np.array([1,1])
+X1_ns: np.ndarray = np.random.randn(N, 2) + np.array([2,2])
+X_ns: np.ndarray = np.vstack([X0_ns, X1_ns])
+y_ns: np.ndarray = np.hstack([np.zeros(N), np.ones(N)])
+X_t_ns: torch.Tensor = torch.tensor(X_ns, dtype=torch.float32)
+y_t_ns: torch.Tensor = torch.tensor(y_ns, dtype=torch.float32)
+w_ns: torch.Tensor = torch.zeros(2)
+b_ns: float = 0.0
+history_ns: list[tuple[torch.Tensor, float]] = []
+for epoch in range(15):
+    for i in range(len(X_ns)):
+        w_ns, b_ns = perceptron_step(X_t_ns[i], y_t_ns[i].item(), w_ns, b_ns, lr=0.9)
+    history_ns.append((w_ns.clone(), b_ns))
+plot_perceptron(X_ns, y_ns, history_ns)
+```
+
+---
+
+## Conclusion
+
+You’ve brought the world’s first artificial neuron to life! Today, you:
+
+- Implemented the classic perceptron and its update rule.
+- Saw how learning linear boundaries works—and what happens when a simple model hits the limits of what it can separate.
+- Gained skills in visualizing how decision boundaries evolve through learning.
+
+**Up next:** We’ll move beyond perceptrons to networks of neurons—deep learning’s true power—and you’ll implement neural nets by hand and with PyTorch’s tools.
+
+*The foundation is set—now let’s go deep! See you in Part 3.2.*
+
+# === USER ===
+
+ok, now can you please write the blog post for module 3, part 2? the description is:
+
+### 2. Feedforward Neural Networks from Scratch (No nn.Module)
+
+* **Exercise 1:** Implement a two-layer neural network using tensors and matrix ops.
+* **Exercise 2:** Forward propagate and compute loss for a batch of inputs.
+* **Exercise 3:** Backpropagate gradients manually (by hand or using PyTorch’s autograd).
+* **Exercise 4:** Train the model and plot loss over epochs.
+
+please include math, explanations, python demonstrations, and python exercises as usual (including an "explanation" section after the math section). also, please include type hints in all of the python code.
+
+# === ASSISTANT ===
+
++++
+title = "Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)"
+author = "Artintellica"
+date = "2024-06-09"
++++
+
+## Introduction
+
+Welcome back! In the last lesson, you implemented and visualized the perceptron—the building block for all neural networks. Today, you'll learn how to construct and train **feedforward neural networks (multilayer perceptrons) from scratch**, using only tensors, matrix multiplications, and autograd—**no `nn.Module` or convenience libraries!**
+
+This bootstraps your intuition for how NNs work under the hood—and will serve you well both in RL and practical ML engineering.
+
+---
+
+## Mathematics: Two-Layer Neural Network
+
+A **two-layer neural network** for input $\mathbf{x} \in \mathbb{R}^{d_\text{in}}$, hidden dimension $h$, and output size $d_\text{out}$ is:
+
+**Layer 1 (hidden):**
+$$
+\mathbf{h} = f(\mathbf{x} W_1 + \mathbf{b}_1)
+$$
+
+**Layer 2 (output):**
+$$
+\mathbf{o} = \mathbf{h} W_2 + \mathbf{b}_2
+$$
+
+Where
+- $W_1 \in \mathbb{R}^{d_\text{in} \times h}$, $\mathbf{b}_1 \in \mathbb{R}^{h}$
+- $W_2 \in \mathbb{R}^{h \times d_\text{out}}$, $\mathbf{b}_2 \in \mathbb{R}^{d_\text{out}}$
+- $f$ is a nonlinear activation (e.g. ReLU, sigmoid, tanh)
+
+For classification, $\mathbf{o}$ is sent to softmax (for cross-entropy loss).
+
+---
+
+## Explanation: How the Math Connects to Code
+
+- **Weights and biases** are tensors you initialize and update (*not* `nn.Linear` modules).
+- **Forward pass**:  
+    1. Multiply inputs $X$ by $W_1$ and add $b_1$ (matrix multiply + broadcast).  
+    2. Apply nonlinear activation, e.g. ReLU.  
+    3. Multiply by $W_2$ and add $b_2$ for class logits.
+- **Loss:** Use cross-entropy between logits and integer labels.
+- **Backward pass:**  
+    - If you want maximum insight, you can manually compute gradients using chain rule.
+    - Or, let PyTorch `autograd` handle derivatives by calling `.backward()` after computing loss.
+
+This is the backbone of modern ML and RL—autograd or not, everything boils down to math on tensors and gradients.
+
+---
+
+## Python Demonstrations
+
+We’ll use a synthetic 2D classification dataset (moons or blobs) for demonstration.
+
+### Demo 1: Implement a Two-Layer Neural Network Using Tensors and Matrix Ops
+
+```python
+import torch
+import torch.nn.functional as F
+from typing import Tuple
+
+def relu(x: torch.Tensor) -> torch.Tensor:
+    return torch.clamp(x, min=0.0)
+
+def two_layer_forward(
+    X: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor, 
+    W2: torch.Tensor, b2: torch.Tensor
+) -> torch.Tensor:
+    # X: (N, d_in), W1: (d_in, h), b1: (h,), W2: (h, d_out), b2: (d_out,)
+    hidden: torch.Tensor = relu(X @ W1 + b1)
+    output: torch.Tensor = hidden @ W2 + b2
+    return output  # logits (N, d_out)
+```
+
+---
+
+### Demo 2: Forward Propagate and Compute Loss for a Batch of Inputs
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate 2D data (moons)
+def make_moons(n_samples: int = 200, noise: float = 0.18) -> Tuple[torch.Tensor, torch.Tensor]:
+    n: int = n_samples // 2
+    theta: np.ndarray = np.pi * np.random.rand(n)
+    x0: np.ndarray = np.stack([np.cos(theta), np.sin(theta)], axis=1)
+    x1: np.ndarray = np.stack([1 - np.cos(theta), 1 - np.sin(theta)], axis=1) + np.array([0.6, -0.4])
+    X: np.ndarray = np.vstack([x0, x1])
+    X = X + noise * np.random.randn(*X.shape)
+    y: np.ndarray = np.hstack([np.zeros(n), np.ones(n)])
+    return torch.tensor(X, dtype=torch.float32), torch.tensor(y, dtype=torch.long)
+
+torch.manual_seed(42)
+np.random.seed(42)
+X, y = make_moons(200, noise=0.22)
+
+# Initialize weights/biases for 2-10-2 network
+N, d_in = X.shape
+h = 10
+d_out = 2
+W1: torch.Tensor = torch.randn(d_in, h, requires_grad=True) * 0.1
+b1: torch.Tensor = torch.zeros(h, requires_grad=True)
+W2: torch.Tensor = torch.randn(h, d_out, requires_grad=True) * 0.1
+b2: torch.Tensor = torch.zeros(d_out, requires_grad=True)
+
+# Forward
+logits: torch.Tensor = two_layer_forward(X, W1, b1, W2, b2)
+loss: torch.Tensor = F.cross_entropy(logits, y)
+print("Initial loss:", loss.item())
+```
+
+---
+
+### Demo 3: Backpropagate Gradients Manually (autograd or by hand)
+
+#### (a) Using PyTorch autograd
+
+```python
+# Zero grads
+for param in [W1, b1, W2, b2]:
+    if param.grad is not None:
+        param.grad.zero_()
+
+loss.backward()
+print("W1.grad shape:", W1.grad.shape)
+print("b1.grad shape:", b1.grad.shape)
+print("W2.grad shape:", W2.grad.shape)
+print("b2.grad shape:", b2.grad.shape)
+```
+
+#### (b) (Optional) Manual Gradients (by hand)
+Manually computing gradients for all weights is a classic exercise in chain rule. For most real tasks, use autograd for accuracy and simplicity.
+
+---
+
+### Demo 4: Train the Model and Plot Loss Over Epochs
+
+```python
+def train_nn(
+    X: torch.Tensor, y: torch.Tensor, 
+    W1: torch.Tensor, b1: torch.Tensor, W2: torch.Tensor, b2: torch.Tensor, 
+    epochs: int = 300, lr: float = 0.08
+) -> list[float]:
+    loss_hist: list[float] = []
+    for epoch in range(epochs):
+        logits = two_layer_forward(X, W1, b1, W2, b2)
+        loss = F.cross_entropy(logits, y)
+        # Zero gradients
+        for param in [W1, b1, W2, b2]:
+            if param.grad is not None:
+                param.grad.zero_()
+        loss.backward()
+        with torch.no_grad():
+            W1 -= lr * W1.grad
+            b1 -= lr * b1.grad
+            W2 -= lr * W2.grad
+            b2 -= lr * b2.grad
+        loss_hist.append(loss.item())
+        if epoch % 60 == 0 or epoch == epochs-1:
+            print(f"Epoch {epoch}: loss {loss.item():.4f}")
+    return loss_hist
+
+losses: list[float] = train_nn(X, y, W1, b1, W2, b2, epochs=300, lr=0.07)
+plt.plot(losses)
+plt.title("Training Loss")
+plt.xlabel("Epoch")
+plt.ylabel("Cross-Entropy Loss")
+plt.grid(True)
+plt.show()
+```
+
+---
+
+## Exercises
+
+### **Exercise 1:** Implement a Two-Layer Neural Network Using Tensors and Matrix Ops
+
+- Explicitly define and initialize $W_1$, $b_1$, $W_2$, $b_2$ tensors (with gradients).
+- Implement a function for forward pass with ReLU.
+
+---
+
+### **Exercise 2:** Forward Propagate and Compute Loss for a Batch of Inputs
+
+- For your synthetic batch, compute logits (before softmax) and cross-entropy loss.
+
+---
+
+### **Exercise 3:** Backpropagate Gradients Manually (using autograd)
+
+- Call `.backward()` on loss.
+- Print gradients for each parameter.
+- Zero the gradients and repeat.
+
+---
+
+### **Exercise 4:** Train the Model and Plot Loss Over Epochs
+
+- Using your training loop, fit the network for 200+ epochs.
+- Plot the loss curve.
+- (Optional) Visualize the decision boundary by predicting over a grid.
+
+---
+
+### **Sample Starter Code for Exercises**
+
+```python
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+from typing import Tuple
+
+def relu(x: torch.Tensor) -> torch.Tensor:
+    return torch.clamp(x, min=0.0)
+
+# EXERCISE 1
+def two_layer_forward(
+    X: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor, 
+    W2: torch.Tensor, b2: torch.Tensor
+) -> torch.Tensor:
+    h = relu(X @ W1 + b1)
+    out = h @ W2 + b2
+    return out
+
+# EXERCISE 2
+def make_blobs(
+    n_samples: int = 200, centers: int = 2, random_state: int = 42
+) -> Tuple[torch.Tensor, torch.Tensor]:
+    np.random.seed(random_state)
+    X = np.vstack([
+        np.random.randn(n_samples // centers, 2) + np.array([i*2, i*2]) 
+        for i in range(centers)
+    ])
+    y = np.hstack([np.full(n_samples // centers, i) for i in range(centers)])
+    return torch.tensor(X, dtype=torch.float32), torch.tensor(y, dtype=torch.long)
+
+X, y = make_blobs(200, 2)
+N, d_in = X.shape
+h = 12; d_out = 2
+W1: torch.Tensor = torch.randn(d_in, h, requires_grad=True) * 0.05
+b1: torch.Tensor = torch.zeros(h, requires_grad=True)
+W2: torch.Tensor = torch.randn(h, d_out, requires_grad=True) * 0.05
+b2: torch.Tensor = torch.zeros(d_out, requires_grad=True)
+
+out: torch.Tensor = two_layer_forward(X, W1, b1, W2, b2)
+loss: torch.Tensor = torch.nn.functional.cross_entropy(out, y)
+print('Initial loss:', loss.item())
+
+# EXERCISE 3
+for p in [W1, b1, W2, b2]:
+    if p.grad is not None:
+        p.grad.zero_()
+loss.backward()
+for p in [W1, b1, W2, b2]:
+    print(f"Grad shape {p.shape}: max abs {p.grad.abs().max().item()}")
+
+# EXERCISE 4
+def train_nn(
+    X: torch.Tensor, y: torch.Tensor, W1: torch.Tensor, b1: torch.Tensor, 
+    W2: torch.Tensor, b2: torch.Tensor, 
+    epochs: int = 200, lr: float = 0.07
+) -> list[float]:
+    loss_hist: list[float] = []
+    for epoch in range(epochs):
+        output = two_layer_forward(X, W1, b1, W2, b2)
+        loss = torch.nn.functional.cross_entropy(output, y)
+        # zero gradients
+        for p in [W1, b1, W2, b2]:
+            if p.grad is not None:
+                p.grad.zero_()
+        loss.backward()
+        with torch.no_grad():
+            W1 -= lr * W1.grad
+            b1 -= lr * b1.grad
+            W2 -= lr * W2.grad
+            b2 -= lr * b2.grad
+        loss_hist.append(loss.item())
+    return loss_hist
+
+loss_hist: list[float] = train_nn(X, y, W1, b1, W2, b2, epochs=250, lr=0.05)
+plt.plot(loss_hist)
+plt.xlabel('Epoch'); plt.ylabel('Loss'); plt.title('Training Loss'); plt.grid(); plt.show()
+```
+
+---
+
+## Conclusion
+
+You’ve constructed a real neural network *by hand* in PyTorch, built up the full forward and backward logic, and watched your model learn. These are the real nuts and bolts behind every deep reinforcement learning agent and modern classifier.
+
+**Up next:** You’ll discover PyTorch’s higher-level abstractions (`nn.Module` and layers), making your life easier as you scale up your architectures.
+
+*Congrats—now you know how the engine runs! See you in Part 3.3.*
+
+# === USER ===
+
+
