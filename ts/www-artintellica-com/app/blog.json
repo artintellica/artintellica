@@ -575,5 +575,12 @@
     "date": "2024-06-11",
     "code": "https://artintellica.com/blog/0073-rl-torch-26-classification.md",
     "content": ""
+  },
+  {
+    "filename": "0074-rl-torch-27-softmax.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 2.7: Softmax and Multiclass Classification",
+    "author": "Artintellica",
+    "date": "2024-06-11",
+    "content": ""
   }
 ]
