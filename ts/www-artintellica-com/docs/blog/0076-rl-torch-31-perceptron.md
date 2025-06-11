@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 3.1: The Perceptron—Oldest Neural Network"
 author = "Artintellica"
 date = "2024-06-11"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0076-rl-torch-31-perceptron"
 +++
 
 ## Introduction
