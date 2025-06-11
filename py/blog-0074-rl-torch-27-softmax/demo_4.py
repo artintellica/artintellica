@@ -1,7 +1,6 @@
 import torch
 import matplotlib.pyplot as plt
 import torch.nn.functional as F
-import numpy as np
 
 torch.manual_seed(42)
 N = 300
