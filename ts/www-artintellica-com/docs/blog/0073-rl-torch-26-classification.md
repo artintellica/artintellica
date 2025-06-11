@@ -1,8 +1,8 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 2.6: Classification Basics—Logistic Regression"
 author = "Artintellica"
-date = "2024-06-11"
-code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0073-rl-torch-26-classification"
+date = "2024-06-10"
+code = "https://artintellica.com/blog/0073-rl-torch-26-classification.md"
 +++
 
 ## Introduction
@@ -50,6 +50,37 @@ L_{\text{BCE}} = -\frac{1}{n} \sum_{i=1}^n \left[ y_i\log p_i + (1-y_i)\log(1-p_
 $$
 
 where $p_i = \sigma(\mathbf{w}^\top\mathbf{x}_i + b)$.
+
+---
+
+## Explanation: How the Math Connects to Code
+
+**Logistic regression** is a linear model for binary classification. Each input
+$\mathbf{x}$ is mapped to a "logit" (real-valued score), which is then squashed
+through the sigmoid function to produce a probability between 0 and 1. The
+decision boundary is defined by the set of points where the probability is
+exactly 0.5—this is a line in 2D, or a hyperplane in higher dimensions.
+
+To **train** the model, we measure how closely the predicted probabilities match
+the actual binary labels using the BCE loss, which strongly penalizes confident
+but wrong predictions. The gradient of this loss with respect to the model's
+weights and bias can be computed automatically (or by hand), allowing us to
+update them with gradient descent (or an optimizer).
+
+In the **code**, you’ll:
+
+- Build a dataset of two clusters in 2D (using multivariate Gaussians), each
+  assigned a label.
+- Use tensor operations to implement the forward computation: compute logits
+  (`X @ w`), apply the sigmoid (for probability), and calculate loss using the
+  BCE formula.
+- Update weights with gradient descent, either manually or with PyTorch’s
+  optimizer.
+- After training, visualize the decision boundary (where $p=0.5$) and compute
+  the model's accuracy.
+
+This hands-on process illustrates the essential steps in nearly all RL and deep
+learning classification problems.
 
 ---
 
