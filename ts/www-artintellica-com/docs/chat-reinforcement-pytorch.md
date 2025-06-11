@@ -5086,4 +5086,13 @@ Let me know if you’d like more implementation or mathematical context!
 
 # === USER ===
 
+ok, let's move onto the next blog post. the description is:
 
+### 7. Softmax and Multiclass Classification
+
+* **Exercise 1:** Generate synthetic data for three classes.
+* **Exercise 2:** Implement softmax and cross-entropy loss manually.
+* **Exercise 3:** Train a multiclass classifier with PyTorch’s `nn.CrossEntropyLoss`.
+* **Exercise 4:** Plot the class boundaries in 2D.
+
+please add math, explanations, python demonstrations, and python exercises as usual (including an "explanation" section after the math section).
