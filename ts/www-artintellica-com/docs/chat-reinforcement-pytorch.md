@@ -6630,4 +6630,13 @@ You’ve coded a two-layer neural network "from scratch" using only tensors and 
 
 # === USER ===
 
+great, now can you please write the blog post for module 3, part 3? the description is:
 
+### 3. Building with `torch.nn`: The Convenient Way
+
+* **Exercise 1:** Rewrite previous NN using `nn.Module`.
+* **Exercise 2:** Compare number of lines and readability.
+* **Exercise 3:** Add a hidden layer and train on data.
+* **Exercise 4:** Save and load model weights.
+
+please include math, explanations, python demonstrations, and python exercises as usual (including an "explanation" section after the math section). also, please include type hints in all of the python code.
