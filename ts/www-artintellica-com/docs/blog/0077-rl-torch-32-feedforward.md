@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)"
 author = "Artintellica"
 date = "2024-06-11"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0077-rl-torch-32-feedforward"
 +++
 
 ## Introduction
