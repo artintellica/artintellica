@@ -21,14 +21,6 @@ def make_moons(n_samples=200, noise=0.1):
 torch.manual_seed(42)
 np.random.seed(42)
 X, y = make_moons(200, noise=0.2)
-plt.scatter(X[y == 0, 0], X[y == 0, 1], c="r", label="Class 0", alpha=0.6)
-plt.scatter(X[y == 1, 0], X[y == 1, 1], c="b", label="Class 1", alpha=0.6)
-plt.legend()
-plt.xlabel("x1")
-plt.ylabel("x2")
-plt.title("Two Moons Data")
-plt.show()
-
 
 model = nn.Sequential(
     nn.Linear(2, 10), nn.ReLU(), nn.Linear(10, 2)  # 2 outputs = logits for 2 classes
