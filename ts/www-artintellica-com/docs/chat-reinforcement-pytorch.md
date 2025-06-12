@@ -7347,4 +7347,13 @@ Let me know if you’d like more info on PyTorch model typing conventions or bes
 
 # === USER ===
 
+great, now can you please write the blog post for module 3, part 4? the description is:
 
+### 4. Activation Functions: Sigmoid, Tanh, ReLU, LeakyReLU, etc.
+
+* **Exercise 1:** Plot different activation functions.
+* **Exercise 2:** Train small NNs with each activation on the same task; compare convergence.
+* **Exercise 3:** Observe vanishing/exploding gradients by visualizing gradients.
+* **Exercise 4:** Swap activation mid-training and observe changes.
+
+please include math, explanations, python demonstrations, and python exercises as usual (including an "explanation" section after the math section). also, please include type hints in all of the python code.

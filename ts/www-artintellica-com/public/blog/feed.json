@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0079-rl-torch-34-activation.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0079-rl-torch-34-activation.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 3.4: Activation Functions—Sigmoid, Tanh, ReLU, LeakyReLU, etc.",
+            "date_modified": "2024-06-12T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0060-rl-torch-12-vectors.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors",
             "date_modified": "2024-06-09T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0059-rl-torch-11-introduction.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0059-rl-torch-11-introduction.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 1.1: Introduction—The Course, the Blog, and Why PyTorch",
-            "date_modified": "2024-06-10T07:00:00.000Z"
         }
     ]
 }
