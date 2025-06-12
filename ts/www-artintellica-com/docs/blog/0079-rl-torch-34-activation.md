@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 3.4: Activation Functions—Sigmoid, Tanh, ReLU, LeakyReLU, etc."
 author = "Artintellica"
 date = "2024-06-12"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0079-rl-torch-34-activation"
 +++
 
 ## Introduction
@@ -30,29 +31,22 @@ deep RL agent!
 passing it to the next layer. Let $z \in \mathbb{R}$ be a neuron’s
 pre-activation input.
 
-- **Sigmoid:** $$ \sigma(z) = \frac{1}{1 + e^{-z}}
+- **Sigmoid:** $ \sigma(z) = \frac{1}{1 + e^{-z}} $
 
-  $$
   Derivative: $\sigma'(z) = \sigma(z) (1 - \sigma(z))$
-  $$
 
-- **Tanh:** $$ \tanh(z) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}
+- **Tanh:** $ \tanh(z) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}} $
 
-  $$
   Derivative: $1 - \tanh^2(z)$
-  $$
 
-- **ReLU:** $$ \mathrm{ReLU}(z) = \max(0, z)
+- **ReLU:** $ \mathrm{ReLU}(z) = \max(0, z)$
 
-  $$
   Derivative: $1$ if $z > 0$, $0$ otherwise
-  $$
 
-- **LeakyReLU:** $$ \mathrm{LeakyReLU}(z) = \begin{cases} z & \text{if } z \geq
-  0 \\ \alpha z & \text{if } z < 0 \end{cases}
-  $$
+- **LeakyReLU:** $ \mathrm{LeakyReLU}(z) = \begin{cases} z & \text{if } z \geq 0
+  \\ \alpha z & \text{if } z < 0 \end{cases}$
+
   Typical $\alpha = 0.01$.
-  $$
 
 **The effects:**
 
