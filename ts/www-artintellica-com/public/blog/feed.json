@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0080-rl-torch-35-backpropagation.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0080-rl-torch-35-backpropagation.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 3.5: Backpropagation—Intuition and Hands-On Example",
+            "date_modified": "2024-06-12T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0079-rl-torch-34-activation.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0079-rl-torch-34-activation.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0061-rl-torch-13-operations.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 1.3: Basic Vector Operations—Addition, Scalar Multiplication, and Dot Product",
             "date_modified": "2024-06-10T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0060-rl-torch-12-vectors.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0060-rl-torch-12-vectors.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 1.2: Vectors and Scalars—Hands-On with PyTorch Tensors",
-            "date_modified": "2024-06-09T07:00:00.000Z"
         }
     ]
 }
