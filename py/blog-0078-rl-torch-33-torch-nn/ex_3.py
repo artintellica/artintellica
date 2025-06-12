@@ -1,3 +1,4 @@
+from __future__ import annotations
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -35,3 +36,43 @@ optimizer.zero_grad()
 loss.backward()
 optimizer.step()
 print("Loss:", loss.item())
+
+
+class MyDeepNet(nn.Module):
+    def __init__(
+        self, input_dim: int = 2, h1: int = 6, h2: int = 5, output_dim: int = 2
+    ) -> None:
+        super().__init__()
+        self.fc1: nn.Linear = nn.Linear(input_dim, h1)
+        self.fc2: nn.Linear = nn.Linear(h1, h2)
+        self.fc3: nn.Linear = nn.Linear(h2, output_dim)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        h1: torch.Tensor = F.relu(self.fc1(x))
+        h2: torch.Tensor = F.relu(self.fc2(h1))
+        return self.fc3(h2)
+
+
+# Data
+torch.manual_seed(0)
+N: int = 100
+X: torch.Tensor = torch.randn(N, 2)
+y: torch.Tensor = (X[:, 0] + X[:, 1] > 0).long()
+net: MyDeepNet = MyDeepNet()
+optim: torch.optim.Optimizer = torch.optim.Adam(net.parameters(), lr=0.06)
+losses: list[float] = []
+for epoch in range(60):
+    logits: torch.Tensor = net(X)
+    loss: torch.Tensor = nn.functional.cross_entropy(logits, y)
+    optim.zero_grad()
+    loss.backward()
+    optim.step()
+    losses.append(loss.item())
+import matplotlib.pyplot as plt
+
+plt.plot(losses)
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.title("DeepNet Training Loss")
+plt.grid(True)
+plt.show()
