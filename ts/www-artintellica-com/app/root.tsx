@@ -32,7 +32,7 @@ export const meta: Route.MetaFunction = () => {
     { title: "Artintellica" },
     {
       name: "description",
-      content: "Open-source AI resources.",
+      content: "Learn machine learning with AI.",
     },
   ];
 };

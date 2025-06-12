@@ -21,6 +21,16 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
   return { blogPosts: newBlogPosts };
 };
 
+export const meta: Route.MetaFunction = () => {
+  return [
+    { title: "Artintellica: Learn machine learning with AI." },
+    {
+      name: "description",
+      content: "Learn machine learning with AI.",
+    },
+  ];
+};
+
 export default function IndexPage({ loaderData }: Route.ComponentProps) {
   const { blogPosts } = loaderData;
   return (
@@ -33,20 +43,22 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
           className="block"
         />
       </div>
-        <div className="my-4 hidden dark:block">
-          <img
-            src={("/images/artintellica-text-white.png")}
-            alt="Artintellica"
-            className="mx-auto block w-[250px]"
-          />
-        </div>
-        <div className="my-4 block dark:hidden">
-          <img
-            src={("/images/artintellica-text-black.png")}
-            alt="Artintellica"
-            className="mx-auto block w-[250px]"
-          />
-        </div>
+      <div className="my-4 hidden dark:block">
+        <img
+          draggable={false}
+          src={"/images/artintellica-text-white.png"}
+          alt="Artintellica"
+          className="mx-auto block w-[250px]"
+        />
+      </div>
+      <div className="my-4 block dark:hidden">
+        <img
+          draggable={false}
+          src={"/images/artintellica-text-black.png"}
+          alt="Artintellica"
+          className="mx-auto block w-[250px]"
+        />
+      </div>
       <h2 className="my-4 text-center text-black dark:text-white">
         Learn machine learning with AI.
       </h2>
