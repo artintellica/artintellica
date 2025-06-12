@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 3.8: Mini-Project—MNIST Digit Classifier (Shallow NN)"
 author = "Artintellica"
-date = "2024-06-09"
+date = "2024-06-12"
 +++
 
 ## Introduction

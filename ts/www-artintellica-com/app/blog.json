@@ -647,5 +647,12 @@
     "date": "2024-06-12",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0082-rl-torch-37-dropout",
     "content": ""
+  },
+  {
+    "filename": "0083-rl-torch-38-project.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 3.8: Mini-Project—MNIST Digit Classifier (Shallow NN)",
+    "author": "Artintellica",
+    "date": "2024-06-09",
+    "content": ""
   }
 ]
