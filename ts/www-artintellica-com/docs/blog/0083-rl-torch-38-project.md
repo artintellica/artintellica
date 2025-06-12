@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 3.8: Mini-Project—MNIST Digit Classifier (Shallow NN)"
 author = "Artintellica"
 date = "2024-06-12"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0083-rl-torch-38-project"
 +++
 
 ## Introduction
@@ -31,16 +32,29 @@ A simple neural classifier:
 - **Hidden Layer:** E.g., $H=128$ units, ReLU activation
 - **Output Layer:** $10$ units, softmax activation (one per digit)
 
-**Forward pass:** \[ \begin{align*} h &= \mathrm{ReLU}(Wx + b) \\ \hat{y} &=
-\mathrm{softmax}(Wh + b) \end{align*} \]
+**Forward pass:**
+
+$$
+\begin{align*}
+h &= \mathrm{ReLU}(Wx + b) \\
+\hat{y} &= \mathrm{softmax}(Wh + b)
+\end{align*}
+$$
 
 **Loss:**  
-Use cross-entropy loss for classification: \[ L = -\sum\_{k=0}^9 y_k \log
-\hat{y}\_k \] where $y_k$ is the one-hot label.
+Use cross-entropy loss for classification:
 
-**Accuracy:**  
-\[ \mathrm{acc} = \frac{\text{\# correct predictions}}{\text{total predictions}}
-\]
+$$
+L = -\sum_{k=0}^9 y_k \log \hat{y}_k
+$$
+
+where $y_k$ is the one-hot label.
+
+**Accuracy:**
+
+$$
+\mathrm{acc} = \frac{\text{\# correct predictions}}{\text{total predictions}}
+$$
 
 ---
 
