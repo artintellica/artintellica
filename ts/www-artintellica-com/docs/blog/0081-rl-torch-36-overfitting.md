@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 3.6: Overfitting, Underfitting, and Regularization"
 author = "Artintellica"
 date = "2024-06-12"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0081-rl-torch-36-overfitting"
 +++
 
 ## Introduction
