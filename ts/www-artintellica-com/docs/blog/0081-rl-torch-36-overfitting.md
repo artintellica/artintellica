@@ -1,16 +1,21 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 3.6: Overfitting, Underfitting, and Regularization"
 author = "Artintellica"
-date = "2024-06-09"
+date = "2024-06-12"
 +++
 
 ## Introduction
 
-Now that you can build and train neural networks, you need to learn the art of **generalization**. A powerful model is not useful unless it does well on *new data*! In machine learning and RL, two classic “fail states” appear: **overfitting** and **underfitting**. Mastery of these—and their fixes—makes your models reliable in the wild.
+Now that you can build and train neural networks, you need to learn the art of
+**generalization**. A powerful model is not useful unless it does well on _new
+data_! In machine learning and RL, two classic “fail states” appear:
+**overfitting** and **underfitting**. Mastery of these—and their fixes—makes
+your models reliable in the wild.
 
 In this post, you'll:
 
-- Fit and compare models on small (overfit-prone) vs. large (underfit-prone) datasets.
+- Fit and compare models on small (overfit-prone) vs. large (underfit-prone)
+  datasets.
 - Add noise and see how it tempts your model to memorize rather than generalize.
 - Apply **L2 regularization** ("weight decay") to reduce overfitting.
 - Experimentally vary model complexity and measure the effect on accuracy.
@@ -19,15 +24,21 @@ In this post, you'll:
 
 ## Mathematics: Overfitting, Underfitting, and L2 Regularization
 
-- **Overfitting:** Model fits training set *too* closely, including noise. Train loss $\to 0$ but test loss $\gg 0$.
-- **Underfitting:** Model is too simple to capture the true pattern. Both losses are high.
-- **The solution:** Find a model that minimizes *test loss*, not just train loss.
+- **Overfitting:** Model fits training set _too_ closely, including noise. Train
+  loss $\to 0$ but test loss $\gg 0$.
+- **Underfitting:** Model is too simple to capture the true pattern. Both losses
+  are high.
+- **The solution:** Find a model that minimizes _test loss_, not just train
+  loss.
 
 ### Losses (Train/Test)
 
 Given:
-- **Train loss:** $L_{\text{train}} = \frac{1}{N_\text{train}} \sum_{i=1}^{N_\text{train}} L(y_i, \hat{y}_i)$
-- **Test loss:** $L_{\text{test}} = \frac{1}{N_\text{test}} \sum_{i=1}^{N_\text{test}} L(y_j, \hat{y}_j)$
+
+- **Train loss:**
+  $L_{\text{train}} = \frac{1}{N_\text{train}} \sum_{i=1}^{N_\text{train}} L(y_i, \hat{y}_i)$
+- **Test loss:**
+  $L_{\text{test}} = \frac{1}{N_\text{test}} \sum_{i=1}^{N_\text{test}} L(y_j, \hat{y}_j)$
 
 ### L2 Regularization (Weight Decay)
 
@@ -46,12 +57,16 @@ $$
 
 In code, you handle generalization by:
 
-- **Splitting data:** Train your model on a subset (train set), but judge performance on *unseen* data (test set).
-- **Overfitting/underfitting detection:** Plot *both* train and test loss as training progresses.
-    - Overfitting: training loss plunges, test loss climbs.
-    - Underfitting: both losses high or stagnant.
-- **L2 regularization:** In PyTorch, set `weight_decay` in your optimizer, or manually add to the loss during training.
-- **Model complexity:** Experiment with small/large nets or high/low degree polynomials, and see how flexibility relates to overfitting/underfitting.
+- **Splitting data:** Train your model on a subset (train set), but judge
+  performance on _unseen_ data (test set).
+- **Overfitting/underfitting detection:** Plot _both_ train and test loss as
+  training progresses.
+  - Overfitting: training loss plunges, test loss climbs.
+  - Underfitting: both losses high or stagnant.
+- **L2 regularization:** In PyTorch, set `weight_decay` in your optimizer, or
+  manually add to the loss during training.
+- **Model complexity:** Experiment with small/large nets or high/low degree
+  polynomials, and see how flexibility relates to overfitting/underfitting.
 
 You’ll see these phenomena visually—crucial for practical RL and ML development.
 
@@ -196,8 +211,10 @@ plt.grid(True); plt.show()
 
 ### **Exercise 1:** Fit a Model to Small and Large Datasets, Plot Train/Test Loss
 
-- Generate two datasets: one small (e.g., $N=20$) and one large (e.g., $N=100$), from a nonlinear true function (e.g., $\sin(x) + 0.5x$).
-- Train a small neural net on the small set, and evaluate loss on the large test set each epoch.
+- Generate two datasets: one small (e.g., $N=20$) and one large (e.g., $N=100$),
+  from a nonlinear true function (e.g., $\sin(x) + 0.5x$).
+- Train a small neural net on the small set, and evaluate loss on the large test
+  set each epoch.
 - Plot and compare train vs. test loss.
 
 ---
@@ -212,14 +229,16 @@ plt.grid(True); plt.show()
 
 ### **Exercise 3:** Apply L2 Regularization and Observe the Effect
 
-- Retrain your model on noisy data, varying `weight_decay` in the optimizer (e.g., 0, 0.01, 0.1).
+- Retrain your model on noisy data, varying `weight_decay` in the optimizer
+  (e.g., 0, 0.01, 0.1).
 - Compare test set loss over epochs.
 
 ---
 
 ### **Exercise 4:** Vary Model Complexity and Record Accuracy
 
-- For several hidden layer widths (e.g., 2, 8, 16, 32, 64), train and evaluate models.
+- For several hidden layer widths (e.g., 2, 8, 16, 32, 64), train and evaluate
+  models.
 - For each, compute test $R^2$ or accuracy.
 - Plot test accuracy vs. model size.
 
@@ -331,11 +350,14 @@ plt.grid(True); plt.show()
 
 You have now:
 
-- Diagnosed overfitting and underfitting by measuring and plotting train/test loss
+- Diagnosed overfitting and underfitting by measuring and plotting train/test
+  loss
 - Seen how noise and small datasets make models memorize instead of generalize
-- Applied L2 regularization to reduce model complexity and overfitting  
+- Applied L2 regularization to reduce model complexity and overfitting
 - Explored how model size affects learning and accuracy
 
-**Next:** You’ll learn more regularization tricks—Dropout, L2, and how PyTorch makes regularized training fast and easy.
+**Next:** You’ll learn more regularization tricks—Dropout, L2, and how PyTorch
+makes regularized training fast and easy.
 
-*Keep experimenting: these skills give your models staying power in the real world! See you in Part 3.7!*
+_Keep experimenting: these skills give your models staying power in the real
+world! See you in Part 3.7!_

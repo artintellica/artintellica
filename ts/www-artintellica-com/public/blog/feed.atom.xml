@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-12T22:06:59.563Z</updated>
+    <updated>2025-06-12T22:34:12.820Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.6: Overfitting, Underfitting, and Regularization]]></title>
+        <id>https://artintellica.com/blog/0081-rl-torch-36-overfitting.md</id>
+        <link href="https://artintellica.com/blog/0081-rl-torch-36-overfitting.md"/>
+        <updated>2024-06-12T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.6: Overfitting, Underfitting, and Regularization]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.5: Backpropagation—Intuition and Hands-On Example]]></title>
         <id>https://artintellica.com/blog/0080-rl-torch-35-backpropagation.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0062-rl-torch-14-matrices.md"/>
         <updated>2024-06-10T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.4: Matrices—Construction, Shapes, and Basic Operations]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.3: Basic Vector Operations—Addition, Scalar Multiplication, and Dot Product]]></title>
-        <id>https://artintellica.com/blog/0061-rl-torch-13-operations.md</id>
-        <link href="https://artintellica.com/blog/0061-rl-torch-13-operations.md"/>
-        <updated>2024-06-10T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.3: Basic Vector Operations—Addition, Scalar Multiplication, and Dot Product]]></summary>
     </entry>
 </feed>
