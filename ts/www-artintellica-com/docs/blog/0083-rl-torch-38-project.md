@@ -6,55 +6,56 @@ date = "2024-06-12"
 
 ## Introduction
 
-Let’s bring together the skills you’ve developed so far and apply them to an iconic deep learning task: **classifying handwritten digits** with the MNIST dataset. In this mini-project, you will:
+Let’s bring together the skills you’ve developed so far and apply them to an
+iconic deep learning task: **classifying handwritten digits** with the MNIST
+dataset. In this mini-project, you will:
 
 - Download & load the MNIST dataset using PyTorch’s torchvision.
 - Build and train a shallow neural network to recognize digits 0–9.
 - Evaluate model performance with a confusion matrix.
 - Visualize both correct and incorrect predictions directly from the images.
 
-By running through these classic steps, you’ll learn core deep learning workflow skills transferrable to RL, vision, and more.
+By running through these classic steps, you’ll learn core deep learning workflow
+skills transferrable to RL, vision, and more.
 
 ---
 
 ## Mathematics: Classification with Shallow Neural Nets
 
-**MNIST** images are $28\times28$ grayscale images—each a vector $x\in\mathbb{R}^{784}$.
+**MNIST** images are $28\times28$ grayscale images—each a vector
+$x\in\mathbb{R}^{784}$.
 
 A simple neural classifier:
+
 - **Input Layer:** Flattened image ($784$ features)
 - **Hidden Layer:** E.g., $H=128$ units, ReLU activation
 - **Output Layer:** $10$ units, softmax activation (one per digit)
 
-**Forward pass:**
-\[
-\begin{align*}
-h &= \mathrm{ReLU}(Wx + b) \\
-\hat{y} &= \mathrm{softmax}(Wh + b)
-\end{align*}
-\]
+**Forward pass:** \[ \begin{align*} h &= \mathrm{ReLU}(Wx + b) \\ \hat{y} &=
+\mathrm{softmax}(Wh + b) \end{align*} \]
 
 **Loss:**  
-Use cross-entropy loss for classification:
-\[
-L = -\sum_{k=0}^9 y_k \log \hat{y}_k
-\]
-where $y_k$ is the one-hot label.
+Use cross-entropy loss for classification: \[ L = -\sum\_{k=0}^9 y_k \log
+\hat{y}\_k \] where $y_k$ is the one-hot label.
 
 **Accuracy:**  
-\[
-\mathrm{acc} = \frac{\text{\# correct predictions}}{\text{total predictions}}
+\[ \mathrm{acc} = \frac{\text{\# correct predictions}}{\text{total predictions}}
 \]
 
 ---
 
 ## Explanation: How the Math Connects to Code
 
-- **Data loading:** Use PyTorch’s torchvision.datasets to download and access images and labels as Tensors.
-- **Model:** Compose layers with `nn.Sequential` or subclass `nn.Module`. For a shallow net, often one hidden layer is enough for MNIST to reach 97%+ accuracy.
+- **Data loading:** Use PyTorch’s torchvision.datasets to download and access
+  images and labels as Tensors.
+- **Model:** Compose layers with `nn.Sequential` or subclass `nn.Module`. For a
+  shallow net, often one hidden layer is enough for MNIST to reach 97%+
+  accuracy.
 - **Training:** Use cross-entropy loss and an optimizer (e.g., Adam or SGD).
-- **Evaluation:** Track accuracy per epoch. Build a confusion matrix for more insight—this shows which digits are misclassified.
-- **Visualization:** Use matplotlib to display sample images, including which predictions were correct and which weren’t.
+- **Evaluation:** Track accuracy per epoch. Build a confusion matrix for more
+  insight—this shows which digits are misclassified.
+- **Visualization:** Use matplotlib to display sample images, including which
+  predictions were correct and which weren’t.
 
 ---
 
@@ -193,14 +194,16 @@ plt.show()
 
 ### **Exercise 1:** Download and Load the MNIST Dataset Using PyTorch
 
-- Use `torchvision.datasets.MNIST` to load training and test datasets as tensors.
+- Use `torchvision.datasets.MNIST` to load training and test datasets as
+  tensors.
 - Create train/test `DataLoader` objects.
 
 ---
 
 ### **Exercise 2:** Build and Train a Shallow NN on MNIST
 
-- Implement a neural net with one hidden layer (ReLU) and an output softmax (10 classes).
+- Implement a neural net with one hidden layer (ReLU) and an output softmax (10
+  classes).
 - Train for a few epochs (3–8).
 - Track and print out training accuracy (and optionally loss).
 
@@ -208,7 +211,8 @@ plt.show()
 
 ### **Exercise 3:** Plot Confusion Matrix of Predictions
 
-- After training, use `sklearn.metrics.confusion_matrix` to compute the test set confusion matrix (true vs. predicted labels).
+- After training, use `sklearn.metrics.confusion_matrix` to compute the test set
+  confusion matrix (true vs. predicted labels).
 - Visualize with `ConfusionMatrixDisplay` or matplotlib’s imshow.
 
 ---
@@ -216,7 +220,8 @@ plt.show()
 ### **Exercise 4:** Visualize a Few Correctly and Incorrectly Classified Digits
 
 - Identify indices of correct and incorrect predictions.
-- Use `plt.imshow()` to display image tensors for a sample of each group, showing both predicted and true labels.
+- Use `plt.imshow()` to display image tensors for a sample of each group,
+  showing both predicted and true labels.
 
 ---
 
@@ -306,8 +311,15 @@ plt.show()
 
 ## Conclusion
 
-You’ve now completed a classic ML mini-project—training, evaluating, and interpreting a shallow neural net digit classifier with PyTorch. You’re ready to scale up to deeper models or leverage these skills for RL agents with real, raw input. If you’ve never built a deep learning app before, this is a firm step into the practical world.
+You’ve now completed a classic ML mini-project—training, evaluating, and
+interpreting a shallow neural net digit classifier with PyTorch. You’re ready to
+scale up to deeper models or leverage these skills for RL agents with real, raw
+input. If you’ve never built a deep learning app before, this is a firm step
+into the practical world.
 
-**Next:** We’ll continue building RL intuition by connecting your neural network skills to reinforcement learning’s “loop”—states, actions, rewards, and learning policies!
+**Next:** We’ll continue building RL intuition by connecting your neural network
+skills to reinforcement learning’s “loop”—states, actions, rewards, and learning
+policies!
 
-Stay curious and try tweaking your net or data to beat your own accuracy! See you in Part 4.1!
+Stay curious and try tweaking your net or data to beat your own accuracy! See
+you in Part 4.1!
