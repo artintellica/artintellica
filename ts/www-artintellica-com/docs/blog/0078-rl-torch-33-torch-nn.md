@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way"
 author = "Artintellica"
 date = "2024-06-12"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0078-rl-torch-33-torch-nn"
 +++
 
 ## Introduction
