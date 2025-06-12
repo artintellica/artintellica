@@ -33,9 +33,20 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
           className="block"
         />
       </div>
-      <h1 className="mt-4 text-center font-bold text-2xl text-black dark:text-white">
-        Artintellica
-      </h1>
+        <div className="my-4 hidden dark:block">
+          <img
+            src={("/images/artintellica-text-white.png")}
+            alt="Artintellica"
+            className="mx-auto block w-[250px]"
+          />
+        </div>
+        <div className="my-4 block dark:hidden">
+          <img
+            src={("/images/artintellica-text-black.png")}
+            alt="Artintellica"
+            className="mx-auto block w-[250px]"
+          />
+        </div>
       <h2 className="my-4 text-center text-black dark:text-white">
         Learn machine learning with AI.
       </h2>
