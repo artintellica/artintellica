@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 3.5: Backpropagation—Intuition and Hands-On Example"
 author = "Artintellica"
 date = "2024-06-12"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0080-rl-torch-35-backpropagation"
 +++
 
 ## Introduction
