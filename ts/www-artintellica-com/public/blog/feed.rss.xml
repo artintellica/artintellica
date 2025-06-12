@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Thu, 12 Jun 2025 23:22:51 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 12 Jun 2025 23:23:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.8: Mini-Project—MNIST Digit Classifier (Shallow NN)]]></title>
             <link>https://artintellica.com/blog/0083-rl-torch-38-project.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0083-rl-torch-38-project.md</guid>
-            <pubDate>Sun, 09 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Wed, 12 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.8: Mini-Project—MNIST Digit Classifier (Shallow NN)]]></description>
         </item>
         <item>
