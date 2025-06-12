@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way"
 author = "Artintellica"
-date = "2024-06-11"
+date = "2024-06-12"
 +++
 
 ## Introduction
@@ -13,10 +13,11 @@ and ML practitioner uses `nn.Module` for defining models.
 
 In this post, you’ll:
 
-- Rewrite a two-layer neural network using `nn.Module`
-- Compare line count and readability with the tensor-only approach
-- Add another hidden layer and see how easy network depth becomes
-- Learn to save and reload model weights for reproducibility and deployment
+- Rewrite a two-layer neural network using `nn.Module` from scratch, with all
+  definitions included.
+- Compare line count and readability with the tensor-only approach.
+- Add another hidden layer and see how easy network depth becomes.
+- Learn to save and reload model weights for reproducibility and deployment.
 
 Let’s see why—and how—PyTorch’s object-oriented approach saves time and
 headaches.
@@ -71,6 +72,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+# Define a two-layer neural network fully inside a class
 class SimpleNet(nn.Module):
     def __init__(self, input_dim: int, hidden_dim: int, output_dim: int) -> None:
         super().__init__()
@@ -81,7 +83,7 @@ class SimpleNet(nn.Module):
         logits: torch.Tensor = self.fc2(h)
         return logits
 
-# Instantiate and print
+# Example: instantiate and print the model
 model: SimpleNet = SimpleNet(2, 8, 2)
 print(model)
 ```
@@ -90,7 +92,8 @@ print(model)
 
 ### Demo 2: Compare Number of Lines and Readability
 
-Let’s train on some data with an optimizer, and see how little code is needed.
+Let’s train on some synthetic data and see how `nn.Module` streamlines the
+process.
 
 ```python
 import matplotlib.pyplot as plt
@@ -124,14 +127,15 @@ plt.grid(True)
 plt.show()
 ```
 
-You can see: training, parameter updates, and device-handling are now concise
-and readable—no more worrying about manually managing gradients!
+It’s clear: training, updates, and device-handling are now concise and
+readable—no need to hand-manage gradients!
 
 ---
 
 ### Demo 3: Add a Hidden Layer and Train on Data
 
 ```python
+# Define a deeper feedforward network with two hidden layers
 class DeepNet(nn.Module):
     def __init__(self, input_dim: int, hidden1: int, hidden2: int, output_dim: int) -> None:
         super().__init__()
@@ -146,7 +150,6 @@ class DeepNet(nn.Module):
 
 model_deep: DeepNet = DeepNet(2, 16, 8, 2)
 optimizer_deep: torch.optim.Optimizer = torch.optim.Adam(model_deep.parameters(), lr=0.05)
-
 losses_deep: list[float] = []
 for epoch in range(100):
     logits: torch.Tensor = model_deep(X)
@@ -170,11 +173,11 @@ plt.show()
 ### Demo 4: Save and Load Model Weights
 
 ```python
-# Save
+# Save model weights to disk
 torch.save(model_deep.state_dict(), "deepnet_weights.pth")
-print("Weights saved.")
+print("Weights saved to deepnet_weights.pth")
 
-# Load into new model instance (must match architecture)
+# Load weights into a new instance (architecture must match)
 model_loaded: DeepNet = DeepNet(2, 16, 8, 2)
 model_loaded.load_state_dict(torch.load("deepnet_weights.pth"))
 print("Weights loaded. Sample output:", model_loaded(X[:5]))
@@ -184,62 +187,75 @@ print("Weights loaded. Sample output:", model_loaded(X[:5]))
 
 ## Exercises
 
-### **Exercise 1:** Rewrite Previous NN Using `nn.Module`
+### **Exercise 1:** Define a Two-Layer Neural Network Using `nn.Module`
 
-- Define a class (subclass `nn.Module`) with two layers, ReLU activation.
-- Implement `forward` method.
-
----
-
-### **Exercise 2:** Compare Number of Lines and Readability
-
-- Write out both the tensor/matrix version and the `nn.Module` version of a
-  two-layer network.
-- Count lines and compare readability for a full training loop.
-
----
-
-### **Exercise 3:** Add a Hidden Layer and Train on Data
-
-- Extend your model to a three-layer network (with two hidden layers).
-- Train for at least 60 epochs and plot loss.
-
----
-
-### **Exercise 4:** Save and Load Model Weights
-
-- Save your trained model’s weights.
-- Instantiate a new (same architecture) model and load the weights.
-- Verify that predictions before and after loading are identical.
-
----
-
-### **Sample Starter Code for Exercises**
+- Define a Python class `MyNet` that subclasses `torch.nn.Module`.
+- It should have a hidden layer of size 6, ReLU activation, and an output layer
+  for 2-class classification.
+- Define and use a `forward()` method that passes an input tensor through your
+  network.
 
 ```python
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import matplotlib.pyplot as plt
 
-# EXERCISE 1
-class TinyNet(nn.Module):
-    def __init__(self, input_dim: int, hidden_dim: int, output_dim: int) -> None:
+class MyNet(nn.Module):
+    def __init__(self, input_dim: int = 2, hidden_dim: int = 6, output_dim: int = 2) -> None:
         super().__init__()
         self.fc1: nn.Linear = nn.Linear(input_dim, hidden_dim)
         self.fc2: nn.Linear = nn.Linear(hidden_dim, output_dim)
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         h: torch.Tensor = F.relu(self.fc1(x))
-        return self.fc2(h)
-model: TinyNet = TinyNet(2, 8, 2)
-print(model)
+        out: torch.Tensor = self.fc2(h)
+        return out
 
-# EXERCISE 2
-# Compare with manual/tensor version (see last blog) vs this Module style
+# Create dummy input and check shape
+model: MyNet = MyNet()
+x_sample: torch.Tensor = torch.randn(4, 2)
+logits: torch.Tensor = model(x_sample)
+print("Logits shape:", logits.shape)  # Should be (4, 2)
+```
 
-# EXERCISE 3
-class DeeperNet(nn.Module):
-    def __init__(self, input_dim: int, h1: int, h2: int, output_dim: int) -> None:
+---
+
+### **Exercise 2:** Compare Number of Lines and Readability
+
+- Use the above `MyNet` as your base model.
+- Compare this to a manual/tensor approach (as seen in previous posts) using
+  equivalent input/output.
+- Show and count lines in both versions for a forward pass and one training
+  step.
+
+```python
+# Using MyNet
+optimizer: torch.optim.Optimizer = torch.optim.Adam(model.parameters(), lr=0.05)
+loss_fn: nn.Module = nn.CrossEntropyLoss()
+x_batch: torch.Tensor = torch.randn(8, 2)
+y_batch: torch.Tensor = torch.randint(0, 2, (8,))
+logits: torch.Tensor = model(x_batch)
+loss: torch.Tensor = loss_fn(logits, y_batch)
+optimizer.zero_grad()
+loss.backward()
+optimizer.step()
+print("Loss:", loss.item())
+```
+
+_Try to code an equivalent manual approach and compare for yourself!_
+
+---
+
+### **Exercise 3:** Add a Hidden Layer and Train on Data
+
+- Add a _second_ hidden layer to your `MyNet` class with 5 units, activations
+  between layers.
+- Generate 100 random 2D data points and assign class labels (e.g., class 1 if
+  x0 + x1 > 0).
+- Train for 60 epochs and plot the loss curve.
+
+```python
+class MyDeepNet(nn.Module):
+    def __init__(self, input_dim: int = 2, h1: int = 6, h2: int = 5, output_dim: int = 2) -> None:
         super().__init__()
         self.fc1: nn.Linear = nn.Linear(input_dim, h1)
         self.fc2: nn.Linear = nn.Linear(h1, h2)
@@ -248,32 +264,44 @@ class DeeperNet(nn.Module):
         h1: torch.Tensor = F.relu(self.fc1(x))
         h2: torch.Tensor = F.relu(self.fc2(h1))
         return self.fc3(h2)
+
+# Data
 torch.manual_seed(0)
 N: int = 100
 X: torch.Tensor = torch.randn(N, 2)
 y: torch.Tensor = (X[:,0] + X[:,1] > 0).long()
-net: DeeperNet = DeeperNet(2, 12, 5, 2)
-opt: torch.optim.Optimizer = torch.optim.Adam(net.parameters(), lr=0.06)
+net: MyDeepNet = MyDeepNet()
+optim: torch.optim.Optimizer = torch.optim.Adam(net.parameters(), lr=0.06)
 losses: list[float] = []
-for epoch in range(70):
+for epoch in range(60):
     logits: torch.Tensor = net(X)
-    loss: torch.Tensor = F.cross_entropy(logits, y)
-    opt.zero_grad()
+    loss: torch.Tensor = nn.functional.cross_entropy(logits, y)
+    optim.zero_grad()
     loss.backward()
-    opt.step()
+    optim.step()
     losses.append(loss.item())
+import matplotlib.pyplot as plt
 plt.plot(losses)
 plt.xlabel("Epoch"); plt.ylabel("Loss")
-plt.title("Three-Layer NN Loss")
+plt.title("DeepNet Training Loss")
 plt.grid(True); plt.show()
+```
 
-# EXERCISE 4
+---
+
+### **Exercise 4:** Save and Load Model Weights
+
+- After training `MyDeepNet`, save model weights to disk.
+- Instantiate a new `MyDeepNet`, load the weights, and verify that predictions
+  are identical.
+
+```python
 # Save model
-torch.save(net.state_dict(), "deepnn_weights.pth")
-# Load into new model
-net2: DeeperNet = DeeperNet(2, 12, 5, 2)
-net2.load_state_dict(torch.load("deepnn_weights.pth"))
-# Verify
+torch.save(net.state_dict(), "mydeepnet_weights.pth")
+# Load into a new instance
+net2: MyDeepNet = MyDeepNet()
+net2.load_state_dict(torch.load("mydeepnet_weights.pth"))
+# Check equality
 out1: torch.Tensor = net(X[:5])
 out2: torch.Tensor = net2(X[:5])
 print("Predictions equal after reload:", torch.allclose(out1, out2))
@@ -292,9 +320,9 @@ nn.Module**. With just a few lines, you now:
 - Understand how high-level abstractions save time, reduce bugs, and let you
   focus more on ideas.
 
-**Up next:** You’ll explore and visualize the nonlinear building block of deep
-nets: the **activation function**. You’ll see how these unlock expressivity and
-speed up learning.
+**Up next:** You’ll explore and visualize nonlinear neural network building
+blocks—**activation functions**—and see how these unlock expressivity and speed
+up learning.
 
-_You’re now building neural nets “the real way”. Take pride in your
+_You’re now building neural nets “the real way.” Take pride in your
 object-oriented power—see you in Part 3.4!_
