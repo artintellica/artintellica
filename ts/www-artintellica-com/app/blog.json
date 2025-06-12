@@ -639,5 +639,12 @@
     "date": "2024-06-12",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0081-rl-torch-36-overfitting",
     "content": ""
+  },
+  {
+    "filename": "0082-rl-torch-37-dropout.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 3.7: Dropout, L2, and Other Regularization in PyTorch",
+    "author": "Artintellica",
+    "date": "2024-06-12",
+    "content": ""
   }
 ]
