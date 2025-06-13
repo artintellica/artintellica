@@ -35,9 +35,9 @@ In this post, you’ll:
 ### **Upper Confidence Bound (UCB)**
 
 For each arm $k$:
-\[
+$$
 Q_k(t) + c \sqrt{\frac{\ln t}{N_k(t)}}
-\]
+$$
 - Exploit arms with higher estimates $Q_k(t)$, but also explore arms with fewer pulls $N_k(t)$.
 
 ### **Thompson Sampling**
