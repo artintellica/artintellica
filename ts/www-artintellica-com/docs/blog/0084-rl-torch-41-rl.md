@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 4.1: What is Reinforcement Learning? RL vs. Supervised/Unsupervised"
 author = "Artintellica"
-date = "2025-06-15"
+date = "2025-06-13"
 +++
 
 ## Introduction
