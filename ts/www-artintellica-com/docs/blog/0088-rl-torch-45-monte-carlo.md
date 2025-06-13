@@ -6,7 +6,10 @@ date = "2025-06-13"
 
 ## Introduction
 
-Reinforcement Learning isn't just about Q-learning or SARSA—at their core are powerful value estimation ideas: **Monte Carlo (MC)** and **Temporal Difference (TD)** learning. These methods let you estimate how good it is to be in a state, with different trade-offs in bias/variance and speed of learning.
+Reinforcement Learning isn't just about Q-learning or SARSA—at their core are
+powerful value estimation ideas: **Monte Carlo (MC)** and **Temporal Difference
+(TD)** learning. These methods let you estimate how good it is to be in a state,
+with different trade-offs in bias/variance and speed of learning.
 
 In this post, you'll:
 
@@ -21,13 +24,17 @@ In this post, you'll:
 
 ### **Monte Carlo (MC) Estimation**
 
-Suppose you're estimating the value of state $s$: $V(s) = \mathbb{E}[G_t \mid s_t = s]$  
-where $G_t$ is the **return** (sum of rewards over the episode, possibly discounted) starting from timestep $t$.
+Suppose you're estimating the value of state $s$:
+$V(s) = \mathbb{E}[G_t \mid s_t = s]$  
+where $G_t$ is the **return** (sum of rewards over the episode, possibly
+discounted) starting from timestep $t$.
 
 **Update Rule (after each episode):**
+
 $$
 V(s) \leftarrow V(s) + \alpha \, [G - V(s)]
 $$
+
 where $G$ is the observed return for the visit to $s$ in the episode.
 
 - MC waits until the episode is over before updating.
@@ -49,12 +56,17 @@ $$
 
 ## Explanation: MC and TD in Code
 
-- **State Value Table:** Store $V(s)$ for each state $s$ (could use a NumPy array for small MDPs).
-- **MC:** Track full episodes, then reward-to-go for each visited state; update $V(s)$ after trajectories.
-- **TD(0):** Update $V(s)$ immediately after every transition, using $r_t + \gamma V(s_{t+1})$ as the target.
+- **State Value Table:** Store $V(s)$ for each state $s$ (could use a NumPy
+  array for small MDPs).
+- **MC:** Track full episodes, then reward-to-go for each visited state; update
+  $V(s)$ after trajectories.
+- **TD(0):** Update $V(s)$ immediately after every transition, using
+  $r_t + \gamma V(s_{t+1})$ as the target.
 - **Tracking:** Store $V(s)$ after each episode to observe/plot convergence.
-- **Policy Improvement:** With better $V(s)$, you can act greedier (e.g., always pick the action that leads to the best $V(s')$).
-- **FrozenLake:** Use Gymnasium to get a challenging, stochastic MDP with visualizable states.
+- **Policy Improvement:** With better $V(s)$, you can act greedier (e.g., always
+  pick the action that leads to the best $V(s')$).
+- **FrozenLake:** Use Gymnasium to get a challenging, stochastic MDP with
+  visualizable states.
 
 ---
 
@@ -146,7 +158,8 @@ plt.grid(); plt.show()
 
 ### Demo 3: Compare Convergence of MC and TD(0)
 
-Notice the *relative speed and stability* in the plots above—TD often converges faster or is less noisy in small MDPs. Try varying $\alpha$ or $\gamma$!
+Notice the _relative speed and stability_ in the plots above—TD often converges
+faster or is less noisy in small MDPs. Try varying $\alpha$ or $\gamma$!
 
 ---
 
@@ -168,6 +181,7 @@ best_policy_td = greedy_policy(V_td)
 print("Greedy policy from MC values:", best_policy_mc)
 print("Greedy policy from TD values:", best_policy_td)
 ```
+
 Now, simulate a few episodes using this policy and compute average total reward.
 
 ---
@@ -251,7 +265,8 @@ plt.show()
 
 #### Project Exercise: Visualize Value Function Estimates on FrozenLake-v1
 
-- Use random or $\varepsilon$-greedy exploration to estimate $V(s)$ for all states via TD(0).
+- Use random or $\varepsilon$-greedy exploration to estimate $V(s)$ for all
+  states via TD(0).
 - Visualize the final value function as a grid.
 
 ---
@@ -308,8 +323,12 @@ def run_episode_TD(V):
 
 ## Conclusion
 
-You now understand how RL can estimate the value of a state from sampled experience—by waiting for full returns (MC), or updating after each step (TD). You’ve seen the learning curves and how these methods drive practical RL agents, even in real environments like FrozenLake.
+You now understand how RL can estimate the value of a state from sampled
+experience—by waiting for full returns (MC), or updating after each step (TD).
+You’ve seen the learning curves and how these methods drive practical RL agents,
+even in real environments like FrozenLake.
 
-Next, you’ll connect value and policy—moving from estimates to decisions, and learn the Bellman equations that structure *all* of RL.
+Next, you’ll connect value and policy—moving from estimates to decisions, and
+learn the Bellman equations that structure _all_ of RL.
 
 See you in Part 4.6!
