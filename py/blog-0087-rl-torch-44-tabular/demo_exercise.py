@@ -2,8 +2,8 @@ import gymnasium as gym
 import numpy as np
 
 env = gym.make("Taxi-v3", render_mode="ansi")
-n_states = env.observation_space.n
-n_actions = env.action_space.n
+n_states = env.observation_space.n # type: ignore
+n_actions = env.action_space.n # type: ignore
 
 Q = np.zeros((n_states, n_actions))
 episodes = 1800
@@ -23,7 +23,7 @@ for ep in range(episodes):
             a = np.argmax(Q[s])
         s2, r, terminated, truncated, _ = env.step(a)
         done = terminated or truncated
-        Q[s, a] += alpha * (r + gamma * np.max(Q[s2]) - Q[s, a])
+        Q[s, a] += alpha * (r + gamma * np.max(Q[s2]) - Q[s, a]) # type: ignore
         s = s2
         count += 1
     lengths.append(count)
