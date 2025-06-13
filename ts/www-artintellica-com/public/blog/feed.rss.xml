@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Fri, 13 Jun 2025 17:29:38 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 13 Jun 2025 17:32:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.4: Tabular Value-Based Methods—Q-Learning and SARSA]]></title>
+            <link>https://artintellica.com/blog/0087-rl-torch-44-tabular.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0087-rl-torch-44-tabular.md</guid>
+            <pubDate>Fri, 13 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.4: Tabular Value-Based Methods—Q-Learning and SARSA]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.3: Bandit Problems—Exploration vs. Exploitation]]></title>
             <link>https://artintellica.com/blog/0086-rl-torch-43-bandit.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0068-rl-torch-21-gradient.md</guid>
             <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.1: Introduction to Gradient Descent—Math and Code]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.9: Mini-Project—Visualizing and Transforming Data with Tensors]]></title>
-            <link>https://artintellica.com/blog/0067-rl-torch-19-visualizing.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0067-rl-torch-19-visualizing.md</guid>
-            <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.9: Mini-Project—Visualizing and Transforming Data with Tensors]]></description>
         </item>
     </channel>
 </rss>

@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0087-rl-torch-44-tabular.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0087-rl-torch-44-tabular.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 4.4: Tabular Value-Based Methods—Q-Learning and SARSA",
+            "date_modified": "2025-06-13T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0086-rl-torch-43-bandit.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0086-rl-torch-43-bandit.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0068-rl-torch-21-gradient.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 2.1: Introduction to Gradient Descent—Math and Code",
-            "date_modified": "2024-06-10T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0067-rl-torch-19-visualizing.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0067-rl-torch-19-visualizing.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 1.9: Mini-Project—Visualizing and Transforming Data with Tensors",
             "date_modified": "2024-06-10T07:00:00.000Z"
         }
     ]

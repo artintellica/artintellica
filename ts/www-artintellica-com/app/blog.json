@@ -679,5 +679,12 @@
     "date": "2025-06-13",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0086-rl-torch-43-bandit",
     "content": ""
+  },
+  {
+    "filename": "0087-rl-torch-44-tabular.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 4.4: Tabular Value-Based Methods—Q-Learning and SARSA",
+    "author": "Artintellica",
+    "date": "2025-06-13",
+    "content": ""
   }
 ]
