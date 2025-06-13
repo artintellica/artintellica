@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Fri, 13 Jun 2025 14:39:55 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 13 Jun 2025 14:42:40 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies]]></title>
+            <link>https://artintellica.com/blog/0085-rl-torch-42-markov.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0085-rl-torch-42-markov.md</guid>
+            <pubDate>Fri, 13 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.1: What is Reinforcement Learning? RL vs. Supervised/Unsupervised]]></title>
             <link>https://artintellica.com/blog/0084-rl-torch-41-rl.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0066-rl-torch-18-transformations.md</guid>
             <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.8: Linear Transformations and Simple Data Transformations]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections]]></title>
-            <link>https://artintellica.com/blog/0065-rl-torch-17-geometry.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0065-rl-torch-17-geometry.md</guid>
-            <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections]]></description>
         </item>
     </channel>
 </rss>

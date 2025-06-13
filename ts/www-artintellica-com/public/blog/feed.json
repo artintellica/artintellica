@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0085-rl-torch-42-markov.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0085-rl-torch-42-markov.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies",
+            "date_modified": "2025-06-13T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0084-rl-torch-41-rl.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0084-rl-torch-41-rl.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0066-rl-torch-18-transformations.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 1.8: Linear Transformations and Simple Data Transformations",
-            "date_modified": "2024-06-10T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0065-rl-torch-17-geometry.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0065-rl-torch-17-geometry.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections",
             "date_modified": "2024-06-10T07:00:00.000Z"
         }
     ]

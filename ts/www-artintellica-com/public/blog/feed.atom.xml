@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-13T14:39:55.411Z</updated>
+    <updated>2025-06-13T14:42:40.518Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies]]></title>
+        <id>https://artintellica.com/blog/0085-rl-torch-42-markov.md</id>
+        <link href="https://artintellica.com/blog/0085-rl-torch-42-markov.md"/>
+        <updated>2025-06-13T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.1: What is Reinforcement Learning? RL vs. Supervised/Unsupervised]]></title>
         <id>https://artintellica.com/blog/0084-rl-torch-41-rl.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0066-rl-torch-18-transformations.md"/>
         <updated>2024-06-10T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.8: Linear Transformations and Simple Data Transformations]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections]]></title>
-        <id>https://artintellica.com/blog/0065-rl-torch-17-geometry.md</id>
-        <link href="https://artintellica.com/blog/0065-rl-torch-17-geometry.md"/>
-        <updated>2024-06-10T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 1.7: Geometry with Tensors—Norms, Distance, Angles, and Projections]]></summary>
     </entry>
 </feed>
