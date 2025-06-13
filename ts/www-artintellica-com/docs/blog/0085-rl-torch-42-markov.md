@@ -31,8 +31,8 @@ An **MDP** is defined by the tuple $(\mathcal{S}, \mathcal{A}, P, R, \gamma)$:
 - $R$ — **reward function**: $R(s,a)$ or $R(s,a,s')$, expected immediate reward
 - $\gamma$ — **discount factor**: $0 \leq \gamma \leq 1$
 
-**Agent-Environment Loop:** At each timestep $t$: \[ s*t \xrightarrow{a_t} (r_t,
-s*{t+1}) \] The agent picks action $a_t$ in state $s_t$, the environment returns
+**Agent-Environment Loop:** At each timestep $t$: $ s*t \xrightarrow{a_t} (r_t,
+s*{t+1}) $ The agent picks action $a_t$ in state $s_t$, the environment returns
 reward $r_t$ and the next state $s_{t+1}$ according to $P$ and $R$.
 
 **Policy:** $\pi(a|s)$ gives the probability the agent chooses action $a$ in
