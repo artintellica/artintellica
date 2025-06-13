@@ -42,3 +42,27 @@ def supervised_train(x, y):
 
 
 supervised_train(x_data, y_data)
+
+# Given only x, cluster/group/transform
+x_data = [0.5, 1.5, 3.2, 8.1, 9.3]
+
+
+def unsupervised_task(x):
+    center = sum(x) / len(x)
+    clusters = [0 if xi < center else 1 for xi in x]
+    print("Unsupervised clusters:", clusters)
+
+
+unsupervised_task(x_data)
+
+# Agent interacts and gets feedback as reward
+env = TinyEnv()
+state = env.reset()
+total_reward = 0
+for t in range(5):
+    action = random.choice([0, 1])
+    state, reward, done = env.step(action)
+    total_reward += reward
+    if done:
+        break
+print("RL: total reward from one trajectory:", total_reward)
