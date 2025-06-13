@@ -27,9 +27,9 @@ The Q-value $Q(s,a)$ is the expected sum of discounted rewards from taking actio
 ### **Q-Learning (Off-policy)**
 
 Update rule:
-\[
+$$
 Q(s, a) \leftarrow Q(s, a) + \alpha \Big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \Big]
-\]
+$$
 
 - $\alpha$ — learning rate
 - $\gamma$ — discount factor
@@ -37,9 +37,9 @@ Q(s, a) \leftarrow Q(s, a) + \alpha \Big[ r + \gamma \max_{a'} Q(s', a') - Q(s, 
 ### **SARSA (On-policy)**
 
 Update rule:
-\[
+$$
 Q(s, a) \leftarrow Q(s, a) + \alpha \Big[r + \gamma Q(s', a') - Q(s, a)\Big]
-\]
+$$
 where $a'$ is the actual next action taken by the agent according to its policy.
 
 - **Q-learning** learns from the best possible next action (greedy) regardless of what the agent actually does (off-policy).
