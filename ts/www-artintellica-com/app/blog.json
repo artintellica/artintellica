@@ -671,5 +671,12 @@
     "date": "2025-06-13",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0085-rl-torch-42-markov",
     "content": ""
+  },
+  {
+    "filename": "0086-rl-torch-43-bandit.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 4.3: Bandit Problems—Exploration vs. Exploitation",
+    "author": "Artintellica",
+    "date": "2025-06-13",
+    "content": ""
   }
 ]

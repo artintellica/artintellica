@@ -6,14 +6,21 @@ date = "2025-06-13"
 
 ## Introduction
 
-One of the most iconic settings in reinforcement learning is the **multi-armed bandit** problem. Here, you repeatedly choose between several noisy options (“arms”), each with an unknown reward distribution. The catch? You must **balance exploration** (learning about arms) and **exploitation** (favoring what works best so far).
+One of the most iconic settings in reinforcement learning is the **multi-armed
+bandit** problem. Here, you repeatedly choose between several noisy options
+(“arms”), each with an unknown reward distribution. The catch? You must
+**balance exploration** (learning about arms) and **exploitation** (favoring
+what works best so far).
 
-Bandits are the simplest setting for exploring “exploration vs. exploitation”—a core problem in RL and real-world decision-making (ads, A/B tests, drug trials, online recommendations…).
+Bandits are the simplest setting for exploring “exploration vs. exploitation”—a
+core problem in RL and real-world decision-making (ads, A/B tests, drug trials,
+online recommendations…).
 
 In this post, you’ll:
 
 - Build and visualize a multi-armed bandit environment.
-- Implement and compare classic exploration strategies: epsilon-greedy, UCB, and Thompson Sampling.
+- Implement and compare classic exploration strategies: epsilon-greedy, UCB, and
+  Thompson Sampling.
 - Track arm selections, rewards, and learning curves.
 - See all code in clear, reproducible PyTorch/Numpy demos.
 
@@ -21,42 +28,52 @@ In this post, you’ll:
 
 ## Mathematics: Bandit Setting and Exploration Strategies
 
-**Multi-armed Bandit:**  
-- $K$ arms, each with an unknown (often stationary) reward distribution $R_k$.
-- At each time $t$, you pick arm $a_t \in \{1,...,K\}$, and observe random reward $r_t \sim R_{a_t}$.
+**Multi-armed Bandit:**
 
-**Goal:** Maximize expected total reward; equivalently, minimize **regret** versus always picking the best arm.
+- $K$ arms, each with an unknown (often stationary) reward distribution $R_k$.
+- At each time $t$, you pick arm $a_t \in \{1,...,K\}$, and observe random
+  reward $r_t \sim R_{a_t}$.
+
+**Goal:** Maximize expected total reward; equivalently, minimize **regret**
+versus always picking the best arm.
 
 ### **Epsilon-Greedy Policy**
 
-- With probability $\varepsilon$, pick an arm *at random* (**explore**).
+- With probability $\varepsilon$, pick an arm _at random_ (**explore**).
 - Otherwise, pick the arm with highest average observed reward (**exploit**).
 
 ### **Upper Confidence Bound (UCB)**
 
 For each arm $k$:
+
 $$
 Q_k(t) + c \sqrt{\frac{\ln t}{N_k(t)}}
 $$
-- Exploit arms with higher estimates $Q_k(t)$, but also explore arms with fewer pulls $N_k(t)$.
+
+- Exploit arms with higher estimates $Q_k(t)$, but also explore arms with fewer
+  pulls $N_k(t)$.
 
 ### **Thompson Sampling**
 
 - Maintain a belief over the parameters of the reward distribution for each arm.
 - Sample from each belief, pick the arm with the highest sampled value.
-- E.g., for Bernoulli rewards, use a Beta posterior: Beta($\alpha_k$, $\beta_k$).
+- E.g., for Bernoulli rewards, use a Beta posterior: Beta($\alpha_k$,
+  $\beta_k$).
 
 ---
 
 ## Explanation: How the Math Connects to Code
 
-- **Reward Distributions:** For each arm, define a true but hidden mean and sample actual rewards each pull.
+- **Reward Distributions:** For each arm, define a true but hidden mean and
+  sample actual rewards each pull.
 - **Agent Estimates:** Track per-arm counts and average rewards.
 - **Policies:**
-    - *Epsilon-greedy:* select random vs. best.
-    - *UCB:* use a confidence upper bound to bias towards least tried arms.
-    - *Thompson Sampling:* update a Beta prior after each observation, then sample from this prior.
-- **Metrics/Visualization:** Plot histograms of arm means, arm selection frequencies, average reward over time (the “learning curve”).
+  - _Epsilon-greedy:_ select random vs. best.
+  - _UCB:_ use a confidence upper bound to bias towards least tried arms.
+  - _Thompson Sampling:_ update a Beta prior after each observation, then sample
+    from this prior.
+- **Metrics/Visualization:** Plot histograms of arm means, arm selection
+  frequencies, average reward over time (the “learning curve”).
 
 ---
 
@@ -254,7 +271,8 @@ plt.xlabel("Step"); plt.ylabel("Avg Reward")
 plt.legend(); plt.grid(True); plt.show()
 ```
 
-#### **Project Exercise:** Visualize the learning curve of a bandit agent over time  
+#### **Project Exercise:** Visualize the learning curve of a bandit agent over time
+
 The plot above is exactly this!
 
 ---
@@ -334,8 +352,12 @@ plt.title("Average Reward"); plt.show()
 
 ## Conclusion
 
-You’ve now seen the theory and practice of bandit problems and main exploration algorithms—*epsilon-greedy*, *UCB*, and *Thompson Sampling*—and how to empirically compare them. These tools are not just educational; they’re deployed in real online systems and form the intuition behind RL’s exploration dilemmas.
+You’ve now seen the theory and practice of bandit problems and main exploration
+algorithms—_epsilon-greedy_, _UCB_, and _Thompson Sampling_—and how to
+empirically compare them. These tools are not just educational; they’re deployed
+in real online systems and form the intuition behind RL’s exploration dilemmas.
 
-Next up: value-based RL methods—where the agent can *plan ahead* and learn from future, not just immediate, reward!
+Next up: value-based RL methods—where the agent can _plan ahead_ and learn from
+future, not just immediate, reward!
 
 See you in Part 4.4!
