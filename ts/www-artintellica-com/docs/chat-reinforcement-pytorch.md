@@ -3434,4 +3434,15 @@ See you in Part 4.3!
 
 # === USER ===
 
+great, now can you write the next blog post? the description is:
 
+### 3. Bandit Problems: Exploration vs. Exploitation
+
+* **Exercise 1:** Simulate a multi-armed bandit and plot arm payout distributions.
+* **Exercise 2:** Implement epsilon-greedy policy and track arm selections.
+* **Exercise 3:** Compare UCB and Thompson Sampling on the same problem.
+* **Exercise 4:** Plot cumulative reward for different strategies.
+
+  * *Project Exercise:* Visualize learning curve of a bandit agent over time.
+
+please include math, explanations, code examples, and exercises as usual.
