@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies"
 author = "Artintellica"
 date = "2025-06-13"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0085-rl-torch-42-markov"
 +++
 
 ## Introduction
