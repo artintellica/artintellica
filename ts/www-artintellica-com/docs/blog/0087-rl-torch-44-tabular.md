@@ -6,7 +6,10 @@ date = "2025-06-13"
 
 ## Introduction
 
-After seeing bandits, let’s step up to environments where actions have **consequences across time**! In gridworlds and many RL classics, the key concept is the **Q-value**: estimating the *future value* of every action in every state.
+After seeing bandits, let’s step up to environments where actions have
+**consequences across time**! In gridworlds and many RL classics, the key
+concept is the **Q-value**: estimating the _future value_ of every action in
+every state.
 
 In this post, you’ll:
 
@@ -22,11 +25,13 @@ In this post, you’ll:
 
 ### **Q-Value Definition**
 
-The Q-value $Q(s,a)$ is the expected sum of discounted rewards from taking action $a$ in state $s$, and then following some policy thereafter.
+The Q-value $Q(s,a)$ is the expected sum of discounted rewards from taking
+action $a$ in state $s$, and then following some policy thereafter.
 
 ### **Q-Learning (Off-policy)**
 
 Update rule:
+
 $$
 Q(s, a) \leftarrow Q(s, a) + \alpha \Big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \Big]
 $$
@@ -37,22 +42,29 @@ $$
 ### **SARSA (On-policy)**
 
 Update rule:
+
 $$
 Q(s, a) \leftarrow Q(s, a) + \alpha \Big[r + \gamma Q(s', a') - Q(s, a)\Big]
 $$
+
 where $a'$ is the actual next action taken by the agent according to its policy.
 
-- **Q-learning** learns from the best possible next action (greedy) regardless of what the agent actually does (off-policy).
-- **SARSA** learns from what the agent *actually does* (on-policy).
+- **Q-learning** learns from the best possible next action (greedy) regardless
+  of what the agent actually does (off-policy).
+- **SARSA** learns from what the agent _actually does_ (on-policy).
 
 ---
 
 ## Explanation: How the Math Connects to Code
 
-- **Q-table**: A 2D array or dictionary storing the estimated $Q(s,a)$ for every $(s,a)$.
-- **Epsilon-greedy policy**: Choose the best action most of the time, but sometimes pick randomly to explore.
-- **Episode loop**: At each step, update the Q-table using either Q-learning or SARSA rules.
-- **Visualization**: Use matplotlib to display the Q-values (for a gridworld, as a heatmap), and to animate learned behavior.
+- **Q-table**: A 2D array or dictionary storing the estimated $Q(s,a)$ for every
+  $(s,a)$.
+- **Epsilon-greedy policy**: Choose the best action most of the time, but
+  sometimes pick randomly to explore.
+- **Episode loop**: At each step, update the Q-table using either Q-learning or
+  SARSA rules.
+- **Visualization**: Use matplotlib to display the Q-values (for a gridworld, as
+  a heatmap), and to animate learned behavior.
 
 ---
 
@@ -262,7 +274,8 @@ print("Mean episode length (last 100 episodes):", np.mean(lengths[-100:]))
 
 ### **Exercise 4:** Animate Agent’s Trajectory Using the Learned Policy
 
-- For a trained policy (greedy from Q-table), print or animate state/action transitions from a start state.
+- For a trained policy (greedy from Q-table), print or animate state/action
+  transitions from a start state.
 
 ---
 
@@ -301,10 +314,12 @@ run_policy(env, Q1)
 ## Conclusion
 
 You now know how to:
+
 - Represent and learn Q-values in tabular environments
 - Run and compare Q-learning (off-policy) and SARSA (on-policy)
 - Visualize Q-tables and agent behavior
 
-Next, you’ll see how random sampling and partial returns let us estimate value without knowing the environment—*Monte Carlo* and *TD* learning.
+Next, you’ll see how random sampling and partial returns let us estimate value
+without knowing the environment—_Monte Carlo_ and _TD_ learning.
 
 See you in Part 4.5!
