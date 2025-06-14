@@ -336,13 +336,13 @@ the outline of the full course is as follows:
 
 ---
 
-please produce the blog post for section 4.6, whose description is:
+please produce the blog post for section 4.7, whose description is:
 
-### 6. Policies, Value Functions, and Bellman Equations
+### 7. Mini-Project: RL Agent on Custom Gridworld
 
-* **Exercise 1:** Solve a small Bellman equation system by hand and with PyTorch.
-* **Exercise 2:** Compute state-value and action-value functions for a policy.
-* **Exercise 3:** Evaluate a random and a greedy policy in an MDP.
-* **Exercise 4:** Visualize policy and value function in a gridworld.
+* **Exercise 1:** Design a custom Gridworld environment in Python.
+* **Exercise 2:** Implement tabular Q-learning for your environment.
+* **Exercise 3:** Train agent and visualize policy after each episode.
+* **Exercise 4:** Modify reward structure and observe changes in learned policy.
 
 please respond with the blog post only.
