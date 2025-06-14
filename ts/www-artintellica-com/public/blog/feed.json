@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0089-rl-torch-46-policies.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0089-rl-torch-46-policies.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations",
+            "date_modified": "2025-06-13T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0088-rl-torch-45-monte-carlo.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0088-rl-torch-45-monte-carlo.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0070-rl-torch-23-loss.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 2.3: Loss Functions and Cost Surfaces—Visual and Practical Intuition",
-            "date_modified": "2024-06-10T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0069-rl-torch-22-autograd.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0069-rl-torch-22-autograd.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 2.2: Autograd—Automatic Differentiation Demystified",
             "date_modified": "2024-06-10T07:00:00.000Z"
         }
     ]

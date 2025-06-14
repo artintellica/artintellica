@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Sat, 14 Jun 2025 16:51:44 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 14 Jun 2025 16:54:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations]]></title>
+            <link>https://artintellica.com/blog/0089-rl-torch-46-policies.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0089-rl-torch-46-policies.md</guid>
+            <pubDate>Fri, 13 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.5: Monte Carlo and Temporal Difference (TD) Learning]]></title>
             <link>https://artintellica.com/blog/0088-rl-torch-45-monte-carlo.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0070-rl-torch-23-loss.md</guid>
             <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.3: Loss Functions and Cost Surfaces—Visual and Practical Intuition]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.2: Autograd—Automatic Differentiation Demystified]]></title>
-            <link>https://artintellica.com/blog/0069-rl-torch-22-autograd.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0069-rl-torch-22-autograd.md</guid>
-            <pubDate>Mon, 10 Jun 2024 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.2: Autograd—Automatic Differentiation Demystified]]></description>
         </item>
     </channel>
 </rss>

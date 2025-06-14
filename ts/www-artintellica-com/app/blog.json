@@ -695,5 +695,12 @@
     "date": "2025-06-13",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0088-rl-torch-45-monte-carlo",
     "content": ""
+  },
+  {
+    "filename": "0089-rl-torch-46-policies.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations",
+    "author": "Artintellica",
+    "date": "2025-06-13",
+    "content": ""
   }
 ]
