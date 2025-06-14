@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-14T17:19:34.820Z</updated>
+    <updated>2025-06-14T17:38:05.265Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></title>
+        <id>https://artintellica.com/blog/0090-rl-torch-47-project.md</id>
+        <link href="https://artintellica.com/blog/0090-rl-torch-47-project.md"/>
+        <updated>2024-06-14T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations]]></title>
         <id>https://artintellica.com/blog/0089-rl-torch-46-policies.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0071-rl-torch-24-fitting.md"/>
         <updated>2024-06-10T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.4: Fitting a Line—Linear Regression from Scratch with PyTorch]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.3: Loss Functions and Cost Surfaces—Visual and Practical Intuition]]></title>
-        <id>https://artintellica.com/blog/0070-rl-torch-23-loss.md</id>
-        <link href="https://artintellica.com/blog/0070-rl-torch-23-loss.md"/>
-        <updated>2024-06-10T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.3: Loss Functions and Cost Surfaces—Visual and Practical Intuition]]></summary>
     </entry>
 </feed>

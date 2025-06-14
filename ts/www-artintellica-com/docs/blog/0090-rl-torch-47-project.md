@@ -4,34 +4,45 @@ author = "Artintellica"
 date = "2024-06-14"
 +++
 
-Welcome to a hands-on mini-project at the heart of classic reinforcement learning! In this post, we’ll tie together everything you’ve learned in Module 4 and build a simple, custom Gridworld environment from scratch. We’ll program an RL agent to solve it with tabular Q-learning, visualize how the policy evolves, and experiment with reward shaping to see how incentives impact behavior.
+Welcome to a hands-on mini-project at the heart of classic reinforcement
+learning! In this post, we’ll tie together everything you’ve learned in Module 4
+and build a simple, custom Gridworld environment from scratch. We’ll program an
+RL agent to solve it with tabular Q-learning, visualize how the policy evolves,
+and experiment with reward shaping to see how incentives impact behavior.
 
-You’ll leave this post with a working project and an intuitive feel for how RL agents learn to navigate environments of your own design.
+You’ll leave this post with a working project and an intuitive feel for how RL
+agents learn to navigate environments of your own design.
 
 ---
 
 ## Contents
 
-1. Intro: The Power of Custom Gridworlds  
-2. Mathematical Concepts: MDPs, the Gridworld, and Q-learning  
-3. From Math to Code: What Maps to What?  
-4. Python Demos:  
-    - Building a Gridworld Environment  
-    - Q-learning Implementation  
-    - Policy Visualization  
-5. Exercises:  
-    - Exercise 1: Custom Gridworld Environment  
-    - Exercise 2: Tabular Q-learning  
-    - Exercise 3: Policy Visualization  
-    - Exercise 4: Reward Shaping and Agent Behavior
+1. Intro: The Power of Custom Gridworlds
+2. Mathematical Concepts: MDPs, the Gridworld, and Q-learning
+3. From Math to Code: What Maps to What?
+4. Python Demos:
+   - Building a Gridworld Environment
+   - Q-learning Implementation
+   - Policy Visualization
+5. Exercises:
+   - Exercise 1: Custom Gridworld Environment
+   - Exercise 2: Tabular Q-learning
+   - Exercise 3: Policy Visualization
+   - Exercise 4: Reward Shaping and Agent Behavior
 
 ---
 
 ## 1. Introduction: The Power of Custom Gridworlds
 
-Classic gridworlds are RL’s “hello world”—simple, visual, and endlessly tweakable. Designing your own environment forces you to deeply understand states, actions, rewards, and how the Q-learning algorithm steers an agent to success. You get direct feedback by watching your agent improve over time and seeing your ideas about incentives play out.
+Classic gridworlds are RL’s “hello world”—simple, visual, and endlessly
+tweakable. Designing your own environment forces you to deeply understand
+states, actions, rewards, and how the Q-learning algorithm steers an agent to
+success. You get direct feedback by watching your agent improve over time and
+seeing your ideas about incentives play out.
 
-By the end of this post, you’ll have a custom RL environment *and* a tabular Q-learning agent that you can modify and extend. This is where RL truly comes alive!
+By the end of this post, you’ll have a custom RL environment _and_ a tabular
+Q-learning agent that you can modify and extend. This is where RL truly comes
+alive!
 
 ---
 
@@ -39,17 +50,22 @@ By the end of this post, you’ll have a custom RL environment *and* a tabular Q
 
 ### Markov Decision Processes (MDPs)
 
-A **Markov Decision Process (MDP)** is defined by the tuple $(\mathcal{S}, \mathcal{A}, P, R, \gamma)$ where:
+A **Markov Decision Process (MDP)** is defined by the tuple
+$(\mathcal{S}, \mathcal{A}, P, R, \gamma)$ where:
 
 - $\mathcal{S}$: set of states (e.g., all grid cells in our gridworld)
 - $\mathcal{A}$: set of actions (e.g., UP, DOWN, LEFT, RIGHT)
-- $P(s' \mid s, a)$: transition probability from $s$ to $s'$ when taking action $a$
+- $P(s' \mid s, a)$: transition probability from $s$ to $s'$ when taking action
+  $a$
 - $R(s, a, s')$: reward for $(s, a, s')$
 - $\gamma$: discount factor, $0 \le \gamma \le 1$
 
 ### The Gridworld
 
-In a gridworld, the agent moves in a discrete rectangular grid. At each timestep, it selects an action and transitions to a new cell (unless it hits a wall or boundary). Some cells might be “goal” (high reward), some “pit” (negative reward or episode ends), and the rest neutral (zero reward).
+In a gridworld, the agent moves in a discrete rectangular grid. At each
+timestep, it selects an action and transitions to a new cell (unless it hits a
+wall or boundary). Some cells might be “goal” (high reward), some “pit”
+(negative reward or episode ends), and the rest neutral (zero reward).
 
 ### Q-Learning: Tabular Value Update
 
@@ -66,6 +82,7 @@ Q(s, a) \leftarrow Q(s, a) + \alpha \big( r + \gamma \max_{a'} Q(s', a') - Q(s, 
 $$
 
 where:
+
 - $\alpha$ is the learning rate $(0 < \alpha \leq 1)$
 - $r$ is the observed reward
 - $\gamma$ is the discount factor
@@ -74,13 +91,15 @@ where:
 
 ## 3. From Math to Code: What Maps to What?
 
-- Each **grid cell** is a *state* $s \in \mathcal{S}$
-- Each direction (UP, DOWN, LEFT, RIGHT) is an *action* $a \in \mathcal{A}$
+- Each **grid cell** is a _state_ $s \in \mathcal{S}$
+- Each direction (UP, DOWN, LEFT, RIGHT) is an _action_ $a \in \mathcal{A}$
 - **Transition** is deterministic: action moves the agent, unless blocked
 - **Reward table**: you define which cells are rewarding or penalizing
-- **Q-table**: A 2D tensor or array $Q[s, a]$ mapping (state, action) pairs to Q-values
+- **Q-table**: A 2D tensor or array $Q[s, a]$ mapping (state, action) pairs to
+  Q-values
 
 We’ll implement:
+
 - A `GridworldEnv` class for the environment
 - A Q-learning training loop
 - Visualization tools to display learned policy and agent behavior
@@ -288,10 +307,10 @@ if __name__ == "__main__":
 Sample output:
 
 ```
-S   #  
-  #    
-  P    
-   G 
+S   #
+  #
+  P
+   G
 ```
 
 ---
@@ -333,7 +352,9 @@ if __name__ == "__main__":
 ### **Exercise 3: Train Agent and Visualize Policy After Each Episode**
 
 **Description:**  
-Visualize the greedy policy (argmax over Q) on the grid after every 100 episodes. Use arrows to display the agent's action preference at each cell. (Optional: plot episode reward curve.)
+Visualize the greedy policy (argmax over Q) on the grid after every 100
+episodes. Use arrows to display the agent's action preference at each cell.
+(Optional: plot episode reward curve.)
 
 ```python
 import matplotlib.pyplot as plt
@@ -388,7 +409,9 @@ if __name__ == "__main__":
 ### **Exercise 4: Modify Reward Structure and Observe Learned Policy Changes**
 
 **Description:**  
-Change the reward for (3, 3) to -0.5 (now it’s a “trap” cell). Retrain the agent from scratch and compare the learned policy with the original. Did the agent learn to avoid (3, 3)?
+Change the reward for (3, 3) to -0.5 (now it’s a “trap” cell). Retrain the agent
+from scratch and compare the learned policy with the original. Did the agent
+learn to avoid (3, 3)?
 
 **Code:**
 
@@ -433,6 +456,11 @@ if __name__ == "__main__":
 
 ## Conclusion
 
-Congratulations! By designing your own Gridworld, training a tabular Q-learning agent, and visualizing both the policy and how incentives affect learning, you’ve gained a “systems-level” understanding of classical RL. These building blocks are the kernel of every RL problem, from simple games to AI for robotics.
+Congratulations! By designing your own Gridworld, training a tabular Q-learning
+agent, and visualizing both the policy and how incentives affect learning,
+you’ve gained a “systems-level” understanding of classical RL. These building
+blocks are the kernel of every RL problem, from simple games to AI for robotics.
 
-Experiment more: change grid size, reward layout, wall configurations, or even make stochastic transitions. Next, we’ll bring all this together with function approximation and deep networks—stay tuned!
+Experiment more: change grid size, reward layout, wall configurations, or even
+make stochastic transitions. Next, we’ll bring all this together with function
+approximation and deep networks—stay tuned!
