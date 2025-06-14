@@ -1,17 +1,22 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations"
 author = "Artintellica"
-date = "2025-06-13"
+date = "2025-06-14"
 +++
 
 ## Introduction
 
-You've explored value estimation via Monte Carlo and TD, but what are we really estimating? At the heart of RL are **value functions** and the **Bellman equations**, which build the mathematical backbone for all value-based RL. Understanding and *solving* Bellman equations helps demystify why value learning works at all.
+You've explored value estimation via Monte Carlo and TD, but what are we really
+estimating? At the heart of RL are **value functions** and the **Bellman
+equations**, which build the mathematical backbone for all value-based RL.
+Understanding and _solving_ Bellman equations helps demystify why value learning
+works at all.
 
 In this post, you’ll:
 
 - Solve a small Bellman system by hand and with PyTorch/Numpy
-- Compute both state-value ($V$) and action-value ($Q$) functions for a given policy
+- Compute both state-value ($V$) and action-value ($Q$) functions for a given
+  policy
 - Evaluate random and greedy policies in simple MDPs
 - Visualize policies and value functions in grid worlds
 
@@ -20,35 +25,45 @@ In this post, you’ll:
 ## Mathematics: Value Functions and Bellman Equations
 
 ### **State-Value Function**
-For a policy $\pi$, the value function is:
-\[
-V^\pi(s) = \mathbb{E}_\pi \left[\, \sum_{t=0}^\infty \gamma^t r_t \,\Big|\, s_0 = s \,\right]
-\]
 
-### **Bellman Equation for $V^\pi$ (for a finite MDP):**
-\[
-V^\pi(s) = \sum_{a} \pi(a|s) \sum_{s'} P(s'|s, a) [\, R(s, a, s') + \gamma V^\pi(s') \,]
-\]
-This is a *system of equations* (one for each state).
+For a policy $\pi$, the value function is:
+
+$$
+V\pi(s) = \mathbb{E}_\pi \left[\, \sum_{t=0}\infty \gamma^t r_t \,\Big|\, s_0 = s \,\right]
+$$
+
+### **Bellman Equation for $V\pi$ (for a finite MDP):**
+
+$$
+V\pi(s) = \sum_{a} \pi(a|s) \sum_{s'} P(s'|s, a) [\, R(s, a, s') + \gamma V\pi(s') \,]
+$$
+
+This is a _system of equations_ (one for each state).
 
 ### **Action-Value Function**
-\[
-Q^\pi(s, a) = \sum_{s'} P(s'|s, a) [\, R(s, a, s') + \gamma \sum_{a'} \pi(a'|s') Q^\pi(s', a') \,]
-\]
+
+$$
+Q\pi(s, a) = \sum_{s'} P(s'|s, a) [\, R(s, a, s') + \gamma \sum_{a'} \pi(a'|s') Q\pi(s', a') \,]
+$$
 
 ### **Bellman Optimality Equation**
+
 For optimal policy $\pi^*$:
-\[
+
+$$
 V^*(s) = \max_a \sum_{s'} P(s'|s, a)\left[ R(s, a, s') + \gamma V^*(s') \right]
-\]
+$$
 
 ---
 
 ## Explanation: How the Math Connects to Code
 
-- To **solve** Bellman’s equations, encode them as a system of linear equations and solve for $V$ using Numpy/PyTorch.
-- **Policy evaluation:** Plug a known $\pi(a|s)$ into the formula to compute $V^\pi$ and $Q^\pi$.
-- **Policy comparison:** Use $V^\pi$ to compare total expected rewards for different policies.
+- To **solve** Bellman’s equations, encode them as a system of linear equations
+  and solve for $V$ using Numpy/PyTorch.
+- **Policy evaluation:** Plug a known $\pi(a|s)$ into the formula to compute
+  $V\pi$ and $Q\pi$.
+- **Policy comparison:** Use $V\pi$ to compare total expected rewards for
+  different policies.
 - In gridworlds, you can plot $V$ as a heatmap, and policies as arrows.
 
 ---
@@ -58,37 +73,42 @@ V^*(s) = \max_a \sum_{s'} P(s'|s, a)\left[ R(s, a, s') + \gamma V^*(s') \right]
 ### Demo 1: Solve a Small Bellman Equation System by Hand and with PyTorch
 
 Suppose an MDP:
+
 - States: $A$, $B$
 - Actions: "stay" (0), "go" (1)
 - Policy: Always pick "go" ($\pi(1|s)=1$)
-- Transition: From $A$, "go" $\to$ $B$ (reward=1); from $B$, "go" $\to$ $A$ (reward=2)
+- Transition: From $A$, "go" $\to$ $B$ (reward=1); from $B$, "go" $\to$ $A$
+  (reward=2)
 - $\gamma=0.9$
 
-\[
+$$
 \begin{align*}
 V(A) &= R(A,1,B) + \gamma V(B) \\
 V(B) &= R(B,1,A) + \gamma V(A)
 \end{align*}
-\]
+$$
+
 where $R(A,1,B)=1$, $R(B,1,A)=2$.
 
 This gives:
 
-\[
+$$
 \begin{align*}
 V(A) &= 1 + 0.9 V(B) \\
 V(B) &= 2 + 0.9 V(A)
 \end{align*}
-\]
+$$
 
 #### Hand solution:
+
 Substitute one into the other,
-\[
+
+$$
 V(A) = 1 + 0.9 [2 + 0.9 V(A)] = 1 + 1.8 + 0.81 V(A) \\
 V(A) - 0.81 V(A) = 2.8 \\
 0.19 V(A) = 2.8 \implies V(A) \approx 14.74 \\
 V(B) = 2 + 0.9 \cdot 14.74 \approx 15.27
-\]
+$$
 
 #### PyTorch solution:
 
@@ -207,7 +227,8 @@ print("Avg reward (random policy):", evaluate_random_policy())
 
 ### Demo 4: Visualize Policy and Value Function in a Gridworld
 
-Make a simple gridworld, solve for $V$, and plot as a heatmap, arrows for policy.
+Make a simple gridworld, solve for $V$, and plot as a heatmap, arrows for
+policy.
 
 ```python
 # 2x2 Gridworld example
@@ -279,7 +300,7 @@ plt.show()
 ### **Exercise 2:** Compute State-Value and Action-Value Functions for a Policy
 
 - For a small MDP, encode the transitions and a policy.
-- Compute $V^\pi$ and $Q^\pi$ for all states/actions, using Bellman equations.
+- Compute $V\pi$ and $Q\pi$ for all states/actions, using Bellman equations.
 
 ---
 
@@ -292,7 +313,8 @@ plt.show()
 
 ### **Exercise 4:** Visualize Policy and Value Function in a Gridworld
 
-- Use matplotlib to plot state values on a grid, and show the greedy action in each cell as an arrow.
+- Use matplotlib to plot state values on a grid, and show the greedy action in
+  each cell as an arrow.
 
 ---
 
@@ -322,8 +344,11 @@ print("Solution for V:", V.tolist())
 
 ## Conclusion
 
-You now see how the **Bellman equations** unify value learning, why they underlie RL algorithms, and how to solve them for a given policy or the optimal one. This forms the essential toolkit for value-based planning and RL.
+You now see how the **Bellman equations** unify value learning, why they
+underlie RL algorithms, and how to solve them for a given policy or the optimal
+one. This forms the essential toolkit for value-based planning and RL.
 
-Next: We’ll move into hands-on RL agent engineering—designing, running, and diagnosing your own Gridworld agent!
+Next: We’ll move into hands-on RL agent engineering—designing, running, and
+diagnosing your own Gridworld agent!
 
 See you in Part 4.7!
