@@ -346,3 +346,4 @@ please produce the blog post for section 4.7, whose description is:
 * **Exercise 4:** Modify reward structure and observe changes in learned policy.
 
 please respond with the blog post only.
+
