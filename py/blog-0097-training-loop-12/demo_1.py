@@ -55,3 +55,19 @@ for epoch in range(num_epochs):
 
 print(f"\nLearned parameters: w = {w.item():.4f}, b = {b.item():.4f}")
 print(f"True parameters:    w = {true_w:.4f}, b = {true_b:.4f}")
+
+# Plot data and learned regression line
+plt.scatter(x.numpy(), y.numpy(), label='Data')
+plt.plot(x.numpy(), (w * x + b).detach().numpy(), color='red', label='Learned Line')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.title('Linear Regression Fit (PyTorch)')
+plt.show()
+
+# Plot loss curve
+plt.plot(losses)
+plt.xlabel('Epoch')
+plt.ylabel('MSE Loss')
+plt.title('Loss During Training')
+plt.show()
