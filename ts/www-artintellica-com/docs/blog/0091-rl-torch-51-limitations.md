@@ -6,17 +6,31 @@ date = "2024-06-14"
 
 # Introduction
 
-Welcome back to **Learn Reinforcement Learning with PyTorch**! Up to now, we've explored key reinforcement learning concepts—states, actions, rewards—and implemented classic “tabular” algorithms such as Q-Learning and SARSA. These approaches store the value estimates for *every possible* state (or state-action pair) in a table. This method works well for simple environments, but quickly becomes infeasible as problems scale.
+Welcome back to **Learn Reinforcement Learning with PyTorch**! Up to now, we've
+explored key reinforcement learning concepts—states, actions, rewards—and
+implemented classic “tabular” algorithms such as Q-Learning and SARSA. These
+approaches store the value estimates for _every possible_ state (or state-action
+pair) in a table. This method works well for simple environments, but quickly
+becomes infeasible as problems scale.
 
-In this post, we’ll uncover the **limitations of tabular reinforcement learning** (RL), especially the “curse of dimensionality”, and explain why function approximation (especially deep neural networks) is critical for modern RL. You’ll learn the mathematics behind the state explosion, see hands-on demos, and begin thinking about designing neural architectures to replace (or generalize) the idea of the Q-table.
+In this post, we’ll uncover the **limitations of tabular reinforcement
+learning** (RL), especially the “curse of dimensionality”, and explain why
+function approximation (especially deep neural networks) is critical for modern
+RL. You’ll learn the mathematics behind the state explosion, see hands-on demos,
+and begin thinking about designing neural architectures to replace (or
+generalize) the idea of the Q-table.
 
 # Mathematical Overview
 
 ## The Curse of Dimensionality in Tabular RL
 
-In tabular RL, we represent the action-value function $Q(s, a)$ (or state-value $V(s)$) as a table, explicitly storing an entry for *each* state (or state-action) pair.
+In tabular RL, we represent the action-value function $Q(s, a)$ (or state-value
+$V(s)$) as a table, explicitly storing an entry for _each_ state (or
+state-action) pair.
 
-Suppose an environment’s state is described by $n$ discrete variables, with each variable $i$ ranging over $k_i$ possible values. Then, the **total number of possible states** is
+Suppose an environment’s state is described by $n$ discrete variables, with each
+variable $i$ ranging over $k_i$ possible values. Then, the **total number of
+possible states** is
 
 $$
 N_{\text{states}} = \prod_{i=1}^n k_i
@@ -32,13 +46,16 @@ This grows **exponentially** with the number of state variables (“dimensions�
 
 ### Example
 
-If an agent observes a $5 \times 5$ grid (think of a small Gridworld), with its location as 2 variables x and y (each with 5 possible values), then:
+If an agent observes a $5 \times 5$ grid (think of a small Gridworld), with its
+location as 2 variables x and y (each with 5 possible values), then:
 
 $$
 N_{\text{states}} = 5 \times 5 = 25
 $$
 
-—no problem! But if you increase to an $N\times N$ grid (large map, $N=100$), or the agent observes more features (positions of several objects), $N_{\text{states}}$ explodes.
+—no problem! But if you increase to an $N\times N$ grid (large map, $N=100$), or
+the agent observes more features (positions of several objects),
+$N_{\text{states}}$ explodes.
 
 If each variable has 100 possible values, and there are 4 variables:
 
@@ -46,39 +63,48 @@ $$
 N_{\text{states}} = 100^4 = 100,000,000
 $$
 
-Modern RL environments (e.g., Atari games, robotics with images) can have *billions* or more possible states!
+Modern RL environments (e.g., Atari games, robotics with images) can have
+_billions_ or more possible states!
 
 ## Why Does Tabular RL Fail in Large State Spaces?
 
 - **Memory:** We cannot store tables with billions of entries.
 - **Learning:** Most entries never get visited—wasting data, slow learning.
-- **Generalization:** Each state is treated as unrelated; the agent can’t generalize experiences to similar states.
+- **Generalization:** Each state is treated as unrelated; the agent can’t
+  generalize experiences to similar states.
 
 ## Function Approximation to the Rescue
 
-Rather than represent $Q(s, a)$ as a lookup table, we learn a *function*:
+Rather than represent $Q(s, a)$ as a lookup table, we learn a _function_:
 
 $$
 Q(s, a) \approx f_\theta(s, a)
 $$
 
-where $f_\theta$ is a parameterized model (e.g., a neural network with weights $\theta$), mapping input state $s$ and action $a$ to an estimated value $Q$. This enables:
+where $f_\theta$ is a parameterized model (e.g., a neural network with weights
+$\theta$), mapping input state $s$ and action $a$ to an estimated value $Q$.
+This enables:
 
 - **Compactness:** Model size does not grow exponentially with state dimension.
 - **Generalization:** Agent can interpolate/extrapolate to unseen states.
-- **Scalability:** The same approach can work for images, high-dimensional robotics, etc.
+- **Scalability:** The same approach can work for images, high-dimensional
+  robotics, etc.
 
 # From Math to Code: Building Intuition
 
-Let’s see what state and Q-table explosion look like in code, and why neural networks are needed.
+Let’s see what state and Q-table explosion look like in code, and why neural
+networks are needed.
 
-- For each dimension added to a discrete state space, the table size *multiplies*.
+- For each dimension added to a discrete state space, the table size
+  _multiplies_.
 - The table is just a big PyTorch or NumPy array—which quickly becomes gigantic.
-- Neural networks can output $Q(s,a)$ for any $(s,a)$ pair without storing all values explicitly.
+- Neural networks can output $Q(s,a)$ for any $(s,a)$ pair without storing all
+  values explicitly.
 
 # Demo 1: Creating an Impractically Large Q-table
 
-Let's illustrate how quickly table size explodes as the environment becomes more complex.
+Let's illustrate how quickly table size explodes as the environment becomes more
+complex.
 
 ```python
 from typing import List, Tuple
@@ -101,15 +127,18 @@ print(f"Total Q-table entries: {table_entries:,}")
 ```
 
 **Output:**
+
 ```
 Total Q-table entries: 500,000,000
 ```
 
-Allocating a table this size—with, say, 32-bit floats—would require ~2GB just for Q-values! Imagine 10 variables; it’s not possible.
+Allocating a table this size—with, say, 32-bit floats—would require ~2GB just
+for Q-values! Imagine 10 variables; it’s not possible.
 
 # Demo 2: Exponential State Growth Visualization
 
-Let’s visualize how the number of states grows as we increase the number of variables (“dimensions”).
+Let’s visualize how the number of states grows as we increase the number of
+variables (“dimensions”).
 
 ```python
 import matplotlib.pyplot as plt
@@ -132,11 +161,13 @@ def plot_state_space_growth(k: int, max_vars: int) -> None:
 plot_state_space_growth(k=10, max_vars=10)
 ```
 
-Try it! As variables go up, state space grows *exponentially* (don't forget to use log-scale axes!).
+Try it! As variables go up, state space grows _exponentially_ (don't forget to
+use log-scale axes!).
 
 # Demo 3: Attempt Tabular Q-Learning in a Large State Space
 
-Let’s try running tabular Q-learning in a simple “large” toy environment—and see what happens.
+Let’s try running tabular Q-learning in a simple “large” toy environment—and see
+what happens.
 
 ```python
 from typing import Tuple, Dict
@@ -174,11 +205,16 @@ print(f"Q-table size after 100,000 transitions: {len(Q_table):,} states visited"
 print(f"Fraction of possible states visited: {len(Q_table)/1_000_000:.2%}")
 ```
 
-**What do you think will happen?** We’ll find that after 100,000 episodes, only about 10% of the **state space** was ever even visited—most of the state-action values were never updated at all!
+**What do you think will happen?** We’ll find that after 100,000 episodes, only
+about 10% of the **state space** was ever even visited—most of the state-action
+values were never updated at all!
 
 # Demo 4: Designing a Neural Network to Replace the Q-table
 
-Suppose we want $Q(s,a)$ for arbitrary states $s$ (which could be vectors, images, etc). Here's a minimal PyTorch MLP architecture that maps state (and action) to $Q(s, a)$. For discrete actions, we often have our network output a vector of Q-values, one per action.
+Suppose we want $Q(s,a)$ for arbitrary states $s$ (which could be vectors,
+images, etc). Here's a minimal PyTorch MLP architecture that maps state (and
+action) to $Q(s, a)$. For discrete actions, we often have our network output a
+vector of Q-values, one per action.
 
 ```python
 import torch
@@ -211,7 +247,8 @@ q_values: torch.Tensor = q_net(states)
 print(q_values.shape)  # (8, 4)
 ```
 
-This neural net’s parameters don’t grow with the number of possible states—they are fixed! The learned function **generalizes** to new, even unseen, states.
+This neural net’s parameters don’t grow with the number of possible states—they
+are fixed! The learned function **generalizes** to new, even unseen, states.
 
 # Exercises
 
@@ -220,7 +257,10 @@ This neural net’s parameters don’t grow with the number of possible states�
 ## Exercise 1: Create a Large State Space Where Q-tables are Impractical
 
 **Task:**  
-Write code to define an environment where there are 8 discrete state variables, each with 20 possible values. Compute how many total states there are, and how large (in MB) a Q-table would be if you stored a 32-bit float for each $(s,a)$ pair for 6 discrete actions.
+Write code to define an environment where there are 8 discrete state variables,
+each with 20 possible values. Compute how many total states there are, and how
+large (in MB) a Q-table would be if you stored a 32-bit float for each $(s,a)$
+pair for 6 discrete actions.
 
 **Solution:**
 
@@ -251,7 +291,9 @@ print(f"Q-table size: {size_mb:,.2f} MB (float32)")
 ## Exercise 2: Visualize Exponential State Growth in a Simple Environment
 
 **Task:**  
-For a sequence of 1 to 12 state variables, each having 10 possible values, plot (on a log scale) the number of possible states versus the number of variables. Annotate the plot to show where the state count exceeds 1 million.
+For a sequence of 1 to 12 state variables, each having 10 possible values, plot
+(on a log scale) the number of possible states versus the number of variables.
+Annotate the plot to show where the state count exceeds 1 million.
 
 **Solution:**
 
@@ -281,7 +323,10 @@ plot_state_growth()
 ## Exercise 3: Attempt Tabular Learning and Analyze Why It Fails
 
 **Task:**  
-Simulate tabular Q-learning in an environment with 6 discrete state variables (each with 10 values), updating the Q-table for 250,000 random transitions. Afterward, report:
+Simulate tabular Q-learning in an environment with 6 discrete state variables
+(each with 10 values), updating the Q-table for 250,000 random transitions.
+Afterward, report:
+
 - How many unique states were visited out of possible $10^6$.
 - What fraction of the table is still unused?
 
@@ -325,7 +370,9 @@ print(f"Fraction of table remaining unused: {unused/total_states:.2%}")
 ## Exercise 4: Propose a Neural Network Architecture to Replace Q-table
 
 **Task:**  
-Specify (in PyTorch code) a neural network that takes an input state vector of size 8 and outputs Q-values for 6 actions. Use at least two hidden layers. Print the number of parameters.
+Specify (in PyTorch code) a neural network that takes an input state vector of
+size 8 and outputs Q-values for 6 actions. Use at least two hidden layers. Print
+the number of parameters.
 
 **Solution:**
 
@@ -360,8 +407,15 @@ print(f"Output shape: {q_outputs.shape}")  # (10, 6)
 
 # Conclusion
 
-Tabular RL is a great tool for learning, but quickly reaches its limits in practical problems, falling victim to the **curse of dimensionality**. The exponential growth in the number of states makes storing (and learning) a separate value for each state-action pair impossible.
+Tabular RL is a great tool for learning, but quickly reaches its limits in
+practical problems, falling victim to the **curse of dimensionality**. The
+exponential growth in the number of states makes storing (and learning) a
+separate value for each state-action pair impossible.
 
-**Function approximation**—using neural networks—is how modern RL methods scale to large, complex environments. Neural nets can generalize from observed to unobserved states, store Q or value functions compactly, and enable deep RL to work with high-dimensional states like images and physics sensors.
+**Function approximation**—using neural networks—is how modern RL methods scale
+to large, complex environments. Neural nets can generalize from observed to
+unobserved states, store Q or value functions compactly, and enable deep RL to
+work with high-dimensional states like images and physics sensors.
 
-**Up next:** We’ll dive into implementing *Deep Q-Networks (DQN)* in PyTorch, your first step towards high-performance, scalable RL agents!
+**Up next:** We’ll dive into implementing _Deep Q-Networks (DQN)_ in PyTorch,
+your first step towards high-performance, scalable RL agents!
