@@ -750,5 +750,12 @@
     "author": "Artintellica",
     "date": "2025-06-15",
     "content": ""
+  },
+  {
+    "filename": "0096-training-loop-11.md",
+    "title": "Learn the Training Loop with PyTorch, Part 1.1: Introduction to the Training Loop and Linear Regression",
+    "author": "Artintellica",
+    "date": "2025-06-15",
+    "content": ""
   }
 ]

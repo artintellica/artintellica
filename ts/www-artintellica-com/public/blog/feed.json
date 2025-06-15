@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0096-training-loop-11.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0096-training-loop-11.md",
+            "title": "Learn the Training Loop with PyTorch, Part 1.1: Introduction to the Training Loop and Linear Regression",
+            "date_modified": "2025-06-15T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0095-rl-torch-conclusion.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0095-rl-torch-conclusion.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0077-rl-torch-32-feedforward.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)",
-            "date_modified": "2024-06-11T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0076-rl-torch-31-perceptron.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0076-rl-torch-31-perceptron.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 3.1: The Perceptron—Oldest Neural Network",
             "date_modified": "2024-06-11T07:00:00.000Z"
         }
     ]
