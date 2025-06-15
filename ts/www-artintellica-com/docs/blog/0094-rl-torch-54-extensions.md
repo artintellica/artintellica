@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN"
 author = "Artintellica"
 date = "2024-06-15"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0094-rl-torch-54-extensions"
 +++
 
 ## Introduction
