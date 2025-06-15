@@ -336,14 +336,15 @@ the outline of the full course is as follows:
 
 ---
 
-please produce the blog post for section 4.7, whose description is:
+please produce the blog post for section 5.1, whose description is:
 
-### 7. Mini-Project: RL Agent on Custom Gridworld
+## **Module 5: Deep Reinforcement Learning—From Q-Tables to Deep Networks**
 
-* **Exercise 1:** Design a custom Gridworld environment in Python.
-* **Exercise 2:** Implement tabular Q-learning for your environment.
-* **Exercise 3:** Train agent and visualize policy after each episode.
-* **Exercise 4:** Modify reward structure and observe changes in learned policy.
+### 1. Limitations of Tabular RL and the Need for Function Approximation
+
+* **Exercise 1:** Create a large state space where Q-tables are impractical.
+* **Exercise 2:** Visualize exponential state growth in a simple environment.
+* **Exercise 3:** Attempt tabular learning and analyze why it fails.
+* **Exercise 4:** Propose a neural network architecture to replace Q-table.
 
 please respond with the blog post only.
-
