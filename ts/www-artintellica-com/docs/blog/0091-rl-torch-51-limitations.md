@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation"
 author = "Artintellica"
-date = "2024-06-14"
+date = "2024-06-15"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0091-rl-torch-51-limitations"
 +++
 

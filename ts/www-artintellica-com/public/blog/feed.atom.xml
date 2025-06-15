@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-15T14:20:58.450Z</updated>
+    <updated>2025-06-15T14:25:06.120Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -18,7 +18,7 @@
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></title>
         <id>https://artintellica.com/blog/0091-rl-torch-51-limitations.md</id>
         <link href="https://artintellica.com/blog/0091-rl-torch-51-limitations.md"/>
-        <updated>2024-06-14T07:00:00.000Z</updated>
+        <updated>2024-06-15T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></summary>
     </entry>
     <entry>

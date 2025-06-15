@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Sun, 15 Jun 2025 14:20:58 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Jun 2025 14:25:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></title>
             <link>https://artintellica.com/blog/0091-rl-torch-51-limitations.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0091-rl-torch-51-limitations.md</guid>
-            <pubDate>Fri, 14 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Sat, 15 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></description>
         </item>
         <item>
