@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0097-training-loop-12.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0097-training-loop-12.md",
+            "title": "Learn the Training Loop with PyTorch, Part 1.2: The Simplest Case: Linear Regression",
+            "date_modified": "2025-06-15T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0096-training-loop-11.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0096-training-loop-11.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way",
             "date_modified": "2024-06-12T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0077-rl-torch-32-feedforward.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0077-rl-torch-32-feedforward.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)",
-            "date_modified": "2024-06-11T07:00:00.000Z"
         }
     ]
 }

@@ -2,6 +2,7 @@
 title = "Learn the Training Loop with PyTorch, Part 1.1: Introduction to the Training Loop and Linear Regression"
 author = "Artintellica"
 date = "2025-06-15"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0096-training-loop-11"
 model = "grok-3"
 userDelimiter = "**USER:**"
 assistantDelimiter = "**ASSISTANT:**"

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-15T20:36:51.275Z</updated>
+    <updated>2025-06-15T20:46:07.421Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 1.2: The Simplest Case: Linear Regression]]></title>
+        <id>https://artintellica.com/blog/0097-training-loop-12.md</id>
+        <link href="https://artintellica.com/blog/0097-training-loop-12.md"/>
+        <updated>2025-06-15T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 1.2: The Simplest Case: Linear Regression]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 1.1: Introduction to the Training Loop and Linear Regression]]></title>
         <id>https://artintellica.com/blog/0096-training-loop-11.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0078-rl-torch-33-torch-nn.md"/>
         <updated>2024-06-12T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.3: Building with torch.nn—The Convenient Way]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)]]></title>
-        <id>https://artintellica.com/blog/0077-rl-torch-32-feedforward.md</id>
-        <link href="https://artintellica.com/blog/0077-rl-torch-32-feedforward.md"/>
-        <updated>2024-06-11T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.2: Feedforward Neural Networks from Scratch (No nn.Module)]]></summary>
     </entry>
 </feed>
