@@ -30,10 +30,21 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
   // load content from app/blog/filename
   const blogDir = path.join("docs", "blog");
   const filePath = path.join(blogDir, `${filename}`);
-  const fileContent = fs
-    .readFileSync(filePath, "utf8")
-    .split("+++")[2] as string;
-  blogPost.content = fileContent;
+  const contentRaw = fs.readFileSync(filePath, "utf8");
+  const fmStart = contentRaw.indexOf("+++");
+  if (fmStart === -1) {
+    // No frontmatter, use whole file as content
+    blogPost.content = contentRaw;
+  } else {
+    const fmEnd = contentRaw.indexOf("+++", fmStart + 3);
+    if (fmEnd === -1) {
+      // Only one +++, invalid front-matter, maybe handle as error or raw content
+      blogPost.content = contentRaw;
+    } else {
+      // Content starts after the second +++
+      blogPost.content = contentRaw.slice(fmEnd + 3);
+    }
+  }
 
   // get five most recent blog posts before this one
   const recentBlogPosts = newBlogPosts
