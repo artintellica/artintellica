@@ -622,3 +622,113 @@ RuntimeError: element 0 of tensors does not require grad and does not have a gra
 ```
 
 did i do something wrong? or can this be fixed?
+
+**ASSISTANT:**
+
+Great question — you’re very close! The error:
+
+> RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+
+means:  
+**PyTorch can only compute gradients for tensors with `requires_grad=True`**.
+
+But in your code, you have:
+```python
+w: torch.Tensor = torch.randn(1, requires_grad=False)
+b: torch.Tensor = torch.randn(1, requires_grad=False)
+```
+So, **autograd (and the optimizer) can't update these parameters**.
+
+---
+
+## ✅ **How to fix:**
+
+1. **Create `w` and `b` with `requires_grad=True`:**
+   ```python
+   w = torch.randn(1, requires_grad=True)
+   b = torch.randn(1, requires_grad=True)
+   ```
+
+2. That’s it! Everything else stays the same. Now, `optimizer` can see and update their gradients.
+
+---
+
+## 📦 **Complete Working Example:**
+
+```python
+import torch
+import matplotlib.pyplot as plt
+from typing import List
+
+torch.manual_seed(42)
+true_w = 2.0
+true_b = -1.0
+N = 100
+
+x: torch.Tensor = torch.linspace(-1, 1, N).unsqueeze(1)
+y: torch.Tensor = true_w * x + true_b + 0.1 * torch.randn(N, 1)
+
+plt.scatter(x.numpy(), y.numpy(), label="Data")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Fake Linear Data")
+plt.legend()
+plt.show()
+
+# ✅ Requires grad for autograd!
+w: torch.Tensor = torch.randn(1, requires_grad=True)
+b: torch.Tensor = torch.randn(1, requires_grad=True)
+
+optimizer = torch.optim.SGD([w, b], lr=0.1)
+
+losses: List[float] = []
+
+for epoch in range(50):
+    optimizer.zero_grad()
+    y_pred = w * x + b
+    loss = ((y_pred - y) ** 2).mean()
+    loss.backward()
+    optimizer.step()
+    losses.append(loss.item())
+    if (epoch + 1) % 10 == 0 or epoch == 0:
+        print(
+            f"Epoch {epoch+1:2d}: loss = {loss.item():.4f}, w = {w.item():.4f}, b = {b.item():.4f}"
+        )
+
+print(f"\nLearned parameters: w = {w.item():.4f}, b = {b.item():.4f}")
+print(f"True parameters:    w = {true_w:.4f}, b = {true_b:.4f}")
+
+plt.scatter(x.numpy(), y.numpy(), label="Data")
+plt.plot(x.numpy(), (w * x + b).detach().numpy(), color="red", label="Learned Line")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+plt.title("Linear Regression Fit (PyTorch)")
+plt.show()
+
+plt.plot(losses)
+plt.xlabel("Epoch")
+plt.ylabel("MSE Loss")
+plt.title("Loss During Training")
+plt.show()
+```
+
+---
+
+## **Why?**
+
+- `requires_grad=True` tells PyTorch to track operations so it can compute gradients for `w` and `b` during `.backward()`.
+- If it’s `False`, you get the error you saw, because PyTorch can’t compute the gradient!
+
+---
+
+## **Summary Rule:**
+Whenever you want PyTorch to optimize a tensor, **set `requires_grad=True`** on it!
+
+---
+
+If you have follow-up questions (e.g. about `.detach()` when plotting, or how parameters are stored in more complex models), just ask!
+
+**USER:**
+
+
