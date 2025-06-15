@@ -5,6 +5,7 @@ date = "2025-06-15"
 model = "grok-3"
 userDelimiter = "**USER:**"
 assistantDelimiter = "**ASSISTANT:**"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0098-training-loop-13"
 +++
 
 **USER:**
