@@ -727,5 +727,12 @@
     "date": "2024-06-15",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0092-rl-torch-52-deep-q",
     "content": ""
+  },
+  {
+    "filename": "0093-rl-torch-53-experience.md",
+    "title": "Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks",
+    "author": "Artintellica",
+    "date": "2024-06-15",
+    "content": ""
   }
 ]
