@@ -725,4 +725,158 @@ SGD is the method by which the model *learns* the best values for `w` and `b` by
 
 # === USER ===
 
+what is the purpose of computing losses? is this just to keep track? does the SGD and backwards() methods do this automatically internally?
+
+# === ASSISTANT ===
+
+Great questions! Let’s clarify these points:
+
+---
+
+### **1. What is the main purpose of computing losses?**
+
+- **The loss measures how well (or badly) your model is doing**—it tells you how far your predictions are from the true target values.
+- **You absolutely need to compute the loss at every training step** because:
+  - The value of the loss determines the gradients during backpropagation.
+  - The optimizer (SGD) uses those gradients to update the parameters.
+
+### **2. Is loss only for keeping track?**
+
+- **Tracking the loss (saving it to a list, or printing it) is optional, but very useful.**
+  - It lets you visualize or monitor how learning is progressing.
+  - If the loss is going down, your model is learning!
+- **But:** You must always compute the loss during training, even if you don't record or print it, because it's needed for backpropagation and parameter updates.
+
+### **3. Does SGD or backwards() compute the loss automatically internally?**
+
+- **No, neither `.backward()` nor the optimizer (SGD's `step()`) computes the loss for you.**
+  - **You must always write code that explicitly computes the loss value each training step.**
+- `.backward()` **uses** the loss to calculate gradients, but it does not compute loss on its own.
+- `SGD.step()` simply uses the gradients (which come from the loss's backward pass) to update the parameters.
+
+---
+
+### **Summary Table**
+
+| Function                  | Computes Loss? | Uses Loss? | Computes Gradients? | Updates Parameters? |
+|---------------------------|:--------------:|:----------:|:-------------------:|:-------------------:|
+| (You, in your code)       |      Yes       |    N/A     |         No          |         No          |
+| `loss.backward()`         |      No        |    Yes     |        Yes          |         No          |
+| `optimizer.step()` (SGD)  |      No        |    No      |         No          |        Yes          |
+
+---
+
+#### **In short:**
+- You must compute the loss each step—**both for optimization and (optionally) for tracking/diagnostic purposes.**
+- **SGD and `.backward()` do not compute the loss for you!** They act on the loss you have already computed.
+
+# === USER ===
+
+when the loss.backward() method is called, does it update the input values, X?
+
+# === ASSISTANT ===
+
+**No,** calling `loss.backward()` does **not** update the input values `X`.
+
+### What does `loss.backward()` do?
+
+- It calculates the gradients (partial derivatives) of the loss with respect to all tensors that have `requires_grad=True` and are used in the computation of the loss.
+- In your code, this means it computes the gradients for `w` and `b` (the parameters you want to learn), **not** for `X`.
+
+### Why not `X`?
+
+- Inputs `X` are your data and **should not change** during training; you are only adjusting the model parameters (`w`, `b`, etc.) to fit those inputs.
+- Also, by default, you created `X` with `requires_grad=False` (which is the default for new tensors), so gradients for `X` are not even tracked by PyTorch.
+
+### In summary:
+> **`loss.backward()` does not update or change your input data `X`. It only computes gradients (for learning) with respect to your model's parameters, such as `w` and `b`.**
+
+# === USER ===
+
+does this mean the loss.backward() method updates the w and b values?
+
+# === ASSISTANT ===
+
+**No,** `loss.backward()` **does not update the values of** `w` **and** `b`.
+
+### What does `loss.backward()` actually do?
+- It **computes the gradients** of the loss with respect to all tensors that have `requires_grad=True` (here, `w` and `b`).
+- These gradients are stored in the `.grad` attribute of each tensor (so after `loss.backward()`, you have `w.grad` and `b.grad`).
+
+### When do `w` and `b` get updated?
+- After you call `loss.backward()`, **you must next call** `optimizer.step()`.
+- `optimizer.step()` **actually updates** the values of `w` and `b` using their gradients.
+
+### The correct order:
+1. Compute the loss.
+2. Call `loss.backward()` → fill `w.grad` and `b.grad` with the calculated gradients.
+3. Call `optimizer.step()` → this updates `w` and `b` (the model parameters).
+4. (Optional) Call `optimizer.zero_grad()` to clear the gradients before the next iteration.
+
+---
+
+**Summary:**  
+> `loss.backward()` computes the gradients, but does **not** change the values of `w` and `b`.  
+> `optimizer.step()` uses those gradients to actually **update** `w` and `b`.
+
+# === USER ===
+
+it's unclear in the code how it is that loss.backward() and optimizer.step() are connected. is there some global memory being used here?
+
+# === ASSISTANT ===
+
+Great question! PyTorch’s system of gradients and parameter updates can seem “magical” at first. Here’s how it works under the hood:
+
+---
+
+### How do `loss.backward()` and `optimizer.step()` connect?
+
+#### 1. **Computation Graph and Autograd:**
+- When you compute your model output and loss in PyTorch:
+  ```python
+  y_pred = X * w + b
+  loss = torch.mean((y_pred - y) ** 2)
+  ```
+  PyTorch builds a **computation graph** behind the scenes, tracking all operations involving tensors with `requires_grad=True` (like `w` and `b`).
+
+#### 2. **Calling `loss.backward()`:**
+- This function performs **automatic backpropagation**:
+  - It traces backward through the computation graph,
+  - **Computes the gradient** of the loss with respect to every parameter (e.g., `w` and `b`), **and stores these gradients in their `.grad` fields**.
+    - For example, after this call, `w.grad` and `b.grad` will contain the right values.
+
+#### 3. **Calling `optimizer.step()`:**
+- The optimizer (like `torch.optim.SGD`) is initialized with pointers to the parameters you want to update: `[w, b]`.
+- When you call `optimizer.step()`, **the optimizer looks inside each parameter’s `.grad` field** and uses this value to update the parameter.
+    - If you call `optimizer.step()` before calling `loss.backward()`, `.grad` will be empty or zero, and no learning will occur.
+
+#### 4. **Global Memory?**
+- There’s **no single global gradient storage**; rather, **each tensor with `requires_grad=True` contains its own `.grad` attribute** (a field/slot where the gradient is stored).
+- The optimizer knows which parameters to update because you gave it a list of tensors (like `[w, b]`); it simply loops through them and uses their `.grad` fields.
+
+---
+
+## **Summary Table**
+
+| Step              | What Happens                                                |
+|-------------------|------------------------------------------------------------|
+| Compute forward   | PyTorch builds computation graph as you compute with tensors|
+| `loss.backward()` | Gradients stored as `.grad` in every `requires_grad` param |
+| `optimizer.step()`| Updates each parameter using its own `.grad` slot           |
+
+---
+
+### **In summary:**
+
+- **The link is the `.grad` attribute of each parameter.**
+- PyTorch fills `.grad` during `loss.backward()`.
+- The optimizer uses that `.grad` when you call `.step()`.
+- No mysterious global storage—all handled automatically for the tensors you specify to the optimizer.
+
+---
+
+**That’s the connection! It’s both elegant and a bit hidden, but extremely powerful.**
+
+# === USER ===
+
 
