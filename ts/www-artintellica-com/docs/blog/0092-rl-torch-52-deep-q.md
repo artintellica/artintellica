@@ -2,6 +2,7 @@
 title = "Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation"
 author = "Artintellica"
 date = "2024-06-15"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0092-rl-torch-52-deep-q"
 +++
 
 ## Introduction
