@@ -41,3 +41,19 @@ for epoch in range(num_epochs):
     
     if (epoch + 1) % 10 == 0 or epoch == 0:
         print(f"Epoch {epoch+1:2d}: loss = {loss.item():.4f} w = {w.item():.4f} b = {b.item():.4f}")
+
+# Plot original data and fitted line
+plt.scatter(X.numpy(), y.numpy(), label="Data")
+plt.plot(X.numpy(), (X @ w + b).detach().numpy(), 'r-', label="Fitted Line")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+plt.title("Linear Regression Fit")
+plt.show()
+
+# Plot loss curve
+plt.plot(losses)
+plt.xlabel("Epoch")
+plt.ylabel("Loss (MSE)")
+plt.title("Loss over Training")
+plt.show()
