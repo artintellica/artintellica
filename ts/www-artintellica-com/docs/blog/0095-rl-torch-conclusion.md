@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch: Conclusion and the Road Ahead"
 author = "Artintellica"
-date = "2024-06-15"
+date = "2025-06-15"
 +++
 
 ## Introduction

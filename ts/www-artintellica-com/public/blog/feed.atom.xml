@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-15T16:02:02.386Z</updated>
+    <updated>2025-06-15T16:02:24.761Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -18,7 +18,7 @@
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch: Conclusion and the Road Ahead]]></title>
         <id>https://artintellica.com/blog/0095-rl-torch-conclusion.md</id>
         <link href="https://artintellica.com/blog/0095-rl-torch-conclusion.md"/>
-        <updated>2024-06-15T07:00:00.000Z</updated>
+        <updated>2025-06-15T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch: Conclusion and the Road Ahead]]></summary>
     </entry>
     <entry>
