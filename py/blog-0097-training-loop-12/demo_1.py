@@ -9,3 +9,7 @@ X = torch.linspace(0, 1, N).unsqueeze(1)  # Shape: (N, 1)
 true_w = torch.tensor([2.0])
 true_b = torch.tensor([0.5])
 y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)  # Add some noise
+
+# Initialize weight and bias (will be updated!)
+w = torch.randn(1, requires_grad=True)
+b = torch.randn(1, requires_grad=True)
