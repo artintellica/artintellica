@@ -320,4 +320,4 @@ the outline of the full course is as follows:
 
 ---
 
-we have written the entire blog series let
+we have written the entire blog series. let's conclude by writing one final blog post which includes the entire outline. please summarize what we have learned, and include the entire outline (not the exercises - just the high-level outline of modules and blog posts).
