@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations"
 author = "Artintellica"
-date = "2024-06-14"
+date = "2025-06-14"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0089-rl-torch-46-policies"
 +++
 

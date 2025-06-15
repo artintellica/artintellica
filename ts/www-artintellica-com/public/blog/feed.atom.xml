@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-15T16:02:24.761Z</updated>
+    <updated>2025-06-15T16:04:17.490Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -25,42 +25,42 @@
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN]]></title>
         <id>https://artintellica.com/blog/0094-rl-torch-54-extensions.md</id>
         <link href="https://artintellica.com/blog/0094-rl-torch-54-extensions.md"/>
-        <updated>2024-06-15T07:00:00.000Z</updated>
+        <updated>2025-06-15T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks]]></title>
         <id>https://artintellica.com/blog/0093-rl-torch-53-experience.md</id>
         <link href="https://artintellica.com/blog/0093-rl-torch-53-experience.md"/>
-        <updated>2024-06-15T07:00:00.000Z</updated>
+        <updated>2025-06-15T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation]]></title>
         <id>https://artintellica.com/blog/0092-rl-torch-52-deep-q.md</id>
         <link href="https://artintellica.com/blog/0092-rl-torch-52-deep-q.md"/>
-        <updated>2024-06-15T07:00:00.000Z</updated>
+        <updated>2025-06-15T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></title>
         <id>https://artintellica.com/blog/0091-rl-torch-51-limitations.md</id>
         <link href="https://artintellica.com/blog/0091-rl-torch-51-limitations.md"/>
-        <updated>2024-06-15T07:00:00.000Z</updated>
+        <updated>2025-06-15T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></title>
         <id>https://artintellica.com/blog/0090-rl-torch-47-project.md</id>
         <link href="https://artintellica.com/blog/0090-rl-torch-47-project.md"/>
-        <updated>2024-06-14T07:00:00.000Z</updated>
+        <updated>2025-06-14T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations]]></title>
         <id>https://artintellica.com/blog/0089-rl-torch-46-policies.md</id>
         <link href="https://artintellica.com/blog/0089-rl-torch-46-policies.md"/>
-        <updated>2024-06-14T07:00:00.000Z</updated>
+        <updated>2025-06-14T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations]]></summary>
     </entry>
     <entry>

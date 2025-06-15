@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld"
 author = "Artintellica"
-date = "2024-06-14"
+date = "2025-06-14"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0090-rl-torch-47-project"
 +++
 

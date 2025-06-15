@@ -700,7 +700,7 @@
     "filename": "0089-rl-torch-46-policies.md",
     "title": "Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations",
     "author": "Artintellica",
-    "date": "2024-06-14",
+    "date": "2025-06-14",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0089-rl-torch-46-policies",
     "content": ""
   },
@@ -708,7 +708,7 @@
     "filename": "0090-rl-torch-47-project.md",
     "title": "Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld",
     "author": "Artintellica",
-    "date": "2024-06-14",
+    "date": "2025-06-14",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0090-rl-torch-47-project",
     "content": ""
   },
@@ -716,7 +716,7 @@
     "filename": "0091-rl-torch-51-limitations.md",
     "title": "Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation",
     "author": "Artintellica",
-    "date": "2024-06-15",
+    "date": "2025-06-15",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0091-rl-torch-51-limitations",
     "content": ""
   },
@@ -724,7 +724,7 @@
     "filename": "0092-rl-torch-52-deep-q.md",
     "title": "Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation",
     "author": "Artintellica",
-    "date": "2024-06-15",
+    "date": "2025-06-15",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0092-rl-torch-52-deep-q",
     "content": ""
   },
@@ -732,7 +732,7 @@
     "filename": "0093-rl-torch-53-experience.md",
     "title": "Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks",
     "author": "Artintellica",
-    "date": "2024-06-15",
+    "date": "2025-06-15",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0093-rl-torch-53-experience",
     "content": ""
   },
@@ -740,7 +740,7 @@
     "filename": "0094-rl-torch-54-extensions.md",
     "title": "Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN",
     "author": "Artintellica",
-    "date": "2024-06-15",
+    "date": "2025-06-15",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0094-rl-torch-54-extensions",
     "content": ""
   },

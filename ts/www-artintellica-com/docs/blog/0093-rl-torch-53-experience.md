@@ -1,7 +1,7 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks"
 author = "Artintellica"
-date = "2024-06-15"
+date = "2025-06-15"
 code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0093-rl-torch-53-experience"
 +++
 

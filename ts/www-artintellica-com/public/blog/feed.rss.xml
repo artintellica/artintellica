@@ -4,7 +4,7 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Sun, 15 Jun 2025 16:02:24 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Jun 2025 16:04:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -21,42 +21,42 @@
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN]]></title>
             <link>https://artintellica.com/blog/0094-rl-torch-54-extensions.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0094-rl-torch-54-extensions.md</guid>
-            <pubDate>Sat, 15 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN]]></description>
         </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks]]></title>
             <link>https://artintellica.com/blog/0093-rl-torch-53-experience.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0093-rl-torch-53-experience.md</guid>
-            <pubDate>Sat, 15 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks]]></description>
         </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation]]></title>
             <link>https://artintellica.com/blog/0092-rl-torch-52-deep-q.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0092-rl-torch-52-deep-q.md</guid>
-            <pubDate>Sat, 15 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation]]></description>
         </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></title>
             <link>https://artintellica.com/blog/0091-rl-torch-51-limitations.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0091-rl-torch-51-limitations.md</guid>
-            <pubDate>Sat, 15 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></description>
         </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></title>
             <link>https://artintellica.com/blog/0090-rl-torch-47-project.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0090-rl-torch-47-project.md</guid>
-            <pubDate>Fri, 14 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Sat, 14 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></description>
         </item>
         <item>
             <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations]]></title>
             <link>https://artintellica.com/blog/0089-rl-torch-46-policies.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0089-rl-torch-46-policies.md</guid>
-            <pubDate>Fri, 14 Jun 2024 07:00:00 GMT</pubDate>
+            <pubDate>Sat, 14 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations]]></description>
         </item>
         <item>
