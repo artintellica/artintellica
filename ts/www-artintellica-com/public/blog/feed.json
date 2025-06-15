@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0092-rl-torch-52-deep-q.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0092-rl-torch-52-deep-q.md",
+            "title": "Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation",
+            "date_modified": "2024-06-15T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0091-rl-torch-51-limitations.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0091-rl-torch-51-limitations.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0073-rl-torch-26-classification.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 2.6: Classification Basics—Logistic Regression",
             "date_modified": "2024-06-11T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0072-rl-torch-25-nonlinear.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0072-rl-torch-25-nonlinear.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 2.5: Fitting Nonlinear Curves—Polynomial Regression",
-            "date_modified": "2024-06-10T07:00:00.000Z"
         }
     ]
 }
