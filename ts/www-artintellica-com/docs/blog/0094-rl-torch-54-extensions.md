@@ -1,12 +1,21 @@
 +++
 title = "Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN"
 author = "Artintellica"
-date = "2024-06-16"
+date = "2024-06-15"
 +++
 
 ## Introduction
 
-Advancements in Deep Q-Learning have brought us remarkable performance in complex reinforcement learning (RL) environments. However, standard DQN (Deep Q-Network) displays some well-known limitations, including overestimating action values and inefficient representation of state-value and action-advantages. In this blog post, we introduce two essential extensions that address these problems—**Double DQN** and **Dueling DQN**. We'll cover the mathematical motivation, provide practical PyTorch code, and guide you through hands-on exercises to train, compare, and visualize these improved algorithms on the [LunarLander-v2](https://www.gymlibrary.dev/environments/box2d/lunar_lander/) environment.
+Advancements in Deep Q-Learning have brought us remarkable performance in
+complex reinforcement learning (RL) environments. However, standard DQN (Deep
+Q-Network) displays some well-known limitations, including overestimating action
+values and inefficient representation of state-value and action-advantages. In
+this blog post, we introduce two essential extensions that address these
+problems—**Double DQN** and **Dueling DQN**. We'll cover the mathematical
+motivation, provide practical PyTorch code, and guide you through hands-on
+exercises to train, compare, and visualize these improved algorithms on the
+[LunarLander-v2](https://www.gymlibrary.dev/environments/box2d/lunar_lander/)
+environment.
 
 ---
 
@@ -20,19 +29,23 @@ $$
 Q^*(s, a) = \max_\pi \mathbb{E}\left[ \sum_{t=0}^{\infty} \gamma^t r_t \mid s_0 = s, a_0 = a, \pi \right]
 $$
 
-where $r_t$ is the reward at time $t$, $\gamma$ is the discount factor, and $\pi$ is a policy.
+where $r_t$ is the reward at time $t$, $\gamma$ is the discount factor, and
+$\pi$ is a policy.
 
-**DQN** uses deep neural networks as a function approximator for $Q(s, a;\,\theta)$ and mini-batch Q-learning updates:
+**DQN** uses deep neural networks as a function approximator for
+$Q(s, a;\,\theta)$ and mini-batch Q-learning updates:
 
 $$
-y^\text{DQN} = r + \gamma \max_{a'} Q_\text{target}(s', a';\,\theta^-) 
+y^\text{DQN} = r + \gamma \max_{a'} Q_\text{target}(s', a';\,\theta^-)
 $$
 
 where $\theta^-$ are the parameters of the target network.
 
 ### Double DQN: Reducing Overestimation Bias
 
-DQN tends to overestimate action values due to the **max operator** in the target. Double DQN fixes this using separate networks for selection and evaluation:
+DQN tends to overestimate action values due to the **max operator** in the
+target. Double DQN fixes this using separate networks for selection and
+evaluation:
 
 $$
 y^\text{Double DQN} = r + \gamma Q_\text{target}\big(s', \underset{a'}{\arg\max}\ Q_\text{online}(s', a';\,\theta),\ \theta^- \big)
@@ -41,7 +54,8 @@ $$
 - $\theta$: parameters of the online network
 - $\theta^-$: parameters of the target network
 
-Here, **action selection** uses the online network, and **action evaluation** uses the target.
+Here, **action selection** uses the online network, and **action evaluation**
+uses the target.
 
 ### Dueling DQN: Separating State-Value and Advantage
 
@@ -54,27 +68,35 @@ $$
 - $V(s)$: Value function of state
 - $A(s, a)$: Advantage function for action $a$ in state $s$
 
-This separation helps the network learn which states are valuable irrespective of the action taken, improving training speed and performance in some environments.
+This separation helps the network learn which states are valuable irrespective
+of the action taken, improving training speed and performance in some
+environments.
 
 ---
 
 ## Connecting the Math to the Code
 
 - **Double DQN**:
-  - When calculating Q-learning targets, select the greedy action using the **online** (current) network, but evaluate its Q-value using the **target** network.
+  - When calculating Q-learning targets, select the greedy action using the
+    **online** (current) network, but evaluate its Q-value using the **target**
+    network.
 - **Dueling DQN**:
-  - Design your Q-network such that, after some shared layers, you create two streams:
+  - Design your Q-network such that, after some shared layers, you create two
+    streams:
     - One outputs the scalar state value $V(s)$.
     - The other outputs the advantages $A(s, a)$ for all actions.
-  - These are recombined as per the formula above to produce the Q-values for each action.
+  - These are recombined as per the formula above to produce the Q-values for
+    each action.
 
-We'll provide full PyTorch implementations as hands-on Python demos and exercises below.
+We'll provide full PyTorch implementations as hands-on Python demos and
+exercises below.
 
 ---
 
 ## Python Demos
 
-Let's start with the essential building blocks. These will be reused in the exercises that follow.
+Let's start with the essential building blocks. These will be reused in the
+exercises that follow.
 
 ### Demo 1: Dueling DQN Network Class
 
@@ -115,8 +137,9 @@ class DuelingDQN(nn.Module):
 
 ### Exercise 1: Extend your DQN to Double DQN and Compare Performance
 
-**Description:**
-Modify your existing DQN code to implement Double DQN. Specifically, during the target calculation, use the online network to select the next action, but use the target network to evaluate its Q-value.
+**Description:** Modify your existing DQN code to implement Double DQN.
+Specifically, during the target calculation, use the online network to select
+the next action, but use the target network to evaluate its Q-value.
 
 **Full Double DQN target computation with fully typed PyTorch code:**
 
@@ -137,7 +160,7 @@ def compute_double_dqn_targets(
 ) -> torch.Tensor:
     """
     Compute Double DQN targets.
-    
+
     Args:
         rewards: (batch, )
         dones: (batch, )
@@ -145,7 +168,7 @@ def compute_double_dqn_targets(
         gamma: Discount factor
         online_net: The current DQN/dueling-DQN network
         target_net: The target network
-    
+
     Returns:
         Q_targets: shape (batch, )
     """
@@ -163,8 +186,9 @@ def compute_double_dqn_targets(
 
 ### Exercise 2: Implement Dueling Network Architecture in PyTorch
 
-**Description:**
-Write a complete Dueling DQN network class (if you haven't done so in the demo already!), and compare its outputs with a standard MLP DQN model on random input.
+**Description:** Write a complete Dueling DQN network class (if you haven't done
+so in the demo already!), and compare its outputs with a standard MLP DQN model
+on random input.
 
 **Full code:**
 
@@ -228,10 +252,12 @@ if __name__ == "__main__":
 
 ### Exercise 3: Train Both Models on LunarLander-v2 and Compare Results
 
-**Description:**
-Train both DQN/Double DQN and Dueling DQN agents on [LunarLander-v2](https://www.gymlibrary.dev/environments/box2d/lunar_lander/). Track and plot average episode rewards for each.
+**Description:** Train both DQN/Double DQN and Dueling DQN agents on
+[LunarLander-v2](https://www.gymlibrary.dev/environments/box2d/lunar_lander/).
+Track and plot average episode rewards for each.
 
-**Full code for a minimal training loop (assumes experience replay implementation):**
+**Full code for a minimal training loop (assumes experience replay
+implementation):**
 
 ```python
 import gymnasium as gym
@@ -401,8 +427,10 @@ plt.show()
 
 ### Exercise 4: Visualize Q-Value Distributions During Training
 
-**Description:**
-During or after training, visualize the distribution (histogram) of Q-values predicted by your DQN/Double DQN/Dueling DQN for a set of states. Repeat periodically to observe stability and learning characteristics.
+**Description:** During or after training, visualize the distribution
+(histogram) of Q-values predicted by your DQN/Double DQN/Dueling DQN for a set
+of states. Repeat periodically to observe stability and learning
+characteristics.
 
 **Full code:**
 
@@ -448,8 +476,9 @@ plot_q_distributions(sample_states, trained_policy_net, action_dim=4, title="Tra
 
 ### Project Exercise: Plot Side-by-Side Learning Curves
 
-**Description:**
-Aggregate the reward curves obtained after training DQN, Double DQN, and Dueling DQN agents, and plot them in the same graph for side-by-side comparison.
+**Description:** Aggregate the reward curves obtained after training DQN, Double
+DQN, and Dueling DQN agents, and plot them in the same graph for side-by-side
+comparison.
 
 **Full code:**
 
@@ -485,10 +514,18 @@ def plot_side_by_side_curves(
 
 ## Conclusion
 
-You've learned how Double DQN reduces overestimation bias by splitting action selection and evaluation, and how Dueling DQN architectures represent value and advantage functions separately for more robust learning. With PyTorch code, you've extended vanilla DQN, built dueling architectures, trained the agents on LunarLander-v2, and visualized both learning progress and internal Q-value statistics.
+You've learned how Double DQN reduces overestimation bias by splitting action
+selection and evaluation, and how Dueling DQN architectures represent value and
+advantage functions separately for more robust learning. With PyTorch code,
+you've extended vanilla DQN, built dueling architectures, trained the agents on
+LunarLander-v2, and visualized both learning progress and internal Q-value
+statistics.
 
-**Next:** In the following posts, we'll introduce policy gradient methods and actor-critic algorithms—taking RL one step closer toward solving real-world sequential decision-making tasks!
+**Next:** In the following posts, we'll introduce policy gradient methods and
+actor-critic algorithms—taking RL one step closer toward solving real-world
+sequential decision-making tasks!
 
 ---
 
-**Try out the exercises with your own enhancements, and share your learning curves in the comments!**
+**Try out the exercises with your own enhancements, and share your learning
+curves in the comments!**

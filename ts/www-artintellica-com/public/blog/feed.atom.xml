@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-15T15:43:16.443Z</updated>
+    <updated>2025-06-15T15:47:14.560Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN]]></title>
+        <id>https://artintellica.com/blog/0094-rl-torch-54-extensions.md</id>
+        <link href="https://artintellica.com/blog/0094-rl-torch-54-extensions.md"/>
+        <updated>2024-06-15T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks]]></title>
         <id>https://artintellica.com/blog/0093-rl-torch-53-experience.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0075-rl-torch-28-project.md"/>
         <updated>2024-06-11T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.8: Mini-Project—Build, Train, and Visualize a Simple Classifier]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.7: Softmax and Multiclass Classification]]></title>
-        <id>https://artintellica.com/blog/0074-rl-torch-27-softmax.md</id>
-        <link href="https://artintellica.com/blog/0074-rl-torch-27-softmax.md"/>
-        <updated>2024-06-11T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.7: Softmax and Multiclass Classification]]></summary>
     </entry>
 </feed>
