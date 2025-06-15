@@ -336,13 +336,15 @@ the outline of the full course is as follows:
 
 ---
 
-please produce the blog post for section 5.3, whose description is:
+please produce the blog post for section 5.4, whose description is:
 
-### 3. Experience Replay and Target Networks
+### 4. Extensions: Double DQN, Dueling DQN
 
-* **Exercise 1:** Implement a target network for stable Q-value updates.
-* **Exercise 2:** Compare learning with and without experience replay.
-* **Exercise 3:** Tune replay buffer size and target update frequency.
-* **Exercise 4:** Analyze training stability through reward variance plots.
+* **Exercise 1:** Extend your DQN to Double DQN and compare performance.
+* **Exercise 2:** Implement dueling network architecture in PyTorch.
+* **Exercise 3:** Train both models on LunarLander-v2 and compare results.
+* **Exercise 4:** Visualize Q-value distributions during training.
+
+  * *Project Exercise:* Plot side-by-side learning curves for DQN, Double DQN, and Dueling DQN.
 
 please respond with the blog post only.
