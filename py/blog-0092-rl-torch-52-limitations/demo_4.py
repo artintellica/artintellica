@@ -53,6 +53,7 @@ class ReplayBuffer:
     def __len__(self) -> int:
         return len(self.buffer)
 
+
 import gymnasium as gym
 import matplotlib.pyplot as plt
 from collections import deque
@@ -69,8 +70,10 @@ EPS_DECAY: int = 500  # steps
 
 # Initialize environment and networks
 env = gym.make("CartPole-v1")
-state_dim: int = env.observation_space.shape[0] if env.observation_space.shape is not None else 0
-action_dim: int = env.action_space.n # type: ignore
+state_dim: int = (
+    env.observation_space.shape[0] if env.observation_space.shape is not None else 0
+)
+action_dim: int = env.action_space.n  # type: ignore
 
 q_net = QNetwork(state_dim, action_dim)
 target_net = QNetwork(state_dim, action_dim)
@@ -79,6 +82,7 @@ target_net.eval()
 
 optimizer = torch.optim.Adam(q_net.parameters(), lr=LEARNING_RATE)
 replay_buffer = ReplayBuffer(REPLAY_SIZE)
+
 
 # Epsilon-greedy policy
 def select_action(state: np.ndarray, epsilon: float) -> int:
@@ -90,6 +94,7 @@ def select_action(state: np.ndarray, epsilon: float) -> int:
             q_values = q_net(state_tensor)
             return int(q_values.argmax(dim=1).item())
 
+
 # Training loop
 num_episodes: int = 50
 episode_rewards: List[float] = []
@@ -100,18 +105,22 @@ for episode in range(num_episodes):
     episode_reward: float = 0.0
     done = False
     while not done:
-        epsilon = EPS_END + (EPS_START - EPS_END) * np.exp(-1.0 * steps_done / EPS_DECAY)
+        epsilon = EPS_END + (EPS_START - EPS_END) * np.exp(
+            -1.0 * steps_done / EPS_DECAY
+        )
         action = select_action(state, epsilon)
         next_state, reward, terminated, truncated, _ = env.step(action)
         done = terminated or truncated
-        replay_buffer.push(state, action, reward, next_state, done) # type: ignore
+        replay_buffer.push(state, action, reward, next_state, done)  # type: ignore
         state = next_state
-        episode_reward += reward # type: ignore
+        episode_reward += reward  # type: ignore
         steps_done += 1
 
         # Train step
         if len(replay_buffer) >= BATCH_SIZE:
-            states, actions, rewards, next_states, dones = replay_buffer.sample(BATCH_SIZE)
+            states, actions, rewards, next_states, dones = replay_buffer.sample(
+                BATCH_SIZE
+            )
             states_t = torch.from_numpy(states).float()
             actions_t = torch.from_numpy(actions).long().unsqueeze(1)
             rewards_t = torch.from_numpy(rewards).float().unsqueeze(1)
@@ -137,7 +146,9 @@ for episode in range(num_episodes):
 
     episode_rewards.append(episode_reward)
     if (episode + 1) % 10 == 0:
-        print(f"Episode {episode+1}, Reward: {episode_reward:.2f}, Epsilon: {epsilon:.3f}")
+        print(
+            f"Episode {episode+1}, Reward: {episode_reward:.2f}, Epsilon: {epsilon:.3f}"
+        )
 
 env.close()
 
@@ -154,5 +165,7 @@ torch.save(q_net.state_dict(), "dqn_cartpole.pth")
 
 # To load:
 q_net_loaded = QNetwork(state_dim, action_dim)
-q_net_loaded.load_state_dict(torch.load("dqn_cartpole.pth", map_location=torch.device("cpu")))
+q_net_loaded.load_state_dict(
+    torch.load("dqn_cartpole.pth", map_location=torch.device("cpu"))
+)
 q_net_loaded.eval()
