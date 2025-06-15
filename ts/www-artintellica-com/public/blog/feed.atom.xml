@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-15T14:04:08.938Z</updated>
+    <updated>2025-06-15T14:08:13.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></title>
+        <id>https://artintellica.com/blog/0091-rl-torch-51-limitations.md</id>
+        <link href="https://artintellica.com/blog/0091-rl-torch-51-limitations.md"/>
+        <updated>2024-06-14T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></title>
         <id>https://artintellica.com/blog/0090-rl-torch-47-project.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0072-rl-torch-25-nonlinear.md"/>
         <updated>2024-06-10T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.5: Fitting Nonlinear Curves—Polynomial Regression]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.4: Fitting a Line—Linear Regression from Scratch with PyTorch]]></title>
-        <id>https://artintellica.com/blog/0071-rl-torch-24-fitting.md</id>
-        <link href="https://artintellica.com/blog/0071-rl-torch-24-fitting.md"/>
-        <updated>2024-06-10T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 2.4: Fitting a Line—Linear Regression from Scratch with PyTorch]]></summary>
     </entry>
 </feed>
