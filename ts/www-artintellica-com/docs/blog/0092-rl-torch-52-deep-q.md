@@ -4,15 +4,20 @@ author = "Artintellica"
 date = "2024-06-15"
 +++
 
-# Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation
-
----
-
 ## Introduction
 
-So far in our series, we’ve explored reinforcement learning (RL) using tabular methods—explicitly storing and updating a value for every state–action pair. But the real world is far more complex: many problems have huge or continuous state spaces where tabular methods simply cannot scale. Enter Deep Q-Networks (DQN), the game-changing approach that brought deep learning to RL. This post will introduce you to DQN concepts and walk you through a full working PyTorch implementation, using OpenAI Gym’s classic **CartPole-v1** environment as our running example.
+So far in our series, we’ve explored reinforcement learning (RL) using tabular
+methods—explicitly storing and updating a value for every state–action pair. But
+the real world is far more complex: many problems have huge or continuous state
+spaces where tabular methods simply cannot scale. Enter Deep Q-Networks (DQN),
+the game-changing approach that brought deep learning to RL. This post will
+introduce you to DQN concepts and walk you through a full working PyTorch
+implementation, using OpenAI Gym’s classic **CartPole-v1** environment as our
+running example.
 
-By the end, you’ll have built a neural Q-network, implemented experience replay, trained your own agent, and learned to tune and save your models. All code is hands-on, fully typed, and annotated for understanding.
+By the end, you’ll have built a neural Q-network, implemented experience replay,
+trained your own agent, and learned to tune and save your models. All code is
+hands-on, fully typed, and annotated for understanding.
 
 ---
 
@@ -22,17 +27,19 @@ Let’s review and extend the math underlying DQN.
 
 ### 1. The Q-Function and Bellman Equation
 
-Recall that the **action-value function** (Q-function) for a state–action pair $(s, a)$ under policy $\pi$, is:
+Recall that the **action-value function** (Q-function) for a state–action pair
+$(s, a)$ under policy $\pi$, is:
 
 $$
 Q^\pi(s, a) = \mathbb{E}\left[ G_t \mid s_t = s,\, a_t = a,\, \pi \right]
 $$
 
 where
+
 - $G_t = r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \dots$
 - $\gamma$ is the discount factor, $0 \leq \gamma < 1$
 
-**The Bellman optimality equation for Q* (the optimal Q-function):**
+**The Bellman optimality equation for Q\* (the optimal Q-function):**
 
 $$
 Q^*(s, a) = \mathbb{E}_{s'} \left[ r + \gamma \max_{a'} Q^*(s', a')\ \Big|\, s, a \right]
@@ -40,22 +47,26 @@ $$
 
 ### 2. Deep Q-Networks
 
-In DQN, we **approximate** $Q^*(s,a)$ with a neural network parameterized by $\theta$. The network takes an observation (the state) as input and outputs Q-values for every possible action.
+In DQN, we **approximate** $Q^*(s,a)$ with a neural network parameterized by
+$\theta$. The network takes an observation (the state) as input and outputs
+Q-values for every possible action.
 
 - **Input:** state $s$
 - **Output:** $Q(s, a; \theta), \ \forall a \in \mathcal{A}$
 
-The goal: minimize the **mean squared error (MSE)** between the current Q-value and the Bellman target for experience $(s, a, r, s', done)$:
+The goal: minimize the **mean squared error (MSE)** between the current Q-value
+and the Bellman target for experience $(s, a, r, s', done)$:
 
 $$
-\text{Target:}\quad y = 
+\text{Target:}\quad y =
 \begin{cases}
   r & \text{if done (terminal)}\\
   r + \gamma \max_{a'} Q(s', a';\ \theta^{-}) & \text{if not done}
 \end{cases}
 $$
 
-where $\theta^{-}$ are the parameters of a "target network," usually a slowly updated snapshot of the main Q-network.
+where $\theta^{-}$ are the parameters of a "target network," usually a slowly
+updated snapshot of the main Q-network.
 
 **DQN Learning Objective:**
 
@@ -69,24 +80,30 @@ where $\mathcal{D}$ is a **replay buffer** (experience memory).
 
 ### 3. Experience Replay
 
-To break correlations and improve sample efficiency, DQN samples batches **randomly** from a replay buffer of recent experiences instead of updating from only the latest transition.
+To break correlations and improve sample efficiency, DQN samples batches
+**randomly** from a replay buffer of recent experiences instead of updating from
+only the latest transition.
 
 ### 4. Target Networks
 
-A separate, periodically updated copy of the Q-network ($\theta^-$) is used to compute targets $y$, stabilizing training by reducing target oscillations.
+A separate, periodically updated copy of the Q-network ($\theta^-$) is used to
+compute targets $y$, stabilizing training by reducing target oscillations.
 
 ---
 
 ## From Math to Code: Building DQN Step by Step
 
-1. **Q-Network:** A standard MLP (multi-layer perceptron) that estimates $Q(s,a)$ from input states.
-2. **Replay Buffer:** Stores $(s,a,r,s',done)$ transitions; sample minibatches for updates.
+1. **Q-Network:** A standard MLP (multi-layer perceptron) that estimates
+   $Q(s,a)$ from input states.
+2. **Replay Buffer:** Stores $(s,a,r,s',done)$ transitions; sample minibatches
+   for updates.
 3. **Training Loop:**
-    - For each time step:
-        - Select action (epsilon-greedy: random with probability $\epsilon$, else greedy)
-        - Step environment, collect $(s,a,r,s',done)$, add to replay buffer
-        - Sample batch, calculate targets, calculate MSE loss, backpropagate
-    - Occasionally update target network
+   - For each time step:
+     - Select action (epsilon-greedy: random with probability $\epsilon$, else
+       greedy)
+     - Step environment, collect $(s,a,r,s',done)$, add to replay buffer
+     - Sample batch, calculate targets, calculate MSE loss, backpropagate
+   - Occasionally update target network
 
 ---
 
@@ -282,7 +299,8 @@ Let's deepen your understanding with concrete coding challenges.
 
 ### **Exercise 1 — Build a Q-network using `nn.Module` for CartPole-v1**
 
-_Define a class `QNetwork` as above, but allow the number of hidden layers and units per layer to be specified dynamically._
+_Define a class `QNetwork` as above, but allow the number of hidden layers and
+units per layer to be specified dynamically._
 
 ```python
 from typing import List, Tuple
@@ -308,7 +326,9 @@ class CustomQNetwork(nn.Module):
 
 ### **Exercise 2 — Implement an experience replay buffer from scratch**
 
-_Implement a class `ReplayBuffer` as shown, but add a method `.sample_indices(batch_size)` that returns both the sampled experiences and their indices in the buffer (useful for prioritized replay)._
+_Implement a class `ReplayBuffer` as shown, but add a method
+`.sample_indices(batch_size)` that returns both the sampled experiences and
+their indices in the buffer (useful for prioritized replay)._
 
 ```python
 import numpy as np
@@ -352,7 +372,8 @@ class ReplayBufferWithIndices:
 
 ### **Exercise 3 — Train a DQN agent and plot episode rewards**
 
-_Use your Q-network and replay buffer to train an agent on CartPole-v1. Keep track of rewards per episode and plot them with Matplotlib._
+_Use your Q-network and replay buffer to train an agent on CartPole-v1. Keep
+track of rewards per episode and plot them with Matplotlib._
 
 ```python
 import gymnasium as gym
@@ -435,7 +456,8 @@ env.close()
 
 ### **Exercise 4 — Save and load trained DQN models**
 
-_Use `torch.save` and `torch.load` to serialize and deserialize your trained DQN model's parameters._
+_Use `torch.save` and `torch.load` to serialize and deserialize your trained DQN
+model's parameters._
 
 ```python
 # Saving
@@ -451,7 +473,8 @@ loaded_net.eval()
 
 ### **Project Exercise — Experiment with different network sizes and plot curves**
 
-_Train and compare DQNs with one vs. two hidden layers, 64 vs. 256 units. Plot learning curves for all four variants on the same chart._
+_Train and compare DQNs with one vs. two hidden layers, 64 vs. 256 units. Plot
+learning curves for all four variants on the same chart._
 
 ```python
 configs = [
@@ -521,6 +544,13 @@ env.close()
 
 ## Conclusion
 
-Deep Q-Networks combine the strong function-approximation capability of neural networks with classic Q-learning, enabling RL agents to handle large/continuous state spaces. The essential tricks—experience replay, target networks—are all now in your hands, and you’ve coded a fully working DQN for the classic CartPole problem.
+Deep Q-Networks combine the strong function-approximation capability of neural
+networks with classic Q-learning, enabling RL agents to handle large/continuous
+state spaces. The essential tricks—experience replay, target networks—are all
+now in your hands, and you’ve coded a fully working DQN for the classic CartPole
+problem.
 
-Don’t forget: you can always tweak the architecture, batch size, epsilon schedule and more to see how your agent learns. In the next lesson, we’ll push DQN further with modern extensions like Double and Dueling DQN. Happy experimenting!
+Don’t forget: you can always tweak the architecture, batch size, epsilon
+schedule and more to see how your agent learns. In the next lesson, we’ll push
+DQN further with modern extensions like Double and Dueling DQN. Happy
+experimenting!
