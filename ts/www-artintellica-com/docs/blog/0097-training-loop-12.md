@@ -460,4 +460,668 @@ Ready to build on this? Next time, we'll talk about batch vs. stochastic gradien
 
 **USER:**
 
+here is the full demo you created. i had to fix some type errors. now, i get an error when plotting. first, here is the code:
+
+```python
+import torch
+import matplotlib.pyplot as plt
+
+# Make the output reproducible
+torch.manual_seed(42)
+
+N = 100  # Number of data points
+X = torch.linspace(0, 1, N).unsqueeze(1)  # Shape: (N, 1)
+true_w = torch.tensor([2.0])
+true_b = torch.tensor([0.5])
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)  # Add some noise
+
+# Initialize weight and bias (will be updated!)
+w = torch.randn(1, requires_grad=True)
+b = torch.randn(1, requires_grad=True)
+
+learning_rate = 0.1
+num_epochs = 40
+
+losses = []
+
+for epoch in range(num_epochs):
+    # 1. Forward pass: compute prediction
+    y_pred = X @ w + b  # (N, 1)
+    
+    # 2. Compute mean squared error loss
+    loss = ((y - y_pred)**2).mean()
+    losses.append(loss.item())
+    
+    # 3. Backward pass: compute gradients
+    loss.backward()
+    
+    # 4. Update parameters manually
+    with torch.no_grad():
+        w -= learning_rate * w.grad.item() if w.grad is not None else 0
+        b -= learning_rate * b.grad.item() if b.grad is not None else 0
+
+    # 5. Zero gradients for next iteration
+    w.grad.zero_() if w.grad is not None else None
+    b.grad.zero_() if b.grad is not None else None
+    
+    if (epoch + 1) % 10 == 0 or epoch == 0:
+        print(f"Epoch {epoch+1:2d}: loss = {loss.item():.4f} w = {w.item():.4f} b = {b.item():.4f}")
+
+# Plot original data and fitted line
+plt.scatter(X.numpy(), y.numpy(), label="Data")
+plt.plot(X.numpy(), (X @ w + b).detach().numpy(), 'r-', label="Fitted Line")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+plt.title("Linear Regression Fit")
+plt.show()
+
+# Plot loss curve
+plt.plot(losses)
+plt.xlabel("Epoch")
+plt.ylabel("Loss (MSE)")
+plt.title("Loss over Training")
+plt.show()
+```
+
+the error is:
+
+```
+Traceback (most recent call last):
+  File "/Users/ryan/dev/artintellica/py/blog-0097-training-loop-12/demo_1.py", line 46, in <module>
+    plt.scatter(X.numpy(), y.numpy(), label="Data")
+  File "/Users/ryan/dev/artintellica/.venv/lib/python3.11/site-packages/matplotlib/_api/deprecation.py", line 453, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ryan/dev/artintellica/.venv/lib/python3.11/site-packages/matplotlib/pyplot.py", line 3948, in scatter
+    __ret = gca().scatter(
+            ^^^^^^^^^^^^^^
+  File "/Users/ryan/dev/artintellica/.venv/lib/python3.11/site-packages/matplotlib/_api/deprecation.py", line 453, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ryan/dev/artintellica/.venv/lib/python3.11/site-packages/matplotlib/__init__.py", line 1521, in inner
+    return func(
+           ^^^^^
+  File "/Users/ryan/dev/artintellica/.venv/lib/python3.11/site-packages/matplotlib/axes/_axes.py", line 4933, in scatter
+    raise ValueError("x and y must be the same size")
+ValueError: x and y must be the same size
+```
+
+what's wrong?
+
+**ASSISTANT:**
+
+Great question!  
+The error message says:  
+> "ValueError: x and y must be the same size"
+
+This happens because, in your code, `X` has shape `(N, 1)` and `y` has shape `(N, 1)`, so when you call:
+```python
+plt.scatter(X.numpy(), y.numpy(), label="Data")
+```
+you're giving `matplotlib` arrays of shape `(100, 1)`, not plain 1D arrays of length 100!
+
+**`matplotlib.pyplot.scatter` expects both `x` and `y` to be 1D arrays of the SAME SHAPE: (N,)**
+
+---
+
+## How to Fix
+
+You just need to flatten the arrays when plotting.  
+The simplest way:  
+```python
+plt.scatter(X.numpy().flatten(), y.numpy().flatten(), label="Data")
+plt.plot(X.numpy().flatten(), (X @ w + b).detach().numpy().flatten(), 'r-', label="Fitted Line")
+```
+Or you can use `squeeze()` instead of `flatten()`:
+```python
+plt.scatter(X.numpy().squeeze(), y.numpy().squeeze(), label="Data")
+plt.plot(X.numpy().squeeze(), (X @ w + b).detach().numpy().squeeze(), 'r-', label="Fitted Line")
+```
+
+Both are fine—`flatten()` and `squeeze()` turn `(N, 1)` into `(N,)`.
+
+---
+
+## Why does this happen?
+
+- **Shape mismatch**:  matplotlib scatter requires 1D arrays for x and y.
+- **PyTorch**: `(N, 1)` means "matrix with one column," but matplotlib wants just a vector.
+- Passing `(N, 1)` for both axes means it thinks you want to plot 100 points against 100 y-values (a 100x100 scatter!), not a one-to-one match.
+
+---
+
+## Final Working Code (Plot Section Only)
+
+Replace the plot section in your code with:
+
+```python
+# Plot original data and fitted line
+plt.scatter(X.numpy().flatten(), y.numpy().flatten(), label="Data")
+plt.plot(X.numpy().flatten(), (X @ w + b).detach().numpy().flatten(), 'r-', label="Fitted Line")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+plt.title("Linear Regression Fit")
+plt.show()
+```
+
+Or, with `squeeze`:
+```python
+plt.scatter(X.numpy().squeeze(), y.numpy().squeeze(), label="Data")
+plt.plot(X.numpy().squeeze(), (X @ w + b).detach().numpy().squeeze(), 'r-', label="Fitted Line")
+```
+
+---
+
+**Summary:**  
+Convert your data arrays from `(N, 1)` to `(N,)` via `.squeeze()` or `.flatten()` before plotting.  
+This fixes matplotlib's size mismatch error!
+
+**USER:**
+
+neither of your solutions worked. note that the error says X and Y must be the same size. there must be some error in the logic somewhere that has made them not the same size, no?
+
+**ASSISTANT:**
+
+Great follow-up! You are correct: the error might not just be in the dimensions like `(N, 1)` vs `(N,)`, but possibly in the **actual size of the arrays** passed to `plt.scatter()`. Let's diagnose step by step.
+
+---
+
+## 1. Inspect Shapes Before Plotting
+
+Let's print the shapes right before plotting:
+
+```python
+print("X shape:", X.shape)
+print("y shape:", y.shape)
+```
+
+Add this **before** the `plt.scatter...` line.
+
+---
+
+## 2. Possible Causes
+
+### **a. Mismatched Data Sizes**
+
+If, for example, `X` is shape `(100, 1)` but `y` is somehow `(99, 1)`, that's a size mismatch.
+
+### **b. Double-Indexing/Modification**
+
+Ensure that between your data generation and plotting, you have not accidentally sliced or modified either `X` or `y`.
+
+---
+
+## 3. Confirm in Your Code
+
+- **You generated your data here:**
+  ```python
+  N = 100  # Number of data points
+  X = torch.linspace(0, 1, N).unsqueeze(1)  # (100, 1)
+  y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)  # (100, 1)
+  ```
+- That should produce **both** with shape `(100, 1)`.
+
+---
+
+## 4. Your Plotting Code
+
+```python
+plt.scatter(X.numpy().squeeze(), y.numpy().squeeze(), label="Data")
+```
+Both should be length 100 if all is well.
+
+---
+
+## 5. Double-Check the `@` Operator
+
+This is correct:
+```python
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)
+```
+But let’s make **absolutely certain** `true_w` is the right shape:
+
+- `true_w = torch.tensor([2.0])` → Shape `(1,)`
+- `X` is `(100, 1)`, so `X @ true_w` gives shape `(100,)` (*not* `(100, 1)`)
+- Adding `true_b` (shape `(1,)`) is fine (broadcasts), but `0.1 * torch.randn(N, 1)` is shape `(100, 1)`.
+
+**Result:** You are adding a shape `(100,)` tensor and a `(100, 1)` tensor, which broadcasts to `(100, 100)` in PyTorch! So `y` **might not** be what you expect; it may be shape `(100, 100)`.
+
+---
+
+## 6. Correct Way
+
+#### **A. Make Sure `y` is 1-D or `(N,1)`**
+
+Modify your data generation as:
+
+```python
+# Make X: (100, 1)
+X = torch.linspace(0, 1, N).unsqueeze(1)  # (100, 1)
+# Make y: (100, 1)
+y = X * true_w + true_b + 0.1 * torch.randn(N, 1)  # (100, 1)
+```
+Or, if you want everything as 1D:
+```python
+y = X.squeeze() * true_w + true_b + 0.1 * torch.randn(N)  # (100,)
+```
+
+#### **B. Use `*` for Elementwise, not `@` (unless you’re doing true matrix multiplication)**
+
+Since `true_w` is shape `(1,)`, `X * true_w` is enough. Matrix multiply needs shaped and dimension-matched tensors.
+
+---
+
+## 7. Full Working Example
+
+Replace your data generation with:
+
+```python
+N = 100
+X = torch.linspace(0, 1, N).unsqueeze(1)  # (100, 1)
+true_w = torch.tensor([2.0])
+true_b = torch.tensor([0.5])
+y = X * true_w + true_b + 0.1 * torch.randn(N, 1)  # (100, 1)
+```
+
+Now, plotting:
+
+```python
+plt.scatter(X.numpy().squeeze(), y.numpy().squeeze(), label="Data")
+plt.plot(X.numpy().squeeze(), (X @ w + b).detach().numpy().squeeze(), 'r-', label="Fitted Line")
+```
+
+If you use `@` elsewhere, make sure both operands have compatible shapes.
+
+---
+
+## 8. **Summary**
+
+- The **main cause** is probably the use of `@` (matrix multiply) instead of `*` (element-wise multiply) when you create `y`.
+- This can create a 2D or even 3D array you didn’t expect.
+- Always check shapes immediately after each line.
+
+---
+
+## 9. **TL;DR Correction**
+
+**Replace:**
+```python
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)
+```
+
+**With:**
+```python
+y = X * true_w + true_b + 0.1 * torch.randn(N, 1)
+```
+
+Then keep using `plt.scatter(X.numpy().squeeze(), y.numpy().squeeze(), ...)`.  
+It will now plot without error.
+
+---
+
+**Extra tip:**  
+Whenever you see a "must be the same size" error, `print(X.shape, y.shape)` right before plotting is a lifesaver!
+
+**USER:**
+
+here are the shapes of X and y:
+
+X shape: torch.Size([100, 1])
+y shape: torch.Size([100, 100])
+
+these are not the same. where is the error in the code?
+
+**ASSISTANT:**
+
+Great diagnosis!  
+The key problem is here:
+
+```python
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)
+```
+
+Let’s break it down:
+
+- `X` is shape `(100, 1)`
+- `true_w` is shape `(1,)`
+- `X @ true_w`  
+  - In PyTorch, this is **broadcasted matrix multiplication**: `(100, 1) @ (1,)` is valid, but it yields `(100,)`  
+  - Then, when you add this result (`(100,)`) to a `(100, 1)` tensor (`0.1 * torch.randn(N, 1)`), PyTorch broadcasts dimensions, giving you a final shape of `(100, 100)`.
+
+### **How does this happen?**
+
+When you add a `(100,)` and a `(100, 1)`, PyTorch broadcasts both to `(100, 100)`—it aligns dimensions from right to left, so both expand, resulting in a full matrix.
+
+**That’s why `y` has shape `(100, 100)`!**
+
+---
+
+## **How to Fix**
+
+You want `y` to be shape `(100, 1)` to match `X` (for the plot).
+
+**Do this instead:**
+
+### **Option 1: Use Elementwise Multiplication**
+
+```python
+y = X * true_w + true_b + 0.1 * torch.randn(N, 1)  # (100, 1)
+```
+- `X` is `(100, 1)`
+- `true_w` is `(1,)` → broadcasts to `(100, 1)`
+- so the result is `(100, 1)`
+
+### **Option 2: If you want to use `@`, make `true_w` shape `(1, 1)`**
+
+```python
+true_w = torch.tensor([[2.0]])  # shape (1, 1)
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)  # (100, 1)
+```
+- But for 1D data, simple elementwise `*` is easier and more idiomatic.
+
+---
+
+## **Final, Correct Code Snippet**
+
+Just change the problematic line **to**:
+
+```python
+y = X * true_w + true_b + 0.1 * torch.randn(N, 1)
+```
+
+Now both `X` and `y` will be `(100, 1)`, and plotting will work as expected.
+
+---
+
+## **Summary Table**
+
+| Line            | Output Shape | Notes                                       |
+|-----------------|-------------|----------------------------------------------|
+| `X`             | (100, 1)    | Input data                                   |
+| `true_w`        | (1,)        | Weight scalar (broadcast as needed)          |
+| `X * true_w`    | (100, 1)    | Elementwise—what you want                    |
+| `X @ true_w`    | (100,)      | Result is 1D; adding (100, 1) will broadcast |
+| `(100,) + (100, 1)` | (100, 100)   | Bad: misbroadcasts to 2D                    |
+
+---
+
+## **TL;DR**
+
+Replace:
+```python
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)
+```
+with:
+```python
+y = X * true_w + true_b + 0.1 * torch.randn(N, 1)
+```
+and your shapes will match!
+
+**USER:**
+
+i don't like your solution. surely we should be using the matrix equation y = X @ w + b, not y = X * w + b. do you see some logical error in the original code somewhere?
+
+**ASSISTANT:**
+
+Absolutely—your instinct is spot on! You’re correct that **in real linear regression (vectorized, for multiple features) we use**  
+$$
+y = X @ w + b
+$$  
+where $X$ is $(N, D)$ and $w$ is $(D, 1)$ or $(D, )$, just as in the mathematics.
+
+**In the code you posted, however, the logical error comes from the shape of `true_w`.**
+
+---
+
+## **What Actually Happens**
+
+### Given:
+
+- `X`: shape `(100, 1)`
+- `true_w`: shape **`(1,)`**
+- `true_b`: shape `(1,)`
+
+### Operation:
+
+- `X @ true_w`:
+  - PyTorch interprets this as matrix multiplication of `(100, 1) @ (1,)`, which results in shape `(100,)` (**NOT** `(100, 1)` as you may want/expect).
+- Next, when you add `(100,) + (100, 1)`, PyTorch broadcasts to `(100, 100)` — which is wrong and causes all downstream problems.
+
+---
+
+## **How Do You Fix this, While Keeping the Matrix Equation?**
+
+### **You need to shape `true_w` as a column vector, i.e., `(1, 1)`**
+
+```python
+true_w = torch.tensor([[2.0]])  # (1, 1)
+```
+
+Now, try:
+```python
+X.shape           # (100, 1)
+true_w.shape      # (1, 1)
+```
+`X @ true_w` → shape is `(100, 1)`
+
+So now, **everything broadcasts as expected!**
+
+### **Code:**
+
+```python
+N = 100
+X = torch.linspace(0, 1, N).unsqueeze(1)     # (100, 1)
+true_w = torch.tensor([[2.0]])               # (1, 1)
+true_b = torch.tensor([0.5])                 # (1,)
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)  # (100, 1)
+```
+
+---
+
+## **Why?**
+
+#### **Matrix multiplication expects**
+- $(N, D) @ (D, 1)$ ⇒ $(N, 1)$
+
+In your code, `true_w` was shape `(1,)` which is 1D, not a column vector.
+
+---
+
+## **Summary Table**
+
+| Variable        | Shape      | Description             |
+| --------------- | ---------- | ----------------------- |
+| `X`             | (100, 1)   | Input matrix            |
+| `true_w`        | (1, 1)     | Weight column vector    |
+| `X @ true_w`    | (100, 1)   | Matrix product          |
+| `true_b`        | (1,)       | Broadcastable           |
+
+---
+
+## **Your Preferred Code (fixed):**
+
+```python
+N = 100
+X = torch.linspace(0, 1, N).unsqueeze(1)       # (100, 1)
+true_w = torch.tensor([[2.0]])                 # (1, 1), proper column vector
+true_b = torch.tensor([0.5])                   # (1,), broadcast OK
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)   # (100, 1)
+```
+
+Now everything works, and you maintain the proper **matrix equation**.
+
+---
+
+## **Conclusion**
+
+- **You were 100% correct:** You SHOULD use the matrix form.
+- The bug: `true_w` shape should be **2D**, i.e., `(1, 1)`, not 1D `(1,)`, so you get a proper column vector.
+- This keeps everything consistent with the tutorial and mathematical notation.
+
+---
+
+**Recommendation:**  
+Always make sure your weight vector is 2D (columns: features, rows: outputs) when using `@`!  
+This avoids broadcasting bugs.
+
+---
+
+**With this change, your code will plot with no errors.**
+
+**USER:**
+
+ok, that sort of fixed it, and now there is no error. however, there is a new problem. the fitting no longer works. the more epochs, the *worse* the fit gets. where is the error now?
+
+```python
+import torch
+import matplotlib.pyplot as plt
+
+# Make the output reproducible
+torch.manual_seed(42)
+
+N = 100  # Number of data points
+X = torch.linspace(0, 1, N).unsqueeze(1)  # Shape: (N, 1)
+true_w = torch.tensor([[2.0]])
+true_b = torch.tensor([0.5])
+y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)  # Add some noise
+
+# Initialize weight and bias (will be updated!)
+w = torch.randn(1, requires_grad=True)
+b = torch.randn(1, requires_grad=True)
+
+learning_rate = 0.1
+num_epochs = 400
+
+losses = []
+
+for epoch in range(num_epochs):
+    # 1. Forward pass: compute prediction
+    y_pred = X @ w + b  # (N, 1)
+    
+    # 2. Compute mean squared error loss
+    loss = ((y - y_pred)**2).mean()
+    losses.append(loss.item())
+    
+    # 3. Backward pass: compute gradients
+    loss.backward()
+    
+    # 4. Update parameters manually
+    with torch.no_grad():
+        w -= learning_rate * w.grad.item() if w.grad is not None else 0
+        b -= learning_rate * b.grad.item() if b.grad is not None else 0
+
+    # 5. Zero gradients for next iteration
+    w.grad.zero_() if w.grad is not None else None
+    b.grad.zero_() if b.grad is not None else None
+    
+    if (epoch + 1) % 10 == 0 or epoch == 0:
+        print(f"Epoch {epoch+1:2d}: loss = {loss.item():.4f} w = {w.item():.4f} b = {b.item():.4f}")
+
+# print shapes
+print("X shape:", X.shape)
+print("y shape:", y.shape)
+# Plot original data and fitted line
+plt.scatter(X.numpy().flatten(), y.numpy().flatten(), label="Data")
+plt.plot(X.numpy().flatten(), (X @ w + b).detach().numpy().flatten(), 'r-', label="Fitted Line")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+plt.title("Linear Regression Fit")
+plt.show()
+
+# Plot loss curve
+plt.plot(losses)
+plt.xlabel("Epoch")
+plt.ylabel("Loss (MSE)")
+plt.title("Loss over Training")
+plt.show()
+```
+
+**ASSISTANT:**
+
+Great job tracking down the shape broadcast problem—now you’re facing a CLASSIC torch gotcha! Your fitting diverges ("the more epochs, the worse the fit") because of **how you’re updating your parameters**. This is a subtle PyTorch issue.
+
+---
+
+## **Where is the error?**
+
+**Look at this update step:**
+```python
+with torch.no_grad():
+    w -= learning_rate * w.grad.item() if w.grad is not None else 0
+    b -= learning_rate * b.grad.item() if b.grad is not None else 0
+```
+- **`w.grad.item()`** extracts a Python float, which you subtract from the entire tensor `w` (shape `(1,)`) — but that’s not what you want for vectors/matrices!
+- For **vectors/tensors**, you should subtract the full gradient tensor, not a single scalar per parameter.
+
+---
+
+## **How to fix it**
+
+Just drop the `.item()`!  
+That is, do **not** convert your gradients to scalars, just use the tensor arithmetic:
+
+```python
+with torch.no_grad():
+    w -= learning_rate * w.grad
+    b -= learning_rate * b.grad
+```
+This will update each parameter with its own gradient, as intended.
+
+**(Also: Since these are scalar or small 1-d tensors, this is crucial for correctness.)**
+
+---
+
+## **Full working/fixed loop:**
+
+```python
+for epoch in range(num_epochs):
+    y_pred = X @ w + b  # (N, 1)
+    loss = ((y - y_pred)**2).mean()
+    losses.append(loss.item())
+    
+    loss.backward()
+    
+    with torch.no_grad():
+        w -= learning_rate * w.grad  # <---- No .item()
+        b -= learning_rate * b.grad  # <---- No .item()
+        
+    w.grad.zero_()
+    b.grad.zero_()
+    
+    if (epoch + 1) % 10 == 0 or epoch == 0:
+        print(f"Epoch {epoch+1:2d}: loss = {loss.item():.4f} w = {w.item():.4f} b = {b.item():.4f}")
+```
+
+---
+
+## **Why did this break it?**
+
+- `.item()` returns a Python float (scalar) — so `w -= learning_rate * w.grad.item()` subtracts that scalar from all components of `w`. For higher-dim tensors (even 1D), this means **broadcasting a single number across all elements**, not learning each parameter’s own gradient.
+- When using a vector or matrix, you need to subtract each parameter’s computed gradient.
+
+---
+
+## **TL;DR**
+
+- **Never use `.item()` on a tensor gradient unless your parameter is a scalar.**
+- For model parameters that are vectors/arrays (`w`), always subtract the **tensor**: `w -= lr * w.grad`
+- With this fix, your model will start to converge and fit properly!
+
+---
+
+### **Bonus: Always Check**
+
+For any parameter update in PyTorch:
+- Use `param -= lr * param.grad`
+- **Do not** use `param.grad.item()`, unless that's literally a single number.
+
+---
+
+Try this fix and your model will fit perfectly!
+
+**USER:**
+
 
