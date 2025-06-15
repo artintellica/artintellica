@@ -1,3 +1,4 @@
+# Batch Gradient Descent for Linear Regression in PyTorch
 import torch
 import matplotlib.pyplot as plt
 from typing import Tuple, List
