@@ -13,3 +13,31 @@ y = X @ true_w + true_b + 0.1 * torch.randn(N, 1)  # Add some noise
 # Initialize weight and bias (will be updated!)
 w = torch.randn(1, requires_grad=True)
 b = torch.randn(1, requires_grad=True)
+
+learning_rate = 0.1
+num_epochs = 40
+
+losses = []
+
+for epoch in range(num_epochs):
+    # 1. Forward pass: compute prediction
+    y_pred = X @ w + b  # (N, 1)
+    
+    # 2. Compute mean squared error loss
+    loss = ((y - y_pred)**2).mean()
+    losses.append(loss.item())
+    
+    # 3. Backward pass: compute gradients
+    loss.backward()
+    
+    # 4. Update parameters manually
+    with torch.no_grad():
+        w -= learning_rate * w.grad.item() if w.grad is not None else 0
+        b -= learning_rate * b.grad.item() if b.grad is not None else 0
+
+    # 5. Zero gradients for next iteration
+    w.grad.zero_() if w.grad is not None else None
+    b.grad.zero_() if b.grad is not None else None
+    
+    if (epoch + 1) % 10 == 0 or epoch == 0:
+        print(f"Epoch {epoch+1:2d}: loss = {loss.item():.4f} w = {w.item():.4f} b = {b.item():.4f}")
