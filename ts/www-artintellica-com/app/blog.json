@@ -764,6 +764,14 @@
     "title": "Learn the Training Loop with PyTorch, Part 1.2: The Simplest Case: Linear Regression",
     "author": "Artintellica",
     "date": "2025-06-15",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0097-training-loop-12",
+    "content": ""
+  },
+  {
+    "filename": "0098-training-loop-13.md",
+    "title": "Learn the Training Loop with PyTorch, Part 1.3: Batch vs. Stochastic Gradient Descent",
+    "author": "Artintellica",
+    "date": "2025-06-15",
     "content": ""
   }
 ]

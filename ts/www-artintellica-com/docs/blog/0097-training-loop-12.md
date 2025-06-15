@@ -5,6 +5,7 @@ date = "2025-06-15"
 model = "o3"
 userDelimiter = "**USER:**"
 assistantDelimiter = "**ASSISTANT:**"
+code = "https://github.com/artintellica/artintellica/tree/main/py/blog-0097-training-loop-12"
 +++
 
 **USER:**
