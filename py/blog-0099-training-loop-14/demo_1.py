@@ -30,9 +30,9 @@ for i in range(W.shape[0]):
 
 fig = plt.figure(figsize=(10, 7))
 ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(W.numpy(), B.numpy(), loss_surface.numpy(), cmap='viridis', alpha=0.8)
+ax.plot_surface(W.numpy(), B.numpy(), loss_surface.numpy(), cmap='viridis', alpha=0.8) # type: ignore
 ax.set_xlabel('Weight (w)')
 ax.set_ylabel('Bias (b)')
-ax.set_zlabel('MSE Loss')
+ax.set_zlabel('MSE Loss') # type: ignore
 ax.set_title('Loss Surface of Linear Regression')
 plt.show()
