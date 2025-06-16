@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0102-training-loop-21.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0102-training-loop-21.md",
+            "title": "Learn the Training Loop with PyTorch, Part 2.1: From Linear to Nonlinear: Why Neural Networks?",
+            "date_modified": "2025-06-16T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0101-training-loop-16.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0101-training-loop-16.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0083-rl-torch-38-project.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 3.8: Mini-Project—MNIST Digit Classifier (Shallow NN)",
-            "date_modified": "2024-06-12T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0082-rl-torch-37-dropout.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0082-rl-torch-37-dropout.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 3.7: Dropout, L2, and Other Regularization in PyTorch",
             "date_modified": "2024-06-12T07:00:00.000Z"
         }
     ]

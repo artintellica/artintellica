@@ -797,5 +797,12 @@
     "author": "Artintellica",
     "date": "2025-06-16",
     "content": ""
+  },
+  {
+    "filename": "0102-training-loop-21.md",
+    "title": "Learn the Training Loop with PyTorch, Part 2.1: From Linear to Nonlinear: Why Neural Networks?",
+    "author": "Artintellica",
+    "date": "2025-06-16",
+    "content": ""
   }
 ]
