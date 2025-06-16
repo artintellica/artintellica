@@ -490,4 +490,155 @@ Let me know if you want the full blog post updated with this correction!
 
 **USER:**
 
+in the second example. i'm getting an error. here is my code:
+
+```python
+import torch
+import matplotlib.pyplot as plt
+from typing import Tuple
+import itertools
+
+
+def simple_linear_regression_data(n: int = 10) -> Tuple[torch.Tensor, torch.Tensor]:
+    torch.manual_seed(0)
+    # y = 2x + 3 + noise
+    X = torch.linspace(-1, 1, n).unsqueeze(1)
+    y = 2 * X + 3 + 0.1 * torch.randn(n, 1)
+    return X, y
+
+
+def mse_loss(y_pred: torch.Tensor, y_true: torch.Tensor) -> torch.Tensor:
+    return ((y_pred - y_true) ** 2).mean()
+
+
+def model(X: torch.Tensor, w: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
+    return X @ w + b
+
+
+def numerical_gradient(
+    func, params: Tuple[torch.Tensor, ...], param_idx: int, h: float = 1e-5
+) -> torch.Tensor:
+    grads = torch.zeros_like(params[param_idx])
+    param_shape = params[param_idx].shape
+    for idx in itertools.product(*(range(s) for s in param_shape)):
+        orig = params[param_idx][idx].item()
+        params_plus = [p.clone() for p in params]
+        params_minus = [p.clone() for p in params]
+        params_plus[param_idx][idx] = orig + h
+        params_minus[param_idx][idx] = orig - h
+        f_plus = func(*params_plus).item()
+        f_minus = func(*params_minus).item()
+        grad = (f_plus - f_minus) / (2 * h)
+        grads[idx] = grad
+    return grads
+
+
+# Generate data
+X, y = simple_linear_regression_data(20)
+
+def loss_fn(w_: torch.Tensor, b_: torch.Tensor) -> torch.Tensor:
+    y_pred = model(X, w_, b_)
+    return mse_loss(y_pred, y)
+
+# Quadratic model: y = w2 * x^2 + w1 * x + b
+def quadratic_model(
+    X: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, b: torch.Tensor
+) -> torch.Tensor:
+    return w2 * X**2 + w1 * X + b
+
+
+# New parameters
+w1 = torch.randn(1, requires_grad=True)
+w2 = torch.randn(1, requires_grad=True)
+b = torch.randn(1, requires_grad=True)
+
+import numpy as np
+
+b_fixed = b.detach().item()
+ws = np.linspace(-4, 4, 100)
+losses = []
+for w_test in ws:
+    w_tensor = torch.tensor([[w_test]])
+    l = loss_fn(w_tensor, torch.tensor([b_fixed]))
+    losses.append(l.item())
+
+plt.figure()
+plt.plot(ws, losses, label='Loss vs w')
+plt.xlabel('w')
+plt.ylabel('Loss')
+plt.title('Loss as a function of w')
+plt.legend()
+plt.show()
+```
+
+here is the error:
+
+```
+Traceback (most recent call last):
+  File "/Users/ryan/dev/artintellica/py/blog-0100-training-loop-15/ex_2.py", line 89, in <module>
+    l = loss_fn(w_tensor, torch.tensor([b_fixed]))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ryan/dev/artintellica/py/blog-0100-training-loop-15/ex_2.py", line 45, in loss_fn
+    y_pred = model(X, w_, b_)
+             ^^^^^^^^^^^^^^^^
+  File "/Users/ryan/dev/artintellica/py/blog-0100-training-loop-15/ex_2.py", line 20, in model
+    return X @ w + b
+           ~~^~~
+RuntimeError: expected m1 and m2 to have the same dtype, but got: float != double
+```
+
+how do i fix this?
+
+**ASSISTANT:**
+
+Great job reproducing and reporting the error!  
+This is a common issue in PyTorch and NumPy interoperation: **tensor dtype (floating point precision) mismatches**.
+
+Let's break down the error:
+
+```
+RuntimeError: expected m1 and m2 to have the same dtype, but got: float != double
+```
+
+- PyTorch's default floating point type is `float32` (sometimes just called `float` in code/messages).
+- But when NumPy creates float numbers (e.g. via `np.linspace`), `w_test` is a **Python float**, which defaults to `float64` (double).
+- When you do:  
+  `w_tensor = torch.tensor([[w_test]])`  
+  the resulting PyTorch tensor has type `torch.float64` (double).
+- Your X and y are in `float32`, so you get a type mismatch during the matrix multiplication (`@`).
+
+## The Solution
+
+**Be explicit about your dtypes.**  
+The simplest fix:  
+When you create new tensors from Python floats/NumPy numbers, set `dtype=torch.float32` (or `dtype=X.dtype`).
+
+Update the loop as follows:
+
+```python
+# This ensures the type matches your model/X tensors (float32)
+for w_test in ws:
+    w_tensor = torch.tensor([[w_test]], dtype=X.dtype)
+    l = loss_fn(w_tensor, torch.tensor([b_fixed], dtype=X.dtype))
+    losses.append(l.item())
+```
+
+If you want, you can also ensure X and y are float64 (less common in ML settings).
+
+**Recap of key lines:**
+```python
+w_tensor = torch.tensor([[w_test]], dtype=X.dtype)
+l = loss_fn(w_tensor, torch.tensor([b_fixed], dtype=X.dtype))
+```
+
+Now your code should work!
+
+## Key Takeaway
+
+- Always ensure your tensors have matching `dtype` throughout your code, especially when mixing NumPy, Python numbers, and PyTorch.
+
+Let me know if you'd like a complete and revised code block or further troubleshooting!
+
+**USER:**
+
 
