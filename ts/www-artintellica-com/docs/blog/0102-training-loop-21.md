@@ -826,4 +826,205 @@ Batch, mini-batch, and stochastic GD differ *only* in how much data is used to c
 
 **USER:**
 
+what does "MLP" mean in the exercises?
+
+**ASSISTANT:**
+
+Great question! **MLP** stands for **Multi-Layer Perceptron**.
+
+---
+
+## ELI5
+
+Think of an MLP as a “classic” or “plain” neural network: It’s just a bunch of layers—one after another—where each layer is fully connected to the next ("dense" layers), and each uses an activation function like ReLU or sigmoid. When you see “MLP,” read it as a basic, stack-of-layers neural network.
+
+---
+
+## Slightly More Technical
+
+- **Multi-Layer:** More than one layer of computation (at least one “hidden” layer between input and output).
+- **Perceptron:** The original term for a very simple neuron (adds inputs, does a nonlinear squish).
+- **MLP:** A neural network made up of an input layer, one or more hidden layers (each fully connected), and an output layer.
+
+**In code** (like the exercises in your article), when you see a class `MLP`, it’s just shorthand for a “standard feedforward neural network with one or more hidden layers.”
+
+---
+
+## Example Architecture
+
+```
+Input → Dense Layer (weights & biases) → ReLU → Dense Layer → Output
+```
+
+---
+
+**Bottom line:**  
+When you see “MLP” in an exercise, it means “the neural network model/class defined above (with input, hidden, and output layers, as shown).” It’s the “vanilla” or “standard” neural net!
+
+**USER:**
+
+and what does fc1 and fc2 mean? are these properties that a class that extends nn.Module must have? does it call these functions automatically?
+
+**ASSISTANT:**
+
+Great questions! Let’s break them down:
+
+---
+
+## What Do `fc1` and `fc2` Mean?
+
+- `fc` stands for **“fully connected”** (also called **“dense layer”**).
+- In PyTorch code, it's typical to name each layer as `fc1`, `fc2`, etc.:
+  - `fc1` is the **first fully connected layer** (input to hidden).
+  - `fc2` is the **second fully connected layer** (hidden to output, or hidden to hidden if deeper).
+
+So,  
+```python
+self.fc1 = nn.Linear(input_dim, hidden_dim)
+self.fc2 = nn.Linear(hidden_dim, output_dim)
+```
+means you have two "fully connected" layers, one after the other.
+
+---
+
+## Are These Properties Required in `nn.Module`?
+
+- **No, you don’t have to name them `fc1` and `fc2`.**  
+  Those are just common, descriptive variable names by convention.
+- What *is* required:
+  - All layers and components you want to have parameters (like weights/biases) must be **declared as attributes** of the class.
+  - You can name them whatever you wish, e.g., `layer1`, `dense`, `my_hidden`, etc.
+
+---
+
+## Does PyTorch Call These Functions Automatically?
+
+- **No**, PyTorch does *not* call your layer attributes (`fc1`, etc.) directly.
+- What happens is:
+  - You define a special method called `forward(self, x)`.  
+    In this method, you actually *call* these layers/components in the order you want, e.g.:
+    ```python
+    def forward(self, x):
+        h = self.fc1(x)
+        out = self.fc2(h)
+        return out
+    ```
+  - *Only* the `forward` method is automatically called by PyTorch when you do `output = model(input)`.
+
+---
+
+## Summary Table
+
+| Name         | Meaning                         | Required?          | Called Automatically?                        |
+|--------------|---------------------------------|--------------------|----------------------------------------------|
+| `fc1`, `fc2` | "Fully connected" layers        | No, just a habit   | No, you call them inside your `forward()`    |
+| Layer Names  | Any (e.g. `layer1`, `dense`)    | No, any valid name | No, call them in `forward()`                |
+| `forward()`  | Neural net computation method   | **Yes** (required) | **Yes, by PyTorch when you use `model(x)`**  |
+
+---
+
+### **Bottom line:**  
+
+- `fc1`/`fc2` are just **conventional names** for your fully connected layers.  
+- You can choose different names if you prefer.
+- PyTorch only calls your `forward()` method automatically;  
+  you decide what happens inside it and in what order.
+
+**USER:**
+
+in that case, i don't understand how the hidden dimensions worked. i thought after each layer, it is multiplied by a a nonlinear function. however, in this case, the first "hidden layer" seems to have a "hidden dimension". what does this mean? is that not the number of layers? is that the dimension of the matrix?
+
+**ASSISTANT:**
+
+Awesome questions—let’s clarify these ideas:
+
+---
+
+## 1. **What is "hidden dimension"?**
+
+- **“Hidden dimension”** or **“hidden size”** is **not** the number of layers.  
+- It is the **number of neurons (“units”) in a hidden layer**.
+- Each **hidden layer** can have its own "hidden dimension" (number of neurons/output features).
+
+So, if you see:
+```python
+self.fc1 = nn.Linear(input_dim, hidden_dim)
+```
+- `input_dim`: Number of input features (e.g., pixels for images, or whatever your input vector size is)
+- `hidden_dim`: Number of neurons in the **first hidden layer** (how “wide” that layer is)
+
+---
+
+## 2. **What happens at each layer?**
+
+- Each **fully connected (linear) layer** does:
+  ```
+  output = input @ weights + bias
+  ```
+  where `input` is a matrix of size `[batch_size, input_dim]` and `weights` is `[input_dim, output_dim]`.
+
+- **Activation function**:
+  After the linear layer, you usually apply a nonlinear “activation function” (like ReLU, Tanh, etc.):
+  ```
+  activated = activation_function(output)
+  ```
+
+So, in forward pass code:
+```python
+h = self.fc1(x)      # Linear transformation: [batch, hidden_dim]
+a = self.act(h)      # Nonlinear activation - same shape
+out = self.fc2(a)    # Next linear layer
+```
+
+---
+
+## 3. **What does "hidden dimension" mean then?**
+
+**Diagram:**
+```
+input_dim ----(fc1)----> hidden_dim ----(activation, e.g. ReLU)----> output_dim
+         \_ [fc1 has: input_dim x hidden_dim weights] _/
+```
+
+- **`hidden_dim`** controls **how many features ("neurons") the hidden layer computes**.
+- It’s the *width*, not the *depth* of your neural network.
+- **Depth** = number of layers  
+  **Width** = number of neurons in a layer (= "hidden dimension")
+
+**More hidden units (wider hidden dimension)** lets the network represent more complex functions, but makes it bigger and potentially slower.
+
+---
+
+## 4. **Summary Table**
+
+| Term              | What it means               | Controls         |
+|-------------------|----------------------------|------------------|
+| Layer             | One computation step (fc + nonlinearity) | Depth         |
+| Hidden Layer      | Any layer between input/output | Depth         |
+| Hidden Dimension / Hidden Size | # of neurons (units) in EACH layer | Width         |
+
+---
+
+## 5. **In short:**
+
+- **Hidden dimension** = how many “neurons” (features) in a single hidden layer (**width**)
+- **Number of layers** = how many stacked layers in the network (**depth**)
+- You pass data through a layer: linear → activation → linear → activation...
+- At each layer, the linear function’s **output size** (hidden dimension) controls the shape of the next layer’s input.
+
+---
+
+**Analogy:**  
+Think of “hidden layers” as assembly lines.  
+- **Depth** = how many assembly lines (steps)
+- **Width (hidden dimension)** = how many workers at each step, working in parallel
+
+---
+
+**Bottom line:**  
+- “Hidden dimension” is NOT the number of layers!  
+- It’s how wide each hidden layer is: the number of neurons/features produced for the next step.
+
+**USER:**
+
 
