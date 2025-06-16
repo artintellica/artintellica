@@ -57,3 +57,29 @@ for epoch in range(n_epochs):
     # Print progress every 100 epochs
     if (epoch + 1) % 100 == 0:
         print(f"Epoch {epoch+1:4d}, Loss: {loss.item():.4f}")
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(8, 4))
+
+# Model predictions
+with torch.no_grad():
+    h = X @ W1 + b1
+    h_relu = torch.relu(h)
+    y_pred = h_relu @ W2 + b2
+
+plt.plot(X.numpy(), y_true.numpy(), label="True Function")
+plt.plot(X.numpy(), y_pred.numpy(), label="Neural Net Prediction")
+plt.legend()
+plt.title("Neural Network Fit to sin(x)")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.show()
+
+# Plot training loss
+plt.figure()
+plt.plot(losses)
+plt.title("Training Loss Curve")
+plt.xlabel("Epoch")
+plt.ylabel("MSE Loss")
+plt.show()
