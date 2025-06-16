@@ -922,4 +922,8 @@ Let me know if you'd like a visual or code example showing both conventions!
 
 **USER:**
 
+what does this line mean?
 
+```python
+W, B = torch.meshgrid(w_range, b_range, indexing='ij')
+```
