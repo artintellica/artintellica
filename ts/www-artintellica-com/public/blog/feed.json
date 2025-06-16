@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0104-training-loop-23.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0104-training-loop-23.md",
+            "title": "Learn the Training Loop with PyTorch, Part 2.3: Implementing a Simple Neural Net from Scratch",
+            "date_modified": "2025-06-16T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0103-training-loop-22.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0103-training-loop-22.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0085-rl-torch-42-markov.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies",
-            "date_modified": "2025-06-13T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0084-rl-torch-41-rl.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0084-rl-torch-41-rl.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 4.1: What is Reinforcement Learning? RL vs. Supervised/Unsupervised",
             "date_modified": "2025-06-13T07:00:00.000Z"
         }
     ]
