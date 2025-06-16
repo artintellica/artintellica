@@ -821,5 +821,12 @@
     "date": "2025-06-16",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0104-training-loop-23",
     "content": ""
+  },
+  {
+    "filename": "0105-training-loop-24.md",
+    "title": "Learn the Training Loop with PyTorch, Part 2.4: The Role of Activations",
+    "author": "Artintellica",
+    "date": "2025-06-16",
+    "content": ""
   }
 ]

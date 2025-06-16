@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0105-training-loop-24.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0105-training-loop-24.md",
+            "title": "Learn the Training Loop with PyTorch, Part 2.4: The Role of Activations",
+            "date_modified": "2025-06-16T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0104-training-loop-23.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0104-training-loop-23.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0086-rl-torch-43-bandit.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 4.3: Bandit Problems—Exploration vs. Exploitation",
-            "date_modified": "2025-06-13T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0085-rl-torch-42-markov.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0085-rl-torch-42-markov.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 4.2: Markov Decision Processes—States, Actions, Rewards, Policies",
             "date_modified": "2025-06-13T07:00:00.000Z"
         }
     ]
