@@ -35,7 +35,7 @@ b2 = torch.zeros(D_out, requires_grad=True)
 
 losses: list[float] = []
 
-early_stop_threshold = 0.5
+early_stop_threshold = 0.01
 for epoch in range(n_epochs):
     h = X @ W1 + b1
     h_relu = torch.relu(h)
