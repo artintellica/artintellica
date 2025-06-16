@@ -13,3 +13,17 @@ def create_data(n_samples: int = 30) -> tuple[torch.Tensor, torch.Tensor]:
 
 x, y = create_data()
 
+# Set grid ranges
+w_range = torch.linspace(0.0, 4.0, 100)
+b_range = torch.linspace(-1.0, 3.0, 100)
+
+W, B = torch.meshgrid(w_range, b_range, indexing='ij')
+loss_surface = torch.zeros_like(W)
+
+for i in range(W.shape[0]):
+    for j in range(B.shape[1]):
+        w, b = W[i, j], B[i, j]
+        y_pred = w * x + b
+        loss = torch.mean((y - y_pred) ** 2)
+        loss_surface[i, j] = loss
+
