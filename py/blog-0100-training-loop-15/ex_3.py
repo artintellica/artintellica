@@ -40,37 +40,30 @@ def numerical_gradient(
 
 # Generate data
 X, y = simple_linear_regression_data(20)
+# Initialize parameters with grad enabled
+w = torch.randn(1, 1, requires_grad=True)
+b = torch.randn(1, requires_grad=True)
+
 
 def loss_fn(w_: torch.Tensor, b_: torch.Tensor) -> torch.Tensor:
     y_pred = model(X, w_, b_)
     return mse_loss(y_pred, y)
 
-# Quadratic model: y = w2 * x^2 + w1 * x + b
-def quadratic_model(
-    X: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, b: torch.Tensor
-) -> torch.Tensor:
-    return w2 * X**2 + w1 * X + b
 
+# Compute analytical gradients
+loss = loss_fn(w, b)
+loss.backward()  # This fills in w.grad and b.grad
 
-# New parameters
-w1 = torch.randn(1, requires_grad=True)
-w2 = torch.randn(1, requires_grad=True)
-b = torch.randn(1, requires_grad=True)
+# Compute numerical gradients
+num_grad_w = numerical_gradient(loss_fn, (w, b), param_idx=0)
+num_grad_b = numerical_gradient(loss_fn, (w, b), param_idx=1)
 
-import numpy as np
+# print("Analytical grad (w):", w.grad)
+# print("Numerical grad (w): ", num_grad_w)
+# print("Analytical grad (b):", b.grad)
+# print("Numerical grad (b): ", num_grad_b)
 
-b_fixed = b.detach().item()
-ws = np.linspace(-4, 4, 100)
-losses = []
-for w_test in ws:
-    w_tensor = torch.tensor([[w_test]], dtype=X.dtype)
-    l = loss_fn(w_tensor, torch.tensor([b_fixed]))
-    losses.append(l.item())
-
-plt.figure()
-plt.plot(ws, losses, label='Loss vs w')
-plt.xlabel('w')
-plt.ylabel('Loss')
-plt.title('Loss as a function of w')
-plt.legend()
-plt.show()
+h_list = [1e-3, 1e-5, 1e-7]
+for h in h_list:
+    num_grad_w = numerical_gradient(loss_fn, (w, b), param_idx=0, h=h)
+    print(f"Numerical grad (w) with h={h:.0e}:", num_grad_w)
