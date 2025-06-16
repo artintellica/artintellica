@@ -784,7 +784,7 @@
     "content": ""
   },
   {
-    "filename": "0099-training-loop-15.md",
+    "filename": "0100-training-loop-15.md",
     "title": "Learn the Training Loop with PyTorch, Part 1.5: Numerical vs. Analytical Gradients",
     "author": "Artintellica",
     "date": "2025-06-16",

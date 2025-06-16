@@ -10,9 +10,9 @@
     },
     "items": [
         {
-            "id": "https://artintellica.com/blog/0099-training-loop-15.md",
+            "id": "https://artintellica.com/blog/0100-training-loop-15.md",
             "content_html": "",
-            "url": "https://artintellica.com/blog/0099-training-loop-15.md",
+            "url": "https://artintellica.com/blog/0100-training-loop-15.md",
             "title": "Learn the Training Loop with PyTorch, Part 1.5: Numerical vs. Analytical Gradients",
             "date_modified": "2025-06-16T07:00:00.000Z"
         },
