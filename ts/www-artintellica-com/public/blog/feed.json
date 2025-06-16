@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0103-training-loop-22.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0103-training-loop-22.md",
+            "title": "Learn the Training Loop with PyTorch, Part 2.2: Forward and Backward Passes",
+            "date_modified": "2025-06-16T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0102-training-loop-21.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0102-training-loop-21.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0084-rl-torch-41-rl.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 4.1: What is Reinforcement Learning? RL vs. Supervised/Unsupervised",
             "date_modified": "2025-06-13T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0083-rl-torch-38-project.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0083-rl-torch-38-project.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 3.8: Mini-Project—MNIST Digit Classifier (Shallow NN)",
-            "date_modified": "2024-06-12T07:00:00.000Z"
         }
     ]
 }
