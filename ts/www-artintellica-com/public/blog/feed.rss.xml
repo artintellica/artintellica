@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Mon, 16 Jun 2025 14:59:16 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 16 Jun 2025 15:01:57 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn the Training Loop with PyTorch, Part 1.5: Numerical vs. Analytical Gradients]]></title>
+            <link>https://artintellica.com/blog/0099-training-loop-15.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0099-training-loop-15.md</guid>
+            <pubDate>Mon, 16 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn the Training Loop with PyTorch, Part 1.5: Numerical vs. Analytical Gradients]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn the Training Loop with PyTorch, Part 1.4: Visualizing the Loss Landscape]]></title>
             <link>https://artintellica.com/blog/0099-training-loop-14.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0081-rl-torch-36-overfitting.md</guid>
             <pubDate>Wed, 12 Jun 2024 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.6: Overfitting, Underfitting, and Regularization]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.5: Backpropagation—Intuition and Hands-On Example]]></title>
-            <link>https://artintellica.com/blog/0080-rl-torch-35-backpropagation.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0080-rl-torch-35-backpropagation.md</guid>
-            <pubDate>Wed, 12 Jun 2024 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 3.5: Backpropagation—Intuition and Hands-On Example]]></description>
         </item>
     </channel>
 </rss>
