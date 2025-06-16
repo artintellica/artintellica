@@ -55,17 +55,17 @@ losses = []
 
 for delta in torch.linspace(-2, 2, steps=50):
     # change just the first entry in layer2 weights
-    model.layer2.weight.data[0,0] = original_weight[0,0] + delta
+    model.layer2.weight.data[0,2] = original_weight[0,2] + delta
     y_pred = model(X)
     loss = criterion(y_pred, y_true)
-    weights.append(model.layer2.weight.data[0,0].item())
+    weights.append(model.layer2.weight.data[0,2].item())
     losses.append(loss.item())
 
 # Restore original weight
-model.layer2.weight.data[0,0] = original_weight[0,0]
+model.layer2.weight.data[0,2] = original_weight[0,2]
 
 plt.plot(weights, losses)
-plt.xlabel('layer2.weight[0,0] value')
+plt.xlabel('layer2.weight[0,2] value')
 plt.ylabel('Loss')
 plt.title('Effect of changing a single weight on loss')
 plt.show()
