@@ -413,4 +413,81 @@ In this post, we explored the two major ways to compute gradients for loss funct
 
 **USER:**
 
+this line has an error:
+
+```python
+    it = torch.nditer(params[param_idx], flags=['multi_index'], op_flags=['readwrite'])
+```
+
+it says nditer is not available in torch. can i add this somehow? do i need another dependency?
+
+**ASSISTANT:**
+
+Great question! Actually, `torch.nditer` **does not exist** in PyTorch—`nditer` is a NumPy utility. In PyTorch, you simply need to loop over tensor indices in a regular Pythonic way.
+
+Here's how you can fix the `numerical_gradient` function:
+
+```python
+def numerical_gradient(
+    func,
+    params: Tuple[torch.Tensor, ...],
+    param_idx: int,
+    h: float = 1e-5
+) -> torch.Tensor:
+    grads = torch.zeros_like(params[param_idx])
+    param_shape = params[param_idx].shape
+    # Iterate over each index (works for any shape)
+    for idx in torch.ndindex(param_shape):
+        orig = params[param_idx][idx].item()
+        # Make copies for plus/minus h changes
+        params_plus = [p.clone() for p in params]
+        params_minus = [p.clone() for p in params]
+        params_plus[param_idx][idx] = orig + h
+        params_minus[param_idx][idx] = orig - h
+        f_plus = func(*params_plus).item()
+        f_minus = func(*params_minus).item()
+        grad = (f_plus - f_minus) / (2 * h)
+        grads[idx] = grad
+    return grads
+```
+
+**Note**: `torch.ndindex()` is available from PyTorch 1.11.0 onwards. If you're on an older version, you can use Python's `itertools.product`:
+
+```python
+import itertools
+
+def numerical_gradient(
+    func,
+    params: Tuple[torch.Tensor, ...],
+    param_idx: int,
+    h: float = 1e-5
+) -> torch.Tensor:
+    grads = torch.zeros_like(params[param_idx])
+    param_shape = params[param_idx].shape
+    for idx in itertools.product(*(range(s) for s in param_shape)):
+        orig = params[param_idx][idx].item()
+        params_plus = [p.clone() for p in params]
+        params_minus = [p.clone() for p in params]
+        params_plus[param_idx][idx] = orig + h
+        params_minus[param_idx][idx] = orig - h
+        f_plus = func(*params_plus).item()
+        f_minus = func(*params_minus).item()
+        grad = (f_plus - f_minus) / (2 * h)
+        grads[idx] = grad
+    return grads
+```
+
+**No extra dependencies needed—just replace the inner loop as above!**
+
+---
+
+**Summary:**  
+- You do **not** need another dependency.
+- Just change the loop code as shown (no `torch.nditer`).
+- Use either `torch.ndindex` (if available) or `itertools.product`.
+
+Let me know if you want the full blog post updated with this correction!
+
+**USER:**
+
 
