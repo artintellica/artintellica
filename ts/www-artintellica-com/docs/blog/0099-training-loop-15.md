@@ -124,10 +124,10 @@ great. now, for each blog post, i am hoping to follow the following structure:
 - the course is called "Learn the Training Loop with PyTorch"
 - always provide a brief introduction to the topic at hand
 - then always provide a very simple "ELI5" explanation of the topic, that theortically anyone could understand
-- then provide the mathematical foundations. for math, always use dollar delimited LaTeX, and always provide a brief explanation of the math. for instance, $\mathbf{y} = \mathbf{X}\mathbf{w}$ is the equation for linear regression, where $\mathbf{y}$ is the output vector, $\mathbf{X}$ is the input matrix, and $\mathbf{w}$ is the weight vector.
+- then provide the mathematical foundations. for math, always use dollar delimited LaTeX, and always provide a brief explanation of the math. for instance, $\mathbf{y} = \mathbf{X}\mathbf{w} + \mathbf{b}$ is the equation for linear regression, where $\mathbf{y}$ is the output vector, $\mathbf{X}$ is the input matrix, $\mathbf{w}$ is the weight vector, and $\mathbf{b}$ is the bias vector.
 - for block-level math, always use two dollar signs, like this:
   $$
-  \mathbf{y} = \mathbf{X}\mathbf{w}
+  \mathbf{y} = \mathbf{X}\mathbf{w} + \mathbf{b}
   $$
 - after the mathematical foundations, such as definitions, then always provide an in-depth explanation, covering the topic in detail, and expanding on the explanation of the math if necessary.
 - for other formatting, use markdown like headings, bullet points, and code blocks to make the content readable. do not use HTML tags.
