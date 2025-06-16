@@ -829,5 +829,12 @@
     "date": "2025-06-16",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0105-training-loop-24",
     "content": ""
+  },
+  {
+    "filename": "0106-training-loop-25.md",
+    "title": "Learn the Training Loop with PyTorch, Part 2.5: Mini-batching and Data Pipelines",
+    "author": "Artintellica",
+    "date": "2025-06-16",
+    "content": ""
   }
 ]
