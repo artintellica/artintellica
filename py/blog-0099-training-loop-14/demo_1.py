@@ -1,6 +1,7 @@
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # <-- Add this line
 
 # Set seed for reproducibility
 torch.manual_seed(42)
@@ -27,3 +28,11 @@ for i in range(W.shape[0]):
         loss = torch.mean((y - y_pred) ** 2)
         loss_surface[i, j] = loss
 
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(W.numpy(), B.numpy(), loss_surface.numpy(), cmap='viridis', alpha=0.8)
+ax.set_xlabel('Weight (w)')
+ax.set_ylabel('Bias (b)')
+ax.set_zlabel('MSE Loss')
+ax.set_title('Loss Surface of Linear Regression')
+plt.show()
