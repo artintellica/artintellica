@@ -39,3 +39,20 @@ for epoch in range(1000):
     optimizer.step()
 
 print(f"Final training loss: {loss.item():.4f}")
+
+import numpy as np
+
+def plot_decision_boundary(model: nn.Module, X: torch.Tensor, y: torch.Tensor) -> None:
+    x_min, x_max = X[:,0].min() - 0.5, X[:,0].max() + 0.5
+    y_min, y_max = X[:,1].min() - 0.5, X[:,1].max() + 0.5
+    xx, yy = np.meshgrid(np.linspace(x_min, x_max, 200), 
+                         np.linspace(y_min, y_max, 200))
+    grid = torch.tensor(np.c_[xx.ravel(), yy.ravel()], dtype=torch.float32)
+    with torch.no_grad():
+        probs = model(grid).reshape(xx.shape)
+    plt.contourf(xx, yy, probs, alpha=0.3, cmap="coolwarm")
+    plt.scatter(X[:,0], X[:,1], c=y.squeeze(), cmap="coolwarm", s=40)
+    plt.title("Linear Model: Can't Capture Nonlinearity")
+    plt.show()
+
+plot_decision_boundary(model, X, y)
