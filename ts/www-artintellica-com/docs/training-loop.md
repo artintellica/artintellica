@@ -161,7 +161,7 @@ Absolutely! That sounds like a fantastic educational project. Here is a suggeste
 ### **General Tips for Each Module:**
 
 - **Start simple, build incrementally:** Keep code simple at first, then show how to layer complexity.
-- **Accompany every lesson with practical code examples (preferably in Jupyter notebooks).**
+- **Accompany every lesson with practical code examples.**
 - **Focus on intuition:** Use diagrams, plots, and hands-on demo to make concepts tangible.
 - **Summarize and review regularly:** Add checklists or quizzes at the end of each module.
 
