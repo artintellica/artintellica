@@ -819,6 +819,7 @@
     "title": "Learn the Training Loop with PyTorch, Part 2.3: Implementing a Simple Neural Net from Scratch",
     "author": "Artintellica",
     "date": "2025-06-16",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0104-training-loop-23",
     "content": ""
   }
 ]
