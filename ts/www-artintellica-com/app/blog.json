@@ -811,6 +811,7 @@
     "title": "Learn the Training Loop with PyTorch, Part 2.2: Forward and Backward Passes",
     "author": "Artintellica",
     "date": "2025-06-16",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0103-training-loop-22",
     "content": ""
   }
 ]
