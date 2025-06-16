@@ -56,3 +56,29 @@ def plot_decision_boundary(model: nn.Module, X: torch.Tensor, y: torch.Tensor) -
     plt.show()
 
 plot_decision_boundary(model, X, y)
+
+class MLP(nn.Module):
+    def __init__(self, input_dim: int, hidden_dim: int, output_dim: int) -> None:
+        super().__init__()
+        self.fc1 = nn.Linear(input_dim, hidden_dim)
+        self.act = nn.ReLU()  # Try swapping to nn.Tanh() or nn.Sigmoid()
+        self.fc2 = nn.Linear(hidden_dim, output_dim)
+        
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        h = self.act(self.fc1(x))
+        return torch.sigmoid(self.fc2(h))  # For binary classification
+
+mlp = MLP(input_dim=2, hidden_dim=8, output_dim=1)
+optimizer = torch.optim.Adam(mlp.parameters(), lr=0.05)
+loss_fn = nn.BCELoss()
+
+# Training loop
+for epoch in range(1000):
+    optimizer.zero_grad()
+    y_pred = mlp(X)
+    loss = loss_fn(y_pred, y)
+    loss.backward()
+    optimizer.step()
+
+print(f"Final training loss: {loss.item():.4f}")
+plot_decision_boundary(mlp, X, y)
