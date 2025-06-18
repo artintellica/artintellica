@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0114-training-loop-36.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0114-training-loop-36.md",
+            "title": "Learn the Training Loop with PyTorch, Part 3.6: Monitoring and Debugging the Training Loop",
+            "date_modified": "2025-06-18T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0113-training-loop-35.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0113-training-loop-35.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0095-rl-torch-conclusion.md",
             "title": "Learn Reinforcement Learning with PyTorch: Conclusion and the Road Ahead",
-            "date_modified": "2025-06-15T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0094-rl-torch-54-extensions.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0094-rl-torch-54-extensions.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 5.4: Extensions—Double DQN and Dueling DQN",
             "date_modified": "2025-06-15T07:00:00.000Z"
         }
     ]

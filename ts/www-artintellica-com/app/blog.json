@@ -893,5 +893,12 @@
     "date": "2025-06-18",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0113-training-loop-35",
     "content": ""
+  },
+  {
+    "filename": "0114-training-loop-36.md",
+    "title": "Learn the Training Loop with PyTorch, Part 3.6: Monitoring and Debugging the Training Loop",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "content": ""
   }
 ]
