@@ -867,6 +867,7 @@
     "title": "Learn the Training Loop with PyTorch, Part 3.2: Learning Rate Scheduling",
     "author": "Artintellica",
     "date": "2025-06-18",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0110-training-loop-32",
     "content": ""
   }
 ]
