@@ -909,5 +909,12 @@
     "date": "2025-06-18",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0115-training-loop-37",
     "content": ""
+  },
+  {
+    "filename": "0116-training-loop-38.md",
+    "title": "Learn the Training Loop with PyTorch, Part 3.8: The Training Loop in Practice: Case Studies",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "content": ""
   }
 ]

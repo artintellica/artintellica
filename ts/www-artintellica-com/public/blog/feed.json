@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0116-training-loop-38.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0116-training-loop-38.md",
+            "title": "Learn the Training Loop with PyTorch, Part 3.8: The Training Loop in Practice: Case Studies",
+            "date_modified": "2025-06-18T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0115-training-loop-37.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0115-training-loop-37.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0097-training-loop-12.md",
             "title": "Learn the Training Loop with PyTorch, Part 1.2: The Simplest Case: Linear Regression",
-            "date_modified": "2025-06-15T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0096-training-loop-11.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0096-training-loop-11.md",
-            "title": "Learn the Training Loop with PyTorch, Part 1.1: Introduction to the Training Loop and Linear Regression",
             "date_modified": "2025-06-15T07:00:00.000Z"
         }
     ]
