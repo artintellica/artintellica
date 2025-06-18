@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Wed, 18 Jun 2025 15:25:01 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Jun 2025 15:27:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn the Training Loop with PyTorch, Part 3.2: Learning Rate Scheduling]]></title>
+            <link>https://artintellica.com/blog/0110-training-loop-32.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0110-training-loop-32.md</guid>
+            <pubDate>Wed, 18 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn the Training Loop with PyTorch, Part 3.2: Learning Rate Scheduling]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn the Training Loop with PyTorch, Part 3.1: Optimization Algorithms Beyond SGD]]></title>
             <link>https://artintellica.com/blog/0109-training-loop-31.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0091-rl-torch-51-limitations.md</guid>
             <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></title>
-            <link>https://artintellica.com/blog/0090-rl-torch-47-project.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0090-rl-torch-47-project.md</guid>
-            <pubDate>Sat, 14 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></description>
         </item>
     </channel>
 </rss>

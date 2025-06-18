@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-18T15:25:01.491Z</updated>
+    <updated>2025-06-18T15:27:30.197Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 3.2: Learning Rate Scheduling]]></title>
+        <id>https://artintellica.com/blog/0110-training-loop-32.md</id>
+        <link href="https://artintellica.com/blog/0110-training-loop-32.md"/>
+        <updated>2025-06-18T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 3.2: Learning Rate Scheduling]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 3.1: Optimization Algorithms Beyond SGD]]></title>
         <id>https://artintellica.com/blog/0109-training-loop-31.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0091-rl-torch-51-limitations.md"/>
         <updated>2025-06-15T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.1: Limitations of Tabular RL and the Need for Function Approximation]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></title>
-        <id>https://artintellica.com/blog/0090-rl-torch-47-project.md</id>
-        <link href="https://artintellica.com/blog/0090-rl-torch-47-project.md"/>
-        <updated>2025-06-14T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn Reinforcement Learning with PyTorch, Part 4.7: Mini-Project—RL Agent on Custom Gridworld]]></summary>
     </entry>
 </feed>
