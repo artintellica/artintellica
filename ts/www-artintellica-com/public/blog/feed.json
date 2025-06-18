@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0108-training-loop-27.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0108-training-loop-27.md",
+            "title": "Learn the Training Loop with PyTorch, Part 2.7: Recap: Comparing Our Simple Network with Linear Regression",
+            "date_modified": "2025-06-18T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0107-training-loop-26.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0107-training-loop-26.md",
@@ -141,13 +148,6 @@
             "url": "https://artintellica.com/blog/0089-rl-torch-46-policies.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 4.6: Policies, Value Functions, and Bellman Equations",
             "date_modified": "2025-06-14T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0088-rl-torch-45-monte-carlo.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0088-rl-torch-45-monte-carlo.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 4.5: Monte Carlo and Temporal Difference (TD) Learning",
-            "date_modified": "2025-06-13T07:00:00.000Z"
         }
     ]
 }

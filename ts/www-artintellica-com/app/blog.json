@@ -845,5 +845,13 @@
     "date": "2025-06-18",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0107-training-loop-26",
     "content": ""
+  },
+  {
+    "filename": "0108-training-loop-27.md",
+    "title": "Learn the Training Loop with PyTorch, Part 2.7: Recap: Comparing Our Simple Network with Linear Regression",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0107-training-loop-26",
+    "content": ""
   }
 ]
