@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Wed, 18 Jun 2025 19:24:08 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Jun 2025 19:41:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn the Training Loop with PyTorch, Part 3.9: Conclusion: What’s Next After the Training Loop?]]></title>
+            <link>https://artintellica.com/blog/0117-training-loop-39.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0117-training-loop-39.md</guid>
+            <pubDate>Wed, 18 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn the Training Loop with PyTorch, Part 3.9: Conclusion: What’s Next After the Training Loop?]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn the Training Loop with PyTorch, Part 3.8: The Training Loop in Practice: Case Studies]]></title>
             <link>https://artintellica.com/blog/0116-training-loop-38.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0098-training-loop-13.md</guid>
             <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn the Training Loop with PyTorch, Part 1.3: Batch vs. Stochastic Gradient Descent]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn the Training Loop with PyTorch, Part 1.2: The Simplest Case: Linear Regression]]></title>
-            <link>https://artintellica.com/blog/0097-training-loop-12.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0097-training-loop-12.md</guid>
-            <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn the Training Loop with PyTorch, Part 1.2: The Simplest Case: Linear Regression]]></description>
         </item>
     </channel>
 </rss>
