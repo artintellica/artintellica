@@ -17,7 +17,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
     })
     .sort((a, b) => a.filename.localeCompare(b.filename))
     .reverse()
-    .slice(0, 5); // Limit to the most recent 5 posts
+    .slice(0, 20); // Limit to the most recent 20 posts
   return { blogPosts: newBlogPosts };
 };
 
