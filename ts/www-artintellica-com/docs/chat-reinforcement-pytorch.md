@@ -327,7 +327,7 @@ we have written the entire blog series. let's conclude by writing one final blog
 +++
 title = "Learn Reinforcement Learning with PyTorch: Conclusion and the Road Ahead"
 author = "Artintellica"
-date = "2025-06-15"
+date = "2024-06-15"
 +++
 
 # Conclusion: Learn Reinforcement Learning with PyTorch—Summary and What’s Next
