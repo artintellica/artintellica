@@ -869,5 +869,12 @@
     "date": "2025-06-18",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0110-training-loop-32",
     "content": ""
+  },
+  {
+    "filename": "0111-training-loop-33.md",
+    "title": "Learn the Training Loop with PyTorch, Part 3.3: Weight Initialization",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "content": ""
   }
 ]
