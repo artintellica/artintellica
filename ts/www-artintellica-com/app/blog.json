@@ -853,5 +853,12 @@
     "date": "2025-06-18",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0107-training-loop-26",
     "content": ""
+  },
+  {
+    "filename": "0109-training-loop-28.md",
+    "title": "Learn the Training Loop with PyTorch, Part 3.1: Optimization Algorithms Beyond SGD",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "content": ""
   }
 ]
