@@ -885,5 +885,12 @@
     "date": "2025-06-18",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0112-training-loop-34",
     "content": ""
+  },
+  {
+    "filename": "0113-training-loop-35.md",
+    "title": "Learn the Training Loop with PyTorch, Part 3.5: Large-Scale Training: Data Parallelism and Hardware",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "content": ""
   }
 ]
