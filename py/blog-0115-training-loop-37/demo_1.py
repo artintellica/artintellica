@@ -11,3 +11,13 @@ def get_device() -> torch.device:
 
 device = get_device()
 print(f"Using device: {device}")
+
+import torchvision.transforms as transforms
+
+train_transform = transforms.Compose([
+    transforms.RandomRotation(degrees=10),
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+])
+
+test_transform = transforms.ToTensor()
