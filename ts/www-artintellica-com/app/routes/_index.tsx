@@ -17,7 +17,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
     })
     .sort((a, b) => a.filename.localeCompare(b.filename))
     .reverse()
-    .slice(0, 20); // Limit to the most recent 20 posts
+    .slice(0, 10); // Limit to the most recent 10 posts
   return { blogPosts: newBlogPosts };
 };
 
@@ -86,6 +86,15 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
             </div>
           </div>
         </div>
+      </div>
+      <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
+      <div className="text-center text-black dark:text-white">
+        <Link
+          className="border-b border-b-blue font-bold text-lg hover:border-b-black dark:hover:border-b-white"
+          to={href("/blog")}
+        >
+          Browse All Posts
+        </Link>
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
       <Footer />
