@@ -194,28 +194,42 @@ please respond with the full blog post only, and no other information.
 
 **ASSISTANT:**
 
-# Learn the Training Loop with PyTorch  
+# Learn the Training Loop with PyTorch
+
 ## Module 3.1: **Optimization Algorithms Beyond SGD**
 
 ---
 
 ### Introduction
 
-Welcome back to "Learn the Training Loop with PyTorch"! So far, we've trained models using the most fundamental optimizer: Stochastic Gradient Descent (SGD). But, have you ever wondered **how modern neural networks actually manage to train so well and so fast, even when they’re so large and complex?** The secret lies in improved optimization algorithms.
+Welcome back to "Learn the Training Loop with PyTorch"! So far, we've trained
+models using the most fundamental optimizer: Stochastic Gradient Descent (SGD).
+But, have you ever wondered **how modern neural networks actually manage to
+train so well and so fast, even when they’re so large and complex?** The secret
+lies in improved optimization algorithms.
 
-Today, let's unravel Adam, RMSProp, and their friends. **How do they work, mathematically and in practice?** And why are they so widely used in deep learning?
+Today, let's unravel Adam, RMSProp, and their friends. **How do they work,
+mathematically and in practice?** And why are they so widely used in deep
+learning?
 
 ---
 
 ### ELI5: "Why Not Just Use SGD?"
 
-Imagine you’re descending a hill blindfolded. SGD is like taking steps directly downhill, but the size of your steps is always the same. That’s simple, but not always smart—if the ground is rough or slopes change, you might fumble or even miss the deepest valley!
+Imagine you’re descending a hill blindfolded. SGD is like taking steps directly
+downhill, but the size of your steps is always the same. That’s simple, but not
+always smart—if the ground is rough or slopes change, you might fumble or even
+miss the deepest valley!
 
-Optimizers like **RMSProp** and **Adam** are like having a smart hiking buddy whisper in your ear:  
+Optimizers like **RMSProp** and **Adam** are like having a smart hiking buddy
+whisper in your ear:
+
 - "Hey! The path’s rough here, maybe take smaller steps."
-- "You’ve been walking in the same direction and keep stumbling, maybe slow down..."
+- "You’ve been walking in the same direction and keep stumbling, maybe slow
+  down..."
 
-**These algorithms adjust your steps—automatically—to help you reach the bottom faster and more reliably.**
+**These algorithms adjust your steps—automatically—to help you reach the bottom
+faster and more reliably.**
 
 ---
 
@@ -223,45 +237,56 @@ Optimizers like **RMSProp** and **Adam** are like having a smart hiking buddy wh
 
 Let's formalize what an optimizer does:
 
-Suppose we’re minimizing a loss $L(\theta)$ with respect to model parameters $\theta$. At each step $t$:
+Suppose we’re minimizing a loss $L(\theta)$ with respect to model parameters
+$\theta$. At each step $t$:
+
 $$
 \theta_{t+1} = \theta_t - \eta \cdot g_t
 $$
+
 - $\eta$ is the **learning rate** (step size)
 - $g_t = \nabla_\theta L(\theta_t)$ is the gradient at step $t$
 
 #### SGD Recap
 
-Stochastic Gradient Descent keeps $\eta$ fixed and uses only $g_t$ (the current gradient) to update each parameter.
+Stochastic Gradient Descent keeps $\eta$ fixed and uses only $g_t$ (the current
+gradient) to update each parameter.
 
 #### Problem: One Size Doesn’t Fit All
 
 - Some parameters could benefit from bigger/smaller steps.
-- Gradients might bounce around or have very different magnitudes, making training unstable or slow.
+- Gradients might bounce around or have very different magnitudes, making
+  training unstable or slow.
 
 #### RMSProp: Scaling Steps by Recent Gradient Magnitude
 
-RMSProp introduces a **per-parameter learning rate**, adapting it for each weight depending on past gradient magnitudes.
+RMSProp introduces a **per-parameter learning rate**, adapting it for each
+weight depending on past gradient magnitudes.
 
 The RMSProp update is:
+
 $$
 \begin{align*}
 s_t &= \rho s_{t-1} + (1 - \rho) g_t^2 \\
 \theta_{t+1} &= \theta_t - \frac{\eta}{\sqrt{s_t + \epsilon}} g_t
 \end{align*}
 $$
-- $s_t$ tracks the *running average* of past squared gradients.
+
+- $s_t$ tracks the _running average_ of past squared gradients.
 - $\rho$ is the decay rate (commonly $0.9$).
-- $\epsilon$ is a small fudge factor to prevent divide-by-zero (e.g., $1\mathrm{e}{-8}$).
+- $\epsilon$ is a small fudge factor to prevent divide-by-zero (e.g.,
+  $1\mathrm{e}{-8}$).
 - Now, weights with big/unstable gradients get smaller steps in the update.
 
 #### Adam: First and Second Moments (Momentum + RMSProp)
 
 Adam builds on RMSProp and adds **momentum**, i.e., keeps track of both:
+
 - The "mean" (first moment) of past gradients
 - The "variance" (second moment, like RMSProp)
 
 Adam’s update rule:
+
 $$
 \begin{align*}
 m_t &= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
@@ -275,35 +300,54 @@ $$
 - $m_t$: Running average (momentum) of gradients.
 - $v_t$: Running average of squared gradients (like RMSProp).
 - $\beta_1, \beta_2$ are decay rates, e.g., $(0.9, 0.999)$
-- $\hat{m}_t$, $\hat{v}_t$ are *bias-corrected* estimates for early steps (to ensure they're not too small).
+- $\hat{m}_t$, $\hat{v}_t$ are _bias-corrected_ estimates for early steps (to
+  ensure they're not too small).
 
 ---
 
 ### In-Depth Explanation
 
-- **SGD** is the most basic optimizer: it makes updates in the opposite direction of the current gradient, using the *same* step size for every parameter, every time. While elegant and actually quite effective, it's sensitive to:
+- **SGD** is the most basic optimizer: it makes updates in the opposite
+  direction of the current gradient, using the _same_ step size for every
+  parameter, every time. While elegant and actually quite effective, it's
+  sensitive to:
+
   - The scale of gradients (some parameters might need bigger/smaller steps)
   - Noisy updates (especially when gradients vary a lot)
-  - Curvature of the loss landscape (slowing down in *valleys* or *ravines*)
+  - Curvature of the loss landscape (slowing down in _valleys_ or _ravines_)
 
-- **RMSProp** solves one of SGD's big headaches: parameters with big, volatile gradients can end up taking steps that are too large (causing instability), or steps that are too small (slowing learning). By keeping a running history of how "noisy" each parameter’s gradient has been, RMSProp divides each step by the *recent average*, shrinking updates for bouncy or large-gradient parameters.
+- **RMSProp** solves one of SGD's big headaches: parameters with big, volatile
+  gradients can end up taking steps that are too large (causing instability), or
+  steps that are too small (slowing learning). By keeping a running history of
+  how "noisy" each parameter’s gradient has been, RMSProp divides each step by
+  the _recent average_, shrinking updates for bouncy or large-gradient
+  parameters.
 
-- **Adam** piles on another trick: momentum. Imagine rolling a ball: momentum means you keep some "inertia" from the previous steps, helping you speed up when going in a straight line, or smooth out shaky updates. Adam keeps an exponentially decaying average of both the mean and variance of gradients, and smartly combines them for much more reliable, faster convergence.
+- **Adam** piles on another trick: momentum. Imagine rolling a ball: momentum
+  means you keep some "inertia" from the previous steps, helping you speed up
+  when going in a straight line, or smooth out shaky updates. Adam keeps an
+  exponentially decaying average of both the mean and variance of gradients, and
+  smartly combines them for much more reliable, faster convergence.
 
 - **Why are these so useful?**
-  - **Adaptivity:** No need to painstakingly tune the learning rate for each weight.
-  - **Stability:** Parameters that would “explode” in SGD are automatically tamed.
-  - **Speed:** Especially on complex loss landscapes, Adam/RMSProp converge faster and find good solutions even when SGD gets stuck.
+  - **Adaptivity:** No need to painstakingly tune the learning rate for each
+    weight.
+  - **Stability:** Parameters that would “explode” in SGD are automatically
+    tamed.
+  - **Speed:** Especially on complex loss landscapes, Adam/RMSProp converge
+    faster and find good solutions even when SGD gets stuck.
 
 ---
 
 ### Demonstration: Comparing SGD, RMSProp, and Adam in PyTorch
 
-We'll use a simple regression problem as our playground to see these optimizers in action.
+We'll use a simple regression problem as our playground to see these optimizers
+in action.
 
 #### **Installation Requirements**
 
-Make sure you've installed PyTorch and matplotlib (using [uv](https://github.com/astral-sh/uv)):
+Make sure you've installed PyTorch and matplotlib (using
+[uv](https://github.com/astral-sh/uv)):
 
 ```bash
 uv pip install torch matplotlib
@@ -311,7 +355,8 @@ uv pip install torch matplotlib
 
 #### **Experiment: Fitting a Linear Model**
 
-We'll fit a simple linear function $y = 2x + 3$ with added noise, using a tiny neural net (just a single linear layer) and compare optimizers.
+We'll fit a simple linear function $y = 2x + 3$ with added noise, using a tiny
+neural net (just a single linear layer) and compare optimizers.
 
 ```python
 import torch
@@ -390,8 +435,11 @@ plt.show()
 ```
 
 **What do you see?**
-- Loss curves: Notice how Adam and RMSProp often converge faster and more smoothly than plain SGD.
-- Predictions: All optimizers find a good fit, but some do so with fewer epochs and less "wiggle" in their learning.
+
+- Loss curves: Notice how Adam and RMSProp often converge faster and more
+  smoothly than plain SGD.
+- Predictions: All optimizers find a good fit, but some do so with fewer epochs
+  and less "wiggle" in their learning.
 
 ---
 
@@ -399,31 +447,37 @@ plt.show()
 
 #### **1. Tune the Learning Rate**
 
-Change the learning rate for each optimizer in the code above to **0.01**, **0.05**, and **0.2**. Observe and plot the loss curves for each setting.  
+Change the learning rate for each optimizer in the code above to **0.01**,
+**0.05**, and **0.2**. Observe and plot the loss curves for each setting.  
 **What happens if your learning rate is too high or too low?**
 
-**Solution:**
-Replace `lr=0.1` in the optimizer setup with your desired learning rates. Plotting different curves will reveal the effect.
+**Solution:** Replace `lr=0.1` in the optimizer setup with your desired learning
+rates. Plotting different curves will reveal the effect.
 
 ---
 
 #### **2. Implement Momentum SGD**
 
-PyTorch's `SGD` can use momentum! Modify the optimizer in the training loop to use momentum (e.g., `momentum=0.9`). Compare its performance to plain SGD.
+PyTorch's `SGD` can use momentum! Modify the optimizer in the training loop to
+use momentum (e.g., `momentum=0.9`). Compare its performance to plain SGD.
 
 **Example:**
+
 ```python
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1, momentum=0.9)
 ```
+
 Compare the loss curves with and without momentum.
 
 ---
 
 #### **3. Try With a Noisier Dataset**
 
-Modify the `make_data` function to have `0.5 * torch.randn_like(X)` instead of `0.2 * ...`. Which optimizer is most robust to this increased noise?
+Modify the `make_data` function to have `0.5 * torch.randn_like(X)` instead of
+`0.2 * ...`. Which optimizer is most robust to this increased noise?
 
 **Solution:**
+
 ```python
 def make_data(n_samples: int = 100) -> Tuple[torch.Tensor, torch.Tensor]:
     torch.manual_seed(42)
@@ -431,13 +485,15 @@ def make_data(n_samples: int = 100) -> Tuple[torch.Tensor, torch.Tensor]:
     y = 2 * X + 3 + 0.5 * torch.randn_like(X)
     return X, y
 ```
+
 Re-run training and compare optimizers.
 
 ---
 
 #### **4. Inspect Learned Parameters**
 
-At the end of training, print out the values of model weights and biases for each optimizer:
+At the end of training, print out the values of model weights and biases for
+each optimizer:
 
 ```python
 for opt in optimizers:
@@ -445,26 +501,35 @@ for opt in optimizers:
     b = results[opt]["model"].linear.bias.item()
     print(f"{opt.upper()} learns w = {w:.2f}, b = {b:.2f}")
 ```
+
 **Do they all learn similar parameters? Why/why not?**
 
 ---
 
 ### Summary
 
-In this post, we explored what makes modern optimizers like **Adam** and **RMSProp** so powerful compared to simple SGD. Instead of blindly taking steps based on the current gradient, these optimizers keep a running memory—of how big, bouncy, or noisy gradients are—and tweak each parameter’s stepsized accordingly. Adam goes a step further, using momentum and adaptive learning rates to accelerate and stabilize learning.
+In this post, we explored what makes modern optimizers like **Adam** and
+**RMSProp** so powerful compared to simple SGD. Instead of blindly taking steps
+based on the current gradient, these optimizers keep a running memory—of how
+big, bouncy, or noisy gradients are—and tweak each parameter’s stepsized
+accordingly. Adam goes a step further, using momentum and adaptive learning
+rates to accelerate and stabilize learning.
 
 ---
 
 ### Key Takeaways
 
 - **SGD** is simple but can be slow and unstable for complex problems.
-- **RMSProp** adapts learning rates per parameter based on the recent magnitude of gradients, making training more robust.
-- **Adam** combines momentum (smoothing gradients) and per-parameter adaptivity for even faster, more reliable convergence.
-- PyTorch makes it easy to swap optimizers—experiment with Adam, RMSProp, and their settings to improve your models!
-- Choosing the right optimizer and learning rates can be the difference between a model that *never learns* and one that *quickly finds a great solution*.
+- **RMSProp** adapts learning rates per parameter based on the recent magnitude
+  of gradients, making training more robust.
+- **Adam** combines momentum (smoothing gradients) and per-parameter adaptivity
+  for even faster, more reliable convergence.
+- PyTorch makes it easy to swap optimizers—experiment with Adam, RMSProp, and
+  their settings to improve your models!
+- Choosing the right optimizer and learning rates can be the difference between
+  a model that _never learns_ and one that _quickly finds a great solution_.
 
-**Up next:** We'll continue exploring powerful training tricks to get the most out of your neural networks!
+**Up next:** We'll continue exploring powerful training tricks to get the most
+out of your neural networks!
 
 **USER:**
-
-
