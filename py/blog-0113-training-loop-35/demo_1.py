@@ -37,3 +37,37 @@ class RandomDataset(Dataset):
 
     def __getitem__(self, idx: int) -> tuple[torch.Tensor, torch.Tensor]:
         return self.X[idx], self.y[idx]
+
+import torch.optim as optim
+
+def train_parallel(
+    n_gpus: int = 2,  # Number of GPUs to parallelize over (will auto-use available)
+    epochs: int = 5,
+    batch_size: int = 128
+) -> None:
+    device = get_best_device()
+    dataset = RandomDataset(10_000, input_dim=20)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+
+    model = SimpleNet(input_dim=20, hidden_dim=64, output_dim=1)
+    if torch.cuda.device_count() > 1 and device.type == "cuda":
+        print(f"Using DataParallel on {torch.cuda.device_count()} GPUs!")
+        model = nn.DataParallel(model)
+    model = model.to(device)
+
+    criterion = nn.BCEWithLogitsLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.01)
+
+    for epoch in range(epochs):
+        running_loss = 0.0
+        for X_batch, y_batch in dataloader:
+            X_batch = X_batch.to(device)
+            y_batch = y_batch.to(device)
+            optimizer.zero_grad()
+            outputs = model(X_batch)
+            loss = criterion(outputs, y_batch)
+            loss.backward()
+            optimizer.step()
+            running_loss += loss.item() * X_batch.size(0)
+        avg_loss = running_loss / len(dataset)
+        print(f"Epoch {epoch+1} | Loss: {avg_loss:.4f}")
