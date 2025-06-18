@@ -18,3 +18,61 @@ plt.scatter(X_train.numpy(), y_train.numpy(), label='Train data')
 plt.plot(X_test.numpy(), y_test.numpy(), label='True function', color='green')
 plt.legend()
 plt.show()
+
+class TinyNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.layers = nn.Sequential(
+            nn.Linear(1, 64),
+            nn.Tanh(),
+            nn.Linear(64, 64),
+            nn.Tanh(),
+            nn.Linear(64, 1)
+        )
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.layers(x)
+
+def train(model: nn.Module, X: torch.Tensor, y: torch.Tensor, 
+          n_epochs: int, lr: float, l2: float=0.0, dropout: bool=False) -> list:
+    if dropout:
+        # Replace activation layers with Dropout+activation
+        new_layers = []
+        for layer in model.layers: # type: ignore
+            new_layers.append(layer)
+            if isinstance(layer, nn.Tanh):  # Insert Dropout after activation
+                new_layers.append(nn.Dropout(p=0.3))
+        model.layers = nn.Sequential(*new_layers)
+    optimizer = torch.optim.SGD(model.parameters(), lr=lr, weight_decay=l2)
+    loss_fn = nn.MSELoss()
+    losses = []
+    model.train()
+    for epoch in range(n_epochs):
+        y_pred = model(X)
+        loss = loss_fn(y_pred, y)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        losses.append(loss.item())
+    return losses
+
+# Training without regularization
+model_no_reg = TinyNet()
+losses_no_reg = train(model_no_reg, X_train, y_train, n_epochs=500, lr=0.01)
+
+plt.plot(losses_no_reg)
+plt.title('Training Loss (No Regularization)')
+plt.xlabel('Epoch')
+plt.ylabel('MSE Loss')
+plt.show()
+
+# Plot predictions
+model_no_reg.eval()
+with torch.no_grad():
+    y_pred_train = model_no_reg(X_train)
+    y_pred_test = model_no_reg(X_test)
+plt.scatter(X_train.numpy(), y_train.numpy(), label='Train')
+plt.plot(X_test.numpy(), y_test.numpy(), label='True', color='green')
+plt.plot(X_test.numpy(), y_pred_test.numpy(), label='Predicted', color='red')
+plt.legend()
+plt.title('Model Fit (No Regularization)')
+plt.show()
