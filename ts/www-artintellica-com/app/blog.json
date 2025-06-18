@@ -877,5 +877,12 @@
     "date": "2025-06-18",
     "code": "https://github.com/artintellica/artintellica/tree/main/py/blog-0111-training-loop-33",
     "content": ""
+  },
+  {
+    "filename": "0112-training-loop-34.md",
+    "title": "Learn the Training Loop with PyTorch, Part 3.4: Deeper Networks and Backprop Challenges",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "content": ""
   }
 ]

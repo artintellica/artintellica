@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0112-training-loop-34.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0112-training-loop-34.md",
+            "title": "Learn the Training Loop with PyTorch, Part 3.4: Deeper Networks and Backprop Challenges",
+            "date_modified": "2025-06-18T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0111-training-loop-33.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0111-training-loop-33.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0093-rl-torch-53-experience.md",
             "title": "Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks",
-            "date_modified": "2025-06-15T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0092-rl-torch-52-deep-q.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0092-rl-torch-52-deep-q.md",
-            "title": "Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation",
             "date_modified": "2025-06-15T07:00:00.000Z"
         }
     ]

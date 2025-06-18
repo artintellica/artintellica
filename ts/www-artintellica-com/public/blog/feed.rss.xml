@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Wed, 18 Jun 2025 16:48:28 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Jun 2025 16:51:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Learn the Training Loop with PyTorch, Part 3.4: Deeper Networks and Backprop Challenges]]></title>
+            <link>https://artintellica.com/blog/0112-training-loop-34.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0112-training-loop-34.md</guid>
+            <pubDate>Wed, 18 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Learn the Training Loop with PyTorch, Part 3.4: Deeper Networks and Backprop Challenges]]></description>
+        </item>
         <item>
             <title><![CDATA[Learn the Training Loop with PyTorch, Part 3.3: Weight Initialization]]></title>
             <link>https://artintellica.com/blog/0111-training-loop-33.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0093-rl-torch-53-experience.md</guid>
             <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.3: Experience Replay and Target Networks]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation]]></title>
-            <link>https://artintellica.com/blog/0092-rl-torch-52-deep-q.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0092-rl-torch-52-deep-q.md</guid>
-            <pubDate>Sun, 15 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn Reinforcement Learning with PyTorch, Part 5.2: Deep Q-Networks (DQN): Concepts and PyTorch Implementation]]></description>
         </item>
     </channel>
 </rss>
