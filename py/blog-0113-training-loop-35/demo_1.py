@@ -71,3 +71,6 @@ def train_parallel(
             running_loss += loss.item() * X_batch.size(0)
         avg_loss = running_loss / len(dataset)
         print(f"Epoch {epoch+1} | Loss: {avg_loss:.4f}")
+
+if __name__ == "__main__":
+    train_parallel()
