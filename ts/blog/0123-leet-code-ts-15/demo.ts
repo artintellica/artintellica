@@ -27,3 +27,8 @@ function maxProfit(prices: number[]): number {
 
   return maxProfit;
 }
+
+console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
+console.log(maxProfit([7, 6, 4, 3, 1])); // Output: 0 (no profit possible)
+console.log(maxProfit([1, 2])); // Output: 1 (buy at 1, sell at 2)
+console.log(maxProfit([2])); // Output: 0 (can't sell)
