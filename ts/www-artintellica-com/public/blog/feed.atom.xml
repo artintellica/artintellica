@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-19T22:48:32.089Z</updated>
+    <updated>2025-06-23T16:43:45.502Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -15,11 +15,11 @@
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
     <entry>
-        <title type="html"><![CDATA[Influential Papers in Machine Learning – Pre-Transformer Era, Paper 1: A Fast Learning Algorithm for Deep Belief Nets (Hinton, Osindero & Teh, 2006)]]></title>
-        <id>https://artintellica.com/blog/0119-papers-pre-transformer-1.md</id>
-        <link href="https://artintellica.com/blog/0119-papers-pre-transformer-1.md"/>
-        <updated>2025-06-19T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Influential Papers in Machine Learning – Pre-Transformer Era, Paper 1: A Fast Learning Algorithm for Deep Belief Nets (Hinton, Osindero & Teh, 2006)]]></summary>
+        <title type="html"><![CDATA[Leet Code in TypeScript, Part 1: Solving Two Sum (Easy)]]></title>
+        <id>https://artintellica.com/blog/0119-leet-code-ts-01.md</id>
+        <link href="https://artintellica.com/blog/0119-leet-code-ts-01.md"/>
+        <updated>2025-06-23T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Leet Code in TypeScript, Part 1: Solving Two Sum (Easy)]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Learn the Training Loop with PyTorch: Full Table of Contents, Series Wrap-Up, and Key Takeaways]]></title>

@@ -4,18 +4,18 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Thu, 19 Jun 2025 22:48:32 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Jun 2025 16:43:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[Influential Papers in Machine Learning – Pre-Transformer Era, Paper 1: A Fast Learning Algorithm for Deep Belief Nets (Hinton, Osindero & Teh, 2006)]]></title>
-            <link>https://artintellica.com/blog/0119-papers-pre-transformer-1.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0119-papers-pre-transformer-1.md</guid>
-            <pubDate>Thu, 19 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Influential Papers in Machine Learning – Pre-Transformer Era, Paper 1: A Fast Learning Algorithm for Deep Belief Nets (Hinton, Osindero & Teh, 2006)]]></description>
+            <title><![CDATA[Leet Code in TypeScript, Part 1: Solving Two Sum (Easy)]]></title>
+            <link>https://artintellica.com/blog/0119-leet-code-ts-01.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0119-leet-code-ts-01.md</guid>
+            <pubDate>Mon, 23 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[Leet Code in TypeScript, Part 1: Solving Two Sum (Easy)]]></description>
         </item>
         <item>
             <title><![CDATA[Learn the Training Loop with PyTorch: Full Table of Contents, Series Wrap-Up, and Key Takeaways]]></title>

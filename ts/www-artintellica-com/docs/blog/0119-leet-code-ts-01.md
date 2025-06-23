@@ -4,8 +4,6 @@ author = "Artintellica"
 date = "2025-06-23"
 +++
 
-# LeetCode in TypeScript: Solving Two Sum (Easy)
-
 Welcome to the first post in our series on tackling LeetCode problems with TypeScript! If you're preparing for technical interviews in Silicon Valley, you're likely aware that mastering data structures and algorithms is crucial. LeetCode offers a fantastic platform to hone these skills, and in this series, we'll solve problems ranging from elementary to advanced, all while leveraging TypeScript's powerful type system to write clean, maintainable code.
 
 In this post, we're starting with one of the most iconic and frequently asked interview questions: **Two Sum**. This problem is often used as a warm-up question at companies like Amazon and Google, testing your ability to manipulate arrays and optimize solutions using hash maps. Let's dive in and explore how to solve it step by step with TypeScript.
