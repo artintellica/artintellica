@@ -1,4 +1,4 @@
-function twoSumWithDuplicates(
+function twoSumAllPairs(
   nums: number[],
   target: number,
 ): { numIdx: number; complementIdx: number }[] {
@@ -10,10 +10,13 @@ function twoSumWithDuplicates(
   for (let idx = 0; idx < nums.length; idx++) {
     const num = nums[idx];
     const complement = target - num;
-    const complementIdxArr = map.get(complement);
+    let complementIdxArr = map.get(complement);
     if (complementIdxArr !== undefined) {
       complementIdxArr.push(idx);
+    } else {
+      complementIdxArr = []
     }
+    map.set(complement, complementIdxArr)
   }
 
   // second pass - accumulate complements
@@ -34,5 +37,5 @@ function twoSumWithDuplicates(
   return results;
 }
 
-console.log(twoSumWithDuplicates([2, 7, 11, 15], 9)); // solution
-console.log(twoSumWithDuplicates([2, 7, 11, 15], 200)); // no solution
+console.log(twoSumAllPairs([2, 7, 11, 15], 9)); // solution
+console.log(twoSumAllPairs([2, 7, 11, 15], 200)); // no solution
