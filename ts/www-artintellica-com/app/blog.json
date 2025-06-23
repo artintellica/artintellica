@@ -970,5 +970,12 @@
     "date": "2025-06-23",
     "code": "https://github.com/artintellica/artintellica/tree/main/ts/blog/0123-leet-code-ts-15",
     "content": ""
+  },
+  {
+    "filename": "0124-leet-code-ts-16.md",
+    "title": "LeetCode in TypeScript, Part 1.6: Longest Substring Without Repeating Characters",
+    "author": "Artintellica",
+    "date": "2025-06-23",
+    "content": ""
   }
 ]
