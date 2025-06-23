@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript, Part 1: Solving Two Sum (Easy)"
+title = "LeetCode in TypeScript, Part 1.1: Solving Two Sum (Easy)"
 author = "Artintellica"
 date = "2025-06-23"
 code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/blog-0119-leet-code-ts-01"
