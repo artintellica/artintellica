@@ -1,351 +1,157 @@
 +++
-title = "Learn the Training Loop with PyTorch: Full Table of Contents, Series Wrap-Up, and Key Takeaways"
+title = "Leet Code in TypeScript, Part 1: Solving Two Sum (Easy)"
 author = "Artintellica"
-date = "2025-06-18"
-model = "grok-3"
-userDelimiter = "**USER:**"
-assistantDelimiter = "**ASSISTANT:**"
+date = "2025-06-23"
 +++
 
-### Full Table of Contents
+# LeetCode in TypeScript: Solving Two Sum (Easy)
 
-**Module 1: The Elementary Training Loop**
+Welcome to the first post in our series on tackling LeetCode problems with TypeScript! If you're preparing for technical interviews in Silicon Valley, you're likely aware that mastering data structures and algorithms is crucial. LeetCode offers a fantastic platform to hone these skills, and in this series, we'll solve problems ranging from elementary to advanced, all while leveraging TypeScript's powerful type system to write clean, maintainable code.
 
-1. [Introduction: What is a Training Loop?](/blog/0096-training-loop-11.md)
-2. [The Simplest Case: Linear Regression](/blog/0097-training-loop-12.md)
-3. [Batch vs. Stochastic Gradient Descent](/blog/0098-training-loop-13.md)
-4. [Visualizing the Loss Landscape](/blog/0099-training-loop-14.md)
-5. [Numerical vs. Analytical Gradients](/blog/0100-training-loop-15.md)
-6. [Recap and Key Takeaways](/blog/0101-training-loop-16.md)
+In this post, we're starting with one of the most iconic and frequently asked interview questions: **Two Sum**. This problem is often used as a warm-up question at companies like Amazon and Google, testing your ability to manipulate arrays and optimize solutions using hash maps. Let's dive in and explore how to solve it step by step with TypeScript.
 
-**Module 2: The Training Loop for Neural Networks**
+## Problem Introduction: Two Sum
 
-1. [From Linear to Nonlinear: Why Neural Networks?](/blog/0102-training-loop-21.md)
-2. [Forward and Backward Passes](/blog/0103-training-loop-22.md)
-3. [Implementing a Simple Neural Net from Scratch](/blog/0104-training-loop-23.md)
-4. [The Role of Activations](/blog/0105-training-loop-24.md)
-5. [Mini-batching and Data Pipelines](/blog/0106-training-loop-25.md)
-6. [Regularization and Overfitting](/blog/0107-training-loop-26.md)
-7. [Recap: Comparing Our Simple Network with Linear Regression](/blog/0108-training-loop-27.md)
+The Two Sum problem is straightforward but packs a punch in terms of teaching core concepts. Here's the problem statement:
 
-**Module 3: Advanced Training Loops and Modern Tricks**
+- **Problem**: Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`. You may assume that each input would have exactly one valid solution, and you may not use the same element twice.
+- **Example**:
+  - Input: `nums = [2, 7, 11, 15]`, `target = 9`
+  - Output: `[0, 1]` (because `nums[0] + nums[1] = 2 + 7 = 9`)
+- **Why It's Relevant**: This problem tests your understanding of array traversal and optimization techniques. It's a common first question in interviews to gauge your problem-solving approach and familiarity with basic data structures like hash maps.
 
-1. [Optimization Algorithms Beyond SGD](/blog/0109-training-loop-31.md)
-2. [Learning Rate Scheduling](/blog/0110-training-loop-32.md)
-3. [Weight Initialization](/blog/0111-training-loop-33.md)
-4. [Deeper Networks and Backprop Challenges](/blog/0112-training-loop-34.md)
-5. [Large-Scale Training: Data Parallelism and Hardware](/blog/0113-training-loop-35.md)
-6. [Monitoring and Debugging the Training Loop](/blog/0114-training-loop-36.md)
-7. [Modern Regularization and Generalization Techniques](/blog/0115-training-loop-37.md)
-8. [The Training Loop in Practice: Case Studies](/blog/0116-training-loop-38.md)
-9. [Conclusion: What's Next After the Training Loop?](/blog/0117-training-loop-39.md)
+The key concepts we'll cover include arrays, hash maps, and time complexity analysis, aiming for an efficient solution with $O(n)$ time complexity.
 
----
+## ELI5: Understanding Two Sum Like You're Five
 
-## Introduction
+Imagine you have a box of toy blocks, each with a number written on it. Your mom gives you a special number, say 9, and asks you to find two blocks that add up to that number. You also need to tell her where those blocks are in the box (their positions).
 
-Congratulations! 🎉 You've made it to the end of our "Learn the Training Loop
-with PyTorch" series. Over the course of these blog posts, we've taken a deep
-dive into the foundational ideas of training machine learning models,
-implemented these concepts by hand, and then explored how modern deep learning
-frameworks supercharge the process. In this conclusion, we'll recap the key
-lessons, offer a high-level summary, and provide a full table of contents for
-easy navigation.
+- **First Way (Slow)**: You pick one block, then check every other block to see if they add up to 9. If not, you pick another block and check again. This takes a long time if you have lots of blocks!
+- **Better Way (Fast)**: You have a magic notebook. As you look at each block, you write down what number you need to find to make 9 (like if you pick a block with 2, you write "need 7"). Then, every time you pick a new block, you check your notebook to see if you've seen the number you need before. If you have, bingo! You know where both blocks are.
 
----
+The fast way is like using a hash map—a special tool to remember numbers and their positions quickly. This makes finding the two blocks much faster, even if you have a huge box of blocks!
 
-## ELI5: What Did We Learn?
+## Solving Two Sum in TypeScript
 
-Imagine teaching a robot to throw a ball into a basket. At first, the robot
-guesses how to throw. Every time it misses, you tell it by how much (the
-"loss"), and it learns to adjust its technique a little bit. Over time, by
-repeating this process (the "training loop"), the robot gets better and better.
+Let's implement the Two Sum solution in TypeScript. We'll use a hash map approach to achieve $O(n)$ time complexity, where $n$ is the length of the input array. TypeScript's type system will help us define the input and output types clearly, making our code more robust.
 
-This is what we do in machine learning:
+### Step-by-Step Approach
+1. Create a hash map to store numbers we've seen and their indices.
+2. Iterate through the array. For each number, calculate the complement (target minus the current number).
+3. Check if the complement exists in the hash map. If it does, we've found our pair of indices.
+4. If not, add the current number and its index to the hash map.
+5. Return the indices of the two numbers that sum to the target.
 
-- **Make a prediction** ($\rightarrow$ forward pass)
-- **See how wrong we were** ($\rightarrow$ loss)
-- **Figure out how to improve** ($\rightarrow$ gradients)
-- **Update our knowledge** ($\rightarrow$ optimize parameters)
-- **Repeat until we're good enough** ($\rightarrow$ training loop)
+### Full Solution Code
 
-We started with simple math and linear models, then built up to neural networks,
-explored optimization tricks, and saw how these become the backbone of today's
-AI.
+Here's the complete TypeScript solution with detailed comments:
 
----
+```typescript
+function twoSum(nums: number[], target: number): number[] {
+    // Create a hash map to store number-to-index mappings
+    const numMap: Map<number, number> = new Map();
+    
+    // Iterate through the array
+    for (let i = 0; i < nums.length; i++) {
+        const currentNum = nums[i];
+        // Calculate the complement needed to reach the target
+        const complement = target - currentNum;
+        
+        // Check if complement exists in the map
+        if (numMap.has(complement)) {
+            // Return the indices of the two numbers
+            return [numMap.get(complement)!, i];
+        }
+        
+        // If not found, add the current number and its index to the map
+        numMap.set(currentNum, i);
+    }
+    
+    // No solution found (though problem guarantees one exists)
+    return [];
+}
 
-## The Series at a Glance
-
-### Table of Contents
-
-#### **Module 1: The Elementary Training Loop**
-
-1. **Introduction: What is a Training Loop?**
-   - What, why, & intuition behind the training loop
-2. **The Simplest Case: Linear Regression**
-   - Linear regression models, loss functions, and manual optimization
-3. **Batch vs. Stochastic Gradient Descent**
-   - Different training strategies and their impact
-4. **Visualizing the Loss Landscape**
-   - Understanding and plotting how models learn
-5. **Numerical vs. Analytical Gradients**
-   - How gradients drive learning; manual vs. computed gradients
-6. **Recap and Key Takeaways**
-
----
-
-#### **Module 2: The Training Loop for Neural Networks**
-
-1. **From Linear to Nonlinear: Why Neural Networks?**
-   - Moving from simple to more powerful models
-2. **Forward and Backward Passes**
-   - The magic of backpropagation, made intuitive
-3. **Implementing a Simple Neural Net from Scratch**
-   - Coding a neural network without black boxes
-4. **The Role of Activations**
-   - Making neural networks expressive and nonlinear
-5. **Mini-batching and Data Pipelines**
-   - Scaling learning with data batches
-6. **Regularization and Overfitting**
-   - Preventing models from memorizing instead of learning
-7. **Recap: Comparing Our Simple Network with Linear Regression**
-
----
-
-#### **Module 3: Advanced Training Loops and Modern Tricks**
-
-1. **Optimization Algorithms Beyond SGD**
-   - From Adam to RMSProp: smarter ways to learn
-2. **Learning Rate Scheduling**
-   - Why and how we change how fast we learn
-3. **Weight Initialization**
-   - Setting the stage for effective training
-4. **Deeper Networks and Backprop Challenges**
-   - How deep learning overcame technical hurdles
-5. **Large-Scale Training: Data Parallelism and Hardware**
-   - Harnessing GPUs and clusters for massive training
-6. **Monitoring and Debugging the Training Loop**
-   - Diagnosing issues and tracking progress
-7. **Modern Regularization and Generalization Techniques**
-   - State-of-the-art approaches for robust models
-8. **The Training Loop in Practice: Case Studies**
-   - How industry leaders train giant models
-9. **Conclusion: What's Next After the Training Loop?**
-   - A launchpad into fine-tuning, transfer learning, and more
-
----
-
-## Mathematical Foundations: A Quick Review
-
-Throughout the series, we've used math both for clarity and for intuition. Here
-are some of the key equations we've seen:
-
-- **Linear regression**:
-  $$
-  \mathbf{y} = \mathbf{X}\mathbf{w} + \mathbf{b}
-  $$
-- **Loss function (MSE)**:
-  $$
-  L(\mathbf{w}) = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y}_i)^2
-  $$
-- **Gradient descent update rule**:
-  $$
-  \mathbf{w}_{\text{new}} = \mathbf{w}_{\text{old}} - \eta \nabla_{\mathbf{w}} L(\mathbf{w})
-  $$
-- **Neural network forward pass** (for a single hidden layer):
-  $$
-  \mathbf{h} = \sigma(\mathbf{X}\mathbf{W}_1 + \mathbf{b}_1)
-  $$
-  $$
-  \mathbf{\hat{y}} = \mathbf{h}\mathbf{W}_2 + \mathbf{b}_2
-  $$
-
-Where:
-
-- $\mathbf{X}$ is the input,
-- $\mathbf{w}$, $\mathbf{W}_1$, $\mathbf{W}_2$ are weights,
-- $\mathbf{b}$, $\mathbf{b}_1$, $\mathbf{b}_2$ are biases,
-- $\sigma$ is an activation function (e.g., ReLU, sigmoid).
-
----
-
-## Pulling It All Together
-
-Let's tie together the core steps of the training loop, as we've learned and
-coded:
-
-### The Modern PyTorch Training Loop
-
-```python
-import torch
-from torch import nn, optim
-
-# Use GPU (cuda/mps) if available, otherwise fallback to CPU
-def get_device() -> torch.device:
-    if torch.cuda.is_available():
-        return torch.device('cuda')
-    elif torch.backends.mps.is_available():
-        return torch.device('mps')
-    else:
-        return torch.device('cpu')
-
-device = get_device()
-
-# Example: a simple 2-layer neural network
-class SimpleNet(nn.Module):
-    def __init__(self, in_features: int, hidden_size: int, out_features: int):
-        super().__init__()
-        self.fc1 = nn.Linear(in_features, hidden_size)
-        self.relu = nn.ReLU()
-        self.fc2 = nn.Linear(hidden_size, out_features)
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return self.fc2(self.relu(self.fc1(x)))
-
-# Toy dataset
-torch.manual_seed(42)
-X = torch.randn(256, 3).to(device)
-y = torch.randn(256, 1).to(device)
-
-model = SimpleNet(3, 8, 1).to(device)
-criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=1e-2)
-
-num_epochs = 200
-
-for epoch in range(num_epochs):
-    model.train()
-    optimizer.zero_grad()
-    outputs = model(X)
-    loss = criterion(outputs, y)
-    loss.backward()
-    optimizer.step()
-
-    if (epoch+1) % 40 == 0 or epoch == 0:
-        print(f"Epoch {epoch+1:>3}: Loss = {loss.item():.4f}")
+// Test the function
+const nums = [2, 7, 11, 15];
+const target = 9;
+console.log(twoSum(nums, target)); // Output: [0, 1]
 ```
 
-_Install dependencies (if needed) using:_
+### Explanation of the Code
+- **Type Safety**: We explicitly type the input `nums` as `number[]` and the output as `number[]` (an array of two indices). This ensures TypeScript catches any type mismatches during development.
+- **Hash Map**: We use `Map<number, number>` to store numbers as keys and their indices as values. `Map` is a built-in TypeScript/JavaScript data structure that's perfect for quick lookups.
+- **Time Complexity**: The solution runs in $O(n)$ time because we only traverse the array once, and hash map operations (get/set) are $O(1)$ on average.
+- **Space Complexity**: We use $O(n)$ extra space to store the hash map.
 
-```
-uv pip install torch matplotlib
-```
+### Why This Matters in Interviews
+In an interview setting, starting with a brute-force approach (nested loops, $O(n^2)$ time) is fine, but you should quickly pivot to the hash map solution to demonstrate optimization skills. Be prepared to explain edge cases, like:
+- What if the array has negative numbers? (Our solution handles them fine.)
+- What if there are duplicate numbers? (Our solution works as long as there's exactly one valid pair.)
 
-This simple example summarizes what we've practiced:
+## Additional Exercise: Two Sum with Multiple Solutions
 
-- Define a model.
-- Define a loss.
-- Optimize parameters via the training loop.
-- Monitor your progress.
+Sometimes, interviewers might tweak the problem to ask for all pairs of indices that sum to the target (not just one pair). Let's solve this variation in TypeScript as an additional exercise to deepen our understanding.
 
----
+### Problem Variation
+- Given an array of integers `nums` and an integer `target`, return all pairs of indices where the numbers add up to `target`. Numbers can be used only once per pair, but the array might have duplicates.
 
-## Exercises
+### Full Solution Code for Variation
 
-Try these final exercises to review your series journey!
+```typescript
+function twoSumAllPairs(nums: number[], target: number): number[][] {
+    // Create a hash map to store number-to-indices mappings (handling duplicates)
+    const numMap: Map<number, number[]> = new Map();
+    const result: number[][] = [];
+    
+    // Populate the map with all indices for each number
+    for (let i = 0; i < nums.length; i++) {
+        const currentNum = nums[i];
+        if (!numMap.has(currentNum)) {
+            numMap.set(currentNum, []);
+        }
+        numMap.get(currentNum)!.push(i);
+    }
+    
+    // Iterate through the array to find pairs
+    for (let i = 0; i < nums.length; i++) {
+        const currentNum = nums[i];
+        const complement = target - currentNum;
+        
+        // Check if complement exists
+        if (numMap.has(complement)) {
+            const complementIndices = numMap.get(complement)!;
+            // Add pairs, ensuring we don't reuse the same index
+            for (const j of complementIndices) {
+                if (j > i) { // Only consider indices after i to avoid duplicates
+                    result.push([i, j]);
+                }
+            }
+        }
+    }
+    
+    return result;
+}
 
-### 1. Implement Learning Rate Scheduling
-
-**Task:** Modify the above example to halve the learning rate every 50 epochs.
-
-**Solution:**
-
-```python
-from torch.optim.lr_scheduler import StepLR
-
-optimizer = optim.Adam(model.parameters(), lr=1e-2)
-scheduler = StepLR(optimizer, step_size=50, gamma=0.5)
-
-for epoch in range(num_epochs):
-    model.train()
-    optimizer.zero_grad()
-    outputs = model(X)
-    loss = criterion(outputs, y)
-    loss.backward()
-    optimizer.step()
-    scheduler.step()
-
-    if (epoch+1) % 40 == 0 or epoch == 0:
-        print(f"Epoch {epoch+1:>3}: Loss = {loss.item():.4f}, LR = {optimizer.param_groups[0]['lr']:.5f}")
-```
-
----
-
-### 2. Try a Different Activation Function
-
-**Task:** Swap `ReLU` for `Tanh` in the `SimpleNet` class.
-
-**Solution:**
-
-```python
-self.relu = nn.Tanh()
-```
-
----
-
-### 3. Add L2 Regularization
-
-**Task:** Add weight decay (L2 regularization) with Adam.
-
-**Solution:**
-
-```python
-optimizer = optim.Adam(model.parameters(), lr=1e-2, weight_decay=1e-4)
+// Test the function
+const numsVariation = [1, 5, 5, 1, 3];
+const targetVariation = 6;
+console.log(twoSumAllPairs(numsVariation, targetVariation)); // Output: [[0, 1], [0, 2], [3, 1], [3, 2]]
 ```
 
----
+### Explanation of the Variation
+- **Hash Map for Duplicates**: We store arrays of indices for each number to handle duplicates (e.g., multiple 5s in the array).
+- **Avoiding Reuse**: We ensure `j > i` to avoid using the same index twice in a pair and to prevent duplicate pairs in the result.
+- **Time Complexity**: This runs in $O(n^2)$ in the worst case due to potentially many pairs, but the hash map still helps with lookups.
 
-### 4. Plot the Loss Curve
+This variation shows how to adapt the original solution to a slightly different requirement, a common scenario in interviews where follow-up questions test your flexibility.
 
-**Task:** Use matplotlib to plot the loss after every epoch.
+## Conclusion
 
-**Solution:**
+In this blog post, we've tackled the classic LeetCode problem **Two Sum**, a staple in Silicon Valley technical interviews at companies like Amazon and Google. We started with an introduction to the problem, broke it down with an ELI5 analogy of finding toy blocks, and implemented a solution in TypeScript using a hash map for $O(n)$ time complexity. We also explored a variation to find all possible pairs, showcasing how to handle follow-up questions.
 
-```python
-import matplotlib.pyplot as plt
+Key takeaways:
+- Use hash maps (`Map` in TypeScript) to optimize array problems from $O(n^2)$ to $O(n)$ time.
+- TypeScript's type system helps define clear input/output types, making code safer and more readable.
+- Be prepared for variations in interviews—think about duplicates, multiple solutions, and edge cases.
 
-losses = []
-
-for epoch in range(num_epochs):
-    model.train()
-    optimizer.zero_grad()
-    outputs = model(X)
-    loss = criterion(outputs, y)
-    loss.backward()
-    optimizer.step()
-    scheduler.step()
-    losses.append(loss.item())
-
-plt.plot(losses)
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.title('Training Loss Curve')
-plt.show()
-```
-
----
-
-## Summary & Key Takeaways
-
-- **The training loop is the heart of machine learning:** It’s a repetitious
-  process where a model learns from its mistakes and gradually improves.
-- **Math builds intuition:** Understanding linear algebra, gradients, and loss
-  functions demystifies machine learning.
-- **Modern deep learning leverages decades of innovation:** Advanced optimizers,
-  flexible architectures, data pipelines, and hardware acceleration all
-  originate from the same basic ideas.
-- **PyTorch makes it accessible:** PyTorch turns abstract math into
-  reproducible, readable code and experiments.
-- **There's always more to learn:** Topics like fine-tuning, transfer learning,
-  self-supervision, and emergent behavior build on the same training loop core.
-
----
-
-### Wherever you go next—whether building your own models, reading cutting-edge research, or just exploring for fun—remember: if you understand the training loop, you hold the keys to the machine learning kingdom.
-
-_Thank you for learning with us!_
-
----
-
-Happy coding and keep training!
+In the next post, we'll build on these concepts with another easy problem, likely focusing on strings or linked lists. Stay tuned, and happy coding! If you have questions or want to see another variation, drop a comment below.
