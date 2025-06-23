@@ -47,3 +47,34 @@ function mergeTwoLists(
   // Return the head of the merged list (skip the dummy node)
   return dummy.next;
 }
+
+// Helper function to create a linked list from an array (for testing)
+function arrayToList(arr: number[]): ListNode | null {
+  if (arr.length === 0) {
+    return null;
+  }
+  const dummy = new ListNode(0);
+  let current = dummy;
+  for (const val of arr) {
+    current.next = new ListNode(val);
+    current = current.next;
+  }
+  return dummy.next;
+}
+
+// Helper function to convert linked list back to array (for output)
+function listToArray(list: ListNode | null): number[] {
+  const result: number[] = [];
+  let current = list;
+  while (current !== null) {
+    result.push(current.val);
+    current = current.next;
+  }
+  return result;
+}
+
+// Test the merge function
+const list1 = arrayToList([1, 2, 4]);
+const list2 = arrayToList([1, 3, 4]);
+const merged = mergeTwoLists(list1, list2);
+console.log(listToArray(merged)); // Output: [1, 1, 2, 3, 4, 4]
