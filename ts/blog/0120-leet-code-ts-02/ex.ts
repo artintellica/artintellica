@@ -18,7 +18,10 @@ function createList(n: number, max: number): ListNode {
   return node;
 }
 
-function printList(node: ListNode) {
+function printList(node: ListNode | undefined) {
+  if (!node) {
+    return "";
+  }
   if (node.next) {
     return `${node.val} -> ${printList(node.next)}`;
   }
@@ -29,18 +32,15 @@ const list = createList(0, 5);
 console.log(printList(list));
 
 function reverseListLoop(node: ListNode) {
-  let curNode: ListNode | undefined = node;
-  let nextNode = curNode.next
-  curNode.next = undefined
-  let prevNode: ListNode | undefined = undefined
-  while (nextNode) {
-    curNode.next = prevNode
-
-    prevNode = curNode
-    curNode = nextNode
-    nextNode = nextNode.next
+  let prev: ListNode | undefined = undefined;
+  let curr: ListNode | undefined = node;
+  while (curr) {
+    const next: ListNode | undefined = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
-  return curNode
+  return prev;
 }
 
-console.log(printList(reverseListLoop(list)))
+console.log(printList(reverseListLoop(list)));
