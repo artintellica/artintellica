@@ -1,22 +1,38 @@
-function twoSum(
+function twoSumWithDuplicates(
   nums: number[],
   target: number,
-): { numIdx: number; complementIdx: number }[] | null {
-  // mapping complement to index
+): { numIdx: number; complementIdx: number }[] {
+  // mapping complement to index array
   const map: Map<number, number[]> = new Map();
+  const results: { numIdx: number; complementIdx: number }[] = [];
 
+  // first pass - compute complements
   for (let idx = 0; idx < nums.length; idx++) {
     const num = nums[idx];
     const complement = target - num;
-    const complementIdx = map.get(complement);
-    if (complementIdx !== undefined) {
-      const numIdx = idx;
-      return { numIdx, complementIdx };
+    const complementIdxArr = map.get(complement);
+    if (complementIdxArr !== undefined) {
+      complementIdxArr.push(idx);
     }
-    map.set(num, idx);
   }
-  return null; // no solution found
+
+  // second pass - accumulate complements
+  for (let idx = 0; idx < nums.length; idx++) {
+    const num = nums[idx];
+    const complement = target - num;
+    const complementIdxArr = map.get(complement);
+    if (complementIdxArr !== undefined) {
+      for (const complementIdx of complementIdxArr) {
+        results.push({
+          numIdx: idx,
+          complementIdx,
+        });
+      }
+    }
+  }
+
+  return results;
 }
 
-console.log(twoSum([2, 7, 11, 15], 9)); // solution
-console.log(twoSum([2, 7, 11, 15], 200)); // no solution
+console.log(twoSumWithDuplicates([2, 7, 11, 15], 9)); // solution
+console.log(twoSumWithDuplicates([2, 7, 11, 15], 200)); // no solution
