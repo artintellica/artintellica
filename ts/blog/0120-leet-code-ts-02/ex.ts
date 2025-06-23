@@ -45,3 +45,17 @@ function reverseListLoop(node: ListNode) {
 
 console.log(printList(reverseListLoop(createList(0, 5))));
 
+function reverseListRecursive(
+  head: ListNode | undefined,
+): ListNode | undefined {
+  if (head === undefined || head.next === undefined) {
+    return head;
+  }
+  const newHead: ListNode | undefined = reverseListRecursive(head.next);
+  head.next.next = head;
+  head.next = undefined;
+
+  return newHead;
+}
+
+console.log(printList(reverseListRecursive(createList(0, 5))));
