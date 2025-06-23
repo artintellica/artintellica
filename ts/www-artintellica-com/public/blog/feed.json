@@ -10,23 +10,23 @@
     },
     "items": [
         {
-            "id": "https://artintellica.com/blog/0121-leet-code-ts-03.md",
+            "id": "https://artintellica.com/blog/0121-leet-code-ts-13.md",
             "content_html": "",
-            "url": "https://artintellica.com/blog/0121-leet-code-ts-03.md",
+            "url": "https://artintellica.com/blog/0121-leet-code-ts-13.md",
             "title": "LeetCode in TypeScript, Part 1.3: Solving Valid Parentheses",
             "date_modified": "2025-06-23T07:00:00.000Z"
         },
         {
-            "id": "https://artintellica.com/blog/0120-leet-code-ts-02.md",
+            "id": "https://artintellica.com/blog/0120-leet-code-ts-12.md",
             "content_html": "",
-            "url": "https://artintellica.com/blog/0120-leet-code-ts-02.md",
+            "url": "https://artintellica.com/blog/0120-leet-code-ts-12.md",
             "title": "LeetCode in TypeScript, Part 1.2: Reversing a Singly Linked List",
             "date_modified": "2025-06-23T07:00:00.000Z"
         },
         {
-            "id": "https://artintellica.com/blog/0119-leet-code-ts-01.md",
+            "id": "https://artintellica.com/blog/0119-leet-code-ts-11.md",
             "content_html": "",
-            "url": "https://artintellica.com/blog/0119-leet-code-ts-01.md",
+            "url": "https://artintellica.com/blog/0119-leet-code-ts-11.md",
             "title": "LeetCode in TypeScript, Part 1.1: Solving Two Sum (Easy)",
             "date_modified": "2025-06-23T07:00:00.000Z"
         },
