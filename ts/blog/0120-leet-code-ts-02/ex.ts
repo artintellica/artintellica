@@ -27,3 +27,20 @@ function printList(node: ListNode) {
 
 const list = createList(0, 5);
 console.log(printList(list));
+
+function reverseListLoop(node: ListNode) {
+  let curNode: ListNode | undefined = node;
+  let nextNode = curNode.next
+  curNode.next = undefined
+  let prevNode: ListNode | undefined = undefined
+  while (nextNode) {
+    curNode.next = prevNode
+
+    prevNode = curNode
+    curNode = nextNode
+    nextNode = nextNode.next
+  }
+  return curNode
+}
+
+console.log(printList(reverseListLoop(list)))
