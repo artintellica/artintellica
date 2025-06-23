@@ -1,5 +1,5 @@
 +++
-title = "Leet Code in TypeScript, Part 1: Solving Two Sum (Easy)"
+title = "LeetCode in TypeScript, Part 1: Solving Two Sum (Easy)"
 author = "Artintellica"
 date = "2025-06-23"
 +++
