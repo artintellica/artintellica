@@ -2,6 +2,7 @@
 title = "LeetCode in TypeScript, Part 1.3: Solving Valid Parentheses"
 author = "Artintellica"
 date = "2025-06-23"
+code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0121-leet-code-ts-13"
 +++
 
 Welcome back to our series on tackling LeetCode problems with TypeScript! In
