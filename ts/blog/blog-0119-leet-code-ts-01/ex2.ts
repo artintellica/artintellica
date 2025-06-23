@@ -6,30 +6,30 @@ function twoSumAllPairs(
   const map: Map<number, number[]> = new Map();
   const results: { numIdx: number; complementIdx: number }[] = [];
 
-  // first pass - compute complements
+  // first, get index for every number
   for (let idx = 0; idx < nums.length; idx++) {
     const num = nums[idx];
-    const complement = target - num;
-    let complementIdxArr = map.get(complement);
-    if (complementIdxArr !== undefined) {
-      complementIdxArr.push(idx);
-    } else {
-      complementIdxArr = []
+    if (!map.has(num)) {
+      map.set(num, []);
     }
-    map.set(complement, complementIdxArr)
+    (map.get(num) as number[]).push(idx);
   }
 
-  // second pass - accumulate complements
+  // second pass, find pairs
   for (let idx = 0; idx < nums.length; idx++) {
     const num = nums[idx];
     const complement = target - num;
-    const complementIdxArr = map.get(complement);
-    if (complementIdxArr !== undefined) {
-      for (const complementIdx of complementIdxArr) {
-        results.push({
-          numIdx: idx,
-          complementIdx,
-        });
+
+    // check if complement exists
+    if (map.has(complement)) {
+      const complementIdxArr = map.get(complement) as number[];
+      for (const jdx of complementIdxArr) {
+        if (jdx > idx) {
+          results.push({
+            numIdx: idx,
+            complementIdx: jdx,
+          });
+        }
       }
     }
   }
@@ -38,4 +38,5 @@ function twoSumAllPairs(
 }
 
 console.log(twoSumAllPairs([2, 7, 11, 15], 9)); // solution
+console.log(twoSumAllPairs([2, 2, 2, 7, 11, 15], 9)); // three solutions
 console.log(twoSumAllPairs([2, 7, 11, 15], 200)); // no solution
