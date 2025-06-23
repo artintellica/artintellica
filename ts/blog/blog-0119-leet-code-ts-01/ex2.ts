@@ -1,8 +1,10 @@
 function twoSum(
   nums: number[],
   target: number,
-): { numIdx: number; complementIdx: number } | null {
-  const map: Map<number, number> = new Map();
+): { numIdx: number; complementIdx: number }[] | null {
+  // mapping complement to index
+  const map: Map<number, number[]> = new Map();
+
   for (let idx = 0; idx < nums.length; idx++) {
     const num = nums[idx];
     const complement = target - num;
