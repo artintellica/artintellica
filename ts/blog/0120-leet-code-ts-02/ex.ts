@@ -20,11 +20,9 @@ function createList(n: number): ListNode {
 
 function printList(node: ListNode) {
   if (node.next) {
-    console.log(`${node.val} -> `);
-    printList(node.next);
-  } else {
-    console.log(`${node.val}`);
+    return `${node.val} -> ${printList(node.next)}`;
   }
+  return `${node.val}`;
 }
 
 const list = createList(5);
