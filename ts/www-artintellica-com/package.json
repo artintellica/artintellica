@@ -7,6 +7,7 @@
   "scripts": {
     "build:icons": "tsx process-icons.ts",
     "build:blog": "tsx build-blog.ts",
+    "build:series": "tsx build-series.ts",
     "build:docker": "cd .. && docker buildx build -f www-artintellica-com/Dockerfile .",
     "dev": "react-router dev --port 4058",
     "build": "cross-env NODE_ENV=production react-router build",
