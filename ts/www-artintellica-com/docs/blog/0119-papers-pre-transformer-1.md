@@ -7,7 +7,7 @@ date = "2025-06-19"
 ## Introduction
 
 In 2006 Geoffrey Hinton, Simon Osindero, and Yee-Whye Teh published  
-“A Fast Learning Algorithm for Deep Belief Nets.”  
+“[A Fast Learning Algorithm for Deep Belief Nets.](https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf)”  
 The paper revived interest in _deep_ neural networks by proposing an
 unsupervised, layer-by-layer pre-training procedure based on Restricted
 Boltzmann Machines (RBMs).
