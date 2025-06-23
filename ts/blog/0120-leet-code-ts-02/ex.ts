@@ -18,4 +18,10 @@ function createList(n: number): ListNode {
   return node;
 }
 
+// function printList(node: ListNode) {
+//   let str = "";
+//   let curNode = node;
+// }
+
 const list = createList(5);
+console.log(list)
