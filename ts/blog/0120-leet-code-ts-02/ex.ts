@@ -8,10 +8,10 @@ class ListNode {
   }
 }
 
-function createList(n: number): ListNode {
-  if (n > 1) {
+function createList(n: number, max: number): ListNode {
+  if (n < max) {
     const node = new ListNode(n);
-    node.next = createList(n - 1);
+    node.next = createList(n + 1, max);
     return node;
   }
   const node = new ListNode(n);
@@ -25,5 +25,5 @@ function printList(node: ListNode) {
   return `${node.val}`;
 }
 
-const list = createList(5);
+const list = createList(0, 5);
 console.log(printList(list));
