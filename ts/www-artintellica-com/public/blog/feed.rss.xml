@@ -4,12 +4,19 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Mon, 23 Jun 2025 20:22:27 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Jun 2025 21:12:33 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[LeetCode in TypeScript, Part 1.3: Solving Valid Parentheses]]></title>
+            <link>https://artintellica.com/blog/0121-leet-code-ts-03.md</link>
+            <guid isPermaLink="false">https://artintellica.com/blog/0121-leet-code-ts-03.md</guid>
+            <pubDate>Mon, 23 Jun 2025 07:00:00 GMT</pubDate>
+            <description><![CDATA[LeetCode in TypeScript, Part 1.3: Solving Valid Parentheses]]></description>
+        </item>
         <item>
             <title><![CDATA[LeetCode in TypeScript, Part 1.2: Reversing a Singly Linked List]]></title>
             <link>https://artintellica.com/blog/0120-leet-code-ts-02.md</link>
@@ -142,13 +149,6 @@
             <guid isPermaLink="false">https://artintellica.com/blog/0102-training-loop-21.md</guid>
             <pubDate>Mon, 16 Jun 2025 07:00:00 GMT</pubDate>
             <description><![CDATA[Learn the Training Loop with PyTorch, Part 2.1: From Linear to Nonlinear: Why Neural Networks?]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Learn the Training Loop with PyTorch, Part 1.6: Recap and Key Takeaways]]></title>
-            <link>https://artintellica.com/blog/0101-training-loop-16.md</link>
-            <guid isPermaLink="false">https://artintellica.com/blog/0101-training-loop-16.md</guid>
-            <pubDate>Mon, 16 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[Learn the Training Loop with PyTorch, Part 1.6: Recap and Key Takeaways]]></description>
         </item>
     </channel>
 </rss>
