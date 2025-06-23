@@ -43,4 +43,5 @@ function reverseListLoop(node: ListNode) {
   return prev;
 }
 
-console.log(printList(reverseListLoop(list)));
+console.log(printList(reverseListLoop(createList(0, 5))));
+
