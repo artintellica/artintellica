@@ -2,6 +2,7 @@
 title = "LeetCode in TypeScript, Part 1: Solving Two Sum (Easy)"
 author = "Artintellica"
 date = "2025-06-23"
+code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/blog-0119-leet-code-ts-01"
 +++
 
 Welcome to the first post in our series on tackling LeetCode problems with TypeScript! If you're preparing for technical interviews in Silicon Valley, you're likely aware that mastering data structures and algorithms is crucial. LeetCode offers a fantastic platform to hone these skills, and in this series, we'll solve problems ranging from elementary to advanced, all while leveraging TypeScript's powerful type system to write clean, maintainable code.
