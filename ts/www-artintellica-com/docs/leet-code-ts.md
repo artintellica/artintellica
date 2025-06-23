@@ -137,10 +137,10 @@ Would you like me to expand on any specific problem with a sample TypeScript sol
 
 great, now can you help me write this blog post:
 
-4. **Merge Two Sorted Lists (Easy)**  
-   - **Problem**: Merge two sorted linked lists and return it as a sorted list.
-   - **Why It's Relevant**: Tests linked list traversal and merging logic, often seen in Amazon interviews.
-   - **Key Concepts**: Linked Lists, Pointers.
+5. **Best Time to Buy and Sell Stock (Easy/Medium)**  
+   - **Problem**: Given an array of stock prices, find the maximum profit by buying on one day and selling on a later day.
+   - **Why It's Relevant**: Tests array traversal and greedy algorithms, a popular topic at Google and hedge fund tech roles.
+   - **Key Concepts**: Arrays, Greedy Algorithms.
 
 please follow these rules when writing the blog post:
 - use markdown formatting and no HTML
@@ -158,163 +158,177 @@ please follow these rules when writing the blog post:
 
 # === ASSISTANT ===
 
-# Merging Two Sorted Lists: A LeetCode Journey in TypeScript
+# Mastering LeetCode: Best Time to Buy and Sell Stock with TypeScript
 
-Welcome back to our series on solving LeetCode problems with TypeScript, tailored for cracking those Silicon Valley job interviews! Today, we're diving into an "Easy" yet fundamental problem: **Merge Two Sorted Lists**. This problem is a classic when it comes to understanding linked lists, a data structure that often pops up in technical interviews at companies like Amazon. If you're preparing for a coding interview, mastering linked list operations like merging is essential, as they test your ability to manipulate pointers and maintain order in data.
+Welcome back to our LeetCode journey with TypeScript! In this post, we're diving into a classic problem that frequently appears in technical interviews, especially at companies like Google and in hedge fund tech roles: **Best Time to Buy and Sell Stock**. This problem tests your ability to work with arrays and apply a greedy algorithm to maximize profit. Whether you're preparing for a Silicon Valley interview or just sharpening your algorithmic skills, this problem offers valuable insights into efficient array traversal. Let's break it down step by step, explore the concept with an ELI5 analogy, and implement a solution in TypeScript.
 
-In this post, we'll break down the problem, explain it in simple terms, provide a TypeScript solution with detailed comments, analyze the time and space complexity, and wrap up with key takeaways. Let's get started!
+## Introduction to Best Time to Buy and Sell Stock
 
-## Problem Introduction: Merge Two Sorted Lists
+The problem is straightforward: you're given an array of stock prices where each element represents the price of a stock on a particular day. Your goal is to maximize your profit by buying the stock on one day and selling it on a later day. If no profit is possible, you should return 0.
 
-The problem statement is straightforward: You are given the heads of two sorted linked lists, `list1` and `list2`. Your task is to merge these two lists into a single sorted list. The merged list should maintain the ascending order of the original lists. The input lists are singly linked lists, meaning each node points to the next node, and the last node points to `null`.
+- **Input**: An array of numbers representing daily stock prices, e.g., `[7,1,5,3,6,4]`.
+- **Output**: The maximum profit you can make, e.g., for the input above, the maximum profit is 5 (buy at 1, sell at 6).
+- **Constraints**: You must buy before selling, and you can only buy and sell once. If no profit is possible, return 0.
 
-For example:
-- Input: `list1 = [1,2,4]`, `list2 = [1,3,4]`
-- Output: `[1,1,2,3,4,4]`
+This problem falls into the "Easy to Medium" difficulty range on LeetCode because while the concept is simple, identifying the optimal strategy requires understanding how to minimize the buying price while maximizing the selling price. It introduces the greedy algorithm approach, where at each step, we make a locally optimal choice hoping it leads to a globally optimal solution.
 
-This problem is relevant because it tests your understanding of linked list traversal and pointer manipulation—skills that are often assessed in interviews. It also introduces the concept of merging, which can be extended to more complex problems like merging k-sorted lists or sorting algorithms like merge sort.
+## ELI5: Understanding the Problem Like You're Five
 
-Key concepts we'll cover:
-- Linked list structure and traversal.
-- Pointer manipulation to build a new list.
-- Iterative vs. recursive approaches to merging.
+Imagine you're at a candy store every day for a week, and each day the price of your favorite candy changes. You have a little bit of money, and you want to make the most extra money by buying the candy on a cheap day and selling it to your friend on a day when it's more expensive. But you can only buy once and sell once, and you have to sell after you buy.
 
-## ELI5: Merging Two Sorted Lists Explained Like You're Five
+- On Monday, candy costs 7 coins.
+- On Tuesday, it’s only 1 coin (super cheap!).
+- On Wednesday, it’s 5 coins.
+- On Thursday, it’s 3 coins.
+- On Friday, it’s 6 coins.
+- On Saturday, it’s 4 coins.
 
-Imagine you have two lines of kids, each standing in order from shortest to tallest. One line is `list1` (say, kids with heights 1, 2, 4), and the other is `list2` (kids with heights 1, 3, 4). Your job is to make one big line where everyone is still in order from shortest to tallest.
+If you buy on Tuesday for 1 coin and sell on Friday for 6 coins, you make 5 coins of profit. That’s the best you can do! If the prices only went down every day, you’d make 0 profit because you wouldn’t sell at a loss. So, your job is to look at all the days, find the cheapest day to buy, and the most expensive day after that to sell, to make the most money.
 
-Here's how you do it:
-1. Look at the first kid in each line.
-2. Pick the shorter one to stand at the front of the new line.
-3. Move forward in the line you picked from.
-4. Repeat until you've picked all the kids from both lines.
+## Key Concepts: Arrays and Greedy Algorithms
 
-For example:
-- Start: Compare 1 (from `list1`) and 1 (from `list2`). Pick one of them (say, from `list1`). New line: [1].
-- Next: Compare 2 (from `list1`) and 1 (from `list2`). Pick 1 from `list2`. New line: [1,1].
-- Next: Compare 2 (from `list1`) and 3 (from `list2`). Pick 2. New line: [1,1,2].
-- Keep going until the new line is [1,1,2,3,4,4].
+Before we jump into the code, let's clarify the key concepts this problem tests:
+- **Arrays**: The input is a simple list of numbers, and we need to traverse it efficiently to compare prices.
+- **Greedy Algorithm**: Instead of checking every possible buy-sell pair (which would be slow with a time complexity of $O(n^2)$), we use a greedy approach. We keep track of the minimum price seen so far (the best time to buy) and update the maximum profit if selling at the current price yields a better result. This reduces the time complexity to $O(n)$, where $n$ is the length of the array.
 
-In programming, each "kid" is a node in a linked list with a value (height) and a pointer to the next node (the next kid). We use pointers to keep track of where we are in each list and to build the new merged line.
+The idea is to iterate through the array once, maintaining two variables:
+- The lowest price seen so far (to buy at the cheapest point).
+- The maximum profit possible (updated by checking if selling at the current price beats the previous best profit).
 
-## TypeScript Solution: Merging Two Sorted Lists
+## TypeScript Solution: Best Time to Buy and Sell Stock
 
-Let's implement this in TypeScript. First, we need to define the structure of a linked list node using a class or interface. Then, we'll write a function to merge the two lists iteratively (a recursive solution is also possible, but iterative is more space-efficient).
-
-### Step 1: Define the Linked List Node
+Let's implement the solution in TypeScript. We'll define the function with proper type annotations to ensure clarity and type safety, which is one of the benefits of using TypeScript over plain JavaScript.
 
 ```typescript
-// Definition for singly-linked list node
-class ListNode {
-    val: number;
-    next: ListNode | null;
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = val === undefined ? 0 : val;
-        this.next = next === undefined ? null : next;
+function maxProfit(prices: number[]): number {
+    // If the array is empty or has only one element, no profit is possible
+    if (prices.length < 2) {
+        return 0;
     }
-}
-```
-
-This `ListNode` class represents a node in the linked list with a value (`val`) and a pointer to the next node (`next`), which can be `null` if it's the last node. TypeScript's type system ensures that `next` is either a `ListNode` or `null`, adding type safety.
-
-### Step 2: Iterative Solution to Merge Two Lists
-
-We'll use an iterative approach with a dummy node to simplify the merging process. The dummy node acts as a placeholder for the head of the merged list, making it easier to handle edge cases (like when one list is empty).
-
-```typescript
-function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
-    // Create a dummy node to serve as the head of the merged list
-    const dummy = new ListNode(0);
-    // Use a current pointer to build the merged list
-    let current = dummy;
     
-    // Traverse both lists while neither is empty
-    while (list1 !== null && list2 !== null) {
-        // Compare values of the current nodes from list1 and list2
-        if (list1.val <= list2.val) {
-            // If list1's value is smaller or equal, add it to the merged list
-            current.next = list1;
-            // Move to the next node in list1
-            list1 = list1.next;
-        } else {
-            // If list2's value is smaller, add it to the merged list
-            current.next = list2;
-            // Move to the next node in list2
-            list2 = list2.next;
+    // Initialize variables:
+    // minPrice is the lowest price seen so far (best time to buy)
+    // maxProfit is the maximum profit we can make
+    let minPrice: number = prices[0];
+    let maxProfit: number = 0;
+    
+    // Iterate through the array starting from the second element
+    for (let i = 1; i < prices.length; i++) {
+        const currentPrice = prices[i];
+        
+        // Update minPrice if the current price is lower
+        if (currentPrice < minPrice) {
+            minPrice = currentPrice;
         }
-        // Move the current pointer forward
-        current = current.next;
+        // Update maxProfit if selling at current price gives a better profit
+        else {
+            const potentialProfit = currentPrice - minPrice;
+            maxProfit = Math.max(maxProfit, potentialProfit);
+        }
     }
     
-    // If list1 still has nodes, append them to the merged list
-    if (list1 !== null) {
-        current.next = list1;
-    }
-    // If list2 still has nodes, append them to the merged list
-    if (list2 !== null) {
-        current.next = list2;
-    }
-    
-    // Return the head of the merged list (skip the dummy node)
-    return dummy.next;
+    return maxProfit;
 }
 ```
 
-### Explanation of the Code
-- **Dummy Node**: We start with a dummy node to avoid special handling for the head of the merged list. Its `next` pointer will point to the actual start of the merged list.
-- **Comparison and Merging**: We compare the values of the current nodes from `list1` and `list2`. The smaller (or equal) value is linked to the merged list, and we advance the pointer in the corresponding input list.
-- **Remaining Nodes**: Once one list is exhausted, we append the remaining nodes from the other list directly to the merged list.
-- **Return**: Finally, we return `dummy.next`, which is the head of the merged list.
+### How It Works
+- We first check if the array has fewer than 2 elements. If so, no transaction is possible, so we return 0.
+- We initialize `minPrice` as the first price in the array (the first possible buying point) and `maxProfit` as 0 (no profit yet).
+- We loop through the array starting from the second element:
+  - If the current price is lower than `minPrice`, we update `minPrice` because buying cheaper is always better.
+  - If the current price is higher, we calculate the potential profit by subtracting `minPrice` from the current price and update `maxProfit` if this profit is larger than the previous maximum.
+- Finally, we return `maxProfit`.
+
+### Example Walkthrough
+Let's test it with the example `[7,1,5,3,6,4]`:
+- Day 0: Price = 7, minPrice = 7, maxProfit = 0
+- Day 1: Price = 1, minPrice = 1 (updated), maxProfit = 0
+- Day 2: Price = 5, minPrice = 1, maxProfit = 4 (5-1=4)
+- Day 3: Price = 3, minPrice = 1, maxProfit = 4 (3-1=2, no update)
+- Day 4: Price = 6, minPrice = 1, maxProfit = 5 (6-1=5, updated)
+- Day 5: Price = 4, minPrice = 1, maxProfit = 5 (4-1=3, no update)
+- Result: maxProfit = 5
 
 ### Time and Space Complexity
-- **Time Complexity**: $O(n + m)$, where $n$ and $m$ are the lengths of `list1` and `list2`, respectively. We traverse each list once.
-- **Space Complexity**: $O(1)$, as we only use a few pointers (dummy and current) regardless of input size. We're reusing the existing nodes without creating new ones.
+- **Time Complexity**: $O(n)$, where $n$ is the length of the prices array. We only traverse the array once.
+- **Space Complexity**: $O(1)$, as we only use two variables regardless of input size.
 
-### Testing the Solution
-Let's test this with the example from earlier: `list1 = [1,2,4]` and `list2 = [1,3,4]`.
+### Test Cases
+Let's run a few test cases to verify our solution:
 
 ```typescript
-// Helper function to create a linked list from an array (for testing)
-function arrayToList(arr: number[]): ListNode | null {
-    if (arr.length === 0) return null;
-    const dummy = new ListNode(0);
-    let current = dummy;
-    for (const val of arr) {
-        current.next = new ListNode(val);
-        current = current.next;
-    }
-    return dummy.next;
-}
-
-// Helper function to convert linked list back to array (for output)
-function listToArray(list: ListNode | null): number[] {
-    const result: number[] = [];
-    let current = list;
-    while (current !== null) {
-        result.push(current.val);
-        current = current.next;
-    }
-    return result;
-}
-
-// Test the merge function
-const list1 = arrayToList([1, 2, 4]);
-const list2 = arrayToList([1, 3, 4]);
-const merged = mergeTwoLists(list1, list2);
-console.log(listToArray(merged)); // Output: [1, 1, 2, 3, 4, 4]
+console.log(maxProfit([7,1,5,3,6,4])); // Output: 5 (buy at 1, sell at 6)
+console.log(maxProfit([7,6,4,3,1])); // Output: 0 (no profit possible)
+console.log(maxProfit([1,2])); // Output: 1 (buy at 1, sell at 2)
+console.log(maxProfit([2])); // Output: 0 (can't sell)
 ```
 
-This test confirms our solution works as expected, producing a sorted merged list.
+## Bonus Exercise: Best Time to Buy and Sell Stock II
 
-## Conclusion: Key Takeaways
+As a bonus, let's tackle a related problem often asked in interviews: **Best Time to Buy and Sell Stock II**. Here, you can buy and sell multiple times, as long as you sell before buying again. The goal is still to maximize profit.
 
-In this blog post, we tackled the LeetCode problem "Merge Two Sorted Lists," a common interview question that tests linked list manipulation and pointer logic. Here's what we learned:
-- **Linked Lists Basics**: We defined a `ListNode` class in TypeScript to represent nodes in a singly linked list, leveraging type safety for `next` pointers.
-- **Merging Logic**: We used an iterative approach with a dummy node to merge two sorted lists, comparing values and linking nodes in ascending order.
-- **Efficiency**: Our solution runs in $O(n + m)$ time with $O(1)$ space, making it optimal for interviews where performance matters.
-- **Practical Testing**: We included helper functions to test the solution, ensuring it handles real input correctly.
+- **Input**: An array of stock prices, e.g., `[7,1,5,3,6,4]`.
+- **Output**: The maximum profit, e.g., for the input above, the maximum profit is 7 (buy at 1, sell at 5 for 4 profit; buy at 3, sell at 6 for 3 profit; total = 7).
 
-This problem is a stepping stone to more complex linked list challenges and merging scenarios, often seen in Amazon interviews. By mastering this, you're building a solid foundation for data structure questions. In the next post, we'll explore another fundamental topic to further sharpen your skills. Stay tuned, and happy coding!
+### TypeScript Solution for Best Time to Buy and Sell Stock II
+
+```typescript
+function maxProfitII(prices: number[]): number {
+    // If the array is empty or has only one element, no profit is possible
+    if (prices.length < 2) {
+        return 0;
+    }
+    
+    // Initialize total profit
+    let totalProfit: number = 0;
+    
+    // Iterate through the array
+    for (let i = 1; i < prices.length; i++) {
+        // If current price is higher than previous day's price,
+        // we can make a profit by buying yesterday and selling today
+        if (prices[i] > prices[i - 1]) {
+            totalProfit += prices[i] - prices[i - 1];
+        }
+    }
+    
+    return totalProfit;
+}
+```
+
+### How It Works
+- Since we can buy and sell multiple times, we take advantage of every upward price movement.
+- We iterate through the array, and whenever the current price is higher than the previous day's price, we add the difference to our profit (effectively buying at the lower price and selling at the higher price).
+- This greedy approach captures all possible profits because every increase in price can be a separate transaction.
+
+### Example Walkthrough for `[7,1,5,3,6,4]`
+- Day 1: Price 1 vs 7, no profit (price decreased)
+- Day 2: Price 5 vs 1, profit += 4 (5-1)
+- Day 3: Price 3 vs 5, no profit (price decreased)
+- Day 4: Price 6 vs 3, profit += 3 (6-3)
+- Day 5: Price 4 vs 6, no profit (price decreased)
+- Result: totalProfit = 7
+
+### Time and Space Complexity
+- **Time Complexity**: $O(n)$, where $n$ is the length of the prices array. Single pass through the array.
+- **Space Complexity**: $O(1)$, using only a single variable.
+
+### Test Cases
+```typescript
+console.log(maxProfitII([7,1,5,3,6,4])); // Output: 7
+console.log(maxProfitII([1,2,3,4,5])); // Output: 4 (profit on each consecutive day)
+console.log(maxProfitII([7,6,4,3,1])); // Output: 0 (no profit possible)
+```
+
+## Conclusion
+
+In this blog post, we've explored the **Best Time to Buy and Sell Stock** problem, a staple in technical interviews that tests array traversal and greedy algorithms. We started with an introduction to the problem, broke it down with an ELI5 analogy (buying and selling candy for profit), and implemented a solution in TypeScript with a time complexity of $O(n)$. We also tackled a bonus problem, **Best Time to Buy and Sell Stock II**, which allows multiple transactions and further reinforces the greedy approach.
+
+Key takeaways:
+- Use a greedy strategy to track the minimum price seen so far and update the maximum profit for the single-transaction version.
+- For multiple transactions, capture every price increase as a separate profit opportunity.
+- TypeScript's type annotations (like `number[]` for the input array) add clarity and prevent runtime errors.
+
+These problems are excellent for practicing array manipulation and understanding how greedy algorithms can simplify seemingly complex tasks. As you prepare for Silicon Valley interviews, mastering such problems will boost your confidence in handling real-world optimization challenges. Stay tuned for the next post in our series, where we'll dive into more medium-difficulty LeetCode problems with TypeScript!
 
 # === USER ===
 
