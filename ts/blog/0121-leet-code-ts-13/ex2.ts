@@ -34,3 +34,9 @@ console.log(isValid("()[]{}", pairs)); // true
 console.log(isValid("(]", pairs)); // false
 console.log(isValid("([)]", pairs)); // false
 console.log(isValid("{[]}", pairs)); // true
+
+// more test cases
+console.log(isValid("()<>", pairs)); // true
+console.log(isValid("(<>)", pairs)); // true
+console.log(isValid("(<)", pairs)); // false
+// console.log(isValid("abc()def", pairs)); // true (ignores non-paired chars)
