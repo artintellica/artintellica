@@ -78,9 +78,9 @@ function testMergeIntervals(): void {
   ];
 
   testCases.forEach((test, index) => {
-    const result = merge(test.input);
     console.log(`Test ${index + 1}: Input: ${JSON.stringify(test.input)}`);
     console.log(`Expected: ${JSON.stringify(test.expected)}`);
+    const result = merge(test.input);
     console.log(`Got: ${JSON.stringify(result)}`);
     console.log(
       `Pass: ${JSON.stringify(result) === JSON.stringify(test.expected)}\n`,
