@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0125-leet-code-ts-17.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0125-leet-code-ts-17.md",
+            "title": "LeetCode in TypeScript, Part 1.7: Merge Intervals",
+            "date_modified": "2025-06-24T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0124-leet-code-ts-16.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0124-leet-code-ts-16.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0106-training-loop-25.md",
             "title": "Learn the Training Loop with PyTorch, Part 2.5: Mini-batching and Data Pipelines",
-            "date_modified": "2025-06-16T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0105-training-loop-24.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0105-training-loop-24.md",
-            "title": "Learn the Training Loop with PyTorch, Part 2.4: The Role of Activations",
             "date_modified": "2025-06-16T07:00:00.000Z"
         }
     ]

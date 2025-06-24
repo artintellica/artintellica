@@ -978,5 +978,12 @@
     "date": "2025-06-24",
     "code": "https://github.com/artintellica/artintellica/tree/main/ts/blog/0124-leet-code-ts-16",
     "content": ""
+  },
+  {
+    "filename": "0125-leet-code-ts-17.md",
+    "title": "LeetCode in TypeScript, Part 1.7: Merge Intervals",
+    "author": "Artintellica",
+    "date": "2025-06-24",
+    "content": ""
   }
 ]
