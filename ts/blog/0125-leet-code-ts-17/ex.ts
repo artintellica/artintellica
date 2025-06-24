@@ -1,9 +1,28 @@
-function merge(intervals: number[][]): number[][] {
-  const sorted = intervals.sort((a, b) => (a[0] as number) - (b[0] as number));
+function merge(unsortedIntervals: number[][]): number[][] {
+  const sorted = unsortedIntervals.sort(
+    (a, b) => (a[0] as number) - (b[0] as number),
+  );
+  const merged: number[][] = [sorted[0] as number[]];
 
-  console.log(sorted)
+  let lastEnd = 0;
 
-  return [[]];
+  for (let i = 1; i < sorted.length; i++) {
+    const interval = sorted[i] as number[];
+
+    // check if current interval starts beore the last one ends. if so, merge
+    // it in. otherwise, append it.
+    const currentStart = interval[0] as number;
+    if (currentStart <= lastEnd) {
+      // merge it in
+      (merged[merged.length - 1] as number[])[1] = interval[1] as number;
+    } else {
+      // append
+      merged.push(interval);
+    }
+    lastEnd = (merged[merged.length - 1] as number[])[1] as number;
+  }
+
+  return merged;
 }
 
 function testMergeIntervals(): void {
