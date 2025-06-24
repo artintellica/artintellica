@@ -1,10 +1,13 @@
 function merge(unsortedIntervals: number[][]): number[][] {
+  if (unsortedIntervals.length === 0) {
+    return unsortedIntervals;
+  }
   const sorted = unsortedIntervals.sort(
     (a, b) => (a[0] as number) - (b[0] as number),
   );
   const merged: number[][] = [sorted[0] as number[]];
 
-  let lastEnd = 0;
+  let lastEnd = (sorted[0] as number[])[1] as number;
 
   for (let i = 1; i < sorted.length; i++) {
     const interval = sorted[i] as number[];
