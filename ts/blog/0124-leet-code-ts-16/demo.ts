@@ -26,3 +26,25 @@ function lengthOfLongestSubstring(s: string): number {
 
   return maxLength;
 }
+
+function runTests(): void {
+  const testCases: { input: string; expected: number }[] = [
+    { input: "abcabcbb", expected: 3 }, // "abc"
+    { input: "bbbbb", expected: 1 }, // "b"
+    { input: "pwwkew", expected: 3 }, // "wke"
+    { input: "", expected: 0 }, // empty string
+    { input: "dvdf", expected: 3 }, // "vdf"
+  ];
+
+  testCases.forEach((test, index) => {
+    const result: number = lengthOfLongestSubstring(test.input);
+    console.log(
+      `Test ${index + 1}: Input="${test.input}", Expected=${test.expected}, Got=${result}, ${
+        result === test.expected ? "PASS" : "FAIL"
+      }`,
+    );
+  });
+}
+
+// Run the tests
+runTests();
