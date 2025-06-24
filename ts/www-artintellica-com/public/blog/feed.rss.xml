@@ -4,81 +4,81 @@
         <title>Artintellica Blog</title>
         <link>https://artintellica.com/blog</link>
         <description>Artintellica Blog</description>
-        <lastBuildDate>Tue, 24 Jun 2025 16:22:34 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 Jun 2025 16:24:52 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright (C) 2025 Ryan X. Charles</copyright>
         <atom:link href="https://example.com/blog/feed.rss.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.10: Finding the Median of Two Sorted Arrays]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 10: Finding the Median of Two Sorted Arrays]]></title>
             <link>https://artintellica.com/blog/0128-leet-code-ts-110.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0128-leet-code-ts-110.md</guid>
             <pubDate>Tue, 24 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.10: Finding the Median of Two Sorted Arrays]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 10: Finding the Median of Two Sorted Arrays]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.9: Mastering the LRU Cache]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 9: Mastering the LRU Cache]]></title>
             <link>https://artintellica.com/blog/0127-leet-code-ts-19.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0127-leet-code-ts-19.md</guid>
             <pubDate>Tue, 24 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.9: Mastering the LRU Cache]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 9: Mastering the LRU Cache]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.8: Word Break]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 8: Word Break]]></title>
             <link>https://artintellica.com/blog/0126-leet-code-ts-18.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0126-leet-code-ts-18.md</guid>
             <pubDate>Tue, 24 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.8: Word Break]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 8: Word Break]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.7: Merge Intervals]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 7: Merge Intervals]]></title>
             <link>https://artintellica.com/blog/0125-leet-code-ts-17.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0125-leet-code-ts-17.md</guid>
             <pubDate>Tue, 24 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.7: Merge Intervals]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 7: Merge Intervals]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.6: Longest Substring Without Repeating Characters]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 6: Longest Substring Without Repeating Characters]]></title>
             <link>https://artintellica.com/blog/0124-leet-code-ts-16.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0124-leet-code-ts-16.md</guid>
             <pubDate>Tue, 24 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.6: Longest Substring Without Repeating Characters]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 6: Longest Substring Without Repeating Characters]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.5: Best Time to Buy and Sell Stock]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 5: Best Time to Buy and Sell Stock]]></title>
             <link>https://artintellica.com/blog/0123-leet-code-ts-15.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0123-leet-code-ts-15.md</guid>
             <pubDate>Mon, 23 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.5: Best Time to Buy and Sell Stock]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 5: Best Time to Buy and Sell Stock]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.4: Merging Two Sorted Lists]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 4: Merging Two Sorted Lists]]></title>
             <link>https://artintellica.com/blog/0122-leet-code-ts-14.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0122-leet-code-ts-14.md</guid>
             <pubDate>Mon, 23 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.4: Merging Two Sorted Lists]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 4: Merging Two Sorted Lists]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.3: Solving Valid Parentheses]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 3: Solving Valid Parentheses]]></title>
             <link>https://artintellica.com/blog/0121-leet-code-ts-13.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0121-leet-code-ts-13.md</guid>
             <pubDate>Mon, 23 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.3: Solving Valid Parentheses]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 3: Solving Valid Parentheses]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.2: Reversing a Singly Linked List]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 2: Reversing a Singly Linked List]]></title>
             <link>https://artintellica.com/blog/0120-leet-code-ts-12.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0120-leet-code-ts-12.md</guid>
             <pubDate>Mon, 23 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.2: Reversing a Singly Linked List]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 2: Reversing a Singly Linked List]]></description>
         </item>
         <item>
-            <title><![CDATA[LeetCode in TypeScript, Part 1.1: Solving Two Sum]]></title>
+            <title><![CDATA[LeetCode in TypeScript, Part 1: Solving Two Sum]]></title>
             <link>https://artintellica.com/blog/0119-leet-code-ts-11.md</link>
             <guid isPermaLink="false">https://artintellica.com/blog/0119-leet-code-ts-11.md</guid>
             <pubDate>Mon, 23 Jun 2025 07:00:00 GMT</pubDate>
-            <description><![CDATA[LeetCode in TypeScript, Part 1.1: Solving Two Sum]]></description>
+            <description><![CDATA[LeetCode in TypeScript, Part 1: Solving Two Sum]]></description>
         </item>
         <item>
             <title><![CDATA[Learn the Training Loop with PyTorch: Full Table of Contents, Series Wrap-Up, and Key Takeaways]]></title>

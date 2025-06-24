@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript, Part 1.7: Merge Intervals"
+title = "LeetCode in TypeScript, Part 7: Merge Intervals"
 author = "Artintellica"
 date = "2025-06-24"
 code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0125-leet-code-ts-17"

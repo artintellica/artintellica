@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript, Part 1.2: Reversing a Singly Linked List"
+title = "LeetCode in TypeScript, Part 2: Reversing a Singly Linked List"
 author = "Artintellica"
 date = "2025-06-23"
 code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0120-leet-code-ts-02"

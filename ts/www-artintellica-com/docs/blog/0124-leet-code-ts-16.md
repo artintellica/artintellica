@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript, Part 1.6: Longest Substring Without Repeating Characters"
+title = "LeetCode in TypeScript, Part 6: Longest Substring Without Repeating Characters"
 author = "Artintellica"
 date = "2025-06-24"
 code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0124-leet-code-ts-16"

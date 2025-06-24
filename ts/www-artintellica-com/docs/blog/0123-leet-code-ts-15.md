@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript, Part 1.5: Best Time to Buy and Sell Stock"
+title = "LeetCode in TypeScript, Part 5: Best Time to Buy and Sell Stock"
 author = "Artintellica"
 date = "2025-06-23"
 code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0123-leet-code-ts-15"

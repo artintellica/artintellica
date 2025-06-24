@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript, Part 1.9: Mastering the LRU Cache"
+title = "LeetCode in TypeScript, Part 9: Mastering the LRU Cache"
 author = "Artintellica"
 date = "2025-06-24"
 code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0127-leet-code-ts-19"

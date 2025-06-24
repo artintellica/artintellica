@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript, Part 1.10: Finding the Median of Two Sorted Arrays"
+title = "LeetCode in TypeScript, Part 10: Finding the Median of Two Sorted Arrays"
 author = "Artintellica"
 date = "2025-06-24"
 code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0128-leet-code-ts-110"
