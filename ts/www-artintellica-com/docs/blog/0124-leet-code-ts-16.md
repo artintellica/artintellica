@@ -1,7 +1,8 @@
 +++
 title = "LeetCode in TypeScript, Part 1.6: Longest Substring Without Repeating Characters"
 author = "Artintellica"
-date = "2025-06-23"
+date = "2025-06-24"
+code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0124-leet-code-ts-16"
 +++
 
 Welcome back to our series on solving LeetCode problems with TypeScript,
