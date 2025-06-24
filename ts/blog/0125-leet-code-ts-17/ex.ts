@@ -17,7 +17,10 @@ function merge(unsortedIntervals: number[][]): number[][] {
     const currentStart = interval[0] as number;
     if (currentStart <= lastEnd) {
       // merge it in
-      (merged[merged.length - 1] as number[])[1] = interval[1] as number;
+      const newLastEnd = interval[1] as number
+      if (newLastEnd > lastEnd) {
+        (merged[merged.length - 1] as number[])[1] = newLastEnd;
+      }
     } else {
       // append
       merged.push(interval);
