@@ -80,7 +80,7 @@
         "useImportType": "off",
         "useNodejsImportProtocol": "off",
         "noNamespace": "error",
-        "noNonNullAssertion": "error",
+        "noNonNullAssertion": "off",
         "noVar": "error",
         "useAsConstAssertion": "error",
         "useBlockStatements": "info",
