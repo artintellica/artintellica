@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://artintellica.com/blog</id>
     <title>Artintellica Blog</title>
-    <updated>2025-06-24T15:28:20.008Z</updated>
+    <updated>2025-06-24T15:42:56.483Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Ryan X. Charles</name>
@@ -14,6 +14,13 @@
     <subtitle>Artintellica Blog</subtitle>
     <icon>https://artintellica.com/favicon.ico</icon>
     <rights>Copyright (C) 2025 Ryan X. Charles</rights>
+    <entry>
+        <title type="html"><![CDATA[LeetCode in TypeScript, Part 1.9: Mastering the LRU Cache]]></title>
+        <id>https://artintellica.com/blog/0127-leet-code-ts-19.md</id>
+        <link href="https://artintellica.com/blog/0127-leet-code-ts-19.md"/>
+        <updated>2025-06-24T07:00:00.000Z</updated>
+        <summary type="html"><![CDATA[LeetCode in TypeScript, Part 1.9: Mastering the LRU Cache]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[LeetCode in TypeScript, Part 1.8: Word Break]]></title>
         <id>https://artintellica.com/blog/0126-leet-code-ts-18.md</id>
@@ -146,12 +153,5 @@
         <link href="https://artintellica.com/blog/0108-training-loop-27.md"/>
         <updated>2025-06-18T07:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 2.7: Recap: Comparing Our Simple Network with Linear Regression]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 2.6: Regularization and Overfitting]]></title>
-        <id>https://artintellica.com/blog/0107-training-loop-26.md</id>
-        <link href="https://artintellica.com/blog/0107-training-loop-26.md"/>
-        <updated>2025-06-18T07:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn the Training Loop with PyTorch, Part 2.6: Regularization and Overfitting]]></summary>
     </entry>
 </feed>

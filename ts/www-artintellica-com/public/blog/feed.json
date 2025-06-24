@@ -10,6 +10,13 @@
     },
     "items": [
         {
+            "id": "https://artintellica.com/blog/0127-leet-code-ts-19.md",
+            "content_html": "",
+            "url": "https://artintellica.com/blog/0127-leet-code-ts-19.md",
+            "title": "LeetCode in TypeScript, Part 1.9: Mastering the LRU Cache",
+            "date_modified": "2025-06-24T07:00:00.000Z"
+        },
+        {
             "id": "https://artintellica.com/blog/0126-leet-code-ts-18.md",
             "content_html": "",
             "url": "https://artintellica.com/blog/0126-leet-code-ts-18.md",
@@ -140,13 +147,6 @@
             "content_html": "",
             "url": "https://artintellica.com/blog/0108-training-loop-27.md",
             "title": "Learn the Training Loop with PyTorch, Part 2.7: Recap: Comparing Our Simple Network with Linear Regression",
-            "date_modified": "2025-06-18T07:00:00.000Z"
-        },
-        {
-            "id": "https://artintellica.com/blog/0107-training-loop-26.md",
-            "content_html": "",
-            "url": "https://artintellica.com/blog/0107-training-loop-26.md",
-            "title": "Learn the Training Loop with PyTorch, Part 2.6: Regularization and Overfitting",
             "date_modified": "2025-06-18T07:00:00.000Z"
         }
     ]

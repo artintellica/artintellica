@@ -137,10 +137,10 @@ Would you like me to expand on any specific problem with a sample TypeScript sol
 
 great, now can you help me write this blog post:
 
-8. **Word Break (Medium)**  
-   - **Problem**: Given a string and a dictionary of words, determine if the string can be segmented into a space-separated sequence of dictionary words.
-   - **Why It's Relevant**: Tests dynamic programming, a critical topic for interviews at Google and Meta.
-   - **Key Concepts**: Dynamic Programming, Strings.
+9. **LRU Cache (Medium/Hard)**  
+   - **Problem**: Design and implement a Least Recently Used (LRU) cache.
+   - **Why It's Relevant**: Tests design skills and understanding of hash maps and doubly linked lists, often asked in system design-adjacent coding rounds at Amazon and Google.
+   - **Key Concepts**: Hash Maps, Doubly Linked Lists, Design.
 
 please follow these rules when writing the blog post:
 - use markdown formatting and no HTML
@@ -156,174 +156,174 @@ please follow these rules when writing the blog post:
 - there might be more than one exercise. that's OK. provide full solutions to all exercises.
 - have a conclusion that summarizes the key points of the blog post
 
+
 # === ASSISTANT ===
 
-# Word Break Problem: Mastering Dynamic Programming in TypeScript
+# Mastering the LRU Cache: A Key Interview Problem in TypeScript
 
-Welcome back to our LeetCode journey with TypeScript! In this blog post, we're diving into a classic medium-difficulty problem: **Word Break**. This problem is a fantastic way to explore dynamic programming (DP), a critical concept for technical interviews, especially at top-tier companies like Google and Meta. If you're preparing for a Silicon Valley job interview, understanding how to tackle problems like this can set you apart. We'll break down the problem, explain it in simple terms, and provide a complete TypeScript solution with detailed commentary. Let's get started!
+Welcome back to our series on solving LeetCode problems with TypeScript, tailored for Silicon Valley job interviews! Today, we're diving into a fascinating and challenging problem: designing and implementing a **Least Recently Used (LRU) Cache**. This problem is a staple in technical interviews, especially at top-tier companies like Amazon and Google, as it tests your ability to combine data structures like hash maps and doubly linked lists into an efficient design. Whether you're preparing for a coding round or a system design-adjacent question, mastering the LRU Cache will give you a significant edge. Let's break it down step by step, explore the problem with an easy-to-understand analogy, and implement a solution in TypeScript.
 
-## Introduction to the Word Break Problem
+## Introduction to the LRU Cache Problem
 
-The Word Break problem is defined as follows: Given a string `s` and a dictionary of words `wordDict`, determine if `s` can be segmented into a space-separated sequence of one or more dictionary words. In other words, can you break the string into pieces where each piece is a valid word from the dictionary?
+The LRU Cache problem (LeetCode #146) is classified as Medium to Hard due to its requirement for a deep understanding of data structure design. The task is to create a cache with a fixed capacity that stores key-value pairs. When the cache reaches its capacity, it should evict the least recently used item to make room for a new one. Additionally, both getting and putting items in the cache should be performed in $O(1)$ time complexity, which means we need an efficient way to track usage order and access elements quickly.
 
-For example:
-- If `s = "leetcode"` and `wordDict = ["leet", "code"]`, the answer is `true` because "leetcode" can be split into "leet" and "code".
-- If `s = "applepenapple"` and `wordDict = ["apple", "pen"]`, the answer is `true` because it can be split into "apple", "pen", and "apple".
-- If `s = "catsandog"` and `wordDict = ["cats", "dog", "sand", "and", "cat"]`, the answer is `false` because there's no way to split it into valid words from the dictionary.
+This problem is highly relevant for interviews because it mimics real-world scenarios like caching in web browsers or databases, where quick access and efficient memory management are critical. It tests your ability to:
+- Use a hash map for fast lookups.
+- Maintain order with a doubly linked list for quick insertion and deletion.
+- Combine multiple data structures into a cohesive design.
 
-This problem tests your ability to use dynamic programming to solve a string segmentation challenge. Dynamic programming is a technique where you break a complex problem into smaller subproblems and store their results to avoid redundant computations. It's a staple in coding interviews because it often appears in problems involving optimization or decision-making, like this one.
+In Silicon Valley interviews, especially at companies like Amazon and Google, you might encounter this as part of a coding round or even as a precursor to a broader system design discussion. Let's simplify the concept before diving into the technical details.
 
-## ELI5: Explaining Word Break Like You're Five
+## ELI5: Understanding LRU Cache Like a Toy Box
 
-Imagine you have a long word, like "icecream", and a little book of smaller words, like ["ice", "cream"]. Your job is to see if you can cut the long word into pieces that are all in your book. So, can you cut "icecream" into "ice" and "cream"? Yes, because both pieces are in the book!
+Imagine you have a small toy box that can only hold 3 toys at a time. Every time you play with a toy, you put it on top of the pile in the box because it's the "most recently used." If the box is full and you want to add a new toy, you have to take out the toy at the bottom of the pile—the one you haven't played with in the longest time (the "least recently used"). To find a toy quickly, you also have a little notebook where you write down which toy is in which spot in the box.
 
-Now, think of checking every possible way to cut the word. Start from the beginning: Can I cut off the first letter? The first two letters? And so on. For each cut, check if that piece is in your book. If it is, then check if the rest of the word can also be cut into pieces from the book. To make this faster, you remember (or write down) which parts you've already figured out, so you don't have to check them again. This "remembering" trick is what we call dynamic programming!
+In this analogy:
+- The toy box is the cache with a fixed capacity.
+- The toys are the key-value pairs (data) you're storing.
+- The pile order (top to bottom) represents how recently each toy was used.
+- The notebook is like a hash map, letting you find a toy instantly without digging through the box.
+- Adding a new toy or playing with an existing one means updating both the pile (order of usage) and the notebook (quick lookup).
 
-In the end, if you can cut the whole word into pieces that are all in the book, you say "Yes, it works!" Otherwise, you say "No, it doesn't."
+The challenge is to make sure that finding a toy, playing with it (moving it to the top), or replacing the bottom toy with a new one all happen super fast, without rearranging the whole box every time. That's what we'll solve with our data structures!
 
-## Solving Word Break with Dynamic Programming in TypeScript
+## Designing the LRU Cache: Key Concepts
 
-Let's solve this problem using dynamic programming. The idea is to create a boolean array `dp` where `dp[i]` represents whether the substring `s[0...i-1]` can be segmented into words from the dictionary. We'll build this array step by step.
+To achieve $O(1)$ time complexity for both `get` and `put` operations, we need two main data structures:
+1. **Hash Map**: For instant lookups of cache items by key. It will store keys mapped to nodes in our linked list.
+2. **Doubly Linked List**: To maintain the order of usage. The most recently used item will be at the head (front), and the least recently used will be at the tail (end). A doubly linked list allows us to move nodes (update order) or remove them in $O(1)$ time because each node has pointers to both the previous and next nodes.
 
-### Approach
-1. Create a DP array of size `s.length + 1`, initialized to `false`. The extra slot is for the empty string, which is always valid (`dp[0] = true`).
-2. For each position `i` in the string (from 1 to `s.length`), check every possible substring ending at `i` by looking at previous positions `j` (from 0 to `i-1`).
-3. If `dp[j]` is `true` (meaning `s[0...j-1]` is valid) and the substring `s[j...i-1]` is in the dictionary, then set `dp[i] = true`.
-4. Finally, `dp[s.length]` tells us if the entire string can be segmented.
+Here's the strategy:
+- When we `get` a key, we find it in the hash map, move its node to the head of the linked list (marking it as most recently used), and return its value.
+- When we `put` a key-value pair, if the key exists, we update its value and move it to the head. If it doesn't exist and the cache is full, we remove the tail node (least recently used), update the hash map, and add the new node to the head. If there's space, we simply add the new node to the head.
+- We use dummy head and tail nodes in the doubly linked list to simplify edge cases (like removing the first or last node).
 
-This approach ensures we check all possible ways to split the string while reusing results from smaller subproblems, making it efficient with a time complexity of $O(n^2)$, where $n$ is the length of the string.
+Let's implement this in TypeScript, leveraging type safety to make our code robust and clear.
 
-### TypeScript Solution
+## TypeScript Implementation of LRU Cache
 
-Below is the complete TypeScript solution with detailed comments explaining each step:
+We'll start by defining the structure of our doubly linked list node and then build the LRU Cache class with all required functionality. Below is the complete solution with detailed comments explaining each part.
 
 ```typescript
-function wordBreak(s: string, wordDict: string[]): boolean {
-    // Convert wordDict to a Set for O(1) lookup time
-    const wordSet = new Set<string>(wordDict);
-    
-    // Create a DP array where dp[i] means s[0...i-1] can be segmented
-    const dp: boolean[] = new Array(s.length + 1).fill(false);
-    
-    // Empty string is always valid
-    dp[0] = true;
-    
-    // Iterate through each position i in the string
-    for (let i = 1; i <= s.length; i++) {
-        // Check every possible substring ending at i by looking at previous positions j
-        for (let j = 0; j < i; j++) {
-            // If s[0...j-1] is valid and s[j...i-1] is in the dictionary
-            if (dp[j] && wordSet.has(s.substring(j, i))) {
-                dp[i] = true;
-                break; // No need to check further once we find a valid split
+// Define the structure of a node in the doubly linked list
+interface Node {
+    key: number;
+    value: number;
+    prev: Node | null;
+    next: Node | null;
+}
+
+class LRUCache {
+    private capacity: number; // Maximum number of items the cache can hold
+    private cache: Map<number, Node>; // Hash map for O(1) lookup of nodes by key
+    private dummyHead: Node; // Dummy head node for the doubly linked list
+    private dummyTail: Node; // Dummy tail node for the doubly linked list
+
+    constructor(capacity: number) {
+        this.capacity = capacity;
+        this.cache = new Map<number, Node>();
+        // Initialize dummy head and tail to simplify list operations
+        this.dummyHead = { key: 0, value: 0, prev: null, next: null };
+        this.dummyTail = { key: 0, value: 0, prev: null, next: null };
+        this.dummyHead.next = this.dummyTail;
+        this.dummyTail.prev = this.dummyHead;
+    }
+
+    // Helper method to add a node right after the head
+    private addNode(node: Node): void {
+        node.prev = this.dummyHead;
+        node.next = this.dummyHead.next;
+        this.dummyHead.next!.prev = node;
+        this.dummyHead.next = node;
+    }
+
+    // Helper method to remove an existing node from the linked list
+    private removeNode(node: Node): void {
+        const prev = node.prev;
+        const next = node.next;
+        prev!.next = next;
+        next!.prev = prev;
+    }
+
+    // Helper method to move a node to the head (most recently used)
+    private moveToHead(node: Node): void {
+        this.removeNode(node);
+        this.addNode(node);
+    }
+
+    // Get the value associated with a key if it exists in the cache
+    get(key: number): number {
+        const node = this.cache.get(key);
+        if (!node) {
+            return -1; // Key not found
+        }
+        // Move to head (mark as most recently used)
+        this.moveToHead(node);
+        return node.value;
+    }
+
+    // Put a key-value pair into the cache
+    put(key: number, value: number): void {
+        const node = this.cache.get(key);
+        if (node) {
+            // If key exists, update its value and move to head
+            node.value = value;
+            this.moveToHead(node);
+        } else {
+            // Create a new node
+            const newNode: Node = { key, value, prev: null, next: null };
+            this.cache.set(key, newNode);
+            this.addNode(newNode);
+
+            // If over capacity, remove the least recently used item (tail)
+            if (this.cache.size > this.capacity) {
+                // Remove from hash map and linked list
+                const tail = this.dummyTail.prev!;
+                this.cache.delete(tail.key);
+                this.removeNode(tail);
             }
         }
     }
-    
-    // Return whether the entire string can be segmented
-    return dp[s.length];
 }
 
-// Test cases to demonstrate the solution
-function runTests(): void {
-    console.log("Test 1:", wordBreak("leetcode", ["leet", "code"])); // Expected: true
-    console.log("Test 2:", wordBreak("applepenapple", ["apple", "pen"])); // Expected: true
-    console.log("Test 3:", wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"])); // Expected: false
+// Example usage and testing
+function testLRUCache() {
+    const cache = new LRUCache(2);
+    cache.put(1, 1); // Cache is {1=1}
+    cache.put(2, 2); // Cache is {1=1, 2=2}
+    console.log(cache.get(1)); // Returns 1
+    cache.put(3, 3); // Evicts key 2, cache is {1=1, 3=3}
+    console.log(cache.get(2)); // Returns -1 (not found)
+    cache.put(4, 4); // Evicts key 1, cache is {4=4, 3=3}
+    console.log(cache.get(1)); // Returns -1 (not found)
+    console.log(cache.get(3)); // Returns 3
+    console.log(cache.get(4)); // Returns 4
 }
 
-// Run the tests
-runTests();
+testLRUCache();
 ```
 
 ### Explanation of the Code
-- **Type Safety**: We're using TypeScript's type annotations (`string` and `string[]`) to ensure the input types are correct. The `Set<string>` ensures type-safe dictionary lookups.
-- **DP Array**: The `dp` array is typed as `boolean[]` for clarity. It stores whether each prefix of the string is valid.
-- **Efficiency**: Using a `Set` for `wordDict` makes lookups $O(1)$, which is crucial since we do many lookups. The overall time complexity is $O(n^2)$, and space complexity is $O(n)$.
-- **Test Cases**: I've included test cases to verify the solution works as expected. You can run this code in a TypeScript environment (e.g., with `ts-node`) to see the output.
+- **Node Interface**: Defines the structure of each node in the doubly linked list with `key`, `value`, and pointers to `prev` and `next` nodes. TypeScript's type safety ensures we don't mix up properties.
+- **LRUCache Class**: Contains the main logic with a `Map` for $O(1)$ lookups and a doubly linked list for maintaining order.
+- **Helper Methods**: `addNode`, `removeNode`, and `moveToHead` manage the linked list operations efficiently.
+- **get Method**: Retrieves a value by key, updates the usage order, and returns -1 if not found.
+- **put Method**: Adds or updates a key-value pair, evicts the least recently used item if necessary, and maintains the order.
+- **Time Complexity**: Both `get` and `put` operations are $O(1)$ because hash map lookups and doubly linked list node movements (thanks to direct pointers) are constant time.
+- **Space Complexity**: $O(capacity)$ to store the key-value pairs in the hash map and linked list.
 
-### Output of Test Cases
-When you run the code, you'll get:
-```
-Test 1: true
-Test 2: true
-Test 3: false
-```
-These results match the expected behavior: "leetcode" and "applepenapple" can be segmented, but "catsandog" cannot.
+### Why TypeScript Shines Here
+TypeScript's `Map` and interface definitions make the code more readable and less error-prone. For instance, explicitly typing the `cache` as `Map<number, Node>` ensures that we only store nodes associated with numeric keys, catching potential bugs during development. This is particularly useful in a collaborative environment or when maintaining code over time, which aligns with practices at Silicon Valley companies.
 
-## Additional Exercise: Word Break with Word List Output
+## Conclusion: Key Takeaways from LRU Cache
 
-As a bonus, let's extend the problem to not just return whether the string can be segmented, but also return one possible segmentation (i.e., the list of words). This is a common follow-up question in interviews to test if you can adapt your solution.
+In this blog post, we've tackled the LRU Cache problem, a medium-to-hard LeetCode challenge that's a favorite in Silicon Valley interviews at companies like Amazon and Google. Here's what we learned:
+- The LRU Cache requires $O(1)$ time complexity for operations, achieved by combining a hash map (for lookups) and a doubly linked list (for order maintenance).
+- We broke down the concept using a toy box analogy, making it clear how "most recently used" and "least recently used" items are managed.
+- Our TypeScript implementation leverages type safety with interfaces and explicit typing, ensuring robust and maintainable code.
+- Key operations like `get` and `put` were implemented with helper methods to manage the doubly linked list efficiently.
 
-### Approach for Word List Output
-We'll modify the DP solution to track the words used in the segmentation. Instead of just storing a boolean in `dp`, we'll store the list of words (or an empty array if invalid) that form the segmentation up to that point.
-
-### TypeScript Solution for Word List Output
-
-```typescript
-function wordBreakWithList(s: string, wordDict: string[]): string[] | null {
-    // Convert wordDict to a Set for O(1) lookup time
-    const wordSet = new Set<string>(wordDict);
-    
-    // Create a DP array where dp[i] stores the list of words for s[0...i-1]
-    // If no valid segmentation, store null
-    const dp: (string[] | null)[] = new Array(s.length + 1).fill(null);
-    
-    // Empty string has an empty list of words
-    dp[0] = [];
-    
-    // Iterate through each position i in the string
-    for (let i = 1; i <= s.length; i++) {
-        // Check every possible substring ending at i by looking at previous positions j
-        for (let j = 0; j < i; j++) {
-            if (dp[j] !== null) {
-                const word = s.substring(j, i);
-                if (wordSet.has(word)) {
-                    // If this is the first valid segmentation found, or we want to store it
-                    dp[i] = [...dp[j], word];
-                    break; // Take the first valid segmentation for simplicity
-                }
-            }
-        }
-    }
-    
-    // Return the list of words if the entire string can be segmented, else null
-    return dp[s.length];
-}
-
-// Test cases to demonstrate the solution with word list output
-function runTestsWithList(): void {
-    console.log("Test 1:", wordBreakWithList("leetcode", ["leet", "code"])); // Expected: ["leet", "code"]
-    console.log("Test 2:", wordBreakWithList("applepenapple", ["apple", "pen"])); // Expected: ["apple", "pen", "apple"]
-    console.log("Test 3:", wordBreakWithList("catsandog", ["cats", "dog", "sand", "and", "cat"])); // Expected: null
-}
-
-// Run the tests
-runTestsWithList();
-```
-
-### Explanation of the Extended Solution
-- **DP Array**: Now `dp` is typed as `(string[] | null)[]`, storing either a list of words or `null` if no segmentation is possible.
-- **Tracking Words**: When a valid split is found, we copy the word list from `dp[j]` and append the current word `s[j...i-1]`.
-- **Output**: The final result at `dp[s.length]` is either the list of words or `null` if no segmentation exists.
-
-### Output of Test Cases for Word List
-When you run the code, you'll get:
-```
-Test 1: ["leet", "code"]
-Test 2: ["apple", "pen", "apple"]
-Test 3: null
-```
-This matches the expected behavior, showing one possible segmentation when it exists and `null` when it doesn't.
-
-## Conclusion
-
-In this blog post, we've tackled the **Word Break** problem, a medium-difficulty LeetCode challenge that’s a favorite in Silicon Valley interviews at companies like Google and Meta. We introduced the problem and explained it in simple terms using an ELI5 analogy of cutting words into pieces from a book. We then provided two complete TypeScript solutions: one to check if segmentation is possible using dynamic programming, and a follow-up to output the actual list of words in a segmentation. Key takeaways include:
-- Dynamic programming is a powerful technique to solve string segmentation by breaking it into subproblems and storing results in a `dp` array.
-- TypeScript’s type safety helps ensure our code is robust, with clear typing for inputs, outputs, and data structures like `Set<string>`.
-- The time complexity of the solution is $O(n^2)$, making it efficient for typical interview constraints.
-- Extending the problem to output the word list shows how to adapt DP solutions for follow-up questions, a common interview scenario.
-
-By mastering problems like Word Break, you're building a strong foundation in dynamic programming, a critical skill for coding interviews. In the next post, we'll explore another exciting LeetCode problem to continue leveling up your skills. Stay tuned, and happy coding!
+Mastering the LRU Cache not only prepares you for coding interviews but also deepens your understanding of data structure design—a critical skill for real-world applications. In the next post, we'll explore another challenging problem to further build your algorithmic toolkit. Until then, keep practicing, and happy coding!
 
 # === USER ===
 
