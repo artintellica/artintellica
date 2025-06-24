@@ -2,6 +2,7 @@
 title = "LeetCode in TypeScript, Part 1.8: Word Break"
 author = "Artintellica"
 date = "2025-06-24"
+code = "https://github.com/artintellica/artintellica/tree/main/ts/blog/0126-leet-code-ts-18"
 +++
 
 Welcome back to our LeetCode journey with TypeScript! In this blog post, we're
