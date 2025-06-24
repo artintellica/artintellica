@@ -8,15 +8,14 @@ function lengthOfLongestSubstring(str: string): number {
     rightIdx = idx;
     const char = str[idx] as string;
     if (charInWindow.has(char)) {
-      const newIdx = (charInWindow.get(char) as number) + 1;
+      const newIdx = charInWindow.get(char) as number;
       leftIdx = newIdx;
-      charInWindow.delete(char);
-    } else {
-      charInWindow.set(char, idx);
-      const newLen = rightIdx - leftIdx;
-      if (newLen > maxLen) {
-        maxLen = newLen;
-      }
+      // charInWindow.delete(char);
+    }
+    charInWindow.set(char, idx);
+    const newLen = rightIdx - leftIdx;
+    if (newLen > maxLen) {
+      maxLen = newLen;
     }
   }
 
