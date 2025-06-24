@@ -31,30 +31,65 @@ function merge(intervals: number[][]): number[][] {
   return merged;
 }
 
-// Test cases
-console.log(
-  merge([
-    [1, 3],
-    [2, 6],
-    [8, 10],
-    [15, 18],
-  ]),
-); // Output: [[1,6],[8,10],[15,18]]
-console.log(
-  merge([
-    [1, 4],
-    [4, 5],
-  ]),
-); // Output: [[1,5]]
-console.log(
-  merge([
-    [1, 4],
-    [0, 4],
-  ]),
-); // Output: [[0,4]]
-console.log(
-  merge([
-    [1, 4],
-    [2, 3],
-  ]),
-); // Output: [[1,4]]
+function testMergeIntervals(): void {
+  const testCases = [
+    {
+      input: [
+        [1, 3],
+        [2, 6],
+        [8, 10],
+        [15, 18],
+      ],
+      expected: [
+        [1, 6],
+        [8, 10],
+        [15, 18],
+      ],
+    },
+    {
+      input: [
+        [1, 4],
+        [4, 5],
+      ],
+      expected: [[1, 5]],
+    },
+    {
+      input: [
+        [1, 4],
+        [0, 4],
+      ],
+      expected: [[0, 4]],
+    },
+    {
+      input: [
+        [1, 4],
+        [2, 3],
+      ],
+      expected: [[1, 4]],
+    },
+    {
+      input: [
+        [2, 3],
+        [4, 5],
+        [6, 7],
+        [8, 9],
+        [1, 10],
+      ],
+      expected: [[1, 10]],
+    },
+    { input: [], expected: [] },
+  ];
+
+  testCases.forEach((test, index) => {
+    const result = merge(test.input);
+    console.log(`Test ${index + 1}: Input: ${JSON.stringify(test.input)}`);
+    console.log(`Expected: ${JSON.stringify(test.expected)}`);
+    console.log(`Got: ${JSON.stringify(result)}`);
+    console.log(
+      `Pass: ${JSON.stringify(result) === JSON.stringify(test.expected)}\n`,
+    );
+  });
+}
+
+// Run the tests
+testMergeIntervals();
