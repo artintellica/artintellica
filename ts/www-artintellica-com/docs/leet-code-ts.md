@@ -137,10 +137,10 @@ Would you like me to expand on any specific problem with a sample TypeScript sol
 
 great, now can you help me write this blog post:
 
-9. **LRU Cache (Medium/Hard)**  
-   - **Problem**: Design and implement a Least Recently Used (LRU) cache.
-   - **Why It's Relevant**: Tests design skills and understanding of hash maps and doubly linked lists, often asked in system design-adjacent coding rounds at Amazon and Google.
-   - **Key Concepts**: Hash Maps, Doubly Linked Lists, Design.
+10. **Median of Two Sorted Arrays (Hard)**  
+    - **Problem**: Given two sorted arrays, find the median of the two sorted arrays.
+    - **Why It's Relevant**: Tests binary search and edge-case handling, a challenging problem often used in final rounds at top-tier companies like Google.
+    - **Key Concepts**: Binary Search, Arrays, Edge Cases.
 
 please follow these rules when writing the blog post:
 - use markdown formatting and no HTML
@@ -156,174 +156,156 @@ please follow these rules when writing the blog post:
 - there might be more than one exercise. that's OK. provide full solutions to all exercises.
 - have a conclusion that summarizes the key points of the blog post
 
-
 # === ASSISTANT ===
 
-# Mastering the LRU Cache: A Key Interview Problem in TypeScript
+# Mastering Hard LeetCode Problems: Finding the Median of Two Sorted Arrays in TypeScript
 
-Welcome back to our series on solving LeetCode problems with TypeScript, tailored for Silicon Valley job interviews! Today, we're diving into a fascinating and challenging problem: designing and implementing a **Least Recently Used (LRU) Cache**. This problem is a staple in technical interviews, especially at top-tier companies like Amazon and Google, as it tests your ability to combine data structures like hash maps and doubly linked lists into an efficient design. Whether you're preparing for a coding round or a system design-adjacent question, mastering the LRU Cache will give you a significant edge. Let's break it down step by step, explore the problem with an easy-to-understand analogy, and implement a solution in TypeScript.
+Welcome back to our LeetCode journey in TypeScript! In this post, we're diving into one of the more challenging problems often encountered in technical interviews at top-tier Silicon Valley companies like Google: **Median of Two Sorted Arrays**. This problem is classified as "Hard" on LeetCode, and it’s a fantastic test of your ability to handle binary search, arrays, and edge cases under pressure. Whether you're preparing for a final-round interview or just looking to sharpen your algorithmic skills, this problem will push your limits and teach you valuable techniques.
 
-## Introduction to the LRU Cache Problem
+We'll break down the problem, explain it in simple terms, provide a detailed TypeScript solution, and analyze the approach step by step. Let's get started!
 
-The LRU Cache problem (LeetCode #146) is classified as Medium to Hard due to its requirement for a deep understanding of data structure design. The task is to create a cache with a fixed capacity that stores key-value pairs. When the cache reaches its capacity, it should evict the least recently used item to make room for a new one. Additionally, both getting and putting items in the cache should be performed in $O(1)$ time complexity, which means we need an efficient way to track usage order and access elements quickly.
+## Problem Introduction: Median of Two Sorted Arrays
 
-This problem is highly relevant for interviews because it mimics real-world scenarios like caching in web browsers or databases, where quick access and efficient memory management are critical. It tests your ability to:
-- Use a hash map for fast lookups.
-- Maintain order with a doubly linked list for quick insertion and deletion.
-- Combine multiple data structures into a cohesive design.
+The problem is straightforward to state but tricky to solve efficiently. You're given two sorted arrays of integers, `nums1` and `nums2`, of lengths `m` and `n` respectively. Your task is to find the median of the combined sorted array formed by merging these two arrays. The median is the middle value in a sorted list of numbers. If the total number of elements is odd, the median is the middle element. If it's even, the median is the average of the two middle elements.
 
-In Silicon Valley interviews, especially at companies like Amazon and Google, you might encounter this as part of a coding round or even as a precursor to a broader system design discussion. Let's simplify the concept before diving into the technical details.
+For example:
+- If `nums1 = [1, 3]` and `nums2 = [2]`, the combined sorted array is `[1, 2, 3]`, and the median is `2`.
+- If `nums1 = [1, 2]` and `nums2 = [3, 4]`, the combined sorted array is `[1, 2, 3, 4]`, and the median is `(2 + 3) / 2 = 2.5`.
 
-## ELI5: Understanding LRU Cache Like a Toy Box
+The challenge lies in solving this efficiently without merging the arrays explicitly, as that would take $O(m + n)$ time and space. Instead, we aim for a solution with $O(\log(\min(m, n)))$ time complexity using binary search.
 
-Imagine you have a small toy box that can only hold 3 toys at a time. Every time you play with a toy, you put it on top of the pile in the box because it's the "most recently used." If the box is full and you want to add a new toy, you have to take out the toy at the bottom of the pile—the one you haven't played with in the longest time (the "least recently used"). To find a toy quickly, you also have a little notebook where you write down which toy is in which spot in the box.
+**Why It's Relevant**: This problem is a favorite in final interview rounds because it tests deep understanding of binary search, partitioning arrays, and handling edge cases. It’s not just about coding; it’s about thinking creatively under constraints.
 
-In this analogy:
-- The toy box is the cache with a fixed capacity.
-- The toys are the key-value pairs (data) you're storing.
-- The pile order (top to bottom) represents how recently each toy was used.
-- The notebook is like a hash map, letting you find a toy instantly without digging through the box.
-- Adding a new toy or playing with an existing one means updating both the pile (order of usage) and the notebook (quick lookup).
+## ELI5: Understanding the Median of Two Sorted Arrays
 
-The challenge is to make sure that finding a toy, playing with it (moving it to the top), or replacing the bottom toy with a new one all happen super fast, without rearranging the whole box every time. That's what we'll solve with our data structures!
+Imagine you have two sorted lists of numbers, like two stacks of cards already in order. One stack has numbers like 1, 3, and the other has 2, 4, 6. You want to find the "middle" number if you combined both stacks into one big sorted stack. But here’s the catch: you don’t want to actually combine them because that takes too long. Instead, you want to figure out the middle by just looking at parts of each stack.
 
-## Designing the LRU Cache: Key Concepts
+Think of it like cutting each stack into two parts. You guess where to cut the first stack so that the left part has some numbers, and the right part has the rest. Then, you cut the second stack so that the left parts of both stacks together have about half the total cards. If the numbers at the edges of your cuts make sense (the biggest number on the left is smaller than the smallest number on the right for both cuts), you’ve found the right spot! The median is then based on those edge numbers.
 
-To achieve $O(1)$ time complexity for both `get` and `put` operations, we need two main data structures:
-1. **Hash Map**: For instant lookups of cache items by key. It will store keys mapped to nodes in our linked list.
-2. **Doubly Linked List**: To maintain the order of usage. The most recently used item will be at the head (front), and the least recently used will be at the tail (end). A doubly linked list allows us to move nodes (update order) or remove them in $O(1)$ time because each node has pointers to both the previous and next nodes.
+This "cutting" idea is what binary search helps us do. We keep guessing where to cut until we find the perfect spot, and we do it fast by halving our search space each time.
 
-Here's the strategy:
-- When we `get` a key, we find it in the hash map, move its node to the head of the linked list (marking it as most recently used), and return its value.
-- When we `put` a key-value pair, if the key exists, we update its value and move it to the head. If it doesn't exist and the cache is full, we remove the tail node (least recently used), update the hash map, and add the new node to the head. If there's space, we simply add the new node to the head.
-- We use dummy head and tail nodes in the doubly linked list to simplify edge cases (like removing the first or last node).
+## Approach to Solving the Problem
 
-Let's implement this in TypeScript, leveraging type safety to make our code robust and clear.
+To solve this problem efficiently, we use a binary search approach to partition the two arrays into two halves such that the left halves of both arrays contain elements less than or equal to the right halves. Here's the high-level idea:
 
-## TypeScript Implementation of LRU Cache
+1. **Partitioning**: We try to partition `nums1` and `nums2` into left and right parts. For `nums1`, pick a partition point `x`, so the left part is `nums1[0..x-1]` and the right part is `nums1[x..m-1]`. Similarly, for `nums2`, pick a partition point `y`, so the left part is `nums2[0..y-1]` and the right part is `nums2[y..n-1]`.
+2. **Balance**: Ensure the number of elements in the combined left parts equals (or is one less than) the number in the combined right parts. This means `x + y` should be roughly half of `m + n`.
+3. **Validity Check**: Check if the partition is valid by ensuring the largest element in the left parts is less than or equal to the smallest element in the right parts. Mathematically, `nums1[x-1] <= nums2[y]` and `nums2[y-1] <= nums1[x]`.
+4. **Binary Search**: Use binary search on the smaller array to find the correct partition point `x`, then compute `y` as `((m + n + 1) / 2) - x`. Adjust the search range based on whether the partition is valid.
+5. **Median Calculation**: Once the correct partition is found, compute the median based on whether the total length is odd or even.
 
-We'll start by defining the structure of our doubly linked list node and then build the LRU Cache class with all required functionality. Below is the complete solution with detailed comments explaining each part.
+The time complexity is $O(\log(\min(m, n)))$ because we perform binary search on the smaller array. Space complexity is $O(1)$ as we use only a few variables.
+
+## TypeScript Solution: Median of Two Sorted Arrays
+
+Below is the complete TypeScript solution to the problem. I've added detailed comments to explain each step. We'll assume the input arrays are `number[]` types for clarity and type safety.
 
 ```typescript
-// Define the structure of a node in the doubly linked list
-interface Node {
-    key: number;
-    value: number;
-    prev: Node | null;
-    next: Node | null;
-}
-
-class LRUCache {
-    private capacity: number; // Maximum number of items the cache can hold
-    private cache: Map<number, Node>; // Hash map for O(1) lookup of nodes by key
-    private dummyHead: Node; // Dummy head node for the doubly linked list
-    private dummyTail: Node; // Dummy tail node for the doubly linked list
-
-    constructor(capacity: number) {
-        this.capacity = capacity;
-        this.cache = new Map<number, Node>();
-        // Initialize dummy head and tail to simplify list operations
-        this.dummyHead = { key: 0, value: 0, prev: null, next: null };
-        this.dummyTail = { key: 0, value: 0, prev: null, next: null };
-        this.dummyHead.next = this.dummyTail;
-        this.dummyTail.prev = this.dummyHead;
+function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
+    // Ensure nums1 is the shorter array for efficiency in binary search
+    if (nums1.length > nums2.length) {
+        [nums1, nums2] = [nums2, nums1];
     }
-
-    // Helper method to add a node right after the head
-    private addNode(node: Node): void {
-        node.prev = this.dummyHead;
-        node.next = this.dummyHead.next;
-        this.dummyHead.next!.prev = node;
-        this.dummyHead.next = node;
-    }
-
-    // Helper method to remove an existing node from the linked list
-    private removeNode(node: Node): void {
-        const prev = node.prev;
-        const next = node.next;
-        prev!.next = next;
-        next!.prev = prev;
-    }
-
-    // Helper method to move a node to the head (most recently used)
-    private moveToHead(node: Node): void {
-        this.removeNode(node);
-        this.addNode(node);
-    }
-
-    // Get the value associated with a key if it exists in the cache
-    get(key: number): number {
-        const node = this.cache.get(key);
-        if (!node) {
-            return -1; // Key not found
-        }
-        // Move to head (mark as most recently used)
-        this.moveToHead(node);
-        return node.value;
-    }
-
-    // Put a key-value pair into the cache
-    put(key: number, value: number): void {
-        const node = this.cache.get(key);
-        if (node) {
-            // If key exists, update its value and move to head
-            node.value = value;
-            this.moveToHead(node);
-        } else {
-            // Create a new node
-            const newNode: Node = { key, value, prev: null, next: null };
-            this.cache.set(key, newNode);
-            this.addNode(newNode);
-
-            // If over capacity, remove the least recently used item (tail)
-            if (this.cache.size > this.capacity) {
-                // Remove from hash map and linked list
-                const tail = this.dummyTail.prev!;
-                this.cache.delete(tail.key);
-                this.removeNode(tail);
+    
+    const m: number = nums1.length;
+    const n: number = nums2.length;
+    let left: number = 0;
+    let right: number = m;
+    
+    while (left <= right) {
+        // Partition points for nums1 and nums2
+        const x: number = Math.floor((left + right) / 2);
+        const y: number = Math.floor((m + n + 1) / 2) - x;
+        
+        // Get left and right values for nums1
+        const left1: number = x === 0 ? Number.NEGATIVE_INFINITY : nums1[x - 1];
+        const right1: number = x === m ? Number.POSITIVE_INFINITY : nums1[x];
+        
+        // Get left and right values for nums2
+        const left2: number = y === 0 ? Number.NEGATIVE_INFINITY : nums2[y - 1];
+        const right2: number = y === n ? Number.POSITIVE_INFINITY : nums2[y];
+        
+        // Check if partition is valid
+        if (left1 <= right2 && left2 <= right1) {
+            // If total length is odd, median is the max of left parts
+            if ((m + n) % 2 === 1) {
+                return Math.max(left1, left2);
+            } else {
+                // If total length is even, median is average of max(left) and min(right)
+                return (Math.max(left1, left2) + Math.min(right1, right2)) / 2;
             }
+        } else if (left1 > right2) {
+            // If left1 is too big, move partition left in nums1
+            right = x - 1;
+        } else {
+            // If left2 is too big, move partition right in nums1
+            left = x + 1;
         }
     }
+    
+    throw new Error("Input arrays are not sorted");
 }
-
-// Example usage and testing
-function testLRUCache() {
-    const cache = new LRUCache(2);
-    cache.put(1, 1); // Cache is {1=1}
-    cache.put(2, 2); // Cache is {1=1, 2=2}
-    console.log(cache.get(1)); // Returns 1
-    cache.put(3, 3); // Evicts key 2, cache is {1=1, 3=3}
-    console.log(cache.get(2)); // Returns -1 (not found)
-    cache.put(4, 4); // Evicts key 1, cache is {4=4, 3=3}
-    console.log(cache.get(1)); // Returns -1 (not found)
-    console.log(cache.get(3)); // Returns 3
-    console.log(cache.get(4)); // Returns 4
-}
-
-testLRUCache();
 ```
 
-### Explanation of the Code
-- **Node Interface**: Defines the structure of each node in the doubly linked list with `key`, `value`, and pointers to `prev` and `next` nodes. TypeScript's type safety ensures we don't mix up properties.
-- **LRUCache Class**: Contains the main logic with a `Map` for $O(1)$ lookups and a doubly linked list for maintaining order.
-- **Helper Methods**: `addNode`, `removeNode`, and `moveToHead` manage the linked list operations efficiently.
-- **get Method**: Retrieves a value by key, updates the usage order, and returns -1 if not found.
-- **put Method**: Adds or updates a key-value pair, evicts the least recently used item if necessary, and maintains the order.
-- **Time Complexity**: Both `get` and `put` operations are $O(1)$ because hash map lookups and doubly linked list node movements (thanks to direct pointers) are constant time.
-- **Space Complexity**: $O(capacity)$ to store the key-value pairs in the hash map and linked list.
+## Explanation of the Code
 
-### Why TypeScript Shines Here
-TypeScript's `Map` and interface definitions make the code more readable and less error-prone. For instance, explicitly typing the `cache` as `Map<number, Node>` ensures that we only store nodes associated with numeric keys, catching potential bugs during development. This is particularly useful in a collaborative environment or when maintaining code over time, which aligns with practices at Silicon Valley companies.
+- **Swapping Arrays**: We ensure `nums1` is the shorter array by swapping if necessary. This optimizes the binary search by minimizing iterations.
+- **Binary Search Setup**: We search for the partition point `x` in `nums1` between `0` and `m`. For each `x`, we compute `y` to balance the left and right halves.
+- **Edge Cases with Infinity**: If a partition point is at the start or end of an array, we use `Number.NEGATIVE_INFINITY` or `Number.POSITIVE_INFINITY` to handle comparisons safely.
+- **Partition Validation**: We check if `left1 <= right2` and `left2 <= right1`. If true, we’ve found the correct partition and compute the median.
+- **Median Calculation**: For odd total length, the median is the maximum of the left parts. For even length, it’s the average of the maximum of left parts and minimum of right parts.
+- **Adjustment**: If the partition isn’t valid, we adjust the binary search range based on which side needs correction.
 
-## Conclusion: Key Takeaways from LRU Cache
+## Testing the Solution
 
-In this blog post, we've tackled the LRU Cache problem, a medium-to-hard LeetCode challenge that's a favorite in Silicon Valley interviews at companies like Amazon and Google. Here's what we learned:
-- The LRU Cache requires $O(1)$ time complexity for operations, achieved by combining a hash map (for lookups) and a doubly linked list (for order maintenance).
-- We broke down the concept using a toy box analogy, making it clear how "most recently used" and "least recently used" items are managed.
-- Our TypeScript implementation leverages type safety with interfaces and explicit typing, ensuring robust and maintainable code.
-- Key operations like `get` and `put` were implemented with helper methods to manage the doubly linked list efficiently.
+Let’s test the solution with a few examples to verify it works correctly.
 
-Mastering the LRU Cache not only prepares you for coding interviews but also deepens your understanding of data structure design—a critical skill for real-world applications. In the next post, we'll explore another challenging problem to further build your algorithmic toolkit. Until then, keep practicing, and happy coding!
+**Example 1**:
+```typescript
+const nums1: number[] = [1, 3];
+const nums2: number[] = [2];
+console.log(findMedianSortedArrays(nums1, nums2)); // Output: 2
+```
+- Combined sorted array: `[1, 2, 3]`
+- Median: `2` (middle element since total length is 3, odd)
+
+**Example 2**:
+```typescript
+const nums1: number[] = [1, 2];
+const nums2: number[] = [3, 4];
+console.log(findMedianSortedArrays(nums1, nums2)); // Output: 2.5
+```
+- Combined sorted array: `[1, 2, 3, 4]`
+- Median: `(2 + 3) / 2 = 2.5` (average of two middle elements since total length is 4, even)
+
+**Example 3**:
+```typescript
+const nums1: number[] = [0, 0];
+const nums2: number[] = [0, 0];
+console.log(findMedianSortedArrays(nums1, nums2)); // Output: 0
+```
+- Combined sorted array: `[0, 0, 0, 0]`
+- Median: `(0 + 0) / 2 = 0`
+
+## Key Takeaways and Interview Tips
+
+When discussing this problem in an interview:
+- Explain the binary search approach clearly, focusing on why merging arrays ($O(m + n)$) is inefficient compared to partitioning ($O(\log(\min(m, n)))$).
+- Draw diagrams to show how partitions work, especially for edge cases like empty arrays or arrays of different sizes.
+- Mention how you handle edge cases with infinities to avoid index out-of-bounds errors.
+- Be prepared to discuss why you chose the shorter array for binary search (to minimize iterations).
+
+## Conclusion
+
+In this blog post, we tackled the challenging LeetCode problem "Median of Two Sorted Arrays" using TypeScript. We explored a binary search-based solution that achieves $O(\log(\min(m, n)))$ time complexity by partitioning the arrays instead of merging them. Through an ELI5 explanation, we likened the problem to cutting stacks of cards to find the middle without combining them. The TypeScript code provided a robust, type-safe implementation with detailed comments and test cases to solidify understanding.
+
+Key points to remember:
+- Binary search on the smaller array optimizes the solution.
+- Proper partitioning ensures left elements are less than or equal to right elements across both arrays.
+- Edge cases are handled using infinities to avoid errors.
+- This problem tests advanced algorithmic thinking, making it a staple in final-round interviews at companies like Google.
+
+Stay tuned for more LeetCode challenges in TypeScript as we continue to build skills for Silicon Valley interviews. Happy coding!
 
 # === USER ===
 
