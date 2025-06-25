@@ -98,30 +98,6 @@ export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
         </div>
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
-      <div className="text-center text-black text-sm dark:text-white">
-        <h2 className="font-bold text-lg">Series Feeds</h2>
-        <a
-          className="border-b border-b-blue text-sm hover:border-b-black dark:hover:border-b-white"
-          href={"/series/feed.json"}
-        >
-          JSON Feed
-        </a>
-        &nbsp;&middot;&nbsp;
-        <a
-          className="border-b border-b-blue text-sm hover:border-b-black dark:hover:border-b-white"
-          href={"/series/feed.atom.xml"}
-        >
-          Atom Feed
-        </a>
-        &nbsp;&middot;&nbsp;
-        <a
-          className="border-b border-b-blue text-sm hover:border-b-black dark:hover:border-b-white"
-          href={"/series/feed.rss.xml"}
-        >
-          RSS Feed
-        </a>
-      </div>
-      <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
       <div className="text-center text-black dark:text-white">
         <Link
           className="border-b border-b-blue font-bold text-lg hover:border-b-black dark:hover:border-b-white"
