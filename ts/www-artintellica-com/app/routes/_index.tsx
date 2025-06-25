@@ -113,6 +113,15 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
         </div>
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
+      <div className="text-center text-black dark:text-white">
+        <Link
+          className="border-b border-b-blue font-bold text-lg hover:border-b-black dark:hover:border-b-white"
+          to={href("/series")}
+        >
+          Browse All Series Posts
+        </Link>
+      </div>
+      <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
       <div className="mx-auto my-4 max-w-[600px] px-2">
         <div>
           <h1 className="my-4 text-center font-bold text-black text-xl dark:text-white">
@@ -143,7 +152,7 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
           className="border-b border-b-blue font-bold text-lg hover:border-b-black dark:hover:border-b-white"
           to={href("/blog")}
         >
-          Browse All Posts
+          Browse All Blog Posts
         </Link>
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
