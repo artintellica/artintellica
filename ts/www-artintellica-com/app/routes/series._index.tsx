@@ -90,7 +90,7 @@ export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
                       {post.title}
                     </h2>
                     <p className="text-black/70 text-sm dark:text-white/70">
-                      {post.author} &middot; {post.date}
+                      {post.date} &middot; {post.author}
                     </p>
                   </div>
                 </a>
