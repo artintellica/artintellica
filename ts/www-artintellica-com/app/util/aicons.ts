@@ -9,6 +9,16 @@ export type AIcon =
   "/images/calculus-400.webp" |
   "/images/calculus-64.webp" |
   "/images/calculus-96.webp" |
+  "/images/deep-numpy-128.ico" |
+  "/images/deep-numpy-128.webp" |
+  "/images/deep-numpy-180.png" |
+  "/images/deep-numpy-180.webp" |
+  "/images/deep-numpy-200.webp" |
+  "/images/deep-numpy-300.webp" |
+  "/images/deep-numpy-32.webp" |
+  "/images/deep-numpy-400.webp" |
+  "/images/deep-numpy-64.webp" |
+  "/images/deep-numpy-96.webp" |
   "/images/linalg-128.ico" |
   "/images/linalg-128.webp" |
   "/images/linalg-180.png" |
