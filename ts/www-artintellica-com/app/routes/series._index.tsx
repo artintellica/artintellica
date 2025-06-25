@@ -1,6 +1,6 @@
 import seriesPosts from "~app/series.json";
 import { Link, href } from "react-router";
-import type { Route } from "./+types/series.js";
+import type { Route } from "./+types/series._index.js";
 import { $aicon } from "~app/util/aicons.js";
 import { Footer } from "~app/components/footer.js";
 
