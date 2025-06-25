@@ -2,7 +2,7 @@
 title = "Linear Algebra for Machine Learning"
 icon = "linalg"
 author = "Artintellica"
-date = "2025-06-25"
+date = "2025-06-05"
 +++
 
 ### Part I – Foundations
