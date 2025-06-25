@@ -14,5 +14,13 @@
     "date": "2025-06-05",
     "icon": "linalg",
     "content": ""
+  },
+  {
+    "filename": "03-deep-numpy.md",
+    "title": "Learn Deep Learning with NumPy",
+    "author": "Artintellica",
+    "date": "2025-06-09",
+    "icon": "deep-numpy",
+    "content": ""
   }
 ]
