@@ -12,6 +12,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
         date: post.date,
         author: post.author,
         filename: post.filename,
+        icon: post.icon,
         content: "",
       };
     })
@@ -70,17 +71,29 @@ export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
           <div>
             <div className="mb-4 text-black dark:text-white">
               {seriesPosts.map((post) => (
-                <div key={post.filename} className="mb-4">
-                  <Link
-                    to={href("/series/:filename", { filename: post.filename })}
-                    className="border-b border-b-blue font-semibold text-lg leading-3 hover:border-b-black dark:hover:border-b-white"
-                  >
-                    {post.title}
-                  </Link>
-                  <div className="text-black/60 text-sm dark:text-white/60">
-                    {post.date} &middot; {post.author}
+                <a
+                  key={post.filename}
+                  href={post.filename}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="m-2 flex space-x-2 rounded-md bg-white/50 p-2 text-black outline-1 outline-black/50 hover:bg-white hover:outline-4 hover:outline-blue dark:bg-black/50 dark:text-white dark:outline-white/50 dark:hover:bg-black"
+                >
+                  <div className="h-full flex-shrink-0">
+                    <img
+                      src={`/public/images/${post.icon}-300.webp`}
+                      alt={post.title}
+                      className="h-[80px] w-[80px]"
+                    />
                   </div>
-                </div>
+                  <div className="h-full">
+                    <h2 className="my-auto block font-semibold text-lg">
+                      {post.title}
+                    </h2>
+                    <p className="text-black/70 text-sm dark:text-white/70">
+                      {post.author} &middot; {post.date}
+                    </p>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
