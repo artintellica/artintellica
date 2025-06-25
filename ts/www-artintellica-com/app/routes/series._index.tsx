@@ -74,7 +74,7 @@ export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
                 <Link
                   key={post.filename}
                   to={`/series/${post.filename}`}
-                  className="m-2 flex space-x-2 rounded-md bg-white/50 p-2 text-black outline-1 outline-black/50 hover:bg-white hover:outline-4 hover:outline-blue dark:bg-black/50 dark:text-white dark:outline-white/50 dark:hover:bg-black"
+                  className="my-2 flex space-x-2 rounded-md bg-white/50 p-2 text-black outline-1 outline-black/50 hover:bg-white hover:outline-4 hover:outline-blue dark:bg-black/50 dark:text-white dark:outline-white/50 dark:hover:bg-black"
                 >
                   <div className="h-full flex-shrink-0">
                     <img
