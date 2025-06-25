@@ -96,55 +96,6 @@ export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
         </div>
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
-      {nextSeriesPosts.length > 0 && (
-        <div className="mx-auto my-4 max-w-[600px]">
-          <h2 className="my-4 text-center font-bold text-black text-xl dark:text-white">
-            Next Series Posts
-          </h2>
-          <div>
-            <div className="mb-4 text-black dark:text-white">
-              {nextSeriesPosts.map((post) => (
-                <div key={post.filename} className="mb-4">
-                  <Link
-                    to={href("/series/:filename", { filename: post.filename })}
-                    className="border-b border-b-blue font-semibold text-lg leading-3 hover:border-b-black dark:hover:border-b-white"
-                  >
-                    {post.title}
-                  </Link>
-                  <div className="text-black/60 text-sm dark:text-white/60">
-                    {post.date} &middot; {post.author}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-      {recentSeriesPosts.length > 0 && (
-        <div className="mx-auto my-4 max-w-[600px]">
-          <h2 className="my-4 text-center font-bold text-black text-xl dark:text-white">
-            Earlier Series Posts
-          </h2>
-          <div>
-            <div className="mb-4 text-black dark:text-white">
-              {recentSeriesPosts.map((post) => (
-                <div key={post.filename} className="mb-4">
-                  <Link
-                    to={href("/series/:filename", { filename: post.filename })}
-                    className="border-b border-b-blue font-semibold text-lg leading-3 hover:border-b-black dark:hover:border-b-white"
-                  >
-                    {post.title}
-                  </Link>
-                  <div className="text-black/60 text-sm dark:text-white/60">
-                    {post.date} &middot; {post.author}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-      <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
       <div className="text-center text-black dark:text-white">
         <Link
           className="border-b border-b-blue font-bold text-lg hover:border-b-black dark:hover:border-b-white"

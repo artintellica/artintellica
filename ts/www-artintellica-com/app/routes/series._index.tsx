@@ -1,11 +1,11 @@
-import blogPosts from "~app/blog.json";
+import seriesPosts from "~app/series.json";
 import { Link, href } from "react-router";
-import type { Route } from "./+types/blog._index.js";
+import type { Route } from "./+types/series.js";
 import { $aicon } from "~app/util/aicons.js";
 import { Footer } from "~app/components/footer.js";
 
 export const loader = async ({ request, params }: Route.LoaderArgs) => {
-  const newBlogPosts = blogPosts
+  const newSeriesPosts = seriesPosts
     .map((post) => {
       return {
         title: post.title,
@@ -17,39 +17,39 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
     })
     .sort((a, b) => a.filename.localeCompare(b.filename))
     .reverse();
-  return { blogPosts: newBlogPosts };
+  return { seriesPosts: newSeriesPosts };
 };
 
 export const meta: Route.MetaFunction = () => {
   return [
-    { title: "Blog | Artintellica" },
+    { title: "Series | Artintellica" },
     { name: "description", content: "Open-source AI resources." },
     {
       tagName: "link",
       rel: "alternate",
       type: "application/json",
       title: "JSON Feed",
-      href: "/blog/feed.json",
+      href: "/series/feed.json",
     },
     {
       tagName: "link",
       rel: "alternate",
       type: "application/atom+xml",
       title: "Atom Feed",
-      href: "/blog/feed.atom.xml",
+      href: "/series/feed.atom.xml",
     },
     {
       tagName: "link",
       rel: "alternate",
       type: "application/rss+xml",
       title: "RSS Feed",
-      href: "/blog/feed.rss.xml",
+      href: "/series/feed.rss.xml",
     },
   ];
 };
 
-export default function BlogIndex({ loaderData }: Route.ComponentProps) {
-  const { blogPosts } = loaderData;
+export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
+  const { seriesPosts } = loaderData;
   return (
     <div>
       <div className="mx-auto my-4 block aspect-square w-[120px]">
@@ -65,14 +65,14 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
       <div className="mx-auto my-4 max-w-[600px] px-2">
         <div>
           <h1 className="my-4 text-center font-bold text-2xl text-black dark:text-white">
-            Blog
+            Series
           </h1>
           <div>
             <div className="mb-4 text-black dark:text-white">
-              {blogPosts.map((post) => (
+              {seriesPosts.map((post) => (
                 <div key={post.filename} className="mb-4">
                   <Link
-                    to={href("/blog/:filename", { filename: post.filename })}
+                    to={href("/series/:filename", { filename: post.filename })}
                     className="border-b border-b-blue font-semibold text-lg leading-3 hover:border-b-black dark:hover:border-b-white"
                   >
                     {post.title}
@@ -88,24 +88,24 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
       </div>
       <hr className="mx-auto my-4 max-w-[40px] border-black/40 dark:border-white/40" />
       <div className="text-center text-black text-sm dark:text-white">
-        <h2 className="font-bold text-lg">Blog Feeds</h2>
+        <h2 className="font-bold text-lg">Series Feeds</h2>
         <a
           className="border-b border-b-blue text-sm hover:border-b-black dark:hover:border-b-white"
-          href={"/blog/feed.json"}
+          href={"/series/feed.json"}
         >
           JSON Feed
         </a>
         &nbsp;&middot;&nbsp;
         <a
           className="border-b border-b-blue text-sm hover:border-b-black dark:hover:border-b-white"
-          href={"/blog/feed.atom.xml"}
+          href={"/series/feed.atom.xml"}
         >
           Atom Feed
         </a>
         &nbsp;&middot;&nbsp;
         <a
           className="border-b border-b-blue text-sm hover:border-b-black dark:hover:border-b-white"
-          href={"/blog/feed.rss.xml"}
+          href={"/series/feed.rss.xml"}
         >
           RSS Feed
         </a>
