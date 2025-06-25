@@ -9,6 +9,16 @@ export type AIcon =
   "/images/calculus-400.webp" |
   "/images/calculus-64.webp" |
   "/images/calculus-96.webp" |
+  "/images/linalg-128.ico" |
+  "/images/linalg-128.webp" |
+  "/images/linalg-180.png" |
+  "/images/linalg-180.webp" |
+  "/images/linalg-200.webp" |
+  "/images/linalg-300.webp" |
+  "/images/linalg-32.webp" |
+  "/images/linalg-400.webp" |
+  "/images/linalg-64.webp" |
+  "/images/linalg-96.webp" |
   "/images/magnifying-glass-128.ico" |
   "/images/magnifying-glass-128.webp" |
   "/images/magnifying-glass-180.png" |

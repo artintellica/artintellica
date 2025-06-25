@@ -71,11 +71,9 @@ export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
           <div>
             <div className="mb-4 text-black dark:text-white">
               {seriesPosts.map((post) => (
-                <a
+                <Link
                   key={post.filename}
-                  href={post.filename}
-                  target="_blank"
-                  rel="noreferrer"
+                  to={`/series/${post.filename}`}
                   className="m-2 flex space-x-2 rounded-md bg-white/50 p-2 text-black outline-1 outline-black/50 hover:bg-white hover:outline-4 hover:outline-blue dark:bg-black/50 dark:text-white dark:outline-white/50 dark:hover:bg-black"
                 >
                   <div className="h-full flex-shrink-0">
@@ -93,7 +91,7 @@ export default function SeriesIndex({ loaderData }: Route.ComponentProps) {
                       {post.date} &middot; {post.author}
                     </p>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
