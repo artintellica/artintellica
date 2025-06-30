@@ -19,7 +19,6 @@
     "deploy": "cd .. && fly deploy --config www-artintellica-com/fly.toml --dockerfile www-artintellica-com/Dockerfile"
   },
   "dependencies": {
-    "@react-router/express": "7.6.0",
     "@react-router/fs-routes": "7.6.0",
     "@react-router/node": "7.6.0",
     "@react-router/serve": "7.6.0",
