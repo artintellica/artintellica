@@ -93,7 +93,7 @@ export default function IndexPage({ loaderData }: Route.ComponentProps) {
                 >
                   <div className="h-full flex-shrink-0">
                     <img
-                      src={`/public/images/${post.icon}-300.webp`}
+                      src={`/images/${post.icon}-300.webp`}
                       alt={post.title}
                       className="h-[80px] w-[80px]"
                     />
