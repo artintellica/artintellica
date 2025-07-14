@@ -48,5 +48,15 @@ export type AIcon =
   "/images/orange-cat-robot-32.webp" |
   "/images/orange-cat-robot-400.webp" |
   "/images/orange-cat-robot-64.webp" |
-  "/images/orange-cat-robot-96.webp";
+  "/images/orange-cat-robot-96.webp" |
+  "/images/rl-torch-128.ico" |
+  "/images/rl-torch-128.webp" |
+  "/images/rl-torch-180.png" |
+  "/images/rl-torch-180.webp" |
+  "/images/rl-torch-200.webp" |
+  "/images/rl-torch-300.webp" |
+  "/images/rl-torch-32.webp" |
+  "/images/rl-torch-400.webp" |
+  "/images/rl-torch-64.webp" |
+  "/images/rl-torch-96.webp";
 export const $aicon = (icon: AIcon) => icon;

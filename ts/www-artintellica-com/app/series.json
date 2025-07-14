@@ -22,5 +22,13 @@
     "date": "2025-06-09",
     "icon": "deep-numpy",
     "content": ""
+  },
+  {
+    "filename": "04-rl-torch.md",
+    "title": "Learn Reinforcement Learning with PyTorch",
+    "author": "Artintellica",
+    "date": "2025-06-15",
+    "icon": "rl-torch",
+    "content": ""
   }
 ]
