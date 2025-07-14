@@ -1,5 +1,5 @@
 +++
-title = "LeetCode in TypeScript: Table of Content"
+title = "LeetCode in TypeScript: Table of Contents"
 author = "Artintellica"
 date = "2025-06-24"
 +++

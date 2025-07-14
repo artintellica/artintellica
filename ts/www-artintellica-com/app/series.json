@@ -38,5 +38,13 @@
     "date": "2025-06-18",
     "icon": "training-loop",
     "content": ""
+  },
+  {
+    "filename": "06-leet-code-ts.md",
+    "title": "LeetCode in TypeScript",
+    "author": "Artintellica",
+    "date": "2025-06-24",
+    "icon": "leet-code-ts",
+    "content": ""
   }
 ]
