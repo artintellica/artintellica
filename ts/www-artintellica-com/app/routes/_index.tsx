@@ -18,7 +18,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
     })
     .sort((a, b) => a.filename.localeCompare(b.filename))
     .reverse()
-    .slice(0, 10); // Limit to the most recent 10 posts
+    .slice(0, 20);
   const newSeriesPosts = seriesPosts
     .map((post) => {
       return {
@@ -32,7 +32,7 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
     })
     .sort((a, b) => a.filename.localeCompare(b.filename))
     .reverse()
-    .slice(0, 10); // Limit to the most recent 10 series posts
+    .slice(0, 20);
   return { blogPosts: newBlogPosts, seriesPosts: newSeriesPosts };
 };
 
