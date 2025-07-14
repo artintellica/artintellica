@@ -58,5 +58,15 @@ export type AIcon =
   "/images/rl-torch-32.webp" |
   "/images/rl-torch-400.webp" |
   "/images/rl-torch-64.webp" |
-  "/images/rl-torch-96.webp";
+  "/images/rl-torch-96.webp" |
+  "/images/training-loop-128.ico" |
+  "/images/training-loop-128.webp" |
+  "/images/training-loop-180.png" |
+  "/images/training-loop-180.webp" |
+  "/images/training-loop-200.webp" |
+  "/images/training-loop-300.webp" |
+  "/images/training-loop-32.webp" |
+  "/images/training-loop-400.webp" |
+  "/images/training-loop-64.webp" |
+  "/images/training-loop-96.webp";
 export const $aicon = (icon: AIcon) => icon;

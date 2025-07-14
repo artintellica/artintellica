@@ -30,5 +30,13 @@
     "date": "2025-06-15",
     "icon": "rl-torch",
     "content": ""
+  },
+  {
+    "filename": "05-training-loop.md",
+    "title": "Learn the Training Loop with PyTorch",
+    "author": "Artintellica",
+    "date": "2025-06-18",
+    "icon": "training-loop",
+    "content": ""
   }
 ]
