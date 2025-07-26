@@ -10,7 +10,7 @@ export function Footer() {
           to="https://identellica.com"
           className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
         >
-          Identellica LLC
+          EarthBucks Inc.
         </Link>
         <br />
         <Link
