@@ -7,7 +7,7 @@ export function Footer() {
       <div className="text-center text-black/70 text-sm dark:text-white/70">
         Copyright &copy; {new Date().getFullYear()}{" "}
         <Link
-          to="https://identellica.com"
+          to="https://earthbucks.com"
           className="border-b border-b-blue text-black hover:border-b-black dark:text-white dark:hover:border-b-white"
         >
           EarthBucks Inc.
